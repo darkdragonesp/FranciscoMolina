@@ -13,11 +13,11 @@ public interface UsuarioDao {
 	 * @param contrasena
 	 * @return
 	 */
-	public Integer encontrarPorNombreContrasena(String nombreUsuario,String contrasena);
+	Integer findByNameAndPass(String nombreUsuario,String contrasena);
 	/**
 	 * 
 	 * @param idUsuario
 	 * @return
 	 */
-	public Usuario encontrarPorId(Integer idUsuario);
+	Usuario findById(Integer idUsuario);
 }
