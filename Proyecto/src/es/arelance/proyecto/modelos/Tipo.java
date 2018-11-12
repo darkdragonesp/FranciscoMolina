@@ -1,21 +1,21 @@
 package es.arelance.proyecto.modelos;
 
 /**
- * Clase que representa la categoría a la que pertenece cada juego
+ * Clase que representa al tipo de un usuario
  * 
  * @author Francisco Molina Sanchez
  *
  */
-public class Categoria {
-	private Integer idCategoria;
+public class Tipo {
+	private Integer idTipo;
 	private String nombre;
 
-	public int getIdCategoria() {
-		return idCategoria;
+	public Integer getId() {
+		return idTipo;
 	}
 
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setId(Integer id) {
+		this.idTipo = id;
 	}
 
 	public String getNombre() {
