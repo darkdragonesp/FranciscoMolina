@@ -5,14 +5,14 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Categoria;
 
 /**
- * Dao para la entidad categoria
+ * Dao para la entidad {@link Categoria}
  * 
  * @author Francisco Molina Sanchez
  *
  */
 public interface CategoriaDao {
 	/**
-	 * Obtiene todas las categorias disponibles
+	 * Obtiene todas las instancias de {@link Categoria} disponibles
 	 * 
 	 * @return lista de categorias
 	 */

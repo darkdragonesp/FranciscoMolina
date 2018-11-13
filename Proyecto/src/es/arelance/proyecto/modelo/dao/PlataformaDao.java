@@ -5,7 +5,7 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Plataforma;
 
 /**
- * Dao para la entidad plataforma
+ * Dao para la entidad {@link Plataforma}
  * 
  * @author Francisco Molina Sanchez
  *

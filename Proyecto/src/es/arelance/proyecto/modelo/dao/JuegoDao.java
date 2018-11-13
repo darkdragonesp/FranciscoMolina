@@ -5,22 +5,22 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Juego;
 
 /**
- * Dao para la entidad juego
+ * Dao para la entidad {@link Juego}
  * 
  * @author Francisco Molina Sanchez
  *
  */
 public interface JuegoDao {
 	/**
-	 * Añade un juego nuevo al sistema
+	 * Añade un {@link Juego} nuevo al sistema
 	 * 
 	 * @param juego
-	 *            juego a añadir
+	 *            {@link Juego} a añadir
 	 */
 	void add(Juego juego) throws DaoException;
 
 	/**
-	 * Devuelve todos los juegos existentes en el sistema
+	 * Devuelve todos los {@link Juego}s existentes en el sistema
 	 * 
 	 * @return lista de juegos
 	 */
@@ -41,7 +41,7 @@ public interface JuegoDao {
 			String plataforma) throws DaoException;
 
 	/**
-	 * Elimina un juego del sistema
+	 * Elimina un {@link Juego} del sistema
 	 * 
 	 * @param idJuego
 	 *            identificador del juego
@@ -49,7 +49,7 @@ public interface JuegoDao {
 	void deleteById(Integer idJuego) throws DaoException;
 
 	/**
-	 * Edita un juego del sistema
+	 * Edita un {@link Juego} del sistema
 	 * 
 	 * @param juegoEditado
 	 *            juego ya modificado

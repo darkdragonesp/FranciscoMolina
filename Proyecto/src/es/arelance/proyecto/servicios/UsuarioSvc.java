@@ -16,7 +16,7 @@ public interface UsuarioSvc {
 	 *            nombre del usuario
 	 * @param contrasena
 	 *            contraseña del usuario
-	 * @return usuario si existe; null en otro caso
+	 * @return {@link Usuario} si existe; null en otro caso
 	 */
 	Usuario acceder(String nombreUsuario, String contrasena)
 			throws ServiceException;

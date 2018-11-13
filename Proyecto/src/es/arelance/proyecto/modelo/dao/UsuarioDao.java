@@ -3,7 +3,7 @@ package es.arelance.proyecto.modelo.dao;
 import es.arelance.proyecto.modelo.Usuario;
 
 /**
- * Dao para la entidad usuario
+ * Dao para la entidad {@link Usuario}
  * 
  * @author Francisco Molina Sanchez
  *
@@ -16,17 +16,17 @@ public interface UsuarioDao {
 	 *            nombre del usuario
 	 * @param contrasena
 	 *            contraseña del usuario
-	 * @return usuario si existe; null en otro caso
+	 * @return {@link Usuario} si existe; {@code null} en otro caso
 	 */
 	Usuario findByNameAndPass(String nombreUsuario,
 			String contrasena) throws DaoException;
 
 	/**
-	 * Busca a un usuario por identificador para mostrar su perfil
+	 * Busca a un {@link Usuario} por identificador para mostrar su perfil
 	 * 
 	 * @param idUsuario
 	 *            identificador del usuario
-	 * @return usuario si encontrado; null en otro caso
+	 * @return {@link Usuario} si encontrado; {@code null} en otro caso
 	 */
 	Usuario findById(Integer idUsuario) throws DaoException;
 }

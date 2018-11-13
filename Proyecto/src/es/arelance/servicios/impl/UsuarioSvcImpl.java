@@ -6,6 +6,12 @@ import es.arelance.proyecto.modelo.dao.UsuarioDao;
 import es.arelance.proyecto.servicios.ServiceException;
 import es.arelance.proyecto.servicios.UsuarioSvc;
 
+/**
+ * Implementacion del servicio {@link UsuarioSvc}
+ * 
+ * @author Francisco Molina Sanchez
+ *
+ */
 public class UsuarioSvcImpl implements UsuarioSvc {
 	private UsuarioDao usuarioDao;
 
@@ -13,7 +19,8 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 	public Usuario acceder(String nombreUsuario, String contrasena)
 			throws ServiceException {
 		try {
-			return usuarioDao.findByNameAndPass(nombreUsuario, contrasena);
+			return usuarioDao.findByNameAndPass(nombreUsuario,
+					contrasena);
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}
