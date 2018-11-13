@@ -7,7 +7,7 @@ import es.arelance.proyecto.modelo.Categoria;
 /**
  * Interfaz para la entidad categoria
  * 
- * @author Francisco Molina Sanchez 
+ * @author Francisco Molina Sanchez
  *
  */
 public interface CategoriaDao {
