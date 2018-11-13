@@ -5,7 +5,7 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Categoria;
 
 /**
- * Interfaz para la entidad categoria
+ * Dao para la entidad categoria
  * 
  * @author Francisco Molina Sanchez
  *

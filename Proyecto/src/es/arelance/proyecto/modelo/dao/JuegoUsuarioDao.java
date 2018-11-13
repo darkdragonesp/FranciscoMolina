@@ -5,7 +5,8 @@ import java.util.List;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 
 /**
- * Interfaz para la entidad juegoUsuario que representa los juegos de un usuario
+ * Dao para la entidad juegoUsuario que representa 
+ * los juegos de un usuario
  * 
  * @author Francisco Molina Sanchez
  *

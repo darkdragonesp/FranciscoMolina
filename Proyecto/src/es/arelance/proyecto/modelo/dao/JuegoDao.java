@@ -5,7 +5,7 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Juego;
 
 /**
- * Interfaz para la entidad juego
+ * Dao para la entidad juego
  * 
  * @author Francisco Molina Sanchez
  *
