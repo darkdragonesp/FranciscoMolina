@@ -2,7 +2,7 @@ package es.arelance.proyecto.modelo.dao;
 
 import java.util.List;
 
-import es.arelance.proyecto.modelos.Juego;
+import es.arelance.proyecto.modelo.Juego;
 
 /**
  * Interfaz para la entidad juego

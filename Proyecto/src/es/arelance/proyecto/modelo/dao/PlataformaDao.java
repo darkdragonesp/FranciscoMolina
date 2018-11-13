@@ -2,7 +2,7 @@ package es.arelance.proyecto.modelo.dao;
 
 import java.util.List;
 
-import es.arelance.proyecto.modelos.Plataforma;
+import es.arelance.proyecto.modelo.Plataforma;
 
 /**
  * Interfaz para la entidad plataforma

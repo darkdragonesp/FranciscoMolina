@@ -1,6 +1,6 @@
 package es.arelance.proyecto.modelo.dao;
 
-import es.arelance.proyecto.modelos.Usuario;
+import es.arelance.proyecto.modelo.Usuario;
 
 /**
  * Interfaz para la entidad usuario

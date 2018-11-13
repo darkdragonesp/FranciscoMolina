@@ -1,6 +1,6 @@
 package es.arelance.proyecto.modelo.dao;
 
-import es.arelance.proyecto.modelos.JuegoUsuario;
+import es.arelance.proyecto.modelo.JuegoUsuario;
 
 /**
  * Interfaz para la entidad juegoUsuario que representa los juegos de un usuario

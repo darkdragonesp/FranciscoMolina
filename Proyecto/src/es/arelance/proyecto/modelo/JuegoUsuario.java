@@ -1,4 +1,4 @@
-package es.arelance.proyecto.modelos;
+package es.arelance.proyecto.modelo;
 
 /**
  * Clase que representa los juegos que cada usuario sigue o juega

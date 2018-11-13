@@ -1,4 +1,4 @@
-package es.arelance.proyecto.modelos;
+package es.arelance.proyecto.modelo;
 
 import java.util.Date;
 

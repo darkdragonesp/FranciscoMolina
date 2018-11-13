@@ -1,4 +1,4 @@
-package es.arelance.proyecto.modelos;
+package es.arelance.proyecto.modelo;
 
 /**
  * Clase que representa la plataforma o ssitema a la que pertenece cada juego

@@ -2,7 +2,7 @@ package es.arelance.proyecto.modelo.dao;
 
 import java.util.List;
 
-import es.arelance.proyecto.modelos.Categoria;
+import es.arelance.proyecto.modelo.Categoria;
 
 /**
  * Interfaz para la entidad categoria
