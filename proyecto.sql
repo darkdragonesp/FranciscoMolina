@@ -57,11 +57,12 @@ CREATE TABLE `juego` (
   `idCategoria` int(11) NOT NULL,
   `idPlataforma` int(11) NOT NULL,
   PRIMARY KEY (`idJuego`),
+  UNIQUE KEY `titulo_UNIQUE` (`titulo`),
   KEY `FK_juego_idCategoria_idx` (`idCategoria`),
   KEY `FK_juego_idPlataforma_idx` (`idPlataforma`),
   CONSTRAINT `FK_juego_idCategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idcategoria`),
   CONSTRAINT `FK_juego_idPlataforma` FOREIGN KEY (`idPlataforma`) REFERENCES `plataforma` (`idplataforma`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,13 +130,13 @@ INSERT INTO `plataforma` VALUES (4,'PC'),(2,'SEGA MegaDrive'),(3,'Sony PlayStati
 UNLOCK TABLES;
 
 --
--- Table structure for table `tipo`
+-- Table structure for table `tipo_usuario`
 --
 
-DROP TABLE IF EXISTS `tipo`;
+DROP TABLE IF EXISTS `tipo_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `tipo` (
+CREATE TABLE `tipo_usuario` (
   `idTipo` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`idTipo`),
@@ -144,13 +145,13 @@ CREATE TABLE `tipo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipo`
+-- Dumping data for table `tipo_usuario`
 --
 
-LOCK TABLES `tipo` WRITE;
-/*!40000 ALTER TABLE `tipo` DISABLE KEYS */;
-INSERT INTO `tipo` VALUES (1,'admin'),(2,'usuario');
-/*!40000 ALTER TABLE `tipo` ENABLE KEYS */;
+LOCK TABLES `tipo_usuario` WRITE;
+/*!40000 ALTER TABLE `tipo_usuario` DISABLE KEYS */;
+INSERT INTO `tipo_usuario` VALUES (1,'admin'),(2,'usuario');
+/*!40000 ALTER TABLE `tipo_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -170,7 +171,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idUsuario`),
   UNIQUE KEY `apodo_UNIQUE` (`nombreUsuario`),
   KEY `FK_usuario_idTipo_idx` (`tipoUsuario`),
-  CONSTRAINT `FK_usuario_idTipo` FOREIGN KEY (`tipoUsuario`) REFERENCES `tipo` (`idtipo`)
+  CONSTRAINT `FK_usuario_idTipo` FOREIGN KEY (`tipoUsuario`) REFERENCES `tipo_usuario` (`idtipo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -193,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-12 18:53:34
+-- Dump completed on 2018-11-13 17:53:48
