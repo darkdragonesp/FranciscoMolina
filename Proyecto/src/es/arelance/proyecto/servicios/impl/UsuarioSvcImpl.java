@@ -1,4 +1,4 @@
-package es.arelance.servicios.impl;
+package es.arelance.proyecto.servicios.impl;
 
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.modelo.dao.DaoException;
