@@ -18,8 +18,8 @@ public interface UsuarioDao {
 	 *            contraseña del usuario
 	 * @return idUsuario si existe; null en otro caso
 	 */
-	Integer findByNameAndPass(String nombreUsuario,
-			String contrasena);
+	Usuario findByNameAndPass(String nombreUsuario,
+			String contrasena) throws DaoException;
 
 	/**
 	 * Busca a un usuario por identificador para mostrar su perfil
@@ -28,5 +28,5 @@ public interface UsuarioDao {
 	 *            identificador del usuario
 	 * @return usuario si encontrado; null en otro caso
 	 */
-	Usuario findById(Integer idUsuario);
+	Usuario findById(Integer idUsuario) throws DaoException;
 }

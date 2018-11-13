@@ -13,7 +13,7 @@ public class Usuario {
 	private String nombreUsuario;
 	private String correo;
 	private String contrasena;
-	private Tipo tipoUsuario;
+	private TipoUsuario tipoUsuario;
 	private Date fechaAlta;
 
 	public Integer getIdUsuario() {
@@ -48,11 +48,11 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 
-	public Tipo getTipoUsuario() {
+	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
 	}
 
-	public void setTipoUsuario(Tipo tipoUsuario) {
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 

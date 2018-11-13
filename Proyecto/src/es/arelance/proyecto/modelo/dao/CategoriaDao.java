@@ -16,5 +16,5 @@ public interface CategoriaDao {
 	 * 
 	 * @return lista de categorias
 	 */
-	List<Categoria> getAll();
+	List<Categoria> getAll() throws DaoException;
 }

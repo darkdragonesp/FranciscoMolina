@@ -16,5 +16,5 @@ public interface PlataformaDao {
 	 * 
 	 * @return lista de plataformas
 	 */
-	List<Plataforma> getAll();
+	List<Plataforma> getAll() throws DaoException;
 }

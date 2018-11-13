@@ -17,14 +17,14 @@ public interface JuegoDao {
 	 * @param juego
 	 *            juego a añadir
 	 */
-	void add(Juego juego);
+	void add(Juego juego) throws DaoException;
 
 	/**
 	 * Devuelve todos los juegos existentes en el sistema
 	 * 
 	 * @return lista de juegos
 	 */
-	List<Juego> getAll();
+	List<Juego> getAll() throws DaoException;
 
 	/**
 	 * Filtra los juegos existentes por titulo, categoria y/o plataforma
@@ -38,7 +38,7 @@ public interface JuegoDao {
 	 * @return lista con los juegos que cumplen el filtro
 	 */
 	List<Juego> filter(String titulo, String categoria,
-			String plataforma);
+			String plataforma) throws DaoException;
 
 	/**
 	 * Elimina un juego del sistema
@@ -46,7 +46,7 @@ public interface JuegoDao {
 	 * @param idJuego
 	 *            identificador del juego
 	 */
-	void deleteById(Integer idJuego);
+	void deleteById(Integer idJuego) throws DaoException;
 
 	/**
 	 * Edita un juego del sistema
@@ -55,6 +55,6 @@ public interface JuegoDao {
 	 *            juego ya modificado
 	 * @return juego ya modificado
 	 */
-	Juego edit(Juego juegoEditado);
+	Juego edit(Juego juegoEditado) throws DaoException;
 
 }

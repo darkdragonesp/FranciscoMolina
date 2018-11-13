@@ -1,5 +1,7 @@
 package es.arelance.proyecto.modelo.dao;
 
+import java.util.List;
+
 import es.arelance.proyecto.modelo.JuegoUsuario;
 
 /**
@@ -15,7 +17,7 @@ public interface JuegoUsuarioDao {
 	 * @param juegoUsuario
 	 *            objeto formado por el usuario y juego que añado
 	 */
-	void add(JuegoUsuario juegoUsuario);
+	void add(JuegoUsuario juegoUsuario) throws DaoException;
 
 	/**
 	 * Obtiene todos los juegos pertenecientes a un usuario
@@ -23,5 +25,6 @@ public interface JuegoUsuarioDao {
 	 * @param idUsuario
 	 *            identificador del usuario
 	 */
-	void getAllById(Integer idUsuario);
+	List<JuegoUsuario> getAllById(Integer idUsuario)
+			throws DaoException;
 }
