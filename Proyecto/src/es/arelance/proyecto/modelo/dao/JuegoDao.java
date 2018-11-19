@@ -5,7 +5,7 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Juego;
 
 /**
- * Dao para la entidad {@link Juego}
+ * Interfaz DAO para la entidad {@link Juego}
  * 
  * @author Francisco Molina Sanchez
  *
@@ -16,18 +16,22 @@ public interface JuegoDao {
 	 * 
 	 * @param juego
 	 *            {@link Juego} a añadir
+	 * @throws DaoException
 	 */
 	void add(Juego juego) throws DaoException;
 
 	/**
-	 * Devuelve todos los {@link Juego}s existentes en el sistema
+	 * Devuelve todas las instancias de {@link Juego} existentes 
+	 * en el sistema
 	 * 
 	 * @return lista de juegos
+	 * @throws DaoException
 	 */
 	List<Juego> getAll() throws DaoException;
 
 	/**
-	 * Filtra los juegos existentes por titulo, categoria y/o plataforma
+	 * Filtra las instancias de {@link Juego} existentes 
+	 * por titulo, categoria y/o plataforma
 	 * 
 	 * @param titulo
 	 *            titulo del juego
@@ -36,15 +40,16 @@ public interface JuegoDao {
 	 * @param plataforma
 	 *            plataforma del juego
 	 * @return lista con los juegos que cumplen el filtro
+	 * @throws DaoException
 	 */
-	List<Juego> filter(String titulo, String categoria,
-			String plataforma) throws DaoException;
+	List<Juego> filter(String titulo, String categoria, String plataforma) throws DaoException;
 
 	/**
 	 * Elimina un {@link Juego} del sistema
 	 * 
 	 * @param idJuego
 	 *            identificador del juego
+	 * @throws DaoException
 	 */
 	void deleteById(Integer idJuego) throws DaoException;
 
@@ -54,6 +59,7 @@ public interface JuegoDao {
 	 * @param juegoEditado
 	 *            juego ya modificado
 	 * @return juego ya modificado
+	 * @throws DaoException
 	 */
 	Juego edit(Juego juegoEditado) throws DaoException;
 

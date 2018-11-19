@@ -1,7 +1,7 @@
 package es.arelance.proyecto.modelo.dao;
 
 /**
- * Clase para excepciones Dao
+ * Clase para excepciones DAO
  * 
  * @author Francisco Molina Sanchez
  *

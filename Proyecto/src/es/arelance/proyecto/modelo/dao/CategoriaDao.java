@@ -5,7 +5,7 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Categoria;
 
 /**
- * Dao para la entidad {@link Categoria}
+ * Interfaz DAO para la entidad {@link Categoria}
  * 
  * @author Francisco Molina Sanchez
  *

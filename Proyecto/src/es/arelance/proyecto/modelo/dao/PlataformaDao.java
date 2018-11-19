@@ -5,16 +5,17 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Plataforma;
 
 /**
- * Dao para la entidad {@link Plataforma}
+ * Interfaz DAO para la entidad {@link Plataforma}
  * 
  * @author Francisco Molina Sanchez
  *
  */
 public interface PlataformaDao {
 	/**
-	 * Obtiene todas las plataformas disponibles
+	 * Obtiene todas las instancias de {@link Plataforma} disponibles
 	 * 
 	 * @return lista de plataformas
+	 * @throws DaoException
 	 */
 	List<Plataforma> getAll() throws DaoException;
 }

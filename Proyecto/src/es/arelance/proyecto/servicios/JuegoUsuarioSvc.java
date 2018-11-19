@@ -13,7 +13,8 @@ import es.arelance.proyecto.modelo.JuegoUsuario;
  */
 public interface JuegoUsuarioSvc {
 	/**
-	 * Añade un juego a la lista personal de un usuario
+	 * Añade un juego a la lista personal de un usuario 
+	 * comprobando que no existe
 	 * 
 	 * @param juegoUsuario
 	 *            objeto formado por el usuario y juego que añado
