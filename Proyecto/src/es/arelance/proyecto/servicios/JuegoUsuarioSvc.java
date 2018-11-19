@@ -5,8 +5,7 @@ import java.util.List;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 
 /**
- * Servicio para juegoUsuario dao que representa 
- * los juegos de un usuario
+ * Interfaz de la capa de servicio para gestionar {@link JuegoUsuario}
  * 
  * @author Francisco Molina Sanchez
  *
@@ -18,6 +17,7 @@ public interface JuegoUsuarioSvc {
 	 * 
 	 * @param juegoUsuario
 	 *            objeto formado por el usuario y juego que añado
+	 * @throws ServiceException
 	 */
 	void anadir(JuegoUsuario juegoUsuario) throws ServiceException;
 
@@ -26,6 +26,7 @@ public interface JuegoUsuarioSvc {
 	 * 
 	 * @param idUsuario
 	 *            identificador del usuario
+	 * @throws ServiceException            
 	 */
 	List<JuegoUsuario> getAllById(Integer idUsuario)
 			throws ServiceException;

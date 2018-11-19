@@ -5,7 +5,7 @@ import java.util.List;
 import es.arelance.proyecto.modelo.Juego;
 
 /**
- * Servicio para juego dao
+ * Interfaz de la capa de servicio para gestionar {@link Juego}
  * 
  * @author Francisco Molina Sanchez
  *
@@ -16,6 +16,7 @@ public interface JuegoSvc {
 	 * 
 	 * @param juego
 	 *            juego a añadir
+	 * @throws ServiceException          
 	 */
 	void add(Juego juego) throws ServiceException;
 
@@ -23,6 +24,7 @@ public interface JuegoSvc {
 	 * Devuelve todos los juegos existentes en el sistema
 	 * 
 	 * @return lista de juegos
+	 * @throws ServiceException
 	 */
 	List<Juego> getAll() throws ServiceException;
 
@@ -36,6 +38,7 @@ public interface JuegoSvc {
 	 * @param plataforma
 	 *            plataforma del juego
 	 * @return lista con los juegos que cumplen el filtro
+	 * @throws ServiceException
 	 */
 	List<Juego> filter(String titulo, String categoria,
 			String plataforma) throws ServiceException;
@@ -45,6 +48,7 @@ public interface JuegoSvc {
 	 * 
 	 * @param idJuego
 	 *            identificador del juego
+	 * @throws ServiceException           
 	 */
 	void deleteById(Integer idJuego) throws ServiceException;
 
@@ -54,6 +58,7 @@ public interface JuegoSvc {
 	 * @param juegoEditado
 	 *            juego ya modificado
 	 * @return juego ya modificado
+	 * @throws ServiceException
 	 */
 	Juego edit(Juego juegoEditado) throws ServiceException;
 

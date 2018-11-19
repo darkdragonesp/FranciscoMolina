@@ -1,7 +1,7 @@
 package es.arelance.proyecto.servicios;
 
 /**
- * Clase para excepciones de servicios
+ * Clase para excepciones de la capa de servicios
  * 
  * @author Francisco Molina Sanchez
  *

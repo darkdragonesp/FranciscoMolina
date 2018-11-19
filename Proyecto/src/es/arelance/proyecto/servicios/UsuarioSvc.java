@@ -3,7 +3,7 @@ package es.arelance.proyecto.servicios;
 import es.arelance.proyecto.modelo.Usuario;
 
 /**
- * Servicio para usuario dao
+ * Interfaz de la capa de servicio para gestionar {@link Usuario}
  * 
  * @author Francisco Molina Sanchez
  *
@@ -17,9 +17,9 @@ public interface UsuarioSvc {
 	 * @param contrasena
 	 *            contraseña del usuario
 	 * @return {@link Usuario} si existe; null en otro caso
+	 * @throws ServiceException
 	 */
-	Usuario acceder(String nombreUsuario, String contrasena)
-			throws ServiceException;
+	Usuario acceder(String nombreUsuario, String contrasena) throws ServiceException;
 
 	/**
 	 * Busca a un usuario por identificador para mostrar su perfil
@@ -27,6 +27,7 @@ public interface UsuarioSvc {
 	 * @param idUsuario
 	 *            identificador del usuario
 	 * @return usuario si encontrado; null en otro caso
+	 * @throws ServiceException
 	 */
 	Usuario obtenPorId(Integer id) throws ServiceException;
 }
