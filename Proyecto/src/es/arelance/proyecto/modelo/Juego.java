@@ -3,7 +3,8 @@ package es.arelance.proyecto.modelo;
 import java.util.Date;
 
 /**
- * Clase que representa cada uno de los juegos disponibles en la aplicacion web
+ * Clase que representa cada uno de los juegos disponibles en 
+ * la aplicacion web
  * 
  * @author Francisco Molina Sanchez
  *
