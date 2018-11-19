@@ -18,7 +18,7 @@ public interface JuegoSvc {
 	 *            juego a añadir
 	 * @throws ServiceException          
 	 */
-	void add(Juego juego) throws ServiceException;
+	void anadir(Juego juego) throws ServiceException;
 
 	/**
 	 * Devuelve todos los juegos existentes en el sistema
@@ -26,7 +26,7 @@ public interface JuegoSvc {
 	 * @return lista de juegos
 	 * @throws ServiceException
 	 */
-	List<Juego> getAll() throws ServiceException;
+	List<Juego> obtenTodos() throws ServiceException;
 
 	/**
 	 * Filtra los juegos existentes por titulo, categoria y/o plataforma
@@ -40,7 +40,7 @@ public interface JuegoSvc {
 	 * @return lista con los juegos que cumplen el filtro
 	 * @throws ServiceException
 	 */
-	List<Juego> filter(String titulo, String categoria,
+	List<Juego> filtrar(String titulo, String categoria,
 			String plataforma) throws ServiceException;
 
 	/**
@@ -50,7 +50,7 @@ public interface JuegoSvc {
 	 *            identificador del juego
 	 * @throws ServiceException           
 	 */
-	void deleteById(Integer idJuego) throws ServiceException;
+	void borrarporId(Integer idJuego) throws ServiceException;
 
 	/**
 	 * Edita un juego del sistema

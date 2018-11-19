@@ -28,6 +28,6 @@ public interface JuegoUsuarioSvc {
 	 *            identificador del usuario
 	 * @throws ServiceException            
 	 */
-	List<JuegoUsuario> getAllById(Integer idUsuario)
+	List<JuegoUsuario> obtenPorId(Integer idUsuario)
 			throws ServiceException;
 }

@@ -7,7 +7,7 @@ import es.arelance.proyecto.servicios.ServiceException;
 import es.arelance.proyecto.servicios.UsuarioSvc;
 
 /**
- * Implementacion del servicio {@link UsuarioSvc}
+ * Implementacion de la interfaz del servicio {@link UsuarioSvc}
  * 
  * @author Francisco Molina Sanchez
  *
