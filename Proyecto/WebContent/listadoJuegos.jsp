@@ -9,6 +9,7 @@
 <title>Repositorio de Videojuegos - Explorar</title>
 </head>
 <body>
+Añadir juego
 	<table>
 		<tr>
 			<th>Título</th>
