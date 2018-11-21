@@ -14,9 +14,11 @@
 			<legend>Inicio de sesión</legend>
 			Nombre de usuario:<br>
 			<input type="text" required="required"><br>
-			Contraseña: <input type="password" required="required"><br>
+			Contraseña:<br>
+			<input type="password" required="required"><br>
+			<input type="submit" value="Acceder">
 		</fieldset>
-		<input type="submit" value="Acceder">
+		
 	</form>
 
 </body>
