@@ -17,10 +17,11 @@ public interface UsuarioDao {
 	 * @param contrasena
 	 *            contraseña del usuario
 	 * @return {@link Usuario} si existe; {@code null} en otro caso
-	 * @throws DaoException 
+	 * @throws DaoException
+	 *             error relativo a la base de datos
 	 */
-	Usuario findByNameAndPass(String nombreUsuario,
-			String contrasena) throws DaoException;
+	Usuario findByNameAndPass(String nombreUsuario, String contrasena)
+			throws DaoException;
 
 	/**
 	 * Busca a un {@link Usuario} por identificador para mostrar su perfil
@@ -29,6 +30,7 @@ public interface UsuarioDao {
 	 *            identificador del usuario
 	 * @return {@link Usuario} si encontrado; {@code null} en otro caso
 	 * @throws DaoException
+	 *             error relativo a la base de datos
 	 */
 	Usuario findById(Integer idUsuario) throws DaoException;
 }

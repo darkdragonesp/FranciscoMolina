@@ -16,8 +16,10 @@ public interface JuegoUsuarioDao {
 	 * Añade un {@link Juego} a la lista personal de un {@link Usuario}
 	 * 
 	 * @param juegoUsuario
-	 *            objeto formado por el {@link Usuario} y {@link Juego} que añado
+	 *            objeto formado por el {@link Usuario} y {@link Juego} que
+	 *            añado
 	 * @throws DaoException
+	 *             error relativo a la base de datos
 	 */
 	void add(JuegoUsuario juegoUsuario) throws DaoException;
 
@@ -28,6 +30,7 @@ public interface JuegoUsuarioDao {
 	 * @param idUsuario
 	 *            identificador del usuario
 	 * @throws DaoException
+	 *             error relativo a la base de datos
 	 */
 	List<JuegoUsuario> getAllById(Integer idUsuario) throws DaoException;
 
@@ -39,6 +42,7 @@ public interface JuegoUsuarioDao {
 	 *            objeto formado por el {@link Usuario} y {@link Juego}
 	 * @return
 	 * @throws DaoException
+	 *             error relativo a la base de datos
 	 */
 	Boolean exist(JuegoUsuario juegoUsuario) throws DaoException;
 }

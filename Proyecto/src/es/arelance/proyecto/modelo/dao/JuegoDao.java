@@ -16,7 +16,7 @@ public interface JuegoDao {
 	 * 
 	 * @param juego
 	 *            {@link Juego} a añadir
-	 * @throws DaoException
+	 * @throws DaoException error relativo a la base de datos
 	 */
 	void add(Juego juego) throws DaoException;
 
@@ -25,7 +25,7 @@ public interface JuegoDao {
 	 * en el sistema
 	 * 
 	 * @return lista de juegos
-	 * @throws DaoException
+	 * @throws DaoException error relativo a la base de datos
 	 */
 	List<Juego> getAll() throws DaoException;
 
@@ -40,7 +40,7 @@ public interface JuegoDao {
 	 * @param plataforma
 	 *            plataforma del juego
 	 * @return lista con los juegos que cumplen el filtro
-	 * @throws DaoException
+	 * @throws DaoException error relativo a la base de datos
 	 */
 	List<Juego> filter(String titulo, String categoria, String plataforma) throws DaoException;
 
@@ -49,7 +49,7 @@ public interface JuegoDao {
 	 * 
 	 * @param idJuego
 	 *            identificador del juego
-	 * @throws DaoException
+	 * @throws DaoException error relativo a la base de datos
 	 */
 	void deleteById(Integer idJuego) throws DaoException;
 
@@ -60,6 +60,7 @@ public interface JuegoDao {
 	 *            juego ya modificado
 	 * @return juego ya modificado
 	 * @throws DaoException
+	 *             error relativo a la base de datos
 	 */
 	Juego edit(Juego juegoEditado) throws DaoException;
 
