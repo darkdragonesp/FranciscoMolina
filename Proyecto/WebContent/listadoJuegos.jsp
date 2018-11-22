@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h2>Explorar juegos</h2>
-	<a href="nuevoJuego">Añadir juego nuevo</a>
+	<a href="buscarPlataformas">Añadir juego nuevo</a>
 	
 	<form action="filtrarJuegos">
 	Título: <input type="text" name="titulo" value="${titulo}"/>
