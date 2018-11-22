@@ -10,13 +10,14 @@
 <title>Error</title>
 </head>
 <body>
-	<h1>La aplicación ha dejado de funcionar. Inténtelo de nuevo.</h1>
+	<h1>Atención</h1>
+	<h3>La aplicación ha dejado de funcionar. Inténtelo de nuevo más tarde.</h3>
 
-	<a href="index.jsp">Volver!  </a>
+	<a href="/index.jsp">¡Volver!  </a>
 	<hr>
 	${error}
 	<br>
-	<a href="ListarSvl"> Listar productos</a>
+	
 
 </body>
 </html>

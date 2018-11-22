@@ -7,11 +7,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Explorar juegos</title>
+<title>Repositorio de Videojuegos - Mis juegos</title>
 </head>
 <body>
-<h1>Explorar juegos</h1>
-<a href="/anadirJuego">Añadir juego nuevo</a>
+
 	<table>
 		<tr>
 			<th>Título</th>
@@ -20,8 +19,7 @@
 			<th>Fecha Lanzamiento</th>
 			<th>Descripcion</th>
 			
-			<th>Borrar</th>
-			<th>Editar</th>
+
 		</tr>
 		<c:forEach items="${listaJuegos}" var="juego">
 			<tr>
@@ -32,12 +30,11 @@
 				<td><c:out value="${juego.fechaLanzamiento}" /></td>
 				<td><c:out value="${juego.descripcion}" /></td>
 				
-				<td><a href="/borrarJuego?id=${juego.idJuego}">X</a></td>
-				<td><a href="/buscarJuego?id=${juego.idJuego}">E</a></td>
+
 			</tr>
 		</c:forEach>
 	</table>
 	
-	<br> ${msg}
+
 </body>
 </html>
