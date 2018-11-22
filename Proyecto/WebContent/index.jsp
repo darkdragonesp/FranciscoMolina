@@ -9,7 +9,7 @@
 <title>Repositorio de Videojuegos - Acceder</title>
 </head>
 <body>
-	<form action="/login" method="post">
+	<form action="login" method="POST">
 		<fieldset>
 			<legend>Inicio de sesión</legend>
 			Nombre de usuario:<br>

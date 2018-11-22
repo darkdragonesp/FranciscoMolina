@@ -11,10 +11,10 @@
 </head>
 <body>
 	<h2>Bienvenido al repositorio de videojuegos.</h2>
-	<a href="/buscarPlataformas">Añadir juego nuevo</a>
-	<a href="/listarJuegos">Explorar juegos</a>
-	<a href="/misJuegos">Mis juegos</a>
-	<a href="/miPerfil">Mi perfil</a>
-	
+	<a href="buscarPlataformas">Añadir juego nuevo</a>
+	<a href="listarJuegos">Explorar juegos</a>
+	<a href="misJuegos">Mis juegos</a>
+	<a href="miPerfil">Mi perfil</a>
+	<a href="logout">Salir</a>
 </body>
 </html>

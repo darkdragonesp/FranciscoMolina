@@ -25,7 +25,7 @@
 		<tr>
 			<td>Fecha de alta:</td>
 			<td><fmt:formatDate pattern="dd/MM/yyyy hh:mm:ss" type="both"
-					value="${producto.fecha}" /></td>
+					value="${user.fechaAlta}" /></td>
 	</table>
 
 </body>

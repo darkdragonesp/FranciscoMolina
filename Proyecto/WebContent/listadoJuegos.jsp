@@ -11,7 +11,15 @@
 </head>
 <body>
 	<h2>Explorar juegos</h2>
-	<a href="/anadirJuegoNuevo">Añadir juego nuevo</a>
+	<a href="nuevoJuego">Añadir juego nuevo</a>
+	
+	<form action="filtrarJuegos">
+	Título: <input type="text" name="titulo" value="${titulo}"/>
+	Categoría: <input type="text" name="categoria" value="${categoria}"/>
+	Plataforma: <input type="text" name="plataforma" value="${plataforma}"/>
+	<input type="submit" value="Filtrar"/>
+	</form>
+	
 	<table>
 		<tr>
 			<th>Título</th>
@@ -20,7 +28,7 @@
 			<th>Fecha Lanzamiento</th>
 			<th>Descripcion</th>
 			
-			<th>Añadir a mis juegos</th>
+			<th>Añadir</th>
 			
 			<th>Borrar</th>
 			<th>Editar</th>
@@ -31,13 +39,13 @@
 				<td><c:out value="${juego.categoria.nombre}" /></td>
 				<td><c:out value="${juego.plataforma.nombre}" /></td>
 				<td><fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/></td>
-				<td><c:out value="${juego.fechaLanzamiento}" /></td>
+<%-- 				<td><c:out value="${juego.fechaLanzamiento}" /></td> --%>
 				<td><c:out value="${juego.descripcion}" /></td>
 				
-				<td><a href="/anadirJuego?id=${juego.idJuego}">+</a></td>
+				<td><a href="anadirJuego?id=${juego.idJuego}">Añadir</a></td>
 				
-				<td><a href="/borrarJuego?id=${juego.idJuego}">X</a></td>
-				<td><a href="/buscarJuego?id=${juego.idJuego}">E</a></td>
+				<td><a href="borrarJuego?id=${juego.idJuego}">Borrar</a></td>
+				<td><a href="buscarJuego?id=${juego.idJuego}">Editar</a></td>
 			</tr>
 		</c:forEach>
 	</table>

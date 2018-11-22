@@ -13,7 +13,7 @@
 	<h1>Atención</h1>
 	<h2>La aplicación ha dejado de funcionar. Inténtelo de nuevo más tarde.</h2>
 
-	<a href="/index.jsp">¡Volver!  </a>
+	<a href="index.jsp">¡Volver!  </a>
 	<hr>
 	${error}
 	<br>

@@ -13,7 +13,7 @@ public class Juego {
 	private Integer idJuego;
 	private String titulo;
 	private Date fechaLanzamiento;
-	private String text;
+	private String descripcion;
 	private Categoria categoria;
 	private Plataforma plataforma;
 	public Integer getIdJuego() {
@@ -34,11 +34,12 @@ public class Juego {
 	public void setFechaLanzamiento(Date fechaLanzamiento) {
 		this.fechaLanzamiento = fechaLanzamiento;
 	}
-	public String getText() {
-		return text;
+	
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setText(String text) {
-		this.text = text;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	public Categoria getCategoria() {
 		return categoria;
