@@ -10,57 +10,57 @@
 <title>Añadir/Modificar juego</title>
 </head>
 <body>
-<h1>Añadir/Modificar juego</h1>
-<form action="/guardarJuego" method="POST">
-		<input type="hidden" name="id" value="${juego.idJuego}"/>
-		<table>
-		<tr><td>Título</td><td><input type="text" name="titulo" value="${juego.titulo}" required="required"/></td>
-<!-- 		Categoría -->
-				<tr>
-			<td>Categoría</td>
-			<td>
-			<select name="categoria" required="required">
-				<c:forEach items="${listaCategorias}" var="cat">
-					<c:choose>
-						<c:when test="${juego.categoria.idCategoria == cat.idCategoria}">
-						<option value="${cat.idCategoria}" selected="selected">${cat.nombre}</option>
-						</c:when>
-						<c:otherwise>
-						<option value="${cat.idCategoria}">${cat.nombre}</option>
-						</c:otherwise>
-					</c:choose>
-					
-				</c:forEach>
-			</select>
-			</td>
-		</tr>
-<!-- 		Plataforma -->
-				<tr>
-			<td>Plataforma</td>
-			<td>
-			<select name="plataforma" required="required">
-				<c:forEach items="${listaPlataformas}" var="plat">
-					<c:choose>
-						<c:when test="${juego.plataforma.idPlataforma == plat.idPlataforma}">
-						<option value="${plat.idPlataforma}" selected="selected">${plat.nombre}</option>
-						</c:when>
-						<c:otherwise>
-						<option value="${plat.idPlataforma}">${plat.nombre}</option>
-						</c:otherwise>
-					</c:choose>
-					
-				</c:forEach>
-			</select>
-			</td>
-		</tr>
-
-			<tr><td>Fecha Lanzamiento</td><td><input type="date" name="fecha" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/>"/></td>
-<%-- 		<tr><td>Fecha Lanzamiento</td><td><input type="text" name="fecha" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/>"/></td> --%>
-		<tr><td>Comentario</td><td><input type="text" name="comentario" value="${juego.comentario}"/></td>
-		
-
-		<tr><td><input type="submit" value="Guardar"/></td>
-		</table>
-	</form>
+	<h2>Añadir/Modificar juego</h2>
+	<form action="/guardarJuego" method="POST">
+			<input type="hidden" name="id" value="${juego.idJuego}"/>
+			<table>
+			<tr><td>Título</td><td><input type="text" name="titulo" value="${juego.titulo}" required="required"/></td>
+	<!-- 		Categoría -->
+					<tr>
+				<td>Categoría</td>
+				<td>
+				<select name="categoria" required="required">
+					<c:forEach items="${listaCategorias}" var="cat">
+						<c:choose>
+							<c:when test="${juego.categoria.idCategoria == cat.idCategoria}">
+							<option value="${cat.idCategoria}" selected="selected">${cat.nombre}</option>
+							</c:when>
+							<c:otherwise>
+							<option value="${cat.idCategoria}">${cat.nombre}</option>
+							</c:otherwise>
+						</c:choose>
+						
+					</c:forEach>
+				</select>
+				</td>
+			</tr>
+	<!-- 		Plataforma -->
+					<tr>
+				<td>Plataforma</td>
+				<td>
+				<select name="plataforma" required="required">
+					<c:forEach items="${listaPlataformas}" var="plat">
+						<c:choose>
+							<c:when test="${juego.plataforma.idPlataforma == plat.idPlataforma}">
+							<option value="${plat.idPlataforma}" selected="selected">${plat.nombre}</option>
+							</c:when>
+							<c:otherwise>
+							<option value="${plat.idPlataforma}">${plat.nombre}</option>
+							</c:otherwise>
+						</c:choose>
+						
+					</c:forEach>
+				</select>
+				</td>
+			</tr>
+	
+				<tr><td>Fecha Lanzamiento</td><td><input type="date" name="fecha" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/>"/></td>
+	
+			<tr><td>Comentario</td><td><input type="text" name="comentario" value="${juego.comentario}"/></td>
+			
+	
+			<tr><td><input type="submit" value="Guardar"/></td>
+			</table>
+		</form>
 </body>
 </html>

@@ -10,8 +10,8 @@
 <title>Explorar juegos</title>
 </head>
 <body>
-<h1>Explorar juegos</h1>
-<a href="/anadirJuego">Añadir juego nuevo</a>
+	<h2>Explorar juegos</h2>
+	<a href="/anadirJuego">Añadir juego nuevo</a>
 	<table>
 		<tr>
 			<th>Título</th>

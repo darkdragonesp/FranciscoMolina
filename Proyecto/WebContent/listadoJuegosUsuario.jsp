@@ -10,7 +10,7 @@
 <title>Repositorio de Videojuegos - Mis juegos</title>
 </head>
 <body>
-
+	<h2>Mis juegos</h2>
 	<table>
 		<tr>
 			<th>Título</th>
