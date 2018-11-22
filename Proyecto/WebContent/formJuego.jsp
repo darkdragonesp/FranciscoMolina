@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h2>Añadir/Modificar juego</h2>
-	<form action="/guardarJuego" method="POST">
+	<form action="/guardarJuego" method="GET">
 			<input type="hidden" name="id" value="${juego.idJuego}"/>
 			<table>
 			<tr><td>Título</td><td><input type="text" name="titulo" value="${juego.titulo}" required="required"/></td>

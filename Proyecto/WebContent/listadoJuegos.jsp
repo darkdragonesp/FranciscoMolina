@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h2>Explorar juegos</h2>
-	<a href="/anadirJuego">Añadir juego nuevo</a>
+	<a href="/anadirJuegoNuevo">Añadir juego nuevo</a>
 	<table>
 		<tr>
 			<th>Título</th>
@@ -19,6 +19,8 @@
 			<th>Plataforma</th>
 			<th>Fecha Lanzamiento</th>
 			<th>Descripcion</th>
+			
+			<th>Añadir a mis juegos</th>
 			
 			<th>Borrar</th>
 			<th>Editar</th>
@@ -31,6 +33,8 @@
 				<td><fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/></td>
 				<td><c:out value="${juego.fechaLanzamiento}" /></td>
 				<td><c:out value="${juego.descripcion}" /></td>
+				
+				<td><a href="/anadirJuego?id=${juego.idJuego}">+</a></td>
 				
 				<td><a href="/borrarJuego?id=${juego.idJuego}">X</a></td>
 				<td><a href="/buscarJuego?id=${juego.idJuego}">E</a></td>
