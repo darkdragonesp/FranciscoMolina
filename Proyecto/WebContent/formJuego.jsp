@@ -54,8 +54,8 @@
 			</td>
 		</tr>
 
-
-		<tr><td>Fecha Lanzamiento</td><td><input type="text" name="fecha" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/>"/></td>
+			<tr><td>Fecha Lanzamiento</td><td><input type="date" name="fecha" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/>"/></td>
+<%-- 		<tr><td>Fecha Lanzamiento</td><td><input type="text" name="fecha" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/>"/></td> --%>
 		<tr><td>Comentario</td><td><input type="text" name="comentario" value="${juego.comentario}"/></td>
 		
 
