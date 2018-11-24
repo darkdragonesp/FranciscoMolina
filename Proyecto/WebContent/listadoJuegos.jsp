@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="funciones.js"></script>
 <title>Explorar juegos</title>
 </head>
 <body>
@@ -44,7 +45,7 @@
 				
 				<td><a href="anadirJuego?id=${juego.idJuego}">Añadir</a></td>
 				
-				<td><a href="borrarJuego?id=${juego.idJuego}">Borrar</a></td>
+				<td><a href="borrarJuego?id=${juego.idJuego}" onclick="confirmar('¿Borrar juego seleccionado?')">Borrar</a></td>
 				<td><a href="buscarJuego?id=${juego.idJuego}">Editar</a></td>
 			</tr>
 		</c:forEach>
