@@ -56,7 +56,7 @@
 	
 				<tr><td>Fecha Lanzamiento</td><td><input type="date" name="fecha" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${juego.fechaLanzamiento}"/>"/></td>
 	
-			<tr><td>Comentario</td><td><input type="text" name="comentario" value="${juego.comentario}"/></td>
+			<tr><td>Comentario</td><td><textarea rows="8" cols="30" name="comentario">${juego.comentario}</textarea></td>
 			
 	
 			<tr><td><input type="submit" value="Guardar"/></td>
