@@ -2,7 +2,14 @@ package es.arelance.proyecto.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Clase que representa a un usuario del sistema
@@ -11,6 +18,7 @@ import javax.persistence.Entity;
  *
  */
 @Entity
+@Table(name="usuario")
 public class Usuario {
 	private Integer idUsuario;
 	private String nombreUsuario;
@@ -19,6 +27,8 @@ public class Usuario {
 	private TipoUsuario tipoUsuario;
 	private Date fechaAlta;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdUsuario() {
 		return idUsuario;
 	}
@@ -26,7 +36,8 @@ public class Usuario {
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-
+	
+	@Column(nullable = false, length = 45)
 	public String getNombreUsuario() {
 		return nombreUsuario;
 	}
@@ -35,6 +46,7 @@ public class Usuario {
 		this.nombreUsuario = nombreUsuario;
 	}
 
+	@Column(nullable = false, length = 45)
 	public String getCorreo() {
 		return correo;
 	}
@@ -43,6 +55,7 @@ public class Usuario {
 		this.correo = correo;
 	}
 
+	@Column(nullable = false, length = 45)
 	public String getContrasena() {
 		return contrasena;
 	}
@@ -51,6 +64,7 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 
+	@Column(nullable = false)
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
 	}
@@ -59,6 +73,8 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)
 	public Date getFechaAlta() {
 		return fechaAlta;
 	}
