@@ -2,12 +2,15 @@ package es.arelance.proyecto.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 /**
  * Clase que representa a un usuario del sistema
  * 
  * @author Francisco Molina Sanchez
  *
  */
+@Entity
 public class Usuario {
 	private Integer idUsuario;
 	private String nombreUsuario;
