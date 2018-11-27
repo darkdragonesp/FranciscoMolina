@@ -14,7 +14,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="tipo_usuario")
+@Table(name = "tipo_usuario")
 public class TipoUsuario {
 	private Integer idTipo;
 	private String nombre;
@@ -28,8 +28,8 @@ public class TipoUsuario {
 	public void setId(Integer id) {
 		this.idTipo = id;
 	}
-	
-	@Column(nullable = false, length = 45)
+
+	@Column(nullable = false, unique = true, length = 45)
 	public String getNombre() {
 		return nombre;
 	}

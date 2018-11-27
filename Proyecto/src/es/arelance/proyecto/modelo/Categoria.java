@@ -29,7 +29,7 @@ public class Categoria {
 		this.idCategoria = idCategoria;
 	}
 
-	@Column(nullable = false, length = 45)
+	@Column(nullable = false, unique = true, length = 45)
 	public String getNombre() {
 		return nombre;
 	}

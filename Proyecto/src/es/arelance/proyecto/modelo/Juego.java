@@ -37,7 +37,7 @@ public class Juego {
 		this.idJuego = idJuego;
 	}
 	
-	@Column(nullable = false, length = 45)
+	@Column(nullable = false, unique = true, length = 45)
 	public String getTitulo() {
 		return titulo;
 	}
