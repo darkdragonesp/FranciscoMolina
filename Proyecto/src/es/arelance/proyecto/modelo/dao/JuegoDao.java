@@ -27,7 +27,7 @@ public interface JuegoDao {
 	 * @return lista de juegos
 	 * @throws DaoException error relativo a la base de datos
 	 */
-	List<Juego> getAll() throws DaoException;
+	List<Juego> findAll() throws DaoException;
 
 	/**
 	 * Filtra las instancias de {@link Juego} existentes 

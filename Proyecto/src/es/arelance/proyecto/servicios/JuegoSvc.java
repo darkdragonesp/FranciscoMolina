@@ -26,7 +26,7 @@ public interface JuegoSvc {
 	 * @return lista de juegos
 	 * @throws ServiceException
 	 */
-	List<Juego> obtenTodos() throws ServiceException;
+	List<Juego> listar() throws ServiceException;
 
 	/**
 	 * Filtra los juegos existentes por titulo, categoria y/o plataforma
