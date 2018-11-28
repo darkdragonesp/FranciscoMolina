@@ -2,16 +2,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
 	   					   http://www.springframework.org/schema/tx 
-	   					   http://www.springframework.org/schema/tx/spring-tx.xsd">
+	   					   http://www.springframework.org/schema/tx/spring-tx.xsd
+	   					   http://www.springframework.org/schema/context
+						   http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:annotation-config />
+	
 	<!-- Datasource: determinar conexión a la bdd -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/inventario" />
+		<property name="url" value="jdbc:mysql://localhost:3306/proyecto" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
@@ -36,29 +41,52 @@
 
 		<property name="annotatedClasses">
 			<list>
-				<value>es.hubiqus.inventario.model.Producto</value>
+			<value>es.arelance.proyecto.modelo.Categoria</value>
+			<value>es.arelance.proyecto.modelo.Juego</value>
+			<value>es.arelance.proyecto.modelo.JuegoUsuario</value>
+			<value>es.arelance.proyecto.modelo.Plataforma</value>
+			<value>es.arelance.proyecto.modelo.TipoUsuario</value>
+			<value>es.arelance.proyecto.modelo.Usuario</value>
 			</list>
 		</property>
-	</bean>
-	
-	<!-- Dao Hibernate clásico -->
-	<bean id="productoDaoHR" class="es.hubiqus.inventario.model.dao.impl.ProductoDaoImplHibRaw">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
-	<!-- Se inyecta al servicio el Dao que queramos para la prueba -->
-	<bean id="productoSvc" class="es.hubiqus.inventario.service.impl.ProductoSvcImpl">
-		<property name="dao" ref="productoDaoH" />
 	</bean>
 	
 	<!-- Gestor de transacciones de hibernate -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> 
      	<property name="sessionFactory" ref="sessionFactory" /> 
 	</bean> 
-
-	<!-- Dao Hibernate Support -->
-	<bean id="productoDaoH" class="es.hubiqus.inventario.model.dao.impl.ProductoDaoImplHib">
-		<property name="sessionFactory" ref="sessionFactory" />
+	
+	<!-- Dao Hibernate clásico -->
+	<bean id="categoriaDao" class="es.arelance.proyecto.modelo.dao.CategoriaDaoImpl"/>
+	<bean id="juegoDao" class="es.arelance.proyecto.modelo.dao.JuegoDaoImpl"/>
+	<bean id="juegoUsuarioDao" class="es.arelance.proyecto.modelo.dao.JuegoUsuarioDaoImpl"/>
+	<bean id="plataformaDao" class="es.arelance.proyecto.modelo.dao.PlataformaDaoImpl"/>
+	<bean id="tipoUsuarioDao" class="es.arelance.proyecto.modelo.dao.TipoUsuarioDaoImpl"/>
+	<bean id="usuarioDao" class="es.arelance.proyecto.modelo.dao.UsuarioDaoImpl"/>
+	
+	<bean id="categoriaSvc" class="es.arelance.proyecto.servicios.impl.CategoriaSvcImpl">
+		<property name="dao" ref="categoriaDao" />
 	</bean>
+		
+	<bean id="juegoSvc" class="es.arelance.proyecto.servicios.impl.JuegoSvcImpl">
+		<property name="dao" ref="juegoDao" />
+	</bean>	
+	
+	<bean id="juegoUsuarioSvc" class="es.arelance.proyecto.servicios.impl.JuegoUsuarioSvcImpl">
+		<property name="dao" ref="juegoUsuarioDao" />
+	</bean>
+		
+	<bean id="plataformaSvc" class="es.arelance.proyecto.servicios.impl.PlataformaSvcImpl">
+		<property name="dao" ref="plataformaDao" />
+	</bean>
+		
+	<bean id="tipoUsuarioSvc" class="es.arelance.proyecto.servicios.impl.TipoUsuarioSvcImpl">
+		<property name="dao" ref="tipoUsuarioDao" />
+	</bean>
+		
+	<bean id="usuarioSvc" class="es.arelance.proyecto.servicios.impl.UsuarioSvcImpl">
+		<property name="dao" ref="usuarioDao" />
+	</bean>
+	
 
 </beans>
