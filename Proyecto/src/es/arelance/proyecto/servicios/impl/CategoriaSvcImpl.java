@@ -16,6 +16,17 @@ import es.arelance.proyecto.servicios.ServiceException;
 public class CategoriaSvcImpl implements CategoriaSvc {
 	private CategoriaDao dao;
 	
+	
+	public CategoriaDao getDao() {
+		return dao;
+	}
+
+
+	public void setDao(CategoriaDao dao) {
+		this.dao = dao;
+	}
+
+
 	@Override
 	public List<Categoria> listar() throws ServiceException {
 		try {

@@ -62,8 +62,7 @@ public class Juego {
 		this.descripcion = descripcion;
 	}
 	@ManyToOne
-	@JoinColumn(name="idCategoria")
-	@Column(nullable = false)
+	@JoinColumn(name="idCategoria", nullable = false)
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -71,8 +70,7 @@ public class Juego {
 		this.categoria = categoria;
 	}
 	@ManyToOne
-	@JoinColumn(name="idPlataforma")
-	@Column(nullable = false)
+	@JoinColumn(name="idPlataforma", nullable = false)
 	public Plataforma getPlataforma() {
 		return plataforma;
 	}

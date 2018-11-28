@@ -67,8 +67,7 @@ public class Usuario {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="tipoUsuario")
-	@Column(nullable = false)
+	@JoinColumn(name="tipoUsuario", nullable = false)
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
 	}
