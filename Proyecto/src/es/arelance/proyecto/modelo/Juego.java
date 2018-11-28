@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -59,6 +61,8 @@ public class Juego {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	@ManyToOne
+	@JoinColumn(name="idCategoria")
 	@Column(nullable = false)
 	public Categoria getCategoria() {
 		return categoria;
@@ -66,6 +70,8 @@ public class Juego {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	@ManyToOne
+	@JoinColumn(name="idPlataforma")
 	@Column(nullable = false)
 	public Plataforma getPlataforma() {
 		return plataforma;

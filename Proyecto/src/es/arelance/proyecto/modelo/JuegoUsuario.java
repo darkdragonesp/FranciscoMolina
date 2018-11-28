@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -28,6 +30,8 @@ public class JuegoUsuario {
 	public void setIdJuegoUsuario(Integer idJuegoUsuario) {
 		this.idJuegoUsuario = idJuegoUsuario;
 	}
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
 	@Column(nullable = false)
 	public Usuario getUsuario() {
 		return usuario;
@@ -35,6 +39,8 @@ public class JuegoUsuario {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	@ManyToOne
+	@JoinColumn(name="idJuego")
 	@Column(nullable = false)
 	public Juego getJuego() {
 		return juego;
