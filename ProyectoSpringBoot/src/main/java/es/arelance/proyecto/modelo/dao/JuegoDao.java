@@ -24,23 +24,23 @@ public interface JuegoDao {
 	/**
 	 * Elimina un {@link Juego} del sistema
 	 * 
-	 * @param idJuego
-	 *            identificador del juego
+	 * @param juego
+	 *            juego a eliminar
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
-	void delete(Integer idJuego) throws DaoException;
+	void delete(Juego juego) throws DaoException;
 
 	/**
 	 * Edita un {@link Juego} del sistema
 	 * 
-	 * @param juegoEditado
+	 * @param juego
 	 *            juego ya modificado
 	 * @return juego ya modificado
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
-	Juego update(Juego juego) throws DaoException;
+	void update(Juego juego) throws DaoException;
 
 	/**
 	 * Devuelve todas las instancias de {@link Juego} existentes en el sistema
@@ -67,5 +67,16 @@ public interface JuegoDao {
 	 */
 	List<Juego> filter(String titulo, String categoria,
 			String plataforma) throws DaoException;
+
+	/**
+	 * Busca un {@link Juego} por su identificador
+	 * 
+	 * @param idJuego
+	 *            identificador del juego
+	 * @return
+	 * @throws DaoException
+	 *             error relativo a la base de datos
+	 */
+	Juego findById(Integer idJuego) throws DaoException;
 
 }

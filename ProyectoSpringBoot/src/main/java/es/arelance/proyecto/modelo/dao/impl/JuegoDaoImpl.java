@@ -18,20 +18,29 @@ public class JuegoDaoImpl implements JuegoDao {
 	
 	@Override
 	public void save(Juego juego) throws DaoException {
-		// TODO Auto-generated method stub
-		
+		try{
+			sessionFactory.getCurrentSession().save(juego);	
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}
 	}
 
 	@Override
-	public void delete(Integer idJuego) throws DaoException {
-		// TODO Auto-generated method stub
-		
+	public void delete(Juego juego) throws DaoException {
+		try{
+			sessionFactory.getCurrentSession().delete(juego);		
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}
 	}
 
 	@Override
-	public Juego update(Juego juego) throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Juego juego) throws DaoException {
+		try{
+			sessionFactory.getCurrentSession().update(juego);		
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -53,6 +62,17 @@ public class JuegoDaoImpl implements JuegoDao {
 			String plataforma) throws DaoException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Juego findById(Integer idJuego) throws DaoException {
+		Juego res = null;
+		try{					
+			res = (Juego) sessionFactory.getCurrentSession().get(Juego.class, idJuego);
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}	
+		return res;
 	}
 
 }
