@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
 import es.arelance.proyecto.servicios.PlataformaSvc;
-import es.hubiqus.inventario.service.TipoProductoSvc;
 
 @Controller
 public class BuscarJuego {
@@ -33,7 +32,7 @@ public class BuscarJuego {
 	private PlataformaSvc platSvc;
 
 	@RequestMapping(value="/buscarJuego", method=RequestMethod.GET)
-    public String execute(@RequestParam int idJuego, Model model){//, HttpServletRequest request) {
+    public String execute(@RequestParam Integer idJuego, Model model){//, HttpServletRequest request) {
     	try {
 			//No es necesario acceder al request para el parámetro, directamente lo paso por el método
 //			String id = Integer.parseInt(request.getParameter("id"));
