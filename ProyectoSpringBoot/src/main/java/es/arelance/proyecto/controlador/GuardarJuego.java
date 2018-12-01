@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
 import es.arelance.proyecto.servicios.PlataformaSvc;
-import es.hubiqus.inventario.model.Producto;
 
 @Controller
-//En este caso se usuará para dos acciones, la de nuevo al cargar (view) y la de guardar desde el form (guardar)
-@RequestMapping(value = "/guardar")
+//En este caso se usará para dos acciones, la de nuevo al cargar (view) y la de guardar desde el form (guardar)
+@RequestMapping(value = "/guardarJuego")
 public class GuardarJuego {
 	
 	private static final String ATT_ITEM = "juego";
@@ -55,7 +55,7 @@ public class GuardarJuego {
 	
 	//nuevo: simplemente guardar la lista para el select y pasar al form
 	@RequestMapping(method=RequestMethod.GET)
-    public String view(@ModelAttribute Producto producto, Model model) {
+    public String view(@ModelAttribute Juego juego, Model model) {
 		try {
 			//Incluir elementos para la selección
 			model.addAttribute(ATT_LISTA, catSvc.listar());
@@ -70,21 +70,22 @@ public class GuardarJuego {
 
 	//guardar: almacenar el producto, también se vuelve a cargar la lista para el select ya que se vuelve al formulario
     @RequestMapping(method=RequestMethod.POST)
-    public String execute(@ModelAttribute Producto producto, Model model, Locale locale) {
+    public String execute(@ModelAttribute Juego juego, Model model, Locale locale) {
 		try {
 			//Incluir elementos para la selección de nuevo porque vamos hacia el formulario
-			model.addAttribute(ATT_LISTA, pSvc.listar());
+			model.addAttribute(ATT_LISTA, catSvc.listar());
+			model.addAttribute(ATT_LISTA_EXTRA, platSvc.listar());
 			
-			if (producto.getId() == null){
-				svc.guardar(producto);
+			if (juego.getIdJuego() == null){
+				svc.guardar(juego);
 			}else{
-				svc.modificar(producto);
+				svc.modificar(juego);
 			}
 			
 			model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito", null, locale));
 			
 			//Limpiar formulario
-			model.addAttribute(ATT_ITEM, new Producto());
+			model.addAttribute(ATT_ITEM, new Juego());
 			
 			return SUCCESS;
 		} catch (Exception e) {

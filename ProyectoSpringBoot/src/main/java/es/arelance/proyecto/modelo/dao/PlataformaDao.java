@@ -18,5 +18,5 @@ public interface PlataformaDao {
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
-	List<Plataforma> getAll() throws DaoException;
+	List<Plataforma> findAll() throws DaoException;
 }

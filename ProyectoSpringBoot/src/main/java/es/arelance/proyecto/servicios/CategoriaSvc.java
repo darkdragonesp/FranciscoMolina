@@ -10,7 +10,7 @@ import es.arelance.proyecto.modelo.Categoria;
  */
 public interface CategoriaSvc {
 	/**
-	 * Obtiene todas las categorias disponibles
+	 * Obtiene todas las instancias de {@link Categoria}
 	 * 
 	 * @return lista de categorias
 	 * @throws ServiceException

@@ -28,7 +28,7 @@ public class PlataformaSvcImpl implements PlataformaSvc {
 	@Override
 	public List<Plataforma> listar() throws ServiceException {
 		try {
-			return dao.getAll();
+			return dao.findAll();
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}

@@ -16,7 +16,7 @@ public interface JuegoSvc {
 	 *            juego a agregar
 	 * @throws ServiceException          
 	 */
-	void agregar(Juego juego) throws ServiceException;
+	void guardar(Juego juego) throws ServiceException;
 
 	/**
 	 * Devuelve todos los juegos existentes en el sistema

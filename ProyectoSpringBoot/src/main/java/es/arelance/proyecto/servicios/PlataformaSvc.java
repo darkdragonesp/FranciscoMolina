@@ -1,7 +1,5 @@
 package es.arelance.proyecto.servicios;
 
-import java.util.List;
-
 import es.arelance.proyecto.modelo.Plataforma;
 
 /**
@@ -12,10 +10,10 @@ import es.arelance.proyecto.modelo.Plataforma;
  */
 public interface PlataformaSvc {
 	/**
-	 * Obtiene todas las plataformas disponibles
+	 * Obtiene todas las instancias de {@link Plataforma}
 	 * 
 	 * @return lista de plataformas
 	 * @throws ServiceException
 	 */
-	List<Plataforma> listar() throws ServiceException;
+	Iterable<Plataforma> listar() throws ServiceException;
 }

@@ -21,17 +21,6 @@ public class CategoriaSvcImpl implements CategoriaSvc {
 	
 	@Autowired
 	private CategoriaDao dao;
-	
-	
-	public CategoriaDao getDao() {
-		return dao;
-	}
-
-
-	public void setDao(CategoriaDao dao) {
-		this.dao = dao;
-	}
-
 
 	@Override
 	public Iterable<Categoria> listar() throws ServiceException {

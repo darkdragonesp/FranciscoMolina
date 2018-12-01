@@ -29,7 +29,7 @@ public class JuegoSvcImpl implements JuegoSvc {
 
 	@Transactional (propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
-	public void agregar(Juego juego) throws ServiceException {
+	public void guardar(Juego juego) throws ServiceException {
 		try {
 			dao.save(juego);
 		} catch (DaoException e) {
