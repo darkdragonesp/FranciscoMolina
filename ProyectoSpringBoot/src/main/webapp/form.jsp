@@ -27,10 +27,10 @@
 			<td>				
 				<%-- Formato de fecha --%>
 				<fmt:formatDate value="${juego.fechaLanzamiento}" pattern="yyyy-MM-dd" var="fechaLanzamiento"/>
-				<form:input path="fechaLanzamiento" value="${fechaLanzamiento}"/>
+				<form:input path="fechaLanzamiento" value="${fechaLanzamiento}" type="date" required="required"/>
 			</td>		
 
-		<tr><td><spring:message code="juego.descripcion"/></td><td><form:input path="descripcion" /></td>
+		<tr><td><spring:message code="juego.descripcion"/></td><td><form:textarea path="descripcion" rows="8" cols="30" /></td>
 			
 
 		<tr><td><input type="submit" value="<spring:message code="accion.guardar"/>"/></td></tr>
@@ -39,6 +39,6 @@
 	<br>
 	${msg}
 	<br>
-	<a href="listar"><spring:message code="accion.listar"/></a>
+	<a href="listarJuegos"><spring:message code="accion.listarJuegos"/></a>
 </body>
 </html>

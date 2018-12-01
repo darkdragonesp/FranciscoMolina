@@ -8,7 +8,7 @@
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
-	<a href="guardar"><spring:message code="accion.nuevo"/></a>
+	<a href="guardarJuego"><spring:message code="accion.nuevo"/></a>
 	<br>
 	<a href="listarJuegos"><spring:message code="accion.listarJuegos"/></a>
 	<br>

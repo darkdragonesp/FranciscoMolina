@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import es.arelance.proyecto.modelo.Plataforma;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.PlataformaDao;
 
+@Repository
 public class PlataformaDaoImpl implements PlataformaDao {
 	
 	@Autowired
