@@ -21,11 +21,11 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getIdCategoria() {
+	public Integer getIdCategoria() {
 		return idCategoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
+	public void setIdCategoria(Integer idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 

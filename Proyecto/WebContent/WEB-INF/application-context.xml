@@ -57,12 +57,12 @@
 	</bean> 
 	
 	<!-- Dao Hibernate clásico -->
-	<bean id="categoriaDao" class="es.arelance.proyecto.modelo.dao.CategoriaDaoImpl"/>
-	<bean id="juegoDao" class="es.arelance.proyecto.modelo.dao.JuegoDaoImpl"/>
-	<bean id="juegoUsuarioDao" class="es.arelance.proyecto.modelo.dao.JuegoUsuarioDaoImpl"/>
-	<bean id="plataformaDao" class="es.arelance.proyecto.modelo.dao.PlataformaDaoImpl"/>
-	<bean id="tipoUsuarioDao" class="es.arelance.proyecto.modelo.dao.TipoUsuarioDaoImpl"/>
-	<bean id="usuarioDao" class="es.arelance.proyecto.modelo.dao.UsuarioDaoImpl"/>
+<!-- 	<bean id="categoriaDao" class="es.arelance.proyecto.modelo.dao.impl.CategoriaDaoImpl"/> -->
+	<bean id="juegoDao" class="es.arelance.proyecto.modelo.dao.impl.JuegoDaoImpl"/>
+<!-- 	<bean id="juegoUsuarioDao" class="es.arelance.proyecto.modelo.dao.impl.JuegoUsuarioDaoImpl"/> -->
+<!-- 	<bean id="plataformaDao" class="es.arelance.proyecto.modelo.dao.impl.PlataformaDaoImpl"/> -->
+<!-- 	<bean id="tipoUsuarioDao" class="es.arelance.proyecto.modelo.dao.impl.TipoUsuarioDaoImpl"/> -->
+<!-- 	<bean id="usuarioDao" class="es.arelance.proyecto.modelo.dao.impl.UsuarioDaoImpl"/> -->
 	
 	<bean id="categoriaSvc" class="es.arelance.proyecto.servicios.impl.CategoriaSvcImpl">
 		<property name="dao" ref="categoriaDao" />
@@ -72,21 +72,18 @@
 		<property name="dao" ref="juegoDao" />
 	</bean>	
 	
-	<bean id="juegoUsuarioSvc" class="es.arelance.proyecto.servicios.impl.JuegoUsuarioSvcImpl">
-		<property name="dao" ref="juegoUsuarioDao" />
-	</bean>
+<!-- 	<bean id="juegoUsuarioSvc" class="es.arelance.proyecto.servicios.impl.JuegoUsuarioSvcImpl"> -->
+<!-- 		<property name="dao" ref="juegoUsuarioDao" /> -->
+<!-- 	</bean> -->
 		
 	<bean id="plataformaSvc" class="es.arelance.proyecto.servicios.impl.PlataformaSvcImpl">
 		<property name="dao" ref="plataformaDao" />
 	</bean>
 		
-	<bean id="tipoUsuarioSvc" class="es.arelance.proyecto.servicios.impl.TipoUsuarioSvcImpl">
-		<property name="dao" ref="tipoUsuarioDao" />
-	</bean>
-		
-	<bean id="usuarioSvc" class="es.arelance.proyecto.servicios.impl.UsuarioSvcImpl">
-		<property name="dao" ref="usuarioDao" />
-	</bean>
+
+<!-- 	<bean id="usuarioSvc" class="es.arelance.proyecto.servicios.impl.UsuarioSvcImpl"> -->
+<!-- 		<property name="dao" ref="usuarioDao" /> -->
+<!-- 	</bean> -->
 	
 
 </beans>
