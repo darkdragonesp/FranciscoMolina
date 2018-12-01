@@ -32,7 +32,7 @@ public class BuscarJuego {
 	private PlataformaSvc platSvc;
 
 	@RequestMapping(value="/buscarJuego", method=RequestMethod.GET)
-    public String execute(@RequestParam Integer idJuego, Model model){//, HttpServletRequest request) {
+    public String execute(@RequestParam int idJuego, Model model){//, HttpServletRequest request) {
     	try {
 			//No es necesario acceder al request para el parámetro, directamente lo paso por el método
 //			String id = Integer.parseInt(request.getParameter("id"));

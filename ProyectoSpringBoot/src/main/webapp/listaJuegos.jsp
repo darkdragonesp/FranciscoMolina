@@ -38,7 +38,7 @@
 				<td>${item.descripcion}</td>
 				<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	
 <%-- 				<td><a href="anadirJuego?id=${juego.idJuego}">Añadir</a></td> --%>
-<%-- 				<td><a href="borrarJuego?id=${juego.idJuego}" onclick="return confirmar('¿Borrar juego seleccionado?')">Borrar</a></td>		 --%>
+				<td><a href="borrarJuego?idJuego=${item.idJuego}" onclick="return confirmar('¿Borrar juego seleccionado?')"><spring:message code="accion.borrar"/></a></td>		
 			</tr>
 		</c:forEach>
 	</table>
