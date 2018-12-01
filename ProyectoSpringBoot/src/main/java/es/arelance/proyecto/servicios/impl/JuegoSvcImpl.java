@@ -58,19 +58,19 @@ public class JuegoSvcImpl implements JuegoSvc {
 
 	@Transactional (propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
-	public void borrarporId(Integer idJuego) throws ServiceException {
-//		try {
-//			dao.deleteById(idJuego);
-//		} catch (DaoException e) {
-//			throw new ServiceException(e);
-//		}
+	public void eliminar(Juego juego) throws ServiceException {
+		try {
+			dao.delete(juego);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
 	}
 
 	@Transactional (propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
-	public Juego edit(Juego juegoEditado) throws ServiceException {
+	public void modificar(Juego juego) throws ServiceException {
 		try {
-			return dao.update(juegoEditado);
+			dao.update(juego);
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}

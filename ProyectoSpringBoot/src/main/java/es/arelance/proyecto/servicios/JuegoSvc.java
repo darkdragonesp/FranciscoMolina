@@ -1,7 +1,5 @@
 package es.arelance.proyecto.servicios;
 
-import java.util.List;
-
 import es.arelance.proyecto.modelo.Juego;
 
 /**
@@ -40,26 +38,25 @@ public interface JuegoSvc {
 	 * @return lista con los juegos que cumplen el filtro
 	 * @throws ServiceException
 	 */
-	List<Juego> filtrar(String titulo, String categoria,
+	Iterable<Juego> filtrar(String titulo, String categoria,
 			String plataforma) throws ServiceException;
 
 	/**
-	 * Elimina un juego del sistema
+	 * Elimina un {@link Juego} del sistema
 	 * 
-	 * @param idJuego
+	 * @param juego
 	 *            identificador del juego
 	 * @throws ServiceException           
 	 */
-	void borrarporId(Integer idJuego) throws ServiceException;
+	void eliminar(Juego juego) throws ServiceException;
 
 	/**
-	 * Edita un juego del sistema
+	 * Edita un {@link Juego} del sistema
 	 * 
-	 * @param juegoEditado
+	 * @param juego
 	 *            juego ya modificado
-	 * @return juego ya modificado
 	 * @throws ServiceException
 	 */
-	Juego edit(Juego juegoEditado) throws ServiceException;
+	void modificar(Juego juego) throws ServiceException;
 
 }
