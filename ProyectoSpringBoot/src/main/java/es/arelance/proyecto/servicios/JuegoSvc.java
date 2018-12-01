@@ -14,7 +14,7 @@ public interface JuegoSvc {
 	 * 
 	 * @param juego
 	 *            juego a agregar
-	 * @throws ServiceException          
+	 * @throws ServiceException
 	 */
 	void guardar(Juego juego) throws ServiceException;
 
@@ -46,7 +46,7 @@ public interface JuegoSvc {
 	 * 
 	 * @param juego
 	 *            identificador del juego
-	 * @throws ServiceException           
+	 * @throws ServiceException
 	 */
 	void eliminar(Juego juego) throws ServiceException;
 
@@ -58,5 +58,15 @@ public interface JuegoSvc {
 	 * @throws ServiceException
 	 */
 	void modificar(Juego juego) throws ServiceException;
+
+	/**
+	 * Busca un {@link Juego} dado su identificador y lo devuelve
+	 * 
+	 * @param idJuego
+	 *            identificador del juego a buscar
+	 * @return juego si encontrado; null en otro caso
+	 * @throws ServiceException
+	 */
+	Juego buscar(Integer idJuego) throws ServiceException;
 
 }

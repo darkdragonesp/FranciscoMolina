@@ -31,7 +31,7 @@ public class GuardarJuego {
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 	
-	private static final String SUCCESS = "form";
+	private static final String SUCCESS = "formJuego";
 	private static final String ERROR = "error";
 	
 	@Autowired

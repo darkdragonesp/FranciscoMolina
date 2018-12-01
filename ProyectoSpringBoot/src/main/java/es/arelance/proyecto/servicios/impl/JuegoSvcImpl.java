@@ -76,4 +76,15 @@ public class JuegoSvcImpl implements JuegoSvc {
 		}
 	}
 
+	@Override
+	public Juego buscar(Integer idJuego) throws ServiceException {
+		Juego res=null;
+		try {
+			res=dao.findById(idJuego);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
+		return res;
+	}
+
 }

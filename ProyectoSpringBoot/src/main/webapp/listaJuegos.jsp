@@ -36,7 +36,7 @@
 				<td>${item.plataforma.nombre}</td>
 				<td><fmt:formatDate value="${item.fechaLanzamiento}" pattern="dd-MM-yyyy"/></td>	
 				<td>${item.descripcion}</td>
-				<td><a href="buscar?id=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	
+				<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	
 <%-- 				<td><a href="anadirJuego?id=${juego.idJuego}">Añadir</a></td> --%>
 <%-- 				<td><a href="borrarJuego?id=${juego.idJuego}" onclick="return confirmar('¿Borrar juego seleccionado?')">Borrar</a></td>		 --%>
 			</tr>
