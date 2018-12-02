@@ -30,4 +30,15 @@ public class PlataformaDaoImpl implements PlataformaDao {
 		return res;
 	}
 
+	@Override
+	public Plataforma findById(int idPlataforma) throws DaoException {
+		Plataforma res = null;
+		try{					
+			res = (Plataforma) sessionFactory.getCurrentSession().get(Plataforma.class, idPlataforma);
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}	
+		return res;
+	}
+
 }

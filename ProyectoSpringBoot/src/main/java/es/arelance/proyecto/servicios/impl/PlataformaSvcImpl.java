@@ -34,4 +34,14 @@ public class PlataformaSvcImpl implements PlataformaSvc {
 		}
 	}
 
+	@Override
+	public Plataforma buscarPorId(int idPlataforma)
+			throws ServiceException {
+		try {
+			return dao.findById(idPlataforma);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
+	}
+
 }

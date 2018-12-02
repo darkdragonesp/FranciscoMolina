@@ -1,10 +1,14 @@
 package es.arelance.proyecto.modelo;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -18,6 +22,8 @@ import javax.persistence.Table;
 public class Plataforma {
 	private Integer idPlataforma;
 	private String nombre;
+	
+	private Set<Juego> juegos;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +42,15 @@ public class Plataforma {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="plataforma")
+	public Set<Juego> getJuegos() {
+		return juegos;
+	}
+
+	public void setJuegos(Set<Juego> juegos) {
+		this.juegos = juegos;
 	}
 
 }

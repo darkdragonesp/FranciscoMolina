@@ -16,4 +16,14 @@ public interface PlataformaSvc {
 	 * @throws ServiceException
 	 */
 	Iterable<Plataforma> listar() throws ServiceException;
+
+	/**
+	 * Obtiene la {@link Plataforma} dado su identificador
+	 * 
+	 * @param idPlataforma
+	 *            identificador de la {@link Plataforma}
+	 * @return {@link Plataforma}
+	 * @throws ServiceException
+	 */
+	Plataforma buscarPorId(int idPlataforma) throws ServiceException;
 }

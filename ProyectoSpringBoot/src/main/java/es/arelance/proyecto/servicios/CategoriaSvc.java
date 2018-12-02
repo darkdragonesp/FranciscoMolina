@@ -16,4 +16,15 @@ public interface CategoriaSvc {
 	 * @throws ServiceException
 	 */
 	Iterable<Categoria> listar() throws ServiceException;
+
+	/**
+	 * Busca la {@link Categoria} dado su identificador
+	 * 
+	 * @param idCategoria
+	 *            identificador de {@link Categoria}
+	 * @return {@link Categoria}
+	 * @throws ServiceException
+	 */
+	Categoria buscarPorId(int idCategoria)
+			throws ServiceException;
 }

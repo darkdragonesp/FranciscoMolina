@@ -32,8 +32,8 @@
 		<c:forEach items="${listaJuegos}" var="item">
 			<tr>
 				<td>${item.titulo}</td>
-				<td>${item.categoria.nombre}</td>
-				<td>${item.plataforma.nombre}</td>
+				<td><a href="listarPorCategoria?idCategoria=${item.categoria.idCategoria}">${item.categoria.nombre}</a></td>
+				<td><a href="listarPorPlataforma?idPlataforma=${item.plataforma.idPlataforma}">${item.plataforma.nombre}</a></td>
 				<td><fmt:formatDate value="${item.fechaLanzamiento}" pattern="dd-MM-yyyy"/></td>	
 				<td>${item.descripcion}</td>
 				<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	

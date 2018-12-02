@@ -3,6 +3,7 @@ package es.arelance.proyecto.modelo.dao;
 import java.util.List;
 
 import es.arelance.proyecto.modelo.Plataforma;
+import es.arelance.proyecto.servicios.ServiceException;
 
 /**
  * Interfaz DAO para la entidad {@link Plataforma}
@@ -19,4 +20,15 @@ public interface PlataformaDao {
 	 *             error relativo a la base de datos
 	 */
 	List<Plataforma> findAll() throws DaoException;
+
+	/**
+	 * Obtiene la {@link Plataforma} dado su identificador
+	 * 
+	 * @param idPlataforma
+	 *            identificador de la {@link Plataforma}
+	 * @return {@link Plataforma}
+	 * @throws DaoException
+	 *             error relativo a la base de datos
+	 */
+	Plataforma findById(int idPlataforma) throws DaoException;
 }

@@ -19,4 +19,15 @@ public interface CategoriaDao {
 	 *             error relativo a la base de datos
 	 */
 	List<Categoria> findAll() throws DaoException;
+
+	/**
+	 * Busca la {@link Categoria} dado su identificador
+	 * 
+	 * @param idCategoria
+	 *            identificador de {@link Categoria}
+	 * @return {@link Categoria}
+	 * @throws DaoException
+	 *             error relativo a la base de datos
+	 */
+	Categoria findById(int idCategoria) throws DaoException;
 }

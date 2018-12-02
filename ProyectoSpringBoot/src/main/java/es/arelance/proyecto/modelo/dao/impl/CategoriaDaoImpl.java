@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import es.arelance.proyecto.modelo.Categoria;
+import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.dao.CategoriaDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
 
@@ -27,6 +28,17 @@ public class CategoriaDaoImpl implements CategoriaDao {
 			throw new DaoException(ex);
 		}
 		
+		return res;
+	}
+
+	@Override
+	public Categoria findById(int idCategoria) throws DaoException {
+		Categoria res = null;
+		try{					
+			res = (Categoria) sessionFactory.getCurrentSession().get(Categoria.class, idCategoria);
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}	
 		return res;
 	}
 
