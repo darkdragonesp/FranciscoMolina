@@ -57,16 +57,11 @@ public interface JuegoDao {
 	 * 
 	 * @param titulo
 	 *            titulo del juego
-	 * @param categoria
-	 *            categoria del juego
-	 * @param plataforma
-	 *            plataforma del juego
 	 * @return lista con los juegos que cumplen el filtro
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
-	List<Juego> filter(String titulo, String categoria,
-			String plataforma) throws DaoException;
+	List<Juego> filter(String titulo) throws DaoException;
 
 	/**
 	 * Busca un {@link Juego} por su identificador

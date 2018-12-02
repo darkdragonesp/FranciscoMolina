@@ -57,11 +57,18 @@ public class JuegoDaoImpl implements JuegoDao {
 		return res;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Juego> filter(String titulo, String categoria,
-			String plataforma) throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Juego> filter(String titulo) throws DaoException {
+		List<Juego> res = null;
+		try{					
+			String hql = "FROM Juego j WHERE j.titulo LIKE concat('%',:titulo,'%')";
+			res = sessionFactory.getCurrentSession().createQuery(hql).setParameter("titulo", titulo).list();
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}
+		
+		return res;
 	}
 
 	@Override

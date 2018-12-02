@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import es.arelance.proyecto.modelo.Categoria;
-import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.dao.CategoriaDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
 

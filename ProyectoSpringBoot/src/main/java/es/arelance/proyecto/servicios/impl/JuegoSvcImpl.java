@@ -47,10 +47,10 @@ public class JuegoSvcImpl implements JuegoSvc {
 	}
 
 	@Override
-	public List<Juego> filtrar(String titulo, String categoria, String plataforma)
+	public Iterable<Juego> filtrar(String titulo)
 			throws ServiceException {
 		try {
-			return dao.filter(titulo, categoria, plataforma);
+			return dao.filter(titulo);
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}

@@ -31,15 +31,10 @@ public interface JuegoSvc {
 	 * 
 	 * @param titulo
 	 *            titulo del juego
-	 * @param categoria
-	 *            categoria del juego
-	 * @param plataforma
-	 *            plataforma del juego
 	 * @return lista con los juegos que cumplen el filtro
 	 * @throws ServiceException
 	 */
-	Iterable<Juego> filtrar(String titulo, String categoria,
-			String plataforma) throws ServiceException;
+	Iterable<Juego> filtrar(String titulo) throws ServiceException;
 
 	/**
 	 * Elimina un {@link Juego} del sistema

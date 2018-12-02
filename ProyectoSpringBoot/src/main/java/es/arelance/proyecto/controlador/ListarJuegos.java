@@ -3,11 +3,13 @@ package es.arelance.proyecto.controlador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Categoria;
+import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Plataforma;
 import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
@@ -66,6 +68,18 @@ public class ListarJuegos {
     	try {
     		Plataforma plataforma = platSvc.buscarPorId(idPlataforma);
 			model.addAttribute(ATT_LISTA, plataforma.getJuegos());
+			
+			return SUCCESS;
+		} catch (Exception e) {
+			model.addAttribute(ATT_ERROR, e);
+			return ERROR;
+		}
+    }
+	
+	@RequestMapping(value="/listarJuegosFiltro", method=RequestMethod.GET)
+    public String listarJuegosFiltro(@RequestParam String titulo ,Model model){
+    	try {
+    		model.addAttribute(ATT_LISTA, svc.filtrar(titulo));
 			
 			return SUCCESS;
 		} catch (Exception e) {

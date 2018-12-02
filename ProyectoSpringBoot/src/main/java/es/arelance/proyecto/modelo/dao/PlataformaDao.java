@@ -3,7 +3,6 @@ package es.arelance.proyecto.modelo.dao;
 import java.util.List;
 
 import es.arelance.proyecto.modelo.Plataforma;
-import es.arelance.proyecto.servicios.ServiceException;
 
 /**
  * Interfaz DAO para la entidad {@link Plataforma}

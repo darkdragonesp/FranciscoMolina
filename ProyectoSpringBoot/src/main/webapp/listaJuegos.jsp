@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page errorPage="error.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +15,16 @@
 </head>
 <body>
 	<h2><spring:message code="accion.listar.juegos"/></h2>
-<!-- 	<a href="buscarPlataformas">Añadir juego nuevo</a> -->
 	
-<!-- 	<form action="filtrarJuegos"> -->
-<%-- 	Título: <input type="text" name="titulo" value="${titulo}"/> --%>
-<%-- 	Categoría: <input type="text" name="categoria" value="${categoria}"/> --%>
-<%-- 	Plataforma: <input type="text" name="plataforma" value="${plataforma}"/> --%>
-<!-- 	<input type="submit" value="Filtrar"/> -->
-<!-- 	</form> -->
+
+<%-- 	<form:form modelAttribute="juego" method="GET" action="listarJuegosFiltro"> --%>
+<%-- 		<spring:message code="juego.titulo"/><form:input path="titulo"  required="required"/> --%>
+<%-- 		<input type="submit" value="<spring:message code="accion.filtrar"/>"/> --%>
+<%-- 	</form:form> --%>
+	<form method="GET" action="listarJuegosFiltro">
+		<spring:message code="juego.titulo"/><input type="text" name="titulo"  required="required"/>
+		<input type="submit" value="<spring:message code="accion.filtrar"/>"/>
+	</form>
 	<table>
 		<tr>
 			<th><spring:message code="juego.titulo"/></th>
