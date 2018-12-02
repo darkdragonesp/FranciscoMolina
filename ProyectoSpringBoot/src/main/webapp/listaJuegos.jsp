@@ -3,16 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%-- <%@ page errorPage="error.jsp"%> --%>
+<%@ page errorPage="error.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!-- <script src="scripts/funciones.js"></script> -->
+
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
-	<h2><spring:message code="accion.listarJuegos"/></h2>
+	<h2><spring:message code="accion.listar.juegos"/></h2>
 <!-- 	<a href="buscarPlataformas">Añadir juego nuevo</a> -->
 	
 <!-- 	<form action="filtrarJuegos"> -->
@@ -38,7 +38,9 @@
 				<td>${item.descripcion}</td>
 				<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	
 <%-- 				<td><a href="anadirJuego?id=${juego.idJuego}">Añadir</a></td> --%>
-				<td><a href="borrarJuego?idJuego=${item.idJuego}" onclick="return confirmar('¿Borrar juego seleccionado?')"><spring:message code="accion.borrar"/></a></td>		
+				<td><a href="borrarJuego?idJuego=${item.idJuego}" 
+					onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
+					<spring:message code="accion.borrar"/></a></td>		
 			</tr>
 		</c:forEach>
 	</table>

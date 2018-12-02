@@ -10,7 +10,7 @@
 <body>
 	<a href="guardarJuego"><spring:message code="accion.nuevo"/></a>
 	<br>
-	<a href="listarJuegos"><spring:message code="accion.listarJuegos"/></a>
+	<a href="listarJuegos"><spring:message code="accion.listar.juegos"/></a>
 	<br>
 	<br>
 	<a href="inicio?lang=es"><spring:message code="idioma.es"/></a>

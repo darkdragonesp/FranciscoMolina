@@ -39,6 +39,6 @@
 	<br>
 	${msg}
 	<br>
-	<a href="listarJuegos"><spring:message code="accion.listarJuegos"/></a>
+	<a href="listarJuegos"><spring:message code="accion.listar.juegos"/></a>
 </body>
 </html>
