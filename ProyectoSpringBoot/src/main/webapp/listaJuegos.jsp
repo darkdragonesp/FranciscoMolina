@@ -16,13 +16,8 @@
 <body>
 	<h2><spring:message code="accion.listar.juegos"/></h2>
 	
-
-<%-- 	<form:form modelAttribute="juego" method="GET" action="listarJuegosFiltro"> --%>
-<%-- 		<spring:message code="juego.titulo"/><form:input path="titulo"  required="required"/> --%>
-<%-- 		<input type="submit" value="<spring:message code="accion.filtrar"/>"/> --%>
-<%-- 	</form:form> --%>
 	<form method="GET" action="listarJuegosFiltro">
-		<spring:message code="juego.titulo"/><input type="text" name="titulo"  required="required"/>
+		<spring:message code="juego.titulo"/><input type="text" name="titulo"/>
 		<input type="submit" value="<spring:message code="accion.filtrar"/>"/>
 	</form>
 	<table>
