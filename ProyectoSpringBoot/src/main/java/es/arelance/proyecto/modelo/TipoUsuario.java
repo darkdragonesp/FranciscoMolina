@@ -21,13 +21,15 @@ public class TipoUsuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idTipo" )
-	public Integer getId() {
+	public Integer getIdTipo() {
 		return idTipo;
 	}
+	public void setIdTipo(Integer idTipo) {
+		this.idTipo = idTipo;
+	}
 
-	public void setId(Integer id) {
-		this.idTipo = id;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	@Column(nullable = false, unique = true, length = 45)
@@ -35,8 +37,8 @@ public class TipoUsuario {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+
+
+
 
 }

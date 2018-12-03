@@ -33,6 +33,7 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 		List<JuegoUsuario> res = null;
 		try {
 			String hql = "FROM JuegoUsuario j WHERE j.usuario.idUsuario = :idUsuario";
+			
 			res = sessionFactory.getCurrentSession().createQuery(hql)
 					.setParameter("idUsuario", usuario.getIdUsuario())
 					.list();

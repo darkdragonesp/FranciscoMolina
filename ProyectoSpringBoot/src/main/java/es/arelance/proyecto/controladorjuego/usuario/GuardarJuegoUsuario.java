@@ -2,6 +2,7 @@ package es.arelance.proyecto.controladorjuego.usuario;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -17,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
-import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
-import es.arelance.proyecto.servicios.PlataformaSvc;
 
 @Controller
 
@@ -30,7 +29,7 @@ public class GuardarJuegoUsuario {
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 	
-	private static final String SUCCESS = "forward:/inicio";
+	private static final String SUCCESS = "forward:/listarJuegos";
 	private static final String ERROR = "error";
 	
 	@Autowired
@@ -48,7 +47,7 @@ public class GuardarJuegoUsuario {
 	
 	//nuevo: simplemente guardar la lista para el select y pasar al form
 	@RequestMapping(method=RequestMethod.GET)
-    public String view(@RequestParam int idJuego, Model model) {
+    public String view(@RequestParam int idJuego, Model model, Locale locale) {
 		try {
 			//TODO obtener usuario de la sesion
 			Usuario usuario = new Usuario();
@@ -61,7 +60,8 @@ public class GuardarJuegoUsuario {
 			juegoUsuario.setJuego(juego);
 			juegoUsuario.setUsuario(usuario);			
 			svc.guardar(juegoUsuario);
-			
+			model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito.agregar", null, locale));
+
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);

@@ -31,6 +31,12 @@ public class BuscarJuego {
 	@Autowired
 	private PlataformaSvc platSvc;
 
+	/**
+	 * 
+	 * @param idJuego
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/buscarJuego", method=RequestMethod.GET)
     public String execute(@RequestParam int idJuego, Model model){//, HttpServletRequest request) {
     	try {
