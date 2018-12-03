@@ -45,5 +45,25 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 		return res;
 	}
 
+	@Override
+	public boolean exist(JuegoUsuario juegoUsuario) throws DaoException {
+		JuegoUsuario res = null;
+		try {
+			String hql = "FROM JuegoUsuario j "
+					+ "WHERE j.usuario.idUsuario = :idUsuario "
+					+ "AND j.juego.idJuego = :idJuego";
+			
+			res = (JuegoUsuario) sessionFactory.getCurrentSession().createQuery(hql)
+					.setParameter("idUsuario", juegoUsuario.getUsuario().getIdUsuario())
+					.setParameter("idJuego", juegoUsuario.getJuego().getIdJuego())
+					.uniqueResult();
+
+		} catch (Exception ex) {
+			throw new DaoException(ex);
+		}
+
+		return res!=null;
+	}
+
 
 }

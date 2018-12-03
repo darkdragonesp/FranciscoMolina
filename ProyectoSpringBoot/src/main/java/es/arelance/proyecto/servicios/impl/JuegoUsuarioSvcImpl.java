@@ -28,7 +28,9 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	@Override
 	public void guardar(JuegoUsuario juegoUsuario) throws ServiceException {
 		try {
+			if(!dao.exist(juegoUsuario)) {
 				dao.save(juegoUsuario);
+			}	
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}

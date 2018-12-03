@@ -14,11 +14,12 @@ import es.arelance.proyecto.modelo.Usuario;
  */
 public interface JuegoUsuarioDao {
 	/**
-	 * Guarda un {@link Juego} a la lista personal de un {@link Usuario} como {@link JuegoUsuario}
+	 * Guarda un {@link Juego} a la lista personal de un {@link Usuario} como
+	 * {@link JuegoUsuario}
 	 * 
-	 * @param {@link JuegoUsuario}
-	 *            objeto formado por el {@link Usuario} y {@link Juego} que
-	 *            guardo como {@link JuegoUsuario}
+	 * @param {@link
+	 * 			JuegoUsuario} objeto formado por el {@link Usuario} y
+	 *            {@link Juego} que guardo como {@link JuegoUsuario}
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
@@ -34,4 +35,16 @@ public interface JuegoUsuarioDao {
 	 *             error relativo a la base de datos
 	 */
 	List<JuegoUsuario> findByUser(Usuario usuario) throws DaoException;
+
+	/**
+	 * Comprueba si ya existe un {@link JuegoUsuario} con el mismo
+	 * {@link Usuario} y {@link Juego} para no crear duplicidad
+	 * 
+	 * @param juegoUsuario
+	 *            {@link JuegoUsuario} a comprobar
+	 * @return
+	 * @throws DaoException
+	 *             error relativo a la base de datos
+	 */
+	boolean exist(JuegoUsuario juegoUsuario) throws DaoException;
 }
