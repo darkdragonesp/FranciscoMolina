@@ -19,6 +19,12 @@ public class TipoUsuario {
 	private Integer idTipo;
 	private String nombre;
 
+	public TipoUsuario() {
+
+	}
+	public TipoUsuario(Integer id) {
+		this.idTipo=id;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdTipo() {

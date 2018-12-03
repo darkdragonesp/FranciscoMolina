@@ -15,7 +15,7 @@ public interface UsuarioDao {
 	 * @param nombreUsuario
 	 *            nombre del usuario
 	 * @param contrasena
-	 *            contraseña del usuario
+	 *            contraseï¿½a del usuario
 	 * @return {@link Usuario} si existe; {@code null} en otro caso
 	 * @throws DaoException
 	 *             error relativo a la base de datos
@@ -33,4 +33,14 @@ public interface UsuarioDao {
 	 *             error relativo a la base de datos
 	 */
 	Usuario findById(Integer idUsuario) throws DaoException;
+
+	/**
+	 * Guarda un {@link Usuario} nuevo en el sistema
+	 * 
+	 * @param usuario
+	 *            {@link Usuario}
+	 * @throws DaoException
+	 *             error relativo a la base de datos
+	 */
+	void save(Usuario usuario) throws DaoException;
 }

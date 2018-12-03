@@ -16,7 +16,7 @@ public class Inicio {
 	
 	private static final String SUCCESS = "index";
 
-	@RequestMapping(value="/inicio", method=RequestMethod.GET)
+	@RequestMapping(value="/inicio")
     public String execute(Model model){
 		return SUCCESS;
     }

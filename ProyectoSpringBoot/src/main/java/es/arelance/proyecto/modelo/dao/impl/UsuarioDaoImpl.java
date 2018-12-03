@@ -33,4 +33,13 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		return res;
 	}
 
+	@Override
+	public void save(Usuario usuario) throws DaoException {
+		try{
+			sessionFactory.getCurrentSession().save(usuario);	
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}
+	}
+
 }
