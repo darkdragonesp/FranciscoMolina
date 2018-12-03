@@ -8,6 +8,8 @@
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
+	<a href="mostrarUsuario"><spring:message code="accion.perfil.ver"/></a>
+	<br>
 	<a href="guardarJuego"><spring:message code="accion.nuevo"/></a>
 	<br>
 	<a href="listarJuegos"><spring:message code="accion.listar.juegos"/></a>

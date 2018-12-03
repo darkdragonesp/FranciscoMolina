@@ -15,7 +15,7 @@ public interface UsuarioSvc {
 	 * @param nombreUsuario
 	 *            nombre del usuario
 	 * @param contrasena
-	 *            contraseña del usuario
+	 *            contraseÃ±a del usuario
 	 * @return {@link Usuario} si existe; null en otro caso
 	 * @throws ServiceException
 	 */
