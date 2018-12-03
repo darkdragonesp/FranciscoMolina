@@ -14,15 +14,15 @@ import es.arelance.proyecto.modelo.Usuario;
  */
 public interface JuegoUsuarioDao {
 	/**
-	 * A�ade un {@link Juego} a la lista personal de un {@link Usuario}
+	 * Guarda un {@link Juego} a la lista personal de un {@link Usuario} como {@link JuegoUsuario}
 	 * 
-	 * @param juegoUsuario
+	 * @param {@link JuegoUsuario}
 	 *            objeto formado por el {@link Usuario} y {@link Juego} que
-	 *            guardo
+	 *            guardo como {@link JuegoUsuario}
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
-	void add(JuegoUsuario juegoUsuario) throws DaoException;
+	void save(JuegoUsuario juegoUsuario) throws DaoException;
 
 	/**
 	 * Obtiene todos las instancias de {@link Juego} pertenecientes a un
@@ -34,16 +34,4 @@ public interface JuegoUsuarioDao {
 	 *             error relativo a la base de datos
 	 */
 	List<JuegoUsuario> findByUser(Usuario usuario) throws DaoException;
-
-	/**
-	 * Comprueba si existe una instancia de tipo {@link JuegoUsuario} con el
-	 * mismo {@linkUsuario} y {@link Juego}
-	 * 
-	 * @param juegoUsuario
-	 *            objeto formado por el {@link Usuario} y {@link Juego}
-	 * @return
-	 * @throws DaoException
-	 *             error relativo a la base de datos
-	 */
-	Boolean exist(JuegoUsuario juegoUsuario) throws DaoException;
 }

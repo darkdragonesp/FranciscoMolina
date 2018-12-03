@@ -18,9 +18,12 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public void add(JuegoUsuario juegoUsuario) throws DaoException {
-		// TODO Auto-generated method stub
-
+	public void save(JuegoUsuario juegoUsuario) throws DaoException {
+		try{
+			sessionFactory.getCurrentSession().saveOrUpdate(juegoUsuario);	
+		}catch (Exception ex){
+			throw new DaoException(ex);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -41,11 +44,5 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 		return res;
 	}
 
-	@Override
-	public Boolean exist(JuegoUsuario juegoUsuario)
-			throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

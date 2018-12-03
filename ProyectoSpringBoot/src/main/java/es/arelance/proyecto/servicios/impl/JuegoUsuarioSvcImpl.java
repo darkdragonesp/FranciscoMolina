@@ -24,12 +24,11 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	@Autowired
 	private JuegoUsuarioDao dao;
 
+	
 	@Override
 	public void guardar(JuegoUsuario juegoUsuario) throws ServiceException {
 		try {
-			if (!dao.exist(juegoUsuario)) {
-				dao.add(juegoUsuario);
-			}
+				dao.save(juegoUsuario);
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}

@@ -1,4 +1,4 @@
-package es.arelance.proyecto.controlador;
+package es.arelance.proyecto.controlador.juego;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

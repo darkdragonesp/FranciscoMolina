@@ -35,8 +35,8 @@
 				<td><a href="listarPorPlataforma?idPlataforma=${item.plataforma.idPlataforma}">${item.plataforma.nombre}</a></td>
 				<td><fmt:formatDate value="${item.fechaLanzamiento}" pattern="dd-MM-yyyy"/></td>	
 				<td>${item.descripcion}</td>
+				<td><a href="guardarJuegoUsuario?idJuego=${item.idJuego}"><spring:message code="accion.agregar"/></a></td>	
 				<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	
-<%-- 				<td><a href="anadirJuego?id=${juego.idJuego}">Añadir</a></td> --%>
 				<td><a href="borrarJuego?idJuego=${item.idJuego}" 
 					onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 					<spring:message code="accion.borrar"/></a></td>		
