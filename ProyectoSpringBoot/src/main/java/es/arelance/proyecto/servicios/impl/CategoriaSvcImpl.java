@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.Categoria;
-import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.dao.CategoriaDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.servicios.CategoriaSvc;
