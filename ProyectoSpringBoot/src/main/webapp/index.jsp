@@ -12,6 +12,7 @@
 	<br>
 	<a href="listarJuegos"><spring:message code="accion.listar.juegos"/></a>
 	<br>
+	<a href="listarJuegosPorUsuario"><spring:message code="accion.listar.juegos.usuario"/></a>
 	<br>
 	<a href="inicio?lang=es"><spring:message code="idioma.es"/></a>
 	<a href="inicio?lang=en"><spring:message code="idioma.en"/></a>

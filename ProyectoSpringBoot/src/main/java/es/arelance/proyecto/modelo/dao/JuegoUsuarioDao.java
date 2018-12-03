@@ -3,6 +3,7 @@ package es.arelance.proyecto.modelo.dao;
 import java.util.List;
 
 import es.arelance.proyecto.modelo.JuegoUsuario;
+import es.arelance.proyecto.modelo.Usuario;
 
 /**
  * Interfaz DAO para la entidad {@link juegoUsuario} que representa los juegos
@@ -13,11 +14,11 @@ import es.arelance.proyecto.modelo.JuegoUsuario;
  */
 public interface JuegoUsuarioDao {
 	/**
-	 * Añade un {@link Juego} a la lista personal de un {@link Usuario}
+	 * Aï¿½ade un {@link Juego} a la lista personal de un {@link Usuario}
 	 * 
 	 * @param juegoUsuario
 	 *            objeto formado por el {@link Usuario} y {@link Juego} que
-	 *            añado
+	 *            guardo
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
@@ -27,12 +28,12 @@ public interface JuegoUsuarioDao {
 	 * Obtiene todos las instancias de {@link Juego} pertenecientes a un
 	 * {@link Usuario}
 	 * 
-	 * @param idUsuario
-	 *            identificador del usuario
+	 * @param usuario
+	 *            {@link Usuario}
 	 * @throws DaoException
 	 *             error relativo a la base de datos
 	 */
-	List<JuegoUsuario> getAllById(Integer idUsuario) throws DaoException;
+	List<JuegoUsuario> findByUser(Usuario usuario) throws DaoException;
 
 	/**
 	 * Comprueba si existe una instancia de tipo {@link JuegoUsuario} con el

@@ -1,12 +1,11 @@
 package es.arelance.proyecto.servicios.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.JuegoUsuario;
+import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.JuegoUsuarioDao;
 import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
@@ -26,7 +25,7 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	private JuegoUsuarioDao dao;
 
 	@Override
-	public void anadir(JuegoUsuario juegoUsuario) throws ServiceException {
+	public void guardar(JuegoUsuario juegoUsuario) throws ServiceException {
 		try {
 			if (!dao.exist(juegoUsuario)) {
 				dao.add(juegoUsuario);
@@ -38,9 +37,9 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	}
 
 	@Override
-	public List<JuegoUsuario> obtenPorId(Integer idUsuario) throws ServiceException {
+	public Iterable<JuegoUsuario> listarPorUsuario(Usuario usuario) throws ServiceException {
 		try {
-			return dao.getAllById(idUsuario);
+			return dao.findByUser(usuario);
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}

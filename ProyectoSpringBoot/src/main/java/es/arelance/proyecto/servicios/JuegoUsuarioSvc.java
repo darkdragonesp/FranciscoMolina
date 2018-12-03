@@ -1,8 +1,7 @@
 package es.arelance.proyecto.servicios;
 
-import java.util.List;
-
 import es.arelance.proyecto.modelo.JuegoUsuario;
+import es.arelance.proyecto.modelo.Usuario;
 
 /**
  * Interfaz de la capa de servicio para gestionar {@link JuegoUsuario}
@@ -12,22 +11,22 @@ import es.arelance.proyecto.modelo.JuegoUsuario;
  */
 public interface JuegoUsuarioSvc {
 	/**
-	 * Añade un juego a la lista personal de un usuario 
+	 * Agrega un juego a la lista personal de un usuario 
 	 * comprobando que no existe
 	 * 
 	 * @param juegoUsuario
-	 *            objeto formado por el usuario y juego que añado
+	 *            objeto formado por el usuario y juego que aï¿½ado
 	 * @throws ServiceException
 	 */
-	void anadir(JuegoUsuario juegoUsuario) throws ServiceException;
+	void guardar(JuegoUsuario juegoUsuario) throws ServiceException;
 
 	/**
 	 * Obtiene todos los juegos pertenecientes a un usuario
 	 * 
-	 * @param idUsuario
-	 *            identificador del usuario
+	 * @param usuario
+	 *            {@link Usuario}
 	 * @throws ServiceException            
 	 */
-	List<JuegoUsuario> obtenPorId(Integer idUsuario)
+	Iterable<JuegoUsuario> listarPorUsuario(Usuario usuario)
 			throws ServiceException;
 }

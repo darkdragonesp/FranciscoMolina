@@ -21,6 +21,7 @@ public class TipoUsuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idTipo" )
 	public Integer getId() {
 		return idTipo;
 	}
