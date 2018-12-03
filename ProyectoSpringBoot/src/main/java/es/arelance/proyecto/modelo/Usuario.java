@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 
 /**
  * Clase que representa a un usuario del sistema
@@ -39,6 +42,7 @@ public class Usuario {
 		this.idUsuario = idUsuario;
 	}
 	
+	@NotEmpty
 	@Column(nullable = false, unique = true, length = 45)
 	public String getNombreUsuario() {
 		return nombreUsuario;
@@ -48,6 +52,7 @@ public class Usuario {
 		this.nombreUsuario = nombreUsuario;
 	}
 
+	@NotNull
 	@Column(nullable = false, length = 45)
 	public String getCorreo() {
 		return correo;
@@ -57,6 +62,7 @@ public class Usuario {
 		this.correo = correo;
 	}
 
+	@NotNull
 	@Column(nullable = false, length = 45)
 	public String getContrasena() {
 		return contrasena;

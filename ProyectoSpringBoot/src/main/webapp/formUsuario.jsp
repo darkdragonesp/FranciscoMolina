@@ -17,7 +17,9 @@
 	<form:form modelAttribute="usuario" method="POST" action="guardarUsuario">
 		<table>
 				<tr><th><spring:message code="usuario.nombre"/></th>
-					<td><form:input path="nombreUsuario" required="required"/></td></tr>
+					<td><form:input path="nombreUsuario" /></td>
+						<td>?<form:errors path="nombreUsuario" cssClass="error" /></td>
+					</tr>
 				<tr><th><spring:message code="usuario.correo"/></th>
 					<td><form:input path="correo" type="email" required="required"/></td></tr>
 				<tr><th><spring:message code="usuario.contrasena"/></th>

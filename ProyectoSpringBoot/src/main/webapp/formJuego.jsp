@@ -12,7 +12,7 @@
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
-	<h2><spring:message code="nuevo.juego"/></h2>
+	<h2><spring:message code="accion.nuevo"/></h2>
 	<form:form modelAttribute="juego" method="POST" action="guardarJuego">
 		<form:hidden path="idJuego" />
 		<table>

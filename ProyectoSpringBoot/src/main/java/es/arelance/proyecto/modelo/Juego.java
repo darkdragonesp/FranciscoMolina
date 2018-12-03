@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  * Clase que representa cada uno de los juegos disponibles en 
@@ -39,6 +40,7 @@ public class Juego {
 		this.idJuego = idJuego;
 	}
 	
+	@NotNull
 	@Column(nullable = false, unique = true, length = 45)
 	public String getTitulo() {
 		return titulo;
@@ -47,6 +49,7 @@ public class Juego {
 		this.titulo = titulo;
 	}
 	
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	public Date getFechaLanzamiento() {
 		return fechaLanzamiento;
@@ -61,6 +64,8 @@ public class Juego {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name="idCategoria", nullable = false)
 	public Categoria getCategoria() {
@@ -69,6 +74,8 @@ public class Juego {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name="idPlataforma", nullable = false)
 	public Plataforma getPlataforma() {

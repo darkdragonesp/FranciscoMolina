@@ -4,11 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,7 +35,7 @@ public class GuardarUsuario {
 
 	private static final String FORM = "formUsuario";
 	private static final String SUCCESS = "forward:/inicio";
-	private static final String ERROR = "error";
+	private static final String ERROR = "formUsuario";
 
 	
 	@Autowired
@@ -61,17 +64,22 @@ public class GuardarUsuario {
 
 	//guardar: almacenar el producto, también se vuelve a cargar la lista para el select ya que se vuelve al formulario
     @RequestMapping(method=RequestMethod.POST)
-    public String execute(@ModelAttribute Usuario usuario, Model model, Locale locale) {
+    public String execute(@Valid Usuario usuario, BindingResult result, Model model, Locale locale) {
 		try {
-			usuario.setFechaAlta(new Date());
-			TipoUsuario tipo =new TipoUsuario(2);
-			usuario.setTipoUsuario(tipo);
+			if (result.hasErrors()){
+				return ERROR;
+			}else {
+				usuario.setFechaAlta(new Date());
+				TipoUsuario tipo =new TipoUsuario(2);
+				usuario.setTipoUsuario(tipo);
+				
+				svc.guardar(usuario);
+				
+				model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito.registrar", null, locale));
+				
+				return SUCCESS;
+			}
 			
-			svc.guardar(usuario);
-			
-			model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito.registrar", null, locale));
-			
-			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
