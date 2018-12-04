@@ -9,7 +9,11 @@ import org.springframework.stereotype.Repository;
 import es.arelance.proyecto.modelo.Categoria;
 import es.arelance.proyecto.modelo.dao.CategoriaDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
-
+/**
+ * Implementación de la interfaz del DAO {@link CategoriaDao}
+ * @author Francisco Molina Sanchez
+ *
+ */
 @Repository
 public class CategoriaDaoImpl implements CategoriaDao {
 	

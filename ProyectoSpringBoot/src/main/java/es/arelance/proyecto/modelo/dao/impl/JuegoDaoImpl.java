@@ -9,7 +9,11 @@ import org.springframework.stereotype.Repository;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.JuegoDao;
-
+/**
+ * Implementación de la interfaz del DAO {@link JuegoDao}
+ * @author Francisco Molina Sanchez
+ *
+ */
 @Repository
 public class JuegoDaoImpl implements JuegoDao {
 	

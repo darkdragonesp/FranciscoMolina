@@ -10,7 +10,11 @@ import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.JuegoUsuarioDao;
-
+/**
+ * Implementación de la interfaz del DAO {@link JuegoUsuarioDao}
+ * @author Francisco Molina Sanchez
+ *
+ */
 @Repository
 public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 

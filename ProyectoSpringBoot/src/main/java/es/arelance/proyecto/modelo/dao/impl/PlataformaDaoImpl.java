@@ -9,7 +9,11 @@ import org.springframework.stereotype.Repository;
 import es.arelance.proyecto.modelo.Plataforma;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.PlataformaDao;
-
+/**
+ * Implementación de la interfaz del DAO {@link PlataformaDao}
+ * @author Francisco Molina Sanchez
+ *
+ */
 @Repository
 public class PlataformaDaoImpl implements PlataformaDao {
 	

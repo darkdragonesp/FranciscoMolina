@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.UsuarioDao;
-
+/**
+ * Implementación de la interfaz del DAO {@link UsuarioDao}
+ * @author Francisco Molina Sanchez
+ *
+ */
 @Repository
 public class UsuarioDaoImpl implements UsuarioDao {
 	
