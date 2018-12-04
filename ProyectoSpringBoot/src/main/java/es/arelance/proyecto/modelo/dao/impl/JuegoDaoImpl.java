@@ -48,7 +48,7 @@ public class JuegoDaoImpl implements JuegoDao {
 	public List<Juego> findAll() throws DaoException {
 		List<Juego> res = null;
 		try{					
-			String hql = "FROM Juego";
+			String hql = "FROM Juego j ORDER BY j.titulo";
 			res = sessionFactory.getCurrentSession().createQuery(hql).list();
 		}catch (Exception ex){
 			throw new DaoException(ex);
@@ -62,7 +62,7 @@ public class JuegoDaoImpl implements JuegoDao {
 	public List<Juego> filter(String titulo) throws DaoException {
 		List<Juego> res = null;
 		try{					
-			String hql = "FROM Juego j WHERE j.titulo LIKE concat('%',:titulo,'%')";
+			String hql = "FROM Juego j WHERE j.titulo LIKE concat('%',:titulo,'%') ORDER BY j.titulo";
 			res = sessionFactory.getCurrentSession().createQuery(hql).setParameter("titulo", titulo).list();
 		}catch (Exception ex){
 			throw new DaoException(ex);

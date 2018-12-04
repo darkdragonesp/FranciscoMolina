@@ -1,4 +1,4 @@
-package es.arelance.proyecto.controladorjuego.usuario;
+package es.arelance.proyecto.controlador.juego.usuario;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,7 +47,7 @@ public class GuardarJuegoUsuario {
 	
 	//nuevo: simplemente guardar la lista para el select y pasar al form
 	@RequestMapping(method=RequestMethod.GET)
-    public String view(@RequestParam int idJuego, Model model, Locale locale) {
+    public String view(@RequestParam int idJuego,@RequestParam String titulo, @RequestParam Integer idCategoria,@RequestParam Integer idPlataforma, Model model, Locale locale) {
 		try {
 			//TODO obtener usuario de la sesion
 			Usuario usuario = new Usuario();
@@ -61,8 +61,16 @@ public class GuardarJuegoUsuario {
 			juegoUsuario.setUsuario(usuario);			
 			svc.guardar(juegoUsuario);
 			model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito.agregar", null, locale));
-
-			return SUCCESS;
+			if(idCategoria!=null) {
+				return "forward:/listarPorCategoria";
+			}else if(idPlataforma!=null){
+				return "forward:/listarPorPlataforma";
+			}else if(titulo!=null){
+				return "forward:/listarJuegosFiltro";
+			}else {
+				return SUCCESS;
+			}
+			
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;

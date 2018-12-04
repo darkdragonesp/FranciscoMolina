@@ -32,7 +32,7 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 			throws DaoException {
 		List<JuegoUsuario> res = null;
 		try {
-			String hql = "FROM JuegoUsuario j WHERE j.usuario.idUsuario = :idUsuario";
+			String hql = "FROM JuegoUsuario j WHERE j.usuario.idUsuario = :idUsuario ORDER BY j.juego.titulo";
 			
 			res = sessionFactory.getCurrentSession().createQuery(hql)
 					.setParameter("idUsuario", usuario.getIdUsuario())

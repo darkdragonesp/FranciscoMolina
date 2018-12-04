@@ -1,4 +1,4 @@
-package es.arelance.proyecto.controladorjuego.usuario;
+package es.arelance.proyecto.controlador.juego.usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
