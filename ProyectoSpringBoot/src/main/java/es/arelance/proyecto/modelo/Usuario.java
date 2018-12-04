@@ -12,8 +12,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.UniqueElements;
 
 
 /**
@@ -52,7 +56,8 @@ public class Usuario {
 		this.nombreUsuario = nombreUsuario;
 	}
 
-	@NotNull
+	@Email(regexp=".+@.+\\..+")
+	@NotEmpty
 	@Column(nullable = false, length = 45)
 	public String getCorreo() {
 		return correo;
@@ -62,7 +67,8 @@ public class Usuario {
 		this.correo = correo;
 	}
 
-	@NotNull
+	@NotEmpty
+	@Size(min=4, max=8)
 	@Column(nullable = false, length = 45)
 	public String getContrasena() {
 		return contrasena;

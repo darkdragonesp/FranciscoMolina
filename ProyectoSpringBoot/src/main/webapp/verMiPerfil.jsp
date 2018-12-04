@@ -25,7 +25,7 @@
 			<tr><th><spring:message code="usuario.tipoUsuario"/></th>
 				<td>${usuario.tipoUsuario.nombre}</td></tr>
 			<tr><th><spring:message code="usuario.fechaAlta"/></th>
-				<td><fmt:formatDate value="${usuario.fechaAlta}" pattern="dd-MM-yyyy"/></td></tr>
+				<td><fmt:formatDate value="${usuario.fechaAlta}" pattern="dd-MM-yyyy hh:mm:ss"/></td></tr>
 
 	</table>
 	<br>
