@@ -22,7 +22,7 @@ public class MostrarUsuario {
 
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "verMiPerfil";
+	private static final String SUCCESS = "mostrarUsuario";
 	private static final String ERROR = "error";
 
 	@Autowired
