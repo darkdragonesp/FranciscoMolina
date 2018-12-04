@@ -35,7 +35,7 @@ public class GuardarUsuario {
 
 	private static final String FORM = "formUsuario";
 	private static final String SUCCESS = "forward:/inicio";
-	private static final String ERROR = "formUsuario";
+	private static final String ERROR = "error";
 
 	
 	@Autowired
@@ -67,7 +67,7 @@ public class GuardarUsuario {
     public String execute(@Valid Usuario usuario, BindingResult result, Model model, Locale locale) {
 		try {
 			if (result.hasErrors()){
-				return ERROR;
+				return FORM;
 			}else {
 				usuario.setFechaAlta(new Date());
 				TipoUsuario tipo =new TipoUsuario(2);
