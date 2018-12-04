@@ -6,10 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
 
-//Indica que se trata de un controlador
+/**
+ * Controlador para mostrar las instancias de {@link JuegoUsuario} de un usuario
+ * 
+ * @author Francisco Molina Sanchez
+ *
+ */
 @Controller
 public class ListarJuegosUsuario {
 	
@@ -19,14 +25,14 @@ public class ListarJuegosUsuario {
 	private static final String SUCCESS = "listaJuegosUsuario";
 	private static final String ERROR = "error";
 	
-	//Autoinyección del servicio
 	@Autowired
 	private JuegoUsuarioSvc svc;
-	
 
-	
-	//Trayectoria y método (al ser un GET desde navegador o link)
-	//Los métodos del controlador los definimos nosotros, podemos poner el nombre o parámetros que queramos
+	/**
+	 * Muestra las instancias de {@link JuegoUsuario} de un usuario
+	 * @param model
+	 * @return Página con la lista de {@link JuegoUsuario} del {@link Usuario}
+	 */
 	@RequestMapping(value="/listarJuegosPorUsuario", method=RequestMethod.GET)
     public String execute(Model model){
     	try {

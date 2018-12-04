@@ -13,45 +13,67 @@ import org.springframework.web.bind.annotation.RequestParam;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.servicios.JuegoSvc;
 
+/**
+ * Controlador para borrar un {@link Juego} del sistema
+ * 
+ * @author Francisco Molina Sanchez
+ * 
+ */
 @Controller
 public class BorrarJuego {
-	
-	private static final String ATT_ERROR = "error"; 
+
+	private static final String ATT_ERROR = "error";
 	private static final String ATT_EXITO = "msg";
-	
+
 	private static final String SUCCESS = "forward:/listarJuegos";
 	private static final String ERROR = "error";
 
-
-	
 	@Autowired
 	private JuegoSvc svc;
-	
+
 	@Autowired
 	private MessageSource messages;
-	
-	@RequestMapping(value="/borrarJuego", method=RequestMethod.GET)
-    public String borrar(@RequestParam int idJuego, Model model,Locale locale,@RequestParam String titulo, @RequestParam Integer idCategoria,@RequestParam Integer idPlataforma){
+
+	/**
+	 * Borra un {@link Juego} dado su identificador
+	 * 
+	 * @param idJuego
+	 *            identificador del {@link Juego}
+	 * @param model
+	 * @param locale
+	 * @param titulo
+	 *            titulo buscado
+	 * @param idCategoria
+	 *            categoria filtrada
+	 * @param idPlataforma
+	 *            plataforma filtrada
+	 * @return listado de juegos (aplicando filtrado si es necesario)
+	 */
+	@RequestMapping(value = "/borrarJuego", method = RequestMethod.GET)
+	public String borrar(@RequestParam int idJuego, Model model, Locale locale,
+			@RequestParam String titulo, @RequestParam Integer idCategoria,
+			@RequestParam Integer idPlataforma) {
 		try {
 			Juego juego = new Juego();
 			juego.setIdJuego(idJuego);
-			
+
 			svc.eliminar(juego);
-			model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito.borrar", null, locale));
-			
-			if(idCategoria!=null) {
+			model.addAttribute(ATT_EXITO,
+					messages.getMessage("mensaje.exito.borrar", null, locale));
+
+			if (idCategoria != null) {
 				return "forward:/listarPorCategoria";
-			}else if(idPlataforma!=null){
+			} else if (idPlataforma != null) {
 				return "forward:/listarPorPlataforma";
-			}else if(titulo!=null){
+			} else if (titulo != null) {
 				return "forward:/listarJuegosFiltro";
-			}else {
+			} else {
 				return SUCCESS;
 			}
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
-    }
+	}
 
 }

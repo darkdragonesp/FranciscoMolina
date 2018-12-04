@@ -1,19 +1,15 @@
 package es.arelance.proyecto.controlador.usuario;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,14 +18,17 @@ import es.arelance.proyecto.modelo.TipoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.UsuarioSvc;
 
+/**
+ * Controlador para guardar un {@link Usuario} del sistema
+ * 
+ * @author Francisco Molina Sanchez
+ * 
+ */
 @Controller
-//En este caso se usará para dos acciones, la de nuevo al cargar (view) y la de guardar desde el form (guardar)
 @RequestMapping(value = "/guardarUsuario")
 public class GuardarUsuario {
 	
-	private static final String ATT_ITEM = "juego";
-	private static final String ATT_LISTA = "listaCategorias";
-	private static final String ATT_LISTA_EXTRA = "listaPlataformas";
+
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
@@ -43,15 +42,12 @@ public class GuardarUsuario {
 	
 	@Autowired
 	private MessageSource messages;
-	
-	@InitBinder
-	private void initBinder(WebDataBinder binder) {
-		//Se encarga de parsear las fechas correctamente cuando vienen de formulario
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
-	}
-	
-	//nuevo: simplemente guardar la lista para el select y pasar al form
+	/**
+	 * Muestra el formulario de registro de {@link Usuario}
+	 * @param usuario
+	 * @param model
+	 * @return Formulario de registro de {@link Usuario}
+	 */
 	@RequestMapping(method=RequestMethod.GET)
     public String view(@ModelAttribute Usuario usuario, Model model) {
 		try {
@@ -62,7 +58,14 @@ public class GuardarUsuario {
 		}
 	}
 
-	//guardar: almacenar el producto, también se vuelve a cargar la lista para el select ya que se vuelve al formulario
+	/**
+	 * Valida y guarda un {@link Usuario}
+	 * @param usuario {@link Usuario}
+	 * @param result
+	 * @param model
+	 * @param locale
+	 * @return Página de login
+	 */
     @RequestMapping(method=RequestMethod.POST)
     public String execute(@Valid Usuario usuario, BindingResult result, Model model, Locale locale) {
 		try {

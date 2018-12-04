@@ -15,76 +15,115 @@ import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
 import es.arelance.proyecto.servicios.PlataformaSvc;
 
-//Indica que se trata de un controlador
+/**
+ * Controlador para listar las instancias de {@link Juego} del sistema. Permite
+ * el filtrado de estos.
+ * 
+ * @author Francisco Molina Sanchez
+ * 
+ */
 @Controller
 public class ListarJuegos {
-	
+
 	private static final String ATT_LISTA = "listaJuegos";
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "listaJuegos";
 	private static final String ERROR = "error";
-	
-	//Autoinyección del servicio
+
 	@Autowired
 	private JuegoSvc svc;
-	
+
 	@Autowired
 	private CategoriaSvc catSvc;
-	
+
 	@Autowired
 	private PlataformaSvc platSvc;
-	
-	//Trayectoria y método (al ser un GET desde navegador o link)
-	//Los métodos del controlador los definimos nosotros, podemos poner el nombre o parámetros que queramos
-	@RequestMapping(value="/listarJuegos", method=RequestMethod.GET)
-    public String execute(@ModelAttribute Juego juego,Model model){//, HttpServletRequest request) {
-    	try {
-    		//Ya no necesitamos inyectar el servicio como en Servlets
-			model.addAttribute(ATT_LISTA, svc.listar());
-			
-			return SUCCESS;
-		} catch (Exception e) {
-			model.addAttribute(ATT_ERROR, e);
-			return ERROR;
-		}
-    }
-	
-	@RequestMapping(value="/listarPorCategoria", method=RequestMethod.GET)
-    public String listarPorCategoria(@ModelAttribute Juego juego,@RequestParam int idCategoria ,Model model){
-    	try {
-    		Categoria categoria = catSvc.buscarPorId(idCategoria);
-			model.addAttribute(ATT_LISTA, categoria.getJuegos());
-			
-			return SUCCESS;
-		} catch (Exception e) {
-			model.addAttribute(ATT_ERROR, e);
-			return ERROR;
-		}
-    }
 
-	@RequestMapping(value="/listarPorPlataforma", method=RequestMethod.GET)
-    public String listarPorPlataforma(@ModelAttribute Juego juego,@RequestParam int idPlataforma ,Model model){
-    	try {
-    		Plataforma plataforma = platSvc.buscarPorId(idPlataforma);
+	/**
+	 * Muestra la lista de instancias de {@link Juego}
+	 * 
+	 * @param juego
+	 * @param model
+	 * @return formulario listaJuegos relleno
+	 */
+	@RequestMapping(value = "/listarJuegos", method = RequestMethod.GET)
+	public String execute(@ModelAttribute Juego juego, Model model) {
+		try {
+			model.addAttribute(ATT_LISTA, svc.listar());
+
+			return SUCCESS;
+		} catch (Exception e) {
+			model.addAttribute(ATT_ERROR, e);
+			return ERROR;
+		}
+	}
+
+	/**
+	 * Muestra la lista de instancias de {@link Juego} filtrado por
+	 * {@link Categoria}
+	 * 
+	 * @param juego
+	 * @param idCategoria
+	 *            Identificador de la categoria seleccionada
+	 * @param model
+	 * @return formulario listaJuegos relleno y filtrado
+	 */
+	@RequestMapping(value = "/listarPorCategoria", method = RequestMethod.GET)
+	public String listarPorCategoria(@ModelAttribute Juego juego,
+			@RequestParam int idCategoria, Model model) {
+		try {
+			Categoria categoria = catSvc.buscarPorId(idCategoria);
+			model.addAttribute(ATT_LISTA, categoria.getJuegos());
+
+			return SUCCESS;
+		} catch (Exception e) {
+			model.addAttribute(ATT_ERROR, e);
+			return ERROR;
+		}
+	}
+
+	/**
+	 * Muestra la lista de instancias de {@link Juego} filtrado por
+	 * {@link Plataforma}
+	 * 
+	 * @param juego
+	 * @param idPlataforma
+	 *            Identificador de la plataforma seleccionada
+	 * @param model
+	 * @return formulario listaJuegos relleno y filtrado
+	 */
+	@RequestMapping(value = "/listarPorPlataforma", method = RequestMethod.GET)
+	public String listarPorPlataforma(@ModelAttribute Juego juego,
+			@RequestParam int idPlataforma, Model model) {
+		try {
+			Plataforma plataforma = platSvc.buscarPorId(idPlataforma);
 			model.addAttribute(ATT_LISTA, plataforma.getJuegos());
-			
+
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
-    }
-	
-	@RequestMapping(value="/listarJuegosFiltro", method=RequestMethod.GET)
-    public String listarJuegosFiltro(@ModelAttribute Juego juego ,Model model){
-    	try {
-    		model.addAttribute(ATT_LISTA, svc.filtrar(juego.getTitulo()));
-			
+	}
+
+	/**
+	 * Muestra la lista de instancias de {@link Juego} filtrado por titulo
+	 * 
+	 * @param juego
+	 *            Contiene el titulo a filtrar
+	 * @param model
+	 * @return formulario listaJuegos relleno y filtrado
+	 */
+	@RequestMapping(value = "/listarJuegosFiltro", method = RequestMethod.GET)
+	public String listarJuegosFiltro(@ModelAttribute Juego juego, Model model) {
+		try {
+			model.addAttribute(ATT_LISTA, svc.filtrar(juego.getTitulo()));
+
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
-    }
+	}
 }

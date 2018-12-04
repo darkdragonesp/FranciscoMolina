@@ -23,9 +23,13 @@ import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
 import es.arelance.proyecto.servicios.PlataformaSvc;
 
+/**
+ * Controlador para guardar un {@link Juego} del sistema
+ * 
+ * @author Francisco Molina Sanchez
+ * 
+ */
 @Controller
-// En este caso se usará para dos acciones, la de nuevo al cargar (view) y la de
-// guardar desde el form (guardar)
 @RequestMapping(value = "/guardarJuego")
 public class GuardarJuego {
 
@@ -52,18 +56,21 @@ public class GuardarJuego {
 
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
-		// Se encarga de parsear las fechas correctamente cuando vienen de formulario
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"yyyy-MM-dd");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		binder.registerCustomEditor(Date.class,
 				new CustomDateEditor(dateFormat, false));
 	}
 
-	// nuevo: simplemente guardar la lista para el select y pasar al form
+	/**
+	 * Muestra el formulario para crear un {@link Juego} nuevo
+	 * 
+	 * @param juego
+	 * @param model
+	 * @return formulario para crear un {@link Juego} nuevo
+	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String view(@ModelAttribute Juego juego, Model model) {
 		try {
-			// Incluir elementos para la selección
 			model.addAttribute(ATT_LISTA, catSvc.listar());
 			model.addAttribute(ATT_LISTA_EXTRA, platSvc.listar());
 
@@ -74,11 +81,18 @@ public class GuardarJuego {
 		}
 	}
 
-	// guardar: almacenar el producto, también se vuelve a cargar la lista para el
-	// select ya que se vuelve al formulario
+	/**
+	 * Valida y guarda un {@link Juego} nuevo
+	 * 
+	 * @param juego  {@link Juego} a guardar
+	 * @param result
+	 * @param model
+	 * @param locale
+	 * @return vuelve al formulario
+	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public String execute(@Valid Juego juego, BindingResult result,
-			Model model, Locale locale) {
+	public String execute(@Valid Juego juego, BindingResult result, Model model,
+			Locale locale) {
 		try {
 			if (result.hasErrors()) {
 				model.addAttribute(ATT_LISTA, catSvc.listar());
@@ -94,8 +108,8 @@ public class GuardarJuego {
 					svc.modificar(juego);
 				}
 
-				model.addAttribute(ATT_EXITO, messages
-						.getMessage("mensaje.exito", null, locale));
+				model.addAttribute(ATT_EXITO,
+						messages.getMessage("mensaje.exito", null, locale));
 
 				// Limpiar formulario
 				model.addAttribute(ATT_ITEM, new Juego());
