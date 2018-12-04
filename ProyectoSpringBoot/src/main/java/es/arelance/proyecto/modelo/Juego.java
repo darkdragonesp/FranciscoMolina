@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * Clase que representa cada uno de los juegos disponibles en 
@@ -40,7 +42,7 @@ public class Juego {
 		this.idJuego = idJuego;
 	}
 	
-	@NotNull
+	@NotEmpty
 	@Column(nullable = false, unique = true, length = 45)
 	public String getTitulo() {
 		return titulo;
@@ -58,6 +60,7 @@ public class Juego {
 		this.fechaLanzamiento = fechaLanzamiento;
 	}
 	
+	@Size(max=300)
 	public String getDescripcion() {
 		return descripcion;
 	}
