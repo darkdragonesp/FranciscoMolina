@@ -17,7 +17,7 @@
 		<form:hidden path="idJuego" />
 		<table>
 		
-		<tr><td><spring:message code="juego.titulo"/></td>
+		<tr><td><spring:message code="juego.titulo"/>(*)</td>
 			<td><form:input path="titulo" required="required"/></td>
 			<td><form:errors path="titulo" cssClass="error" /></td>
 		</tr>
@@ -30,7 +30,7 @@
 			<td><form:select path="plataforma.idPlataforma" items="${listaPlataformas}" itemLabel="nombre" itemValue="idPlataforma"/></td>
 		</tr>
 		
-		<tr><td><spring:message code="juego.fechaLanzamiento"/></td>
+		<tr><td><spring:message code="juego.fechaLanzamiento"/>(*)</td>
 			<td>				
 				<%-- Formato de fecha --%>
 				<fmt:formatDate value="${juego.fechaLanzamiento}" pattern="yyyy-MM-dd" var="fechaLanzamiento"/>

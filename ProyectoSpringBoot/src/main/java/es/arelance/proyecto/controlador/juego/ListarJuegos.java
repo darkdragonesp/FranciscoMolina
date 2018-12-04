@@ -3,11 +3,13 @@ package es.arelance.proyecto.controlador.juego;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Categoria;
+import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Plataforma;
 import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
@@ -36,7 +38,7 @@ public class ListarJuegos {
 	//Trayectoria y método (al ser un GET desde navegador o link)
 	//Los métodos del controlador los definimos nosotros, podemos poner el nombre o parámetros que queramos
 	@RequestMapping(value="/listarJuegos", method=RequestMethod.GET)
-    public String execute(Model model){//, HttpServletRequest request) {
+    public String execute(@ModelAttribute Juego juego,Model model){//, HttpServletRequest request) {
     	try {
     		//Ya no necesitamos inyectar el servicio como en Servlets
 			model.addAttribute(ATT_LISTA, svc.listar());
@@ -49,7 +51,7 @@ public class ListarJuegos {
     }
 	
 	@RequestMapping(value="/listarPorCategoria", method=RequestMethod.GET)
-    public String listarPorCategoria(@RequestParam int idCategoria ,Model model){
+    public String listarPorCategoria(@ModelAttribute Juego juego,@RequestParam int idCategoria ,Model model){
     	try {
     		Categoria categoria = catSvc.buscarPorId(idCategoria);
 			model.addAttribute(ATT_LISTA, categoria.getJuegos());
@@ -62,7 +64,7 @@ public class ListarJuegos {
     }
 
 	@RequestMapping(value="/listarPorPlataforma", method=RequestMethod.GET)
-    public String listarPorPlataforma(@RequestParam int idPlataforma ,Model model){
+    public String listarPorPlataforma(@ModelAttribute Juego juego,@RequestParam int idPlataforma ,Model model){
     	try {
     		Plataforma plataforma = platSvc.buscarPorId(idPlataforma);
 			model.addAttribute(ATT_LISTA, plataforma.getJuegos());
@@ -75,9 +77,9 @@ public class ListarJuegos {
     }
 	
 	@RequestMapping(value="/listarJuegosFiltro", method=RequestMethod.GET)
-    public String listarJuegosFiltro(@RequestParam String titulo ,Model model){
+    public String listarJuegosFiltro(@ModelAttribute Juego juego ,Model model){
     	try {
-    		model.addAttribute(ATT_LISTA, svc.filtrar(titulo));
+    		model.addAttribute(ATT_LISTA, svc.filtrar(juego.getTitulo()));
 			
 			return SUCCESS;
 		} catch (Exception e) {

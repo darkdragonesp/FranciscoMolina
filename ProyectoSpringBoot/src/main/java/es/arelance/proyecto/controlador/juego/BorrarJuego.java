@@ -31,14 +31,23 @@ public class BorrarJuego {
 	private MessageSource messages;
 	
 	@RequestMapping(value="/borrarJuego", method=RequestMethod.GET)
-    public String borrar(@RequestParam int idJuego, Model model,Locale locale){
+    public String borrar(@RequestParam int idJuego, Model model,Locale locale,@RequestParam String titulo, @RequestParam Integer idCategoria,@RequestParam Integer idPlataforma){
 		try {
 			Juego juego = new Juego();
 			juego.setIdJuego(idJuego);
 			
 			svc.eliminar(juego);
 			model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito.borrar", null, locale));
-			return SUCCESS;
+			
+			if(idCategoria!=null) {
+				return "forward:/listarPorCategoria";
+			}else if(idPlataforma!=null){
+				return "forward:/listarPorPlataforma";
+			}else if(titulo!=null){
+				return "forward:/listarJuegosFiltro";
+			}else {
+				return SUCCESS;
+			}
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;

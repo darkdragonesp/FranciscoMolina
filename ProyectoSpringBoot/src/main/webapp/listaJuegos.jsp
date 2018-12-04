@@ -16,10 +16,18 @@
 <body>
 	<h2><spring:message code="accion.listar.juegos"/></h2>
 	
-	<form method="GET" action="listarJuegosFiltro">
-		<spring:message code="juego.titulo"/><input type="text" name="titulo"/>
-		<input type="submit" value="<spring:message code="accion.filtrar"/>"/>
-	</form>
+	<form:form modelAttribute="juego" method="GET" action="listarJuegosFiltro">
+		<form:hidden path="idJuego" />
+		<table>
+		
+		<tr><td><spring:message code="juego.titulo"/></td>
+			<td><form:input path="titulo"/></td>
+			<td><input type="submit" value="<spring:message code="accion.filtrar"/>"/></td>
+		</tr>
+	</table>
+	
+	</form:form>
+
 	<table>
 		<tr>
 			<th><spring:message code="juego.titulo"/></th>
@@ -37,13 +45,16 @@
 				<td>${item.descripcion}</td>
 				
 				<td><a href="guardarJuegoUsuario?idJuego=${item.idJuego}
-						&idCategoria=${param.idCategoria}
-						&idPlataforma=${param.idPlataforma}
-						&titulo=${param.titulo}">
+							&idCategoria=${param.idCategoria}
+							&idPlataforma=${param.idPlataforma}
+							&titulo=${param.titulo}">
 					<spring:message code="accion.agregar"/></a>
 				</td>	
 				<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	
-				<td><a href="borrarJuego?idJuego=${item.idJuego}" 
+				<td><a href="borrarJuego?idJuego=${item.idJuego}
+							&idCategoria=${param.idCategoria}
+							&idPlataforma=${param.idPlataforma}
+							&titulo=${param.titulo}"
 					onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 					<spring:message code="accion.borrar"/></a></td>		
 			</tr>
