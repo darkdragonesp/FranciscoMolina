@@ -16,16 +16,16 @@
 	
 	<form:form modelAttribute="usuario" method="POST" action="guardarUsuario">
 		<table>
-				<tr><th><spring:message code="usuario.nombre"/>(*)</th>
+				<tr><td><spring:message code="usuario.nombre"/>(*)</td>
 					<td><form:input path="nombreUsuario" required="required"/></td>
 					<td><form:errors path="nombreUsuario" cssClass="error" /></td>
 				</tr>
 					
-				<tr><th><spring:message code="usuario.correo"/>(*)</th>
+				<tr><td><spring:message code="usuario.correo"/>(*)</td>
 					<td><form:input path="correo" type="email" required="required"/></td>
 					<td><form:errors path="correo" cssClass="error" /></td>
 				</tr>
-				<tr><th><spring:message code="usuario.contrasena"/>(*)</th>
+				<tr><td><spring:message code="usuario.contrasena"/>(*)</td>
 					<td><form:input path="contrasena" type="password" required="required"/></td>
 					<td><form:errors path="contrasena" cssClass="error" /></td>
 				</tr>
