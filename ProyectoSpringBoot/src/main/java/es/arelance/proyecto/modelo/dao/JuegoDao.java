@@ -17,7 +17,7 @@ public interface JuegoDao {
 	 * @param juego
 	 *            {@link Juego} a agregar
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	void save(Juego juego) throws DaoException;
 
@@ -25,9 +25,9 @@ public interface JuegoDao {
 	 * Elimina un {@link Juego} del sistema
 	 * 
 	 * @param juego
-	 *            juego a eliminar
+	 *            Juego a eliminar
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	void delete(Juego juego) throws DaoException;
 
@@ -35,31 +35,30 @@ public interface JuegoDao {
 	 * Edita un {@link Juego} del sistema
 	 * 
 	 * @param juego
-	 *            juego ya modificado
-	 * @return juego ya modificado
+	 *            {@link Juego} ya modificado
+	 * @return Juego ya modificado
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	void update(Juego juego) throws DaoException;
 
 	/**
 	 * Devuelve todas las instancias de {@link Juego} existentes en el sistema
 	 * 
-	 * @return lista de juegos
+	 * @return Lista de juegos
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	List<Juego> findAll() throws DaoException;
 
 	/**
-	 * Filtra las instancias de {@link Juego} existentes por titulo, categoria y/o
-	 * plataforma
+	 * Filtra las instancias de {@link Juego} existentes por titulo
 	 * 
 	 * @param titulo
-	 *            titulo del juego
-	 * @return lista con los juegos que cumplen el filtro
+	 *            Titulo del juego
+	 * @return Lista con los juegos que cumplen el filtro
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	List<Juego> filter(String titulo) throws DaoException;
 
@@ -67,10 +66,10 @@ public interface JuegoDao {
 	 * Busca un {@link Juego} por su identificador
 	 * 
 	 * @param idJuego
-	 *            identificador del juego
-	 * @return
+	 *            Identificador del juego
+	 * @return {@link Juego}
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	Juego findById(Integer idJuego) throws DaoException;
 

@@ -11,10 +11,11 @@ import es.arelance.proyecto.modelo.Usuario;
  */
 public interface JuegoUsuarioSvc {
 	/**
-	 * Agrega un juego a la lista personal de un usuario
+	 * Agrega un juego a la lista personal de un {@link Usuario}
 	 * 
 	 * @param juegoUsuario
-	 *            objeto formado por el usuario y juego que guarda
+	 *            Objeto formado por el {@link Usuario} y {@link Juego} que
+	 *            guarda
 	 * @throws ServiceException
 	 */
 	void guardar(JuegoUsuario juegoUsuario) throws ServiceException;

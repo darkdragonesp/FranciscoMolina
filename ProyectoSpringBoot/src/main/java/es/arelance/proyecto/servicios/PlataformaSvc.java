@@ -12,7 +12,7 @@ public interface PlataformaSvc {
 	/**
 	 * Obtiene todas las instancias de {@link Plataforma}
 	 * 
-	 * @return lista de plataformas
+	 * @return Lista de plataformas
 	 * @throws ServiceException
 	 */
 	Iterable<Plataforma> listar() throws ServiceException;
@@ -21,7 +21,7 @@ public interface PlataformaSvc {
 	 * Obtiene la {@link Plataforma} dado su identificador
 	 * 
 	 * @param idPlataforma
-	 *            identificador de la {@link Plataforma}
+	 *            Identificador de la {@link Plataforma}
 	 * @return {@link Plataforma}
 	 * @throws ServiceException
 	 */

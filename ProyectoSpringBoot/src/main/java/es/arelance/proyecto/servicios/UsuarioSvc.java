@@ -13,9 +13,9 @@ public interface UsuarioSvc {
 	 * Busca a un {@link Usuario} por nombre y contrasena
 	 * 
 	 * @param nombreUsuario
-	 *            nombre del {@link Usuario}
+	 *            Nombre del {@link Usuario}
 	 * @param contrasena
-	 *            contraseña del {@link Usuario}
+	 *            Contraseña del {@link Usuario}
 	 * @return {@link Usuario} si existe; null en otro caso
 	 * @throws ServiceException
 	 */
@@ -26,15 +26,17 @@ public interface UsuarioSvc {
 	 * Busca a un {@link Usuario} por identificador para mostrar su perfil
 	 * 
 	 * @param idUsuario
-	 *            identificador del {@link Usuario}
-	 * @return usuario si encontrado; null en otro caso
+	 *            Identificador del {@link Usuario}
+	 * @return Usuario si encontrado; null en otro caso
 	 * @throws ServiceException
 	 */
 	Usuario obtenPorId(Integer id) throws ServiceException;
 
 	/**
 	 * Guarda un {@link Usuario} nuevo
-	 * @param usuario {@link Usuario} a guardar
+	 * 
+	 * @param Usuario
+	 *            {@link Usuario} a guardar
 	 * @throws ServiceException
 	 */
 	void guardar(Usuario usuario) throws ServiceException;

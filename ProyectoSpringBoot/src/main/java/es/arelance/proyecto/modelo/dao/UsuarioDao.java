@@ -13,12 +13,12 @@ public interface UsuarioDao {
 	 * Busca a un {@link Usuario} por nombre y contrasena
 	 * 
 	 * @param nombreUsuario
-	 *            nombre del usuario
+	 *            Nombre del usuario
 	 * @param contrasena
-	 *            contrase�a del usuario
+	 *            Contrase�a del usuario
 	 * @return {@link Usuario} si existe; {@code null} en otro caso
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	Usuario findByNameAndPass(String nombreUsuario, String contrasena)
 			throws DaoException;
@@ -27,10 +27,10 @@ public interface UsuarioDao {
 	 * Busca a un {@link Usuario} por identificador para mostrar su perfil
 	 * 
 	 * @param idUsuario
-	 *            identificador del usuario
+	 *            Identificador del usuario
 	 * @return {@link Usuario} si encontrado; {@code null} en otro caso
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *            Error relativo a la base de datos
 	 */
 	Usuario findById(Integer idUsuario) throws DaoException;
 
@@ -40,7 +40,7 @@ public interface UsuarioDao {
 	 * @param usuario
 	 *            {@link Usuario}
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *            Error relativo a la base de datos
 	 */
 	void save(Usuario usuario) throws DaoException;
 }

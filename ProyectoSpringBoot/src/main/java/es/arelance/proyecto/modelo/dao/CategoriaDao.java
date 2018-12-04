@@ -14,9 +14,9 @@ public interface CategoriaDao {
 	/**
 	 * Obtiene todas las instancias de {@link Categoria} disponibles
 	 * 
-	 * @return lista de categorias
+	 * @return Lista de categorias
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	List<Categoria> findAll() throws DaoException;
 
@@ -24,10 +24,10 @@ public interface CategoriaDao {
 	 * Busca la {@link Categoria} dado su identificador
 	 * 
 	 * @param idCategoria
-	 *            identificador de {@link Categoria}
+	 *            Identificador de {@link Categoria}
 	 * @return {@link Categoria}
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	Categoria findById(int idCategoria) throws DaoException;
 }

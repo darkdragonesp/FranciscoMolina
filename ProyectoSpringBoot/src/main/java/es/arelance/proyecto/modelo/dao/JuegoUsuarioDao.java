@@ -17,11 +17,11 @@ public interface JuegoUsuarioDao {
 	 * Guarda un {@link Juego} a la lista personal de un {@link Usuario} como
 	 * {@link JuegoUsuario}
 	 * 
-	 * @param {@link
-	 * 			JuegoUsuario} objeto formado por el {@link Usuario} y
-	 *            {@link Juego} que guardo como {@link JuegoUsuario}
+	 * @param juegoUsuario
+	 *            Objeto formado por el {@link Usuario} y {@link Juego} que
+	 *            guardo como {@link JuegoUsuario}
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	void save(JuegoUsuario juegoUsuario) throws DaoException;
 
@@ -32,7 +32,7 @@ public interface JuegoUsuarioDao {
 	 * @param usuario
 	 *            {@link Usuario}
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	List<JuegoUsuario> findByUser(Usuario usuario) throws DaoException;
 
@@ -44,7 +44,7 @@ public interface JuegoUsuarioDao {
 	 *            {@link JuegoUsuario} a comprobar
 	 * @return
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	boolean exist(JuegoUsuario juegoUsuario) throws DaoException;
 }

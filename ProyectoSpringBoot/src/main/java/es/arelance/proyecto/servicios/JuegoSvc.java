@@ -13,7 +13,7 @@ public interface JuegoSvc {
 	 * Agrega un juego nuevo al sistema
 	 * 
 	 * @param juego
-	 *            juego a agregar
+	 *            {@link Juego} a agregar
 	 * @throws ServiceException
 	 */
 	void guardar(Juego juego) throws ServiceException;
@@ -27,11 +27,12 @@ public interface JuegoSvc {
 	Iterable<Juego> listar() throws ServiceException;
 
 	/**
-	 * Filtra los juegos existentes por titulo, categoria y/o plataforma
+	 * Filtra todas las instancias de {@link Juego} existentes 
+	 * por titulo
 	 * 
 	 * @param titulo
-	 *            titulo del juego
-	 * @return lista con los juegos que cumplen el filtro
+	 *            Titulo del {@link Juego}
+	 * @return Lista con los juegos que cumplen el filtro
 	 * @throws ServiceException
 	 */
 	Iterable<Juego> filtrar(String titulo) throws ServiceException;
@@ -40,7 +41,7 @@ public interface JuegoSvc {
 	 * Elimina un {@link Juego} del sistema
 	 * 
 	 * @param juego
-	 *            identificador del juego
+	 *            Identificador del {@link Juego}
 	 * @throws ServiceException
 	 */
 	void eliminar(Juego juego) throws ServiceException;
@@ -49,7 +50,7 @@ public interface JuegoSvc {
 	 * Edita un {@link Juego} del sistema
 	 * 
 	 * @param juego
-	 *            juego ya modificado
+	 *            {@link Juego} ya modificado
 	 * @throws ServiceException
 	 */
 	void modificar(Juego juego) throws ServiceException;
@@ -58,8 +59,8 @@ public interface JuegoSvc {
 	 * Busca un {@link Juego} dado su identificador y lo devuelve
 	 * 
 	 * @param idJuego
-	 *            identificador del juego a buscar
-	 * @return juego si encontrado; null en otro caso
+	 *            Identificador del {@link Juego} a buscar
+	 * @return {@link Juego} si encontrado; null en otro caso
 	 * @throws ServiceException
 	 */
 	Juego buscar(Integer idJuego) throws ServiceException;

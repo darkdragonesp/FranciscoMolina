@@ -14,9 +14,9 @@ public interface PlataformaDao {
 	/**
 	 * Obtiene todas las instancias de {@link Plataforma} disponibles
 	 * 
-	 * @return lista de plataformas
+	 * @return Lista de plataformas
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	List<Plataforma> findAll() throws DaoException;
 
@@ -24,10 +24,10 @@ public interface PlataformaDao {
 	 * Obtiene la {@link Plataforma} dado su identificador
 	 * 
 	 * @param idPlataforma
-	 *            identificador de la {@link Plataforma}
+	 *            Identificador de la {@link Plataforma}
 	 * @return {@link Plataforma}
 	 * @throws DaoException
-	 *             error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	Plataforma findById(int idPlataforma) throws DaoException;
 }
