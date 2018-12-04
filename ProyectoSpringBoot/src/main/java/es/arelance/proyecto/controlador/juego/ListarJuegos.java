@@ -45,7 +45,7 @@ public class ListarJuegos {
 	 * 
 	 * @param juego
 	 * @param model
-	 * @return formulario listaJuegos relleno
+	 * @return Formulario listaJuegos relleno
 	 */
 	@RequestMapping(value = "/listarJuegos", method = RequestMethod.GET)
 	public String execute(@ModelAttribute Juego juego, Model model) {
@@ -67,7 +67,7 @@ public class ListarJuegos {
 	 * @param idCategoria
 	 *            Identificador de la categoria seleccionada
 	 * @param model
-	 * @return formulario listaJuegos relleno y filtrado
+	 * @return Formulario listaJuegos relleno y filtrado
 	 */
 	@RequestMapping(value = "/listarPorCategoria", method = RequestMethod.GET)
 	public String listarPorCategoria(@ModelAttribute Juego juego,
@@ -91,7 +91,7 @@ public class ListarJuegos {
 	 * @param idPlataforma
 	 *            Identificador de la plataforma seleccionada
 	 * @param model
-	 * @return formulario listaJuegos relleno y filtrado
+	 * @return Formulario listaJuegos relleno y filtrado
 	 */
 	@RequestMapping(value = "/listarPorPlataforma", method = RequestMethod.GET)
 	public String listarPorPlataforma(@ModelAttribute Juego juego,
@@ -113,7 +113,7 @@ public class ListarJuegos {
 	 * @param juego
 	 *            Contiene el titulo a filtrar
 	 * @param model
-	 * @return formulario listaJuegos relleno y filtrado
+	 * @return Formulario listaJuegos relleno y filtrado
 	 */
 	@RequestMapping(value = "/listarJuegosFiltro", method = RequestMethod.GET)
 	public String listarJuegosFiltro(@ModelAttribute Juego juego, Model model) {

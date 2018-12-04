@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Clase que representa al tipo de un usuario
+ * Clase que representa al tipo de un {@link Usuario}
  * 
  * @author Francisco Molina Sanchez
  *

@@ -13,7 +13,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 /**
- * Clase que representa la categor�a a la que pertenece cada juego
+ * Clase que representa la categoria a la que pertenece cada {@link Juego}
  * 
  * @author Francisco Molina Sanchez
  *

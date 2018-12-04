@@ -42,16 +42,16 @@ public class GuardarJuegoUsuario {
 	 * Guardar un {@link JuegoUsuario} en el sistema
 	 * 
 	 * @param idJuego
-	 *            identificador del {@link Juego}
+	 *            Identificador del {@link Juego}
 	 * @param titulo
-	 *            titulo buscado
+	 *            Titulo buscado
 	 * @param idCategoria
-	 *            categoria filtrada
+	 *            Categoria filtrada
 	 * @param idPlataforma
-	 *            plataforma filtrada
+	 *            Plataforma filtrada
 	 * @param model
 	 * @param locale
-	 * @return listado de juegos (aplicando filtrado si es necesario)
+	 * @return Formulario con listado de juegos (aplicando filtrado si es necesario)
 	 * 
 	 */
 	@RequestMapping(method = RequestMethod.GET)

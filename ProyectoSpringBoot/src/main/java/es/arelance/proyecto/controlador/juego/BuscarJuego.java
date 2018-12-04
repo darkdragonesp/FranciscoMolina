@@ -45,7 +45,7 @@ public class BuscarJuego {
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
 	 * @param model
-	 * @return formulario para modificar el {@link Juego}
+	 * @return Formulario para modificar el {@link Juego}
 	 */
 	@RequestMapping(value = "/buscarJuego", method = RequestMethod.GET)
 	public String execute(@RequestParam int idJuego, Model model) {

@@ -66,7 +66,7 @@ public class GuardarJuego {
 	 * 
 	 * @param juego
 	 * @param model
-	 * @return formulario para crear un {@link Juego} nuevo
+	 * @return Formulario para crear un {@link Juego} nuevo
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String view(@ModelAttribute Juego juego, Model model) {
@@ -88,7 +88,7 @@ public class GuardarJuego {
 	 * @param result
 	 * @param model
 	 * @param locale
-	 * @return vuelve al formulario
+	 * @return Vuelve al formulario
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public String execute(@Valid Juego juego, BindingResult result, Model model,

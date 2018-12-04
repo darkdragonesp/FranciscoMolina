@@ -32,7 +32,7 @@ public class MostrarUsuario {
 	 * Muestra el perfil un {@link Usuario} del sistema
 	 * 
 	 * @param model
-	 * @return Página con la inforamción del {@link Usuario}
+	 * @return Página con la información del {@link Usuario}
 	 */
 	@RequestMapping(value = "/mostrarUsuario", method = RequestMethod.GET)
 	public String execute(Model model) {

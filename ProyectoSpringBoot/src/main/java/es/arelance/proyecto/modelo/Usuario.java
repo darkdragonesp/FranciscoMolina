@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 
 
 /**
- * Clase que representa a un usuario del sistema
+ * Clase que representa a un Usuario del sistema
  * 
  * @author Francisco Molina Sanchez
  *

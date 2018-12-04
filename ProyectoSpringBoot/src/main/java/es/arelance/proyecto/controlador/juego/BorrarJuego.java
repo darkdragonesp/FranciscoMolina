@@ -38,16 +38,16 @@ public class BorrarJuego {
 	 * Borra un {@link Juego} dado su identificador
 	 * 
 	 * @param idJuego
-	 *            identificador del {@link Juego}
+	 *            Identificador del {@link Juego}
 	 * @param model
 	 * @param locale
 	 * @param titulo
-	 *            titulo buscado
+	 *            Titulo buscado
 	 * @param idCategoria
-	 *            categoria filtrada
+	 *            Categoria filtrada
 	 * @param idPlataforma
-	 *            plataforma filtrada
-	 * @return listado de juegos (aplicando filtrado si es necesario)
+	 *            Plataforma filtrada
+	 * @return Listado de juegos (aplicando filtrado si es necesario)
 	 */
 	@RequestMapping(value = "/borrarJuego", method = RequestMethod.GET)
 	public String borrar(@RequestParam int idJuego, Model model, Locale locale,
