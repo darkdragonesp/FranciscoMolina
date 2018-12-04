@@ -31,11 +31,7 @@
 		</tr>
 		
 		<tr><td><spring:message code="juego.fechaLanzamiento"/>(*)</td>
-			<td>				
-				<%-- Formato de fecha --%>
-				<fmt:formatDate value="${juego.fechaLanzamiento}" pattern="yyyy-MM-dd" var="fechaLanzamiento"/>
-				<form:input path="fechaLanzamiento" value="${fechaLanzamiento}" type="date" required="required"/>
-			</td>
+			<td><form:input path="fechaLanzamiento" value="${fechaLanzamiento}" type="date" required="required"/></td>
 			<td><form:errors path="fechaLanzamiento" cssClass="error" /></td>
 		</tr>		
 
