@@ -41,14 +41,12 @@ public interface AnalisisDao {
 	 * Comprueba si ya existe un {@link Analisis} de un {@link Juego} y
 	 * {@link Usuario} para no crear duplicidad
 	 * 
-	 * @param usuario
-	 *            {@link Usuario}
-	 * @param juego
-	 *            {@link Juego}
+	 * @param analisis
+	 *            {@link Analisis}
 	 * @return {@code true} si existe; {@code false} en otro caso
 	 * @throws DaoException
 	 *             Error relativo a la base de datos
 	 */
-	boolean exist(Juego juego, Usuario usuario) throws DaoException;
+	boolean exist(Analisis analisis) throws DaoException;
 
 }

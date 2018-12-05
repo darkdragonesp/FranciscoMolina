@@ -60,7 +60,7 @@ public class AnalisisDaoImpl implements AnalisisDao {
 	}
 
 	@Override
-	public boolean exist(Juego juego, Usuario usuario) throws DaoException {
+	public boolean exist(Analisis analisis) throws DaoException {
 		Analisis res = null;
 		try {
 			String hql = "FROM Analisis a "
@@ -68,8 +68,8 @@ public class AnalisisDaoImpl implements AnalisisDao {
 					+ "AND a.juego.idJuego = :idJuego";
 			
 			res = (Analisis) sessionFactory.getCurrentSession().createQuery(hql)
-					.setParameter("idUsuario", usuario.getIdUsuario())
-					.setParameter("idJuego", juego.getIdJuego())
+					.setParameter("idUsuario", analisis.getUsuario().getIdUsuario())
+					.setParameter("idJuego",analisis.getJuego().getIdJuego())
 					.uniqueResult();
 
 		} catch (Exception ex) {
