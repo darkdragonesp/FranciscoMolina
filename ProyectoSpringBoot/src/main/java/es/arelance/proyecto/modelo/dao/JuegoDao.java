@@ -2,7 +2,9 @@ package es.arelance.proyecto.modelo.dao;
 
 import java.util.List;
 
+import es.arelance.proyecto.modelo.Categoria;
 import es.arelance.proyecto.modelo.Juego;
+import es.arelance.proyecto.modelo.Plataforma;
 
 /**
  * Interfaz DAO para la entidad {@link Juego}
@@ -52,15 +54,16 @@ public interface JuegoDao {
 	List<Juego> findAll() throws DaoException;
 
 	/**
-	 * Filtra las instancias de {@link Juego} existentes por titulo
+	 * Filtra todas las instancias de {@link Juego} existentes 
+	 * por titulo, {@link Categoria} y/o {@link Plataforma}
 	 * 
-	 * @param titulo
-	 *            Titulo del juego
+	 * @param juego
+	 *            Titulo, {@link Categoria} y/o {@link Plataforma} del {@link Juego}
 	 * @return Lista con los juegos que cumplen el filtro
 	 * @throws DaoException
 	 *             Error relativo a la base de datos
 	 */
-	List<Juego> filter(String titulo) throws DaoException;
+	List<Juego> filter(Juego juego) throws DaoException;
 
 	/**
 	 * Busca un {@link Juego} por su identificador

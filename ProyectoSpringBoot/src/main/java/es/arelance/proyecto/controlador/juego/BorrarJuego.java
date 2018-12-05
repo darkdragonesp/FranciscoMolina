@@ -41,17 +41,15 @@ public class BorrarJuego {
 	 *            Identificador del {@link Juego}
 	 * @param model
 	 * @param locale
-	 * @param titulo
-	 *            Titulo buscado
 	 * @param idCategoria
 	 *            Categoria filtrada
 	 * @param idPlataforma
 	 *            Plataforma filtrada
-	 * @return Listado de juegos (aplicando filtrado si es necesario)
+	 * @return Destino listado de juegos (aplicando filtrado si es necesario)
 	 */
 	@RequestMapping(value = "/borrarJuego", method = RequestMethod.GET)
 	public String borrar(@RequestParam int idJuego, Model model, Locale locale,
-			@RequestParam String titulo, @RequestParam Integer idCategoria,
+			@RequestParam Integer idCategoria,
 			@RequestParam Integer idPlataforma) {
 		try {
 			Juego juego = new Juego();
@@ -65,12 +63,11 @@ public class BorrarJuego {
 				return "forward:/listarPorCategoria";
 			} else if (idPlataforma != null) {
 				return "forward:/listarPorPlataforma";
-			} else if (titulo != null) {
-				return "forward:/listarJuegosFiltro";
 			} else {
 				return SUCCESS;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}

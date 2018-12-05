@@ -43,19 +43,17 @@ public class GuardarJuegoUsuario {
 	 * 
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
-	 * @param titulo
-	 *            Titulo buscado
 	 * @param idCategoria
 	 *            Categoria filtrada
 	 * @param idPlataforma
 	 *            Plataforma filtrada
 	 * @param model
 	 * @param locale
-	 * @return Formulario con listado de juegos (aplicando filtrado si es necesario)
+	 * @return Destino listado de juegos (aplicando filtrado si es necesario)
 	 * 
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String view(@RequestParam int idJuego, @RequestParam String titulo,
+	public String view(@RequestParam int idJuego,
 			@RequestParam Integer idCategoria,
 			@RequestParam Integer idPlataforma, Model model, Locale locale) {
 		try {
@@ -77,8 +75,6 @@ public class GuardarJuegoUsuario {
 				return "forward:/listarPorCategoria";
 			} else if (idPlataforma != null) {
 				return "forward:/listarPorPlataforma";
-			} else if (titulo != null) {
-				return "forward:/listarJuegosFiltro";
 			} else {
 				return SUCCESS;
 			}

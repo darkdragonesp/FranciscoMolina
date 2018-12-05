@@ -28,14 +28,14 @@ public interface JuegoSvc {
 
 	/**
 	 * Filtra todas las instancias de {@link Juego} existentes 
-	 * por titulo
+	 * por titulo, {@link Categoria} y/o {@link Plataforma}
 	 * 
-	 * @param titulo
-	 *            Titulo del {@link Juego}
+	 * @param juego
+	 *           Titulo, {@link Categoria} y/o {@link Plataforma} del {@link Juego}
 	 * @return Lista con los juegos que cumplen el filtro
 	 * @throws ServiceException
 	 */
-	Iterable<Juego> filtrar(String titulo) throws ServiceException;
+	Iterable<Juego> filtrar(Juego juego) throws ServiceException;
 
 	/**
 	 * Elimina un {@link Juego} del sistema

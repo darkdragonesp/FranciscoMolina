@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page errorPage="error.jsp"%>
+<%-- <%@ page errorPage="error.jsp"%> --%>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,24 @@
 		
 		<tr><td><spring:message code="juego.titulo"/></td>
 			<td><form:input path="titulo"/></td>
-			<td><input type="submit" value="<spring:message code="accion.filtrar"/>"/></td>
+			
+
+			<td><spring:message code="juego.categoria"/></td>
+			<td><form:select path="categoria.idCategoria" >
+					<form:option value="">&nbsp;</form:option>
+	    		 	<form:options items="${listaCategorias}"  itemLabel="nombre" itemValue="idCategoria"/>
+				</form:select>
+			</td>
+		
+			<td><spring:message code="juego.plataforma"/></td>
+			<td><form:select path="plataforma.idPlataforma" >
+					<form:option value="">&nbsp;</form:option>
+	    		 	<form:options items="${listaPlataformas}"  itemLabel="nombre" itemValue="idPlataforma"/>
+				</form:select>
+			</td>
+			
+		<td><input type="submit" value="<spring:message code="accion.filtrar"/>"/></td>
+		<td><input type="reset" value="<spring:message code="accion.limpiar"/>"/></td>
 		</tr>
 	</table>
 	
@@ -46,15 +63,14 @@
 				
 				<td><a href="guardarJuegoUsuario?idJuego=${item.idJuego}
 							&idCategoria=${param.idCategoria}
-							&idPlataforma=${param.idPlataforma}
-							&titulo=${param.titulo}">
+							&idPlataforma=${param.idPlataforma}">
 					<spring:message code="accion.agregar"/></a>
 				</td>	
 				<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message code="accion.editar"/></a></td>	
+				
 				<td><a href="borrarJuego?idJuego=${item.idJuego}
 							&idCategoria=${param.idCategoria}
-							&idPlataforma=${param.idPlataforma}
-							&titulo=${param.titulo}"
+							&idPlataforma=${param.idPlataforma}"
 					onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 					<spring:message code="accion.borrar"/></a></td>		
 			</tr>

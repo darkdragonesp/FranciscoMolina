@@ -26,9 +26,12 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
 public class ListarJuegos {
 
 	private static final String ATT_LISTA = "listaJuegos";
+	private static final String ATT_LISTA_CAT = "listaCategorias";
+	private static final String ATT_LISTA_PLAT = "listaPlataformas";
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "listaJuegos";
+	private static final String CARGAR_TIPOS = "forward:/cargarTipos";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -45,14 +48,13 @@ public class ListarJuegos {
 	 * 
 	 * @param juego
 	 * @param model
-	 * @return Formulario listaJuegos relleno
+	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarJuegos", method = RequestMethod.GET)
 	public String execute(@ModelAttribute Juego juego, Model model) {
 		try {
 			model.addAttribute(ATT_LISTA, svc.listar());
-
-			return SUCCESS;
+			return CARGAR_TIPOS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
@@ -67,7 +69,7 @@ public class ListarJuegos {
 	 * @param idCategoria
 	 *            Identificador de la categoria seleccionada
 	 * @param model
-	 * @return Formulario listaJuegos relleno y filtrado
+	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarPorCategoria", method = RequestMethod.GET)
 	public String listarPorCategoria(@ModelAttribute Juego juego,
@@ -76,7 +78,7 @@ public class ListarJuegos {
 			Categoria categoria = catSvc.buscarPorId(idCategoria);
 			model.addAttribute(ATT_LISTA, categoria.getJuegos());
 
-			return SUCCESS;
+			return CARGAR_TIPOS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
@@ -91,7 +93,7 @@ public class ListarJuegos {
 	 * @param idPlataforma
 	 *            Identificador de la plataforma seleccionada
 	 * @param model
-	 * @return Formulario listaJuegos relleno y filtrado
+	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarPorPlataforma", method = RequestMethod.GET)
 	public String listarPorPlataforma(@ModelAttribute Juego juego,
@@ -100,7 +102,7 @@ public class ListarJuegos {
 			Plataforma plataforma = platSvc.buscarPorId(idPlataforma);
 			model.addAttribute(ATT_LISTA, plataforma.getJuegos());
 
-			return SUCCESS;
+			return CARGAR_TIPOS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
@@ -113,13 +115,33 @@ public class ListarJuegos {
 	 * @param juego
 	 *            Contiene el titulo a filtrar
 	 * @param model
-	 * @return Formulario listaJuegos relleno y filtrado
+	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarJuegosFiltro", method = RequestMethod.GET)
 	public String listarJuegosFiltro(@ModelAttribute Juego juego, Model model) {
 		try {
-			model.addAttribute(ATT_LISTA, svc.filtrar(juego.getTitulo()));
+			model.addAttribute(ATT_LISTA, svc.filtrar(juego));
+			return CARGAR_TIPOS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute(ATT_ERROR, e);
+			return ERROR;
+		}
+	}
 
+	/**
+	 * Carga las listas necesarias para rellenar los selectores del buscador y
+	 * muestra la página con la lista de juegos
+	 * 
+	 * @param juego
+	 * @param model
+	 * @return Página con la lista de juegos
+	 */
+	@RequestMapping(value = "/cargarTipos", method = RequestMethod.GET)
+	public String cargarTipos(@ModelAttribute Juego juego, Model model) {
+		try {
+			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
+			model.addAttribute(ATT_LISTA_PLAT, platSvc.listar());
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
