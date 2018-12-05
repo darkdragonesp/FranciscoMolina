@@ -18,6 +18,38 @@ USE `proyecto`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `analisis`
+--
+
+DROP TABLE IF EXISTS `analisis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `analisis` (
+  `idAnalisis` int(11) NOT NULL AUTO_INCREMENT,
+  `nota` int(11) NOT NULL,
+  `comentario` text,
+  `fechaAlta` datetime NOT NULL,
+  `idJuego` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  PRIMARY KEY (`idAnalisis`),
+  KEY `FK_analisis_usuario_idx` (`idUsuario`),
+  KEY `FK_analisis_juego_idx` (`idJuego`),
+  CONSTRAINT `FK_analisis_juego` FOREIGN KEY (`idJuego`) REFERENCES `juego` (`idjuego`),
+  CONSTRAINT `FK_analisis_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idusuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `analisis`
+--
+
+LOCK TABLES `analisis` WRITE;
+/*!40000 ALTER TABLE `analisis` DISABLE KEYS */;
+INSERT INTO `analisis` VALUES (1,9,'Muy divertido','1999-03-03 00:00:00',1,4);
+/*!40000 ALTER TABLE `analisis` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categoria`
 --
 
@@ -62,7 +94,7 @@ CREATE TABLE `juego` (
   KEY `FK_juego_idPlataforma_idx` (`idPlataforma`),
   CONSTRAINT `FK_juego_idCategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idcategoria`),
   CONSTRAINT `FK_juego_idPlataforma` FOREIGN KEY (`idPlataforma`) REFERENCES `plataforma` (`idplataforma`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +103,7 @@ CREATE TABLE `juego` (
 
 LOCK TABLES `juego` WRITE;
 /*!40000 ALTER TABLE `juego` DISABLE KEYS */;
-INSERT INTO `juego` VALUES (1,'Super Mario Bros','2018-11-12',NULL,2,1),(2,'Mario Kart','2018-11-12',NULL,1,1),(3,'Sonic the Hedgehog','2018-11-12',NULL,2,2);
+INSERT INTO `juego` VALUES (1,'Super Mario Bros','2018-11-12',NULL,2,1),(2,'Mario Kart','2018-11-12',NULL,1,1),(3,'Sonic the Hedgehog','2018-11-12',NULL,2,2),(14,'3','2018-12-04','',3,4),(16,'22','2018-12-12','',3,4),(21,'asdas22','2018-12-05','asda',2,4),(22,'11111','2018-12-04','',3,4),(23,'asdasd','2018-12-18','',3,4),(36,'11','2018-12-12','',3,4);
 /*!40000 ALTER TABLE `juego` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +123,7 @@ CREATE TABLE `juego_usuario` (
   KEY `FK_idJuegoUsuario_idx` (`idJuego`),
   CONSTRAINT `FK_idJuegoUsuario` FOREIGN KEY (`idJuego`) REFERENCES `juego` (`idjuego`),
   CONSTRAINT `FK_idUsuarioJuego` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idusuario`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +132,7 @@ CREATE TABLE `juego_usuario` (
 
 LOCK TABLES `juego_usuario` WRITE;
 /*!40000 ALTER TABLE `juego_usuario` DISABLE KEYS */;
-INSERT INTO `juego_usuario` VALUES (1,4,1),(2,4,2),(3,4,3),(4,5,1),(5,5,3);
+INSERT INTO `juego_usuario` VALUES (23,4,3);
 /*!40000 ALTER TABLE `juego_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,8 +203,8 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idUsuario`),
   UNIQUE KEY `apodo_UNIQUE` (`nombreUsuario`),
   KEY `FK_usuario_idTipo_idx` (`tipoUsuario`),
-  CONSTRAINT `FK_usuario_idTipo` FOREIGN KEY (`tipoUsuario`) REFERENCES `tipo_usuario` (`idtipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `FK_usuario_idTipo` FOREIGN KEY (`tipoUsuario`) REFERENCES `tipo_usuario` (`idTipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +213,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (4,'admin','admin@admin.com','admin',1,'2018-11-12 16:11:17'),(5,'Pepe','pepe@admin.com','admin',2,'2018-11-12 16:12:46'),(6,'Juan','juan@admin.com','admin',2,'2018-11-12 16:13:02'),(7,'Fran','fran@admin.com','admin',2,'2018-11-12 16:13:04');
+INSERT INTO `usuario` VALUES (4,'admin','admin@admin.com','admin',1,'2018-11-12 16:11:17'),(5,'Pepe','pepe@admin.com','admin',2,'2018-11-12 16:12:46'),(6,'Juan','juan@admin.com','admin',2,'2018-11-12 16:13:02'),(7,'Fran','fran@admin.com','admin',2,'2018-11-12 16:13:04'),(8,'pepito','pep@pep.com','pepito',2,'2018-12-03 18:37:20'),(9,'pep','pep@pep','pep',2,'2018-12-03 18:38:38'),(10,'1','1@1','1',2,'2018-12-03 18:43:01'),(11,'2','2@2','2',2,'2018-12-03 18:44:29'),(12,'3','2@2','3',2,'2018-12-03 18:45:29'),(13,'4','4@4','4',2,'2018-12-03 18:46:03'),(14,'23','23@2','23',2,'2018-12-03 18:50:15'),(16,'aaa','aaa@aaa','aaa',2,'2018-12-03 18:52:10'),(17,'','asd@asd','22',2,'2018-12-03 19:33:22');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -194,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-13 17:53:48
+-- Dump completed on 2018-12-05 19:00:45
