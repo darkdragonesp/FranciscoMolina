@@ -69,5 +69,14 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 		return res!=null;
 	}
 
+	@Override
+	public void delete(JuegoUsuario juegoUsuario) throws DaoException {
+		try {
+			sessionFactory.getCurrentSession().delete(juegoUsuario);
+		} catch (Exception ex) {
+			throw new DaoException(ex);
+		}
+	}
+
 
 }

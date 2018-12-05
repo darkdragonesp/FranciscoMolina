@@ -1,5 +1,6 @@
 package es.arelance.proyecto.servicios;
 
+import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 
@@ -29,4 +30,13 @@ public interface JuegoUsuarioSvc {
 	 */
 	Iterable<JuegoUsuario> listarPorUsuario(Usuario usuario)
 			throws ServiceException;
+
+	/**
+	 * Elimina un {@link JuegoUsuario} del sistema
+	 * 
+	 * @param juegoUsuario
+	 *            Identificador del {@link JuegoUsuario}
+	 * @throws ServiceException
+	 */
+	void eliminar(JuegoUsuario juegoUsuario) throws ServiceException;
 }

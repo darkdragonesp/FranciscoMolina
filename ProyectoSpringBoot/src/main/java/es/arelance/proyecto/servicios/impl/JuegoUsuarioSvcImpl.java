@@ -46,4 +46,13 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 		}
 	}
 
+	@Override
+	public void eliminar(JuegoUsuario juegoUsuario) throws ServiceException {
+		try {
+			dao.delete(juegoUsuario);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
+	}
+
 }

@@ -2,6 +2,7 @@ package es.arelance.proyecto.modelo.dao;
 
 import java.util.List;
 
+import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 
@@ -47,4 +48,14 @@ public interface JuegoUsuarioDao {
 	 *             Error relativo a la base de datos
 	 */
 	boolean exist(JuegoUsuario juegoUsuario) throws DaoException;
+
+	/**
+	 * Elimina un {@link JuegoUsuario} del sistema
+	 * 
+	 * @param juegoUsuario
+	 *            {@link JuegoUsuario} a eliminar
+	 * @throws DaoException
+	 *             Error relativo a la base de datos
+	 */
+	void delete(JuegoUsuario juegoUsuario) throws DaoException;
 }

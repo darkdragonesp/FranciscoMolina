@@ -31,10 +31,14 @@
 				<td><a href="listarPorPlataforma?idPlataforma=${item.juego.plataforma.idPlataforma}">${item.juego.plataforma.nombre}</a></td>
 				<td><fmt:formatDate value="${item.juego.fechaLanzamiento}" pattern="dd-MM-yyyy"/></td>	
 				<td>${item.juego.descripcion}</td>
-	
+				<td><a href="borrarJuegoUsuario?idJuegoUsuario=${item.idJuegoUsuario}"
+					onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
+					<spring:message code="accion.borrar"/></a></td>	
 			</tr>
 		</c:forEach>
 	</table>
+	<br>
+		${msg}
 	<br>
 	<a href="inicio"><spring:message code="accion.inicio"/></a>
 </body>

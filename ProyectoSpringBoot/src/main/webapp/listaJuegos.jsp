@@ -76,6 +76,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<br>
 	${msg}
 	<br>
 	<a href="inicio"><spring:message code="accion.inicio"/></a>
