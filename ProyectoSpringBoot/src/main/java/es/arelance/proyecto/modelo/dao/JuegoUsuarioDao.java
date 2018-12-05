@@ -7,7 +7,7 @@ import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 
 /**
- * Interfaz DAO para la entidad {@link juegoUsuario} que representa los juegos
+ * Interfaz DAO para la entidad {@link JuegoUsuario} que representa los juegos
  * pertenecientes a un usuario
  * 
  * @author Francisco Molina Sanchez
