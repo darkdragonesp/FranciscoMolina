@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Usuario;
+import es.arelance.proyecto.modelo.dao.AnalisisDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.servicios.AnalisisSvc;
 import es.arelance.proyecto.servicios.ServiceException;
@@ -22,7 +23,7 @@ import es.arelance.proyecto.servicios.ServiceException;
 public class AnalisisSvcImpl implements AnalisisSvc {
 
 	@Autowired
-	private Analisis dao;
+	private AnalisisDao dao;
 
 	@Override
 	public void guardar(Analisis analisis) throws ServiceException {
