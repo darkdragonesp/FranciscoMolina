@@ -26,7 +26,7 @@
 		</tr>
 		<c:forEach items="${listaJuegos}" var="item">
 			<tr>
-				<td>${item.juego.titulo}</td>
+				<td><a href="mostrarJuego?idJuego=${item.juego.idJuego}">${item.juego.titulo}</a></td>
 				<td><a href="listarPorCategoria?idCategoria=${item.juego.categoria.idCategoria}">${item.juego.categoria.nombre}</a></td>
 				<td><a href="listarPorPlataforma?idPlataforma=${item.juego.plataforma.idPlataforma}">${item.juego.plataforma.nombre}</a></td>
 				<td><fmt:formatDate value="${item.juego.fechaLanzamiento}" pattern="dd-MM-yyyy"/></td>	
