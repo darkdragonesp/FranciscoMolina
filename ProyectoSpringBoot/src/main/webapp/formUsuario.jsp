@@ -33,6 +33,9 @@
 				<tr><td><input type="submit" value="<spring:message code="accion.registrar"/>"/></td></tr>
 		</table>
 	</form:form>
+	<br>
+		${msg}
+	<br>
 	<a href="inicio"><spring:message code="accion.inicio"/></a>
 </body>
 </html>

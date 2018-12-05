@@ -6,6 +6,7 @@ import java.util.Locale;
 
 import javax.validation.Valid;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.MessageSource;
@@ -117,8 +118,15 @@ public class GuardarJuego {
 				return SUCCESS;
 			}
 		} catch (Exception e) {
-			model.addAttribute(ATT_ERROR, e);
-			return ERROR;
+			e.printStackTrace();
+			if (e.getCause().getCause() instanceof ConstraintViolationException) {
+				model.addAttribute(ATT_EXITO, messages
+						.getMessage("mensaje.error.guardar", null, locale));
+				return SUCCESS;
+			} else {
+				model.addAttribute(ATT_ERROR, e);
+				return ERROR;
+			}	
 		}
 	}
 

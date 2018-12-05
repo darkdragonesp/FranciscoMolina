@@ -2,6 +2,7 @@ package es.arelance.proyecto.controlador.juego;
 
 import java.util.Locale;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ public class BorrarJuego {
 
 	private static final String SUCCESS = "forward:/listarJuegos";
 	private static final String ERROR = "error";
+	
 
 	@Autowired
 	private JuegoSvc svc;
@@ -68,8 +70,14 @@ public class BorrarJuego {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			model.addAttribute(ATT_ERROR, e);
-			return ERROR;
+			if (e.getCause() instanceof ConstraintViolationException) {
+				model.addAttribute(ATT_EXITO, messages
+						.getMessage("mensaje.error.borrar", null, locale));
+				return SUCCESS;
+			} else {
+				model.addAttribute(ATT_ERROR, e);
+				return ERROR;
+			}	
 		}
 	}
 

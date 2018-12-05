@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import javax.validation.Valid;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -27,7 +28,6 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
 @Controller
 @RequestMapping(value = "/guardarUsuario")
 public class GuardarUsuario {
-	
 
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
@@ -36,20 +36,21 @@ public class GuardarUsuario {
 	private static final String SUCCESS = "forward:/inicio";
 	private static final String ERROR = "error";
 
-	
 	@Autowired
 	private UsuarioSvc svc;
-	
+
 	@Autowired
 	private MessageSource messages;
+
 	/**
 	 * Muestra el formulario de registro de {@link Usuario}
+	 * 
 	 * @param usuario
 	 * @param model
 	 * @return Formulario de registro de {@link Usuario}
 	 */
-	@RequestMapping(method=RequestMethod.GET)
-    public String view(@ModelAttribute Usuario usuario, Model model) {
+	@RequestMapping(method = RequestMethod.GET)
+	public String view(@ModelAttribute Usuario usuario, Model model) {
 		try {
 			return FORM;
 		} catch (Exception e) {
@@ -60,34 +61,45 @@ public class GuardarUsuario {
 
 	/**
 	 * Valida y guarda un {@link Usuario}
-	 * @param usuario {@link Usuario}
+	 * 
+	 * @param usuario
+	 *            {@link Usuario}
 	 * @param result
 	 * @param model
 	 * @param locale
 	 * @return Página de login
 	 */
-    @RequestMapping(method=RequestMethod.POST)
-    public String execute(@Valid Usuario usuario, BindingResult result, Model model, Locale locale) {
+	@RequestMapping(method = RequestMethod.POST)
+	public String execute(@Valid Usuario usuario, BindingResult result,
+			Model model, Locale locale) {
 		try {
-			if (result.hasErrors()){
+			if (result.hasErrors()) {
 				return FORM;
-			}else {
+			} else {
 				usuario.setFechaAlta(new Date());
-				TipoUsuario tipo =new TipoUsuario(2);
+				TipoUsuario tipo = new TipoUsuario(2);
 				usuario.setTipoUsuario(tipo);
-				
+
 				svc.guardar(usuario);
-				
-				model.addAttribute(ATT_EXITO, messages.getMessage("mensaje.exito.registrar", null, locale));
-				
+
+				model.addAttribute(ATT_EXITO, messages
+						.getMessage("mensaje.exito.registrar", null, locale));
+
 				return SUCCESS;
 			}
-			
+
 		} catch (Exception e) {
-			model.addAttribute(ATT_ERROR, e);
-			return ERROR;
+			e.printStackTrace();
+			if (e.getCause()
+					.getCause() instanceof ConstraintViolationException) {
+				model.addAttribute(ATT_EXITO, messages
+						.getMessage("mensaje.error.registrar", null, locale));
+				return FORM;
+			} else {
+				model.addAttribute(ATT_ERROR, e);
+				return ERROR;
+			}
 		}
-    }
-    
+	}
 
 }
