@@ -40,9 +40,7 @@ public class MostrarJuego {
 	@RequestMapping(value = "/mostrarJuego", method = RequestMethod.GET)
 	public String execute(@RequestParam int idJuego, Model model) {
 		try {
-			Juego juego = svc.buscar(idJuego,true);
-			
-			model.addAttribute(ATT_ITEM, juego);
+			model.addAttribute(ATT_ITEM, svc.buscar(idJuego,true));
 
 			return SUCCESS;
 		} catch (Exception e) {

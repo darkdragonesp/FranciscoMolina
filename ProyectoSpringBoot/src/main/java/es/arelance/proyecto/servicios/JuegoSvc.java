@@ -62,7 +62,8 @@ public interface JuegoSvc {
 	 * @param idJuego
 	 *            Identificador del {@link Juego} a buscar
 	 * @param fetch
-	 *            Si {@code true} obtiene relaciones de {@link Juego}
+	 *            Si {@code true} obtiene relaciones de {@link Juego};
+	 *            Si {@code false} no realiza el fetch
 	 * @return {@link Juego} si encontrado; null en otro caso
 	 * @throws ServiceException
 	 */
