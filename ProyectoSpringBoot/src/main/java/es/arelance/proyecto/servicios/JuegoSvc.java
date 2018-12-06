@@ -27,11 +27,12 @@ public interface JuegoSvc {
 	Iterable<Juego> listar() throws ServiceException;
 
 	/**
-	 * Filtra todas las instancias de {@link Juego} existentes 
-	 * por titulo, {@link Categoria} y/o {@link Plataforma}
+	 * Filtra todas las instancias de {@link Juego} existentes por titulo,
+	 * {@link Categoria} y/o {@link Plataforma}
 	 * 
 	 * @param juego
-	 *           Titulo, {@link Categoria} y/o {@link Plataforma} del {@link Juego}
+	 *            Titulo, {@link Categoria} y/o {@link Plataforma} del
+	 *            {@link Juego}
 	 * @return Lista con los juegos que cumplen el filtro
 	 * @throws ServiceException
 	 */
@@ -60,9 +61,11 @@ public interface JuegoSvc {
 	 * 
 	 * @param idJuego
 	 *            Identificador del {@link Juego} a buscar
+	 * @param fetch
+	 *            Si {@code true} obtiene relaciones de {@link Juego}
 	 * @return {@link Juego} si encontrado; null en otro caso
 	 * @throws ServiceException
 	 */
-	Juego buscar(Integer idJuego) throws ServiceException;
+	Juego buscar(Integer idJuego, boolean fetch) throws ServiceException;
 
 }

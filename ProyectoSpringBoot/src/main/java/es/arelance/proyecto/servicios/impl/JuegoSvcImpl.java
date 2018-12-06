@@ -1,5 +1,6 @@
 package es.arelance.proyecto.servicios.impl;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -75,10 +76,13 @@ public class JuegoSvcImpl implements JuegoSvc {
 	}
 
 	@Override
-	public Juego buscar(Integer idJuego) throws ServiceException {
+	public Juego buscar(Integer idJuego,boolean fetch) throws ServiceException {
 		Juego res=null;
 		try {
 			res=dao.findById(idJuego);
+			if(fetch) {
+				Hibernate.initialize(res.getAnalisis());
+			}
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}

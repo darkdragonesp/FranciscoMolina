@@ -94,7 +94,7 @@ public class Juego {
 		this.plataforma = plataforma;
 	}
 	
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="juego")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="juego")
 	@OrderBy("fechaAlta DESC")
 	public Set<Analisis> getAnalisis() {
 		return analisis;

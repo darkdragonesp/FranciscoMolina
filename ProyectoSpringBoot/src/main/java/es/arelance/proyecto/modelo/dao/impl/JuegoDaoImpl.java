@@ -93,8 +93,7 @@ public class JuegoDaoImpl implements JuegoDao {
 	public Juego findById(Integer idJuego) throws DaoException {
 		Juego res = null;
 		try {
-			res = (Juego) sessionFactory.getCurrentSession().get(Juego.class,
-					idJuego);
+			res = (Juego) sessionFactory.getCurrentSession().get(Juego.class,idJuego);
 		} catch (Exception ex) {
 			throw new DaoException(ex);
 		}

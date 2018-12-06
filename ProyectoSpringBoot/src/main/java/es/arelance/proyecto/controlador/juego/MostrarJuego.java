@@ -29,11 +29,8 @@ public class MostrarJuego {
 	@Autowired
 	private JuegoSvc svc;
 
-
-
 	/**
-	 * Obtiene el {@link Juego} dado su identificador y carga 
-	 * la ficha del juego
+	 * Obtiene el {@link Juego} dado su identificador y carga la ficha del juego
 	 * 
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
@@ -43,10 +40,13 @@ public class MostrarJuego {
 	@RequestMapping(value = "/mostrarJuego", method = RequestMethod.GET)
 	public String execute(@RequestParam int idJuego, Model model) {
 		try {
-			model.addAttribute(ATT_ITEM, svc.buscar(idJuego));
+			Juego juego = svc.buscar(idJuego,true);
+			
+			model.addAttribute(ATT_ITEM, juego);
 
 			return SUCCESS;
 		} catch (Exception e) {
+			e.printStackTrace();
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
