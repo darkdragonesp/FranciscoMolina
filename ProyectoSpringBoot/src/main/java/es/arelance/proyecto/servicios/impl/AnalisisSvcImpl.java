@@ -28,7 +28,7 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 		try {
 			if (!dao.exist(analisis)) {
 				dao.save(analisis);
-			}else {
+			} else {
 				throw new ServiceException("duplicidad");
 			}
 		} catch (DaoException e) {
@@ -46,5 +46,14 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 		}
 	}
 
-
+	@Override
+	public Integer notaMedia(int idJuego) throws ServiceException {
+		Integer res = null;
+		try {
+			res = dao.avg(idJuego);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
+		return res;
+	}
 }

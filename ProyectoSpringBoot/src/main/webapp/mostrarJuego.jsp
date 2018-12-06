@@ -40,6 +40,11 @@
 			<td>${juego.descripcion}</td>
 			
 		</tr>
+		<tr>	
+			<th><spring:message code="juego.analisis.notaMedia"/></th>
+			<td>${notaMedia}</td>
+			
+		</tr>
 
 	</table>
 	<br>

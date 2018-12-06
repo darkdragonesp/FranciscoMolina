@@ -76,4 +76,5 @@ public interface JuegoDao {
 	 */
 	Juego findById(Integer idJuego) throws DaoException;
 
+
 }

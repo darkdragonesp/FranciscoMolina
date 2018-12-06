@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Usuario;
+import es.arelance.proyecto.servicios.AnalisisSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
 
 /**
@@ -30,6 +31,9 @@ public class MostrarJuego {
 
 	@Autowired
 	private JuegoSvc svc;
+	
+	@Autowired
+	private AnalisisSvc anSvc;
 
 	/**
 	 * Obtiene el {@link Juego} dado su identificador y carga la ficha del juego
@@ -42,7 +46,9 @@ public class MostrarJuego {
 	@RequestMapping(value = "/mostrarJuego")
 	public String execute(@RequestParam int idJuego,@ModelAttribute Analisis analisis, Model model) {
 		try {
-			model.addAttribute(ATT_ITEM, svc.buscar(idJuego,true));
+			Juego juego= svc.buscar(idJuego,true);
+			model.addAttribute(ATT_ITEM,juego);
+			model.addAttribute("notaMedia", anSvc.notaMedia(idJuego));
 			//TODO meter usuario de la sesion
 			Usuario u = new Usuario();
 			u.setIdUsuario(4);

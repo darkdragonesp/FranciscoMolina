@@ -42,4 +42,6 @@ public interface AnalisisDao {
 	 *             Error relativo a la base de datos
 	 */
 	void delete(Analisis analisis) throws DaoException;
+
+	Integer avg(int idJuego) throws DaoException;
 }

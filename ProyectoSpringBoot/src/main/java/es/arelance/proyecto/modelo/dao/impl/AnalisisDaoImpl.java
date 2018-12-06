@@ -36,17 +36,18 @@ public class AnalisisDaoImpl implements AnalisisDao {
 			String hql = "FROM Analisis a "
 					+ "WHERE a.usuario.idUsuario = :idUsuario "
 					+ "AND a.juego.idJuego = :idJuego";
-			
+
 			res = (Analisis) sessionFactory.getCurrentSession().createQuery(hql)
-					.setParameter("idUsuario", analisis.getUsuario().getIdUsuario())
-					.setParameter("idJuego",analisis.getJuego().getIdJuego())
+					.setParameter("idUsuario",
+							analisis.getUsuario().getIdUsuario())
+					.setParameter("idJuego", analisis.getJuego().getIdJuego())
 					.uniqueResult();
 
 		} catch (Exception ex) {
 			throw new DaoException(ex);
 		}
 
-		return res!=null;
+		return res != null;
 	}
 
 	@Override
@@ -58,5 +59,17 @@ public class AnalisisDaoImpl implements AnalisisDao {
 		}
 	}
 
+	@Override
+	public Integer avg(int idJuego) throws DaoException {
+		Integer res=null;
+		try {
+			String hql="SELECT CEILING(AVG(a.nota)) FROM Analisis a WHERE a.juego.idJuego = "+idJuego;
+			res = (Integer) sessionFactory.getCurrentSession().createQuery(hql)
+					.uniqueResult();
+		} catch (Exception ex) {
+			throw new DaoException(ex);
+		}
+		return res;
+	}
 
 }

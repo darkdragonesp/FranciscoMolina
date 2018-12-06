@@ -69,4 +69,6 @@ public interface JuegoSvc {
 	 */
 	Juego buscar(Integer idJuego, boolean fetch) throws ServiceException;
 
+
+
 }

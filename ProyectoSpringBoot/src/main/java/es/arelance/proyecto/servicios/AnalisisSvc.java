@@ -27,4 +27,5 @@ public interface AnalisisSvc {
 	 */
 	void eliminar(Analisis analisis) throws ServiceException;
 
+	Integer notaMedia(int idJuego) throws ServiceException;
 }

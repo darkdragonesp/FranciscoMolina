@@ -21,12 +21,11 @@ import es.arelance.proyecto.servicios.ServiceException;
 @Service
 @Transactional
 public class JuegoSvcImpl implements JuegoSvc {
-	
+
 	@Autowired
 	private JuegoDao dao;
-	
 
-	@Transactional (propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
 	public void guardar(Juego juego) throws ServiceException {
 		try {
@@ -46,8 +45,7 @@ public class JuegoSvcImpl implements JuegoSvc {
 	}
 
 	@Override
-	public Iterable<Juego> filtrar(Juego juego)
-			throws ServiceException {
+	public Iterable<Juego> filtrar(Juego juego) throws ServiceException {
 		try {
 			return dao.filter(juego);
 		} catch (DaoException e) {
@@ -55,7 +53,7 @@ public class JuegoSvcImpl implements JuegoSvc {
 		}
 	}
 
-	@Transactional (propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
 	public void eliminar(Juego juego) throws ServiceException {
 		try {
@@ -65,7 +63,7 @@ public class JuegoSvcImpl implements JuegoSvc {
 		}
 	}
 
-	@Transactional (propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
 	public void modificar(Juego juego) throws ServiceException {
 		try {
@@ -76,11 +74,12 @@ public class JuegoSvcImpl implements JuegoSvc {
 	}
 
 	@Override
-	public Juego buscar(Integer idJuego,boolean fetch) throws ServiceException {
-		Juego res=null;
+	public Juego buscar(Integer idJuego, boolean fetch)
+			throws ServiceException {
+		Juego res = null;
 		try {
-			res=dao.findById(idJuego);
-			if(fetch) {
+			res = dao.findById(idJuego);
+			if (fetch) {
 				Hibernate.initialize(res.getAnalisis());
 			}
 		} catch (DaoException e) {
@@ -88,5 +87,7 @@ public class JuegoSvcImpl implements JuegoSvc {
 		}
 		return res;
 	}
+
+
 
 }
