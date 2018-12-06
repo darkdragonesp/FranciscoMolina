@@ -33,4 +33,13 @@ public interface AnalisisDao {
 	 */
 	boolean exist(Analisis analisis) throws DaoException;
 
+	/**
+	 * Elimina un {@link Analisis} del sistema
+	 * 
+	 * @param analisis
+	 *            {@link Analisis} a eliminar
+	 * @throws DaoException
+	 *             Error relativo a la base de datos
+	 */
+	void delete(Analisis analisis) throws DaoException;
 }

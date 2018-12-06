@@ -37,5 +37,14 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 
 	}
 
+	@Override
+	public void eliminar(Analisis analisis) throws ServiceException {
+		try {
+			dao.delete(analisis);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
+	}
+
 
 }

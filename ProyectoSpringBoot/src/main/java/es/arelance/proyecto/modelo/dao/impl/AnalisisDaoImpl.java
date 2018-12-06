@@ -49,5 +49,14 @@ public class AnalisisDaoImpl implements AnalisisDao {
 		return res!=null;
 	}
 
+	@Override
+	public void delete(Analisis analisis) throws DaoException {
+		try {
+			sessionFactory.getCurrentSession().delete(analisis);
+		} catch (Exception ex) {
+			throw new DaoException(ex);
+		}
+	}
+
 
 }

@@ -18,4 +18,13 @@ public interface AnalisisSvc {
 	 */
 	void guardar(Analisis analisis) throws ServiceException;
 
+	/**
+	 * Elimina un {@link Analisis} del sistema
+	 * 
+	 * @param analisis
+	 *            Identificador del {@link Analisis}
+	 * @throws ServiceException
+	 */
+	void eliminar(Analisis analisis) throws ServiceException;
+
 }
