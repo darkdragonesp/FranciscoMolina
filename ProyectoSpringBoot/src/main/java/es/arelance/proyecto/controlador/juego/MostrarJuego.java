@@ -19,7 +19,7 @@ import es.arelance.proyecto.servicios.JuegoSvc;
 @Controller
 public class MostrarJuego {
 
-	private static final String ATT_ITEM = "item";
+	private static final String ATT_ITEM = "juego";
 
 	private static final String ATT_ERROR = "error";
 
@@ -33,7 +33,7 @@ public class MostrarJuego {
 
 	/**
 	 * Obtiene el {@link Juego} dado su identificador y carga 
-	 * la ficha del jueg
+	 * la ficha del juego
 	 * 
 	 * @param idJuego
 	 *            Identificador del {@link Juego}

@@ -19,36 +19,54 @@
 	<table>
 		<tr>
 			<th><spring:message code="juego.titulo"/></th>
-			<td>${item.titulo}</td>
+			<td>${juego.titulo}</td>
 		</tr>
 		<tr>
 			<th><spring:message code="juego.categoria"/></th>
-			<td><a href="listarPorCategoria?idCategoria=${item.categoria.idCategoria}">${item.categoria.nombre}</a></td>
+			<td><a href="listarPorCategoria?idCategoria=${juego.categoria.idCategoria}">${juego.categoria.nombre}</a></td>
 		</tr>
 		<tr>	
 			<th><spring:message code="juego.plataforma"/></th>
-			<td><a href="listarPorPlataforma?idPlataforma=${item.plataforma.idPlataforma}">${item.plataforma.nombre}</a></td>
+			<td><a href="listarPorPlataforma?idPlataforma=${juego.plataforma.idPlataforma}">${juego.plataforma.nombre}</a></td>
 		</tr>
 		<tr>	
 			<th><spring:message code="juego.fechaLanzamiento"/></th>
-			<td><fmt:formatDate value="${item.fechaLanzamiento}" pattern="dd-MM-yyyy"/></td>	
+			<td><fmt:formatDate value="${juego.fechaLanzamiento}" pattern="dd-MM-yyyy"/></td>	
 		</tr>
 		<tr>	
 			<th><spring:message code="juego.descripcion"/></th>
-			<td>${item.descripcion}</td>
+			<td>${juego.descripcion}</td>
 			
 		</tr>
-		
-			
-				
-				
-				
-		
-		
+
 	</table>
 	<br>
 	${msg}
 	<br>
+	
+	<h3><spring:message code="juego.analisis"/></h3>
+	<table>
+		<c:forEach items="${juego.analisis}" var="analisis">
+			
+				<tr>
+					<th><spring:message code="juego.analisis.fechaAlta"/></th>
+					<td>${analisis.fechaAlta}</td>
+					<th><spring:message code="usuario.autor"/></th>
+					<td>${analisis.usuario.nombreUsuario}</td>
+				</tr>
+				<tr>
+					<th><spring:message code="juego.analisis.nota"/></th>
+					<td>${analisis.nota}</td>
+				</tr>
+		
+				<tr>
+					<th><spring:message code="juego.analisis.comentario"/></th>
+					<td>${analisis.comentario}</td>
+				</tr>
+			
+		</c:forEach>
+	</table>
+	
 	<a href="inicio"><spring:message code="accion.inicio"/></a>
 </body>
 </html>
