@@ -59,7 +59,7 @@
 		</tr>
 		
 		<tr><td><spring:message code="juego.analisis.comentario"/></td>
-			<td><form:textarea path="comentario" rows="8" cols="30" required="required"/></td>
+			<td><form:textarea path="comentario" required="required"/></td>
 			<td><form:errors path="comentario" cssClass="error" /></td>
 		</tr>
 			

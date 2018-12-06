@@ -1,5 +1,6 @@
 package es.arelance.proyecto.servicios.impl;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,7 +21,7 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
 @Service
 @Transactional
 public class UsuarioSvcImpl implements UsuarioSvc {
-	
+
 	@Autowired
 	private UsuarioDao dao;
 
@@ -28,24 +29,28 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 	public Usuario acceder(String nombreUsuario, String contrasena)
 			throws ServiceException {
 		try {
-			return dao.findByNameAndPass(nombreUsuario,
-					contrasena);
+			return dao.findByNameAndPass(nombreUsuario, contrasena);
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}
 	}
 
 	@Override
-	public Usuario obtenPorId(Integer idUsuario)
+	public Usuario obtenPorId(Integer idUsuario, boolean fetch)
 			throws ServiceException {
+		Usuario res = null;
 		try {
-			return dao.findById(idUsuario);
+			res = dao.findById(idUsuario);
+			if (fetch) {
+				Hibernate.initialize(res.getAnalisis());
+			}
+			return res;
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}
 	}
 
-	@Transactional (propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	@Override
 	public void guardar(Usuario usuario) throws ServiceException {
 		try {

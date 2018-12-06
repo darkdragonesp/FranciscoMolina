@@ -1,14 +1,18 @@
 package es.arelance.proyecto.modelo;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,6 +37,8 @@ public class Usuario {
 	private TipoUsuario tipoUsuario;
 	private Date fechaAlta;
 
+	private Set<Analisis> analisis;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdUsuario() {
@@ -95,4 +101,12 @@ public class Usuario {
 		this.fechaAlta = fechaAlta;
 	}
 
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")
+	@OrderBy("fechaAlta DESC")
+	public Set<Analisis> getAnalisis() {
+		return analisis;
+	}
+	public void setAnalisis(Set<Analisis> analisis) {
+		this.analisis = analisis;
+	}
 }

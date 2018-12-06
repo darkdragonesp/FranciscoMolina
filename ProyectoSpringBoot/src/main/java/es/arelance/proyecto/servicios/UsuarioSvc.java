@@ -1,5 +1,6 @@
 package es.arelance.proyecto.servicios;
 
+import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Usuario;
 
 /**
@@ -30,13 +31,16 @@ public interface UsuarioSvc {
 	 * @return Usuario si encontrado; null en otro caso
 	 * @throws ServiceException
 	 */
-	Usuario obtenPorId(Integer id) throws ServiceException;
+	Usuario obtenPorId(Integer id, boolean fetch) throws ServiceException;
 
 	/**
 	 * Guarda un {@link Usuario} nuevo
 	 * 
 	 * @param Usuario
 	 *            {@link Usuario} a guardar
+	 * @param fetch
+	 *            Si {@code true} obtiene relaciones de {@link Juego}; Si
+	 *            {@code false} no realiza el fetch
 	 * @throws ServiceException
 	 */
 	void guardar(Usuario usuario) throws ServiceException;

@@ -14,6 +14,7 @@
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
+<!-- Perfil de usuario -->
 	<h2><spring:message code="usuario.perfil"/></h2>
 	
 	<table>
@@ -29,6 +30,31 @@
 
 	</table>
 	<br>
+	<!-- 	Lista de Analisis -->
+	<h3><spring:message code="juego.analisis"/></h3>
+
+	<table>
+		
+			
+				<tr>
+				<th><spring:message code="juego.analisis.fechaAlta"/></th>	
+					<th><spring:message code="juego.titulo"/></th>
+					<th><spring:message code="juego.analisis.nota"/></th>
+					<th><spring:message code="juego.analisis.comentario"/></th>
+					
+				</tr>
+				<c:forEach items="${usuario.analisis}" var="item">
+				<tr>
+					<td><fmt:formatDate value="${item.fechaAlta}" pattern="dd-MM-yyyy hh:MM:ss"/></td>
+					<td>${item.juego.titulo}</td>	
+					
+					<td>${item.nota}</td>
+					<td>${item.comentario}</td>
+				</tr>
+		
+			
+		</c:forEach>
+	</table>
 	<a href="inicio"><spring:message code="accion.inicio"/></a>
 </body>
 </html>

@@ -38,7 +38,7 @@ public class MostrarUsuario {
 	public String execute(Model model) {
 		try {
 			// TODO obten usuario de la sesion
-			Usuario usuario = svc.obtenPorId(4);
+			Usuario usuario = svc.obtenPorId(4,true);
 			model.addAttribute(ATT_ITEM, usuario);
 
 			return SUCCESS;
