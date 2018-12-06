@@ -14,6 +14,8 @@
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
+
+<!-- Ficha del juego -->
 	<h2><spring:message code="accion.mostrar.juego"/></h2>
 
 	<table>
@@ -41,27 +43,51 @@
 
 	</table>
 	<br>
-	${msg}
-	<br>
+
 	
 	<h3><spring:message code="juego.analisis"/></h3>
+<!-- 	Formulario para analisis -->
+	<form:form modelAttribute="analisis" method="POST" action="guardarAnalisis">
+		<input type="hidden" name="idJuego" value="${juego.idJuego}"/>
+		<form:hidden path="juego.idJuego" value="${juego.idJuego}"/>
+		<form:hidden path="usuario.idUsuario" value="${usuario.idUsuario}"/>
+		<table>
+		
+		<tr><td><spring:message code="juego.analisis.nota"/> (0-100)</td>
+			<td><form:input path="nota" type="number" min="0" max="100" step="1" required="required"/></td>
+			<td><form:errors path="nota" cssClass="error" /></td>
+		</tr>
+		
+		<tr><td><spring:message code="juego.analisis.comentario"/></td>
+			<td><form:textarea path="comentario" rows="8" cols="30" required="required"/></td>
+			<td><form:errors path="comentario" cssClass="error" /></td>
+		</tr>
+			
+
+		<tr><td><input type="submit" value="<spring:message code="accion.guardar"/>"/></td></tr>
+		</table>
+	</form:form>
+		${msg}
+	<br>
+<!-- 	Lista de Analisis -->
+<br>
 	<table>
-		<c:forEach items="${juego.analisis}" var="analisis">
+		<c:forEach items="${juego.analisis}" var="item">
 			
 				<tr>
 					<th><spring:message code="juego.analisis.fechaAlta"/></th>
-					<td>${analisis.fechaAlta}</td>
+					<td><fmt:formatDate value="${item.fechaAlta}" pattern="dd-MM-yyyy hh:MM:ss"/></td>
 					<th><spring:message code="usuario.autor"/></th>
-					<td>${analisis.usuario.nombreUsuario}</td>
+					<td>${item.usuario.nombreUsuario}</td>
 				</tr>
 				<tr>
 					<th><spring:message code="juego.analisis.nota"/></th>
-					<td>${analisis.nota}</td>
+					<td>${item.nota}</td>
 				</tr>
 		
 				<tr>
 					<th><spring:message code="juego.analisis.comentario"/></th>
-					<td>${analisis.comentario}</td>
+					<td>${item.comentario}</td>
 				</tr>
 			
 		</c:forEach>

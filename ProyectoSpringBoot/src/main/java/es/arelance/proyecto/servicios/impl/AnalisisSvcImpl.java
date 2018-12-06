@@ -30,6 +30,8 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 		try {
 			if (!dao.exist(analisis)) {
 				dao.save(analisis);
+			}else {
+				throw new ServiceException("duplicidad");
 			}
 		} catch (DaoException e) {
 			throw new ServiceException(e);

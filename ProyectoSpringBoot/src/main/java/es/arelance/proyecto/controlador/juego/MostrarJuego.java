@@ -3,11 +3,13 @@ package es.arelance.proyecto.controlador.juego;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
+import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.JuegoSvc;
 
 /**
@@ -37,11 +39,15 @@ public class MostrarJuego {
 	 * @param model
 	 * @return Destino ficha del {@link Juego}
 	 */
-	@RequestMapping(value = "/mostrarJuego", method = RequestMethod.GET)
-	public String execute(@RequestParam int idJuego, Model model) {
+	@RequestMapping(value = "/mostrarJuego")
+	public String execute(@RequestParam int idJuego,@ModelAttribute Analisis analisis, Model model) {
 		try {
 			model.addAttribute(ATT_ITEM, svc.buscar(idJuego,true));
-
+			//TODO meter usuario de la sesion
+			Usuario u = new Usuario();
+			u.setIdUsuario(4);
+			model.addAttribute("usuario", u);
+			
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
