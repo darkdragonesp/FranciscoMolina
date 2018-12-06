@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.Analisis;
-import es.arelance.proyecto.modelo.Juego;
-import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.modelo.dao.AnalisisDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.servicios.AnalisisSvc;
@@ -39,14 +37,5 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 
 	}
 
-	@Override
-	public Iterable<Analisis> filtrar(Juego juego, Usuario usuario)
-			throws ServiceException {
-		try {
-			return dao.filter(juego, usuario);
-		} catch (DaoException e) {
-			throw new ServiceException(e);
-		}
-	}
 
 }

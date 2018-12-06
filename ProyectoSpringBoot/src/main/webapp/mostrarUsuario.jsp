@@ -47,9 +47,11 @@
 				<tr>
 					<td><fmt:formatDate value="${item.fechaAlta}" pattern="dd-MM-yyyy hh:MM:ss"/></td>
 					<td>${item.juego.titulo}</td>	
-					
 					<td>${item.nota}</td>
 					<td>${item.comentario}</td>
+					<td><a href="borrarAnalisis?idAnalisis=${item.idAnalisis}"
+					onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
+					<spring:message code="accion.borrar"/></a></td>		
 				</tr>
 		
 			
