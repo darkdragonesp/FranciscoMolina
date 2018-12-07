@@ -19,7 +19,7 @@
 <title><spring:message code="app.name" /></title>
 </head>
 <body>
-	<!-- Lista de Juegos de un Usuario -->
+	<%-- Lista de Juegos de un Usuario --%>
 	<h2>
 		<spring:message code="accion.listar.juegos.usuario" />
 	</h2>

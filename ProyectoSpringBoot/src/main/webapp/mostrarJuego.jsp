@@ -19,7 +19,7 @@
 <title><spring:message code="app.name" /></title>
 </head>
 <body>
-	<!-- Ficha del juego -->
+	<%-- Ficha del juego --%>
 	<h2>
 		<spring:message code="accion.mostrar.juego" />
 	</h2>
@@ -62,11 +62,11 @@
 	<br>
 	<br>
 	<c:choose>
-		<!-- 	No existen análisis -->
+		<%-- 	No existen análisis --%>
 		<c:when test="${empty juego.analisis}">
 			<spring:message code="mensaje.analisis.vacio" />
 			<spring:message code="mensaje.analisis.nuevo" />
-			<!-- 	Lista de Analisis -->
+			<%-- 	Lista de Analisis --%>
 		</c:when>
 		<c:otherwise>
 			<br>

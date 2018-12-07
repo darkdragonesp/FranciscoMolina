@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h2><spring:message code="accion.registrarse"/></h2>
-	<!-- 	Formulario de registro de Usuario -->
+	<%-- 	Formulario de registro de Usuario --%>
 	<form:form modelAttribute="usuario" method="POST" action="guardarUsuario">
 		<table>
 				<tr><td><spring:message code="usuario.nombre"/>(*)</td>

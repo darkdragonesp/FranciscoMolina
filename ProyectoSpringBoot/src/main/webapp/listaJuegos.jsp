@@ -21,7 +21,7 @@
 <body>
 
 	<h2><spring:message code="accion.listar.juegos"/></h2>
-	<!-- 	Filtrado de Juegos -->
+	<%-- 	Filtrado de Juegos --%>
 	<form:form modelAttribute="juego" method="GET" action="listarJuegosFiltro">
 		<form:hidden path="idJuego" />
 		<table>
@@ -50,7 +50,7 @@
 	</table>
 	
 	</form:form>
-<!-- Lista de Juegos -->
+<%-- Lista de Juegos --%>
 	<table>
 		<tr>
 			<th><spring:message code="juego.titulo"/></th>

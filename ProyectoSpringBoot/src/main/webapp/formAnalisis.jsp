@@ -21,7 +21,7 @@
 		<spring:message code="juego.analisis" />
 	</h3>
 
-	<!-- 	Formulario para analisis -->
+	<%-- 	Formulario para analisis --%>
 	<form:form modelAttribute="analisis" method="POST"
 		action="guardarAnalisis">
 		<input type="hidden" name="idJuego" value="${analisis.juego.idJuego}" />

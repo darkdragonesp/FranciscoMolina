@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h2><spring:message code="accion.nuevo"/></h2>
-	<!-- 	Formulario de registro de un Juego nuevo -->
+	<%-- 	Formulario de registro de un Juego nuevo --%>
 	<form:form modelAttribute="juego" method="POST" action="guardarJuego">
 		<form:hidden path="idJuego" />
 		<table>

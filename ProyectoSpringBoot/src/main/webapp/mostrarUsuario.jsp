@@ -19,7 +19,7 @@
 <title><spring:message code="app.name" /></title>
 </head>
 <body>
-	<!-- Perfil de usuario -->
+	<%-- Perfil de usuario --%>
 	<h2>
 		<spring:message code="usuario.perfil" />
 	</h2>
@@ -43,7 +43,7 @@
 		</tr>
 	</table>
 	<br>
-	<!-- 	Lista de Analisis -->
+	<%-- 	Lista de Analisis --%>
 	<h3>
 		<spring:message code="juego.analisis" />
 	</h3>
