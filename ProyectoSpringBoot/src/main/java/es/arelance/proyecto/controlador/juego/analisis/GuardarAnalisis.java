@@ -10,6 +10,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +34,7 @@ public class GuardarAnalisis {
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
-	private static final String FORM = "forward:/mostrarJuego";
+	private static final String FORM = "formAnalisis";
 	private static final String SUCCESS = "forward:/mostrarJuego";
 	private static final String ERROR = "error";
 
@@ -50,10 +51,21 @@ public class GuardarAnalisis {
 	 * @return Formulario de registro de {@link Analisis}
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String view(Model model) {
+	public String view(@ModelAttribute Analisis analisis,
+			@RequestParam int idJuego,@RequestParam String titulo, Model model) {
 		try {
-			// TODO si el usuario ya a hecho un analisis del juego devovler a la
-			// pagina anterior
+			// TODO meter usuario de la sesion
+			Usuario u = new Usuario();
+			u.setIdUsuario(4);
+			model.addAttribute("usuario", u);
+
+
+
+			Juego juego = new Juego();
+			juego.setIdJuego(idJuego);
+			juego.setTitulo(titulo);
+			analisis.setJuego(juego);
+
 			return FORM;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
@@ -73,13 +85,13 @@ public class GuardarAnalisis {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public String execute(@Valid Analisis analisis, BindingResult result,
-			Model model,@RequestParam int idJuego, Locale locale) {
+			@RequestParam int idJuego, Model model, Locale locale) {
 		try {
 			if (result.hasErrors()) {
 				return FORM;
 			} else {
 				analisis.setFechaAlta(new Date());
-				
+
 				svc.guardar(analisis);
 
 				model.addAttribute(ATT_EXITO, messages
@@ -90,11 +102,11 @@ public class GuardarAnalisis {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			if(e.getMessage().equals("duplicidad")) {
+			if (e.getMessage().equals("duplicidad")) {
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.error.analisis", null, locale));
-				return SUCCESS;
-			}else {
+				return FORM;
+			} else {
 				model.addAttribute(ATT_ERROR, e);
 				return ERROR;
 			}

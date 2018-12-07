@@ -51,30 +51,10 @@
 
 	
 	<h3><spring:message code="juego.analisis"/></h3>
-<!-- 	Formulario para analisis -->
-	<form:form modelAttribute="analisis" method="POST" action="guardarAnalisis">
-		<input type="hidden" name="idJuego" value="${juego.idJuego}"/>
-		<form:hidden path="juego.idJuego" value="${juego.idJuego}"/>
-		<form:hidden path="usuario.idUsuario" value="${usuario.idUsuario}"/>
-		<table>
-		
-		<tr><td><spring:message code="juego.analisis.nota"/> (0-100)</td>
-			<td><form:input path="nota" type="number" min="0" max="100" step="1" required="required"/></td>
-			<td><form:errors path="nota" cssClass="error" /></td>
-		</tr>
-		
-		<tr><td><spring:message code="juego.analisis.comentario"/></td>
-			<td><form:textarea path="comentario" required="required"/></td>
-			<td><form:errors path="comentario" cssClass="error" /></td>
-		</tr>
-			
 
-		<tr><td><input type="submit" value="<spring:message code="accion.guardar"/>"/></td></tr>
-		</table>
-	</form:form>
-		${msg}
-	<br>
 <!-- 	Lista de Analisis -->
+	<a href="guardarAnalisis?idJuego=${juego.idJuego}&titulo=${juego.titulo}"><spring:message code="accion.analisis.nuevo"/></a>
+	<br>
 	<c:choose>
 	<c:when test="${empty juego.analisis}">
 		<spring:message code="mensaje.analisis.vacio" />

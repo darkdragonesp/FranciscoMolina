@@ -55,7 +55,7 @@ public class Analisis {
 		this.nota = nota;
 	}
 	@NotEmpty
-	@Size(max=300)
+	@Size(max=500)
 	public String getComentario() {
 		return comentario;
 	}
