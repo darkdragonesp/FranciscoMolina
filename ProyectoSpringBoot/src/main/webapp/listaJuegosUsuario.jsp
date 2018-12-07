@@ -15,7 +15,12 @@
 </head>
 <body>
 	<h2><spring:message code="accion.listar.juegos.usuario"/></h2>
-	
+		<c:choose>
+		<c:when test="${empty listaJuegos}">
+			<spring:message code="mensaje.juego.usuario.vacio" />
+			<a href="listarJuegos"><spring:message code="accion.listar.juegos"/></a>
+		</c:when>
+		<c:otherwise>
 	<table>
 		<tr>
 			<th><spring:message code="juego.titulo"/></th>
@@ -37,6 +42,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+			</c:otherwise>
+	</c:choose>
 	<br>
 		${msg}
 	<br>

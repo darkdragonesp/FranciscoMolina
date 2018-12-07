@@ -75,29 +75,39 @@
 		${msg}
 	<br>
 <!-- 	Lista de Analisis -->
-<br>
-	<table>
-		<c:forEach items="${juego.analisis}" var="item">
-			
-				<tr>
-					<th><spring:message code="juego.analisis.fechaAlta"/></th>
-					<td><fmt:formatDate value="${item.fechaAlta}" pattern="dd-MM-yyyy hh:MM:ss"/></td>
-					<th><spring:message code="usuario.autor"/></th>
-					<td>${item.usuario.nombreUsuario}</td>
-				</tr>
-				<tr>
-					<th><spring:message code="juego.analisis.nota"/></th>
-					<td>${item.nota}</td>
-				</tr>
+	<c:choose>
+	<c:when test="${empty juego.analisis}">
+		<spring:message code="mensaje.analisis.vacio" />
+		<spring:message code="mensaje.analisis.nuevo" />
 		
-				<tr>
-					<th><spring:message code="juego.analisis.comentario"/></th>
-					<td>${item.comentario}</td>
-				</tr>
-			
-		</c:forEach>
-	</table>
+	</c:when>
+	<c:otherwise>	
+		<br>
+			<table>
+				<c:forEach items="${juego.analisis}" var="item">
+					
+						<tr>
+							<th><spring:message code="juego.analisis.fechaAlta"/></th>
+							<td><fmt:formatDate value="${item.fechaAlta}" pattern="dd-MM-yyyy hh:MM:ss"/></td>
+							<th><spring:message code="usuario.autor"/></th>
+							<td>${item.usuario.nombreUsuario}</td>
+						</tr>
+						<tr>
+							<th><spring:message code="juego.analisis.nota"/></th>
+							<td>${item.nota}</td>
+						</tr>
+				
+						<tr>
+							<th><spring:message code="juego.analisis.comentario"/></th>
+							<td>${item.comentario}</td>
+						</tr>
+					
+				</c:forEach>
+			</table>
+		</c:otherwise>
+	</c:choose>
 	
+	<br>
 	<a href="inicio"><spring:message code="accion.inicio"/></a>
 </body>
 </html>
