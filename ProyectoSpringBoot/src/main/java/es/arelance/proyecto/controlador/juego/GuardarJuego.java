@@ -124,7 +124,8 @@ public class GuardarJuego {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			if (e.getCause()
+			if (e.getCause() instanceof ConstraintViolationException || e
+					.getCause()
 					.getCause() instanceof ConstraintViolationException) {
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.error.guardar", null, locale));

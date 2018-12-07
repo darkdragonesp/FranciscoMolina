@@ -9,7 +9,7 @@
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
-	<spring:message code="mensaje.error"/> <br> ${error} <br>
+	<spring:message code="mensaje.error"/> <br><br> ${error} <br>
 	<a href="inicio"><spring:message code="accion.inicio"/></a>
 </body>
 </html>
