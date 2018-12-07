@@ -52,14 +52,19 @@
 	
 	<h3><spring:message code="juego.analisis"/></h3>
 
-<!-- 	Lista de Analisis -->
-	<a href="guardarAnalisis?idJuego=${juego.idJuego}&titulo=${juego.titulo}"><spring:message code="accion.analisis.nuevo"/></a>
+
+	<a href="guardarAnalisis?idJuego=${juego.idJuego}"><spring:message code="accion.analisis.nuevo"/></a>
+	
+		${msg}
+	<br>
 	<br>
 	<c:choose>
 	<c:when test="${empty juego.analisis}">
 		<spring:message code="mensaje.analisis.vacio" />
 		<spring:message code="mensaje.analisis.nuevo" />
 		
+		
+		<!-- 	Lista de Analisis -->
 	</c:when>
 	<c:otherwise>	
 		<br>

@@ -15,8 +15,6 @@
 	<h3>
 		<spring:message code="juego.analisis" />
 	</h3>
-			
-			<h4><spring:message code="juego.titulo"/>: ${analisis.juego.titulo}</h4>
 		
 	<!-- 	Formulario para analisis -->
 	<form:form modelAttribute="analisis" method="POST"

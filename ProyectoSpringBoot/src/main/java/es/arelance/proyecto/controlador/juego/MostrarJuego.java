@@ -28,7 +28,7 @@ public class MostrarJuego {
 
 	@Autowired
 	private JuegoSvc svc;
-	
+
 	@Autowired
 	private AnalisisSvc anSvc;
 
@@ -41,12 +41,14 @@ public class MostrarJuego {
 	 * @return Destino ficha del {@link Juego}
 	 */
 	@RequestMapping(value = "/mostrarJuego")
-	public String execute(@RequestParam int idJuego, Model model) {
+	public String execute(@RequestParam int idJuego,
+			 Model model) {
 		try {
-			Juego juego= svc.buscar(idJuego,true);
-			model.addAttribute(ATT_ITEM,juego);
+			Juego juego = svc.buscar(idJuego, true);
+			model.addAttribute(ATT_ITEM, juego);
 			model.addAttribute("notaMedia", anSvc.notaMedia(idJuego));
-			
+
+
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -52,18 +52,16 @@ public class GuardarAnalisis {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String view(@ModelAttribute Analisis analisis,
-			@RequestParam int idJuego,@RequestParam String titulo, Model model) {
+			@RequestParam int idJuego, 
+			Model model) {
 		try {
 			// TODO meter usuario de la sesion
 			Usuario u = new Usuario();
 			u.setIdUsuario(4);
 			model.addAttribute("usuario", u);
 
-
-
 			Juego juego = new Juego();
 			juego.setIdJuego(idJuego);
-			juego.setTitulo(titulo);
 			analisis.setJuego(juego);
 
 			return FORM;
@@ -84,8 +82,8 @@ public class GuardarAnalisis {
 	 * @return Página de login
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public String execute(@Valid Analisis analisis, BindingResult result,
-			@RequestParam int idJuego, Model model, Locale locale) {
+	public String execute(@Valid Analisis analisis, BindingResult result,@RequestParam int idJuego,
+			Model model, Locale locale) {
 		try {
 			if (result.hasErrors()) {
 				return FORM;
