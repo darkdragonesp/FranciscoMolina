@@ -2,7 +2,6 @@ package es.arelance.proyecto.servicios;
 
 import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
-import es.arelance.proyecto.modelo.dao.DaoException;
 
 /**
  * Interfaz de la capa de servicio para gestionar los {@link Analisis}
