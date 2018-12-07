@@ -11,7 +11,8 @@ import es.arelance.proyecto.servicios.AnalisisSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
 
 /**
- * Controlador para buscar y modificar un {@link Juego} del sistema
+ * Controlador para mostrar la ficha y {@link analisis} de un {@link Juego} del
+ * sistema
  * 
  * @author Francisco Molina Sanchez
  * 
@@ -41,13 +42,11 @@ public class MostrarJuego {
 	 * @return Destino ficha del {@link Juego}
 	 */
 	@RequestMapping(value = "/mostrarJuego")
-	public String execute(@RequestParam int idJuego,
-			 Model model) {
+	public String execute(@RequestParam int idJuego, Model model) {
 		try {
 			Juego juego = svc.buscar(idJuego, true);
 			model.addAttribute(ATT_ITEM, juego);
 			model.addAttribute("notaMedia", anSvc.notaMedia(idJuego));
-
 
 			return SUCCESS;
 		} catch (Exception e) {

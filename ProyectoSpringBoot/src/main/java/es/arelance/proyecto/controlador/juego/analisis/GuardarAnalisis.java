@@ -45,15 +45,18 @@ public class GuardarAnalisis {
 	private MessageSource messages;
 
 	/**
-	 * Muestra el formulario de registro de {@link Usuario}
+	 * Muestra el formulario para guardar un {@link Analisis}
 	 * 
+	 * @param analisis
+	 *            {@link Analisis} a guardar
+	 * @param idJuego
+	 *            Identificador del {@link Juego} a analizar
 	 * @param model
-	 * @return Formulario de registro de {@link Analisis}
+	 * @return Destino formulario para guardar un {@link Analisis}
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String view(@ModelAttribute Analisis analisis,
-			@RequestParam int idJuego, 
-			Model model) {
+			@RequestParam int idJuego, Model model) {
 		try {
 			// TODO meter usuario de la sesion
 			Usuario u = new Usuario();
@@ -75,15 +78,21 @@ public class GuardarAnalisis {
 	 * Valida y guarda un {@link Analisis}
 	 * 
 	 * @param analisis
-	 *            {@link Analisis}
+	 *            {@link Analisis} a guardar
 	 * @param result
+	 *            Control de errores
+	 * @param idJuego
+	 *            Identificador del {@link Juego} a analizar
 	 * @param model
+	 *            Almacenamiento de atributos
 	 * @param locale
-	 * @return Página de login
+	 *            Internacionalización
+	 * @return Si éxito vuelve a la ficha del {@link Juego};en otro caso vuelve
+	 *         a mostrar el formulario de análisis
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public String execute(@Valid Analisis analisis, BindingResult result,@RequestParam int idJuego,
-			Model model, Locale locale) {
+	public String execute(@Valid Analisis analisis, BindingResult result,
+			@RequestParam int idJuego, Model model, Locale locale) {
 		try {
 			if (result.hasErrors()) {
 				return FORM;
