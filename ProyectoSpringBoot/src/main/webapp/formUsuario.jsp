@@ -1,3 +1,8 @@
+<%--
+  Formulario de registro para nuevos usuarios
+  
+  Author : Francisco Molina Sanchez
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -13,7 +18,7 @@
 </head>
 <body>
 	<h2><spring:message code="accion.registrarse"/></h2>
-	
+	<!-- 	Formulario de registro de Usuario -->
 	<form:form modelAttribute="usuario" method="POST" action="guardarUsuario">
 		<table>
 				<tr><td><spring:message code="usuario.nombre"/>(*)</td>

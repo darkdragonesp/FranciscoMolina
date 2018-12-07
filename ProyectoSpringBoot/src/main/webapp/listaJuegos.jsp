@@ -1,10 +1,15 @@
+<%--
+  Muestra los datos de los juegos del sistema
+  
+  Author : Francisco Molina Sanchez
+ --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%-- <%@ page errorPage="error.jsp"%> --%>
+<%@ page errorPage="error.jsp"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,8 +19,9 @@
 <title><spring:message code="app.name"/></title>
 </head>
 <body>
+
 	<h2><spring:message code="accion.listar.juegos"/></h2>
-	
+	<!-- 	Filtrado de Juegos -->
 	<form:form modelAttribute="juego" method="GET" action="listarJuegosFiltro">
 		<form:hidden path="idJuego" />
 		<table>
@@ -44,7 +50,7 @@
 	</table>
 	
 	</form:form>
-
+<!-- Lista de Juegos -->
 	<table>
 		<tr>
 			<th><spring:message code="juego.titulo"/></th>

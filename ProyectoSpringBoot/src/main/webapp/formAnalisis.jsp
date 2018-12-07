@@ -1,3 +1,8 @@
+<%--
+  Formulario para añadir nuevos análisis de juegos al sistema
+  
+  Author : Francisco Molina Sanchez
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -15,7 +20,7 @@
 	<h3>
 		<spring:message code="juego.analisis" />
 	</h3>
-		
+
 	<!-- 	Formulario para analisis -->
 	<form:form modelAttribute="analisis" method="POST"
 		action="guardarAnalisis">
@@ -33,10 +38,9 @@
 
 			<tr>
 				<td><spring:message code="juego.analisis.comentario" /></td>
-				<td><form:textarea path="comentario" required="required"/></td>
+				<td><form:textarea path="comentario" required="required" /></td>
 				<td><form:errors path="comentario" cssClass="error" /></td>
 			</tr>
-
 
 			<tr>
 				<td><input type="submit"
@@ -46,7 +50,8 @@
 	</form:form>
 	${msg}
 	<br>
-	<a href="mostrarJuego?idJuego=${analisis.juego.idJuego}"><spring:message code="accion.volver" /></a>
+	<a href="mostrarJuego?idJuego=${analisis.juego.idJuego}"> 
+			<spring:message code="accion.volver" /></a>
 	<a href="inicio"><spring:message code="accion.inicio" /></a>
 </body>
 </html>

@@ -1,3 +1,8 @@
+<%--
+  Muestra los datos de un usuario y sus análisis
+  
+  Author : Francisco Molina Sanchez
+ --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,9 +23,7 @@
 	<h2>
 		<spring:message code="usuario.perfil" />
 	</h2>
-
 	<table>
-
 		<tr>
 			<th><spring:message code="usuario.nombre" /></th>
 			<td>${usuario.nombreUsuario}</td>
@@ -38,7 +41,6 @@
 			<td><fmt:formatDate value="${usuario.fechaAlta}"
 					pattern="dd-MM-yyyy hh:mm:ss" /></td>
 		</tr>
-
 	</table>
 	<br>
 	<!-- 	Lista de Analisis -->
@@ -50,17 +52,12 @@
 			<spring:message code="mensaje.analisis.vacio" />
 		</c:when>
 		<c:otherwise>
-
-
 			<table>
-
-
 				<tr>
 					<th><spring:message code="juego.analisis.fechaAlta" /></th>
 					<th><spring:message code="juego.titulo" /></th>
 					<th><spring:message code="juego.analisis.nota" /></th>
 					<th><spring:message code="juego.analisis.comentario" /></th>
-
 				</tr>
 				<c:forEach items="${usuario.analisis}" var="item">
 					<tr>
@@ -74,14 +71,11 @@
 								<spring:message code="accion.borrar" />
 						</a></td>
 					</tr>
-
-
 				</c:forEach>
 			</table>
-
 		</c:otherwise>
 	</c:choose>
-	
+
 	<br>
 	<a href="inicio"><spring:message code="accion.inicio" /></a>
 </body>

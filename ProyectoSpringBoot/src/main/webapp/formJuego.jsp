@@ -1,3 +1,8 @@
+<%--
+  Formulario para añadir nuevos juegos al sistema
+  
+  Author : Francisco Molina Sanchez
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -13,6 +18,7 @@
 </head>
 <body>
 	<h2><spring:message code="accion.nuevo"/></h2>
+	<!-- 	Formulario de registro de un Juego nuevo -->
 	<form:form modelAttribute="juego" method="POST" action="guardarJuego">
 		<form:hidden path="idJuego" />
 		<table>
