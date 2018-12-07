@@ -20,7 +20,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-
 /**
  * Clase que representa a un Usuario del sistema
  * 
@@ -28,7 +27,7 @@ import javax.validation.constraints.Size;
  *
  */
 @Entity
-@Table(name="usuario")
+@Table(name = "usuario")
 public class Usuario {
 	private Integer idUsuario;
 	private String nombreUsuario;
@@ -38,7 +37,7 @@ public class Usuario {
 	private Date fechaAlta;
 
 	private Set<Analisis> analisis;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdUsuario() {
@@ -48,7 +47,7 @@ public class Usuario {
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	
+
 	@NotEmpty
 	@Column(nullable = false, unique = true, length = 45)
 	public String getNombreUsuario() {
@@ -59,7 +58,7 @@ public class Usuario {
 		this.nombreUsuario = nombreUsuario;
 	}
 
-	@Email(regexp=".+@.+\\..+")
+	@Email(regexp = ".+@.+\\..+")
 	@NotEmpty
 	@Column(nullable = false, length = 45)
 	public String getCorreo() {
@@ -71,7 +70,7 @@ public class Usuario {
 	}
 
 	@NotEmpty
-	@Size(min=4, max=8)
+	@Size(min = 4, max = 8)
 	@Column(nullable = false, length = 45)
 	public String getContrasena() {
 		return contrasena;
@@ -82,7 +81,7 @@ public class Usuario {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="tipoUsuario", nullable = false)
+	@JoinColumn(name = "tipoUsuario", nullable = false)
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
 	}
@@ -101,11 +100,12 @@ public class Usuario {
 		this.fechaAlta = fechaAlta;
 	}
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	@OrderBy("fechaAlta DESC")
 	public Set<Analisis> getAnalisis() {
 		return analisis;
 	}
+
 	public void setAnalisis(Set<Analisis> analisis) {
 		this.analisis = analisis;
 	}

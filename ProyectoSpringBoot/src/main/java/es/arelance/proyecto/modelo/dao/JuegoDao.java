@@ -54,11 +54,12 @@ public interface JuegoDao {
 	List<Juego> findAll() throws DaoException;
 
 	/**
-	 * Filtra todas las instancias de {@link Juego} existentes 
-	 * por titulo, {@link Categoria} y/o {@link Plataforma}
+	 * Filtra todas las instancias de {@link Juego} existentes por titulo,
+	 * {@link Categoria} y/o {@link Plataforma}
 	 * 
 	 * @param juego
-	 *            Titulo, {@link Categoria} y/o {@link Plataforma} del {@link Juego}
+	 *            Titulo, {@link Categoria} y/o {@link Plataforma} del
+	 *            {@link Juego}
 	 * @return Lista con los juegos que cumplen el filtro
 	 * @throws DaoException
 	 *             Error relativo a la base de datos
@@ -75,6 +76,5 @@ public interface JuegoDao {
 	 *             Error relativo a la base de datos
 	 */
 	Juego findById(Integer idJuego) throws DaoException;
-
 
 }

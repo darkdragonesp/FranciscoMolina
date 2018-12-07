@@ -21,7 +21,7 @@ import es.arelance.proyecto.servicios.ServiceException;
 @Service
 @Transactional
 public class PlataformaSvcImpl implements PlataformaSvc {
-	
+
 	@Autowired
 	private PlataformaDao dao;
 
@@ -35,8 +35,7 @@ public class PlataformaSvcImpl implements PlataformaSvc {
 	}
 
 	@Override
-	public Plataforma buscarPorId(int idPlataforma)
-			throws ServiceException {
+	public Plataforma buscarPorId(int idPlataforma) throws ServiceException {
 		try {
 			return dao.findById(idPlataforma);
 		} catch (DaoException e) {

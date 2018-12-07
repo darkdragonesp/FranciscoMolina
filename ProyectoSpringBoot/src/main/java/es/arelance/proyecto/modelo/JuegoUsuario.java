@@ -9,7 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Clase que representa los {@link Juego} que cada {@link Usuario} guarda en su biblioteca
+ * Clase que representa los {@link Juego} que cada {@link Usuario} guarda en su
+ * biblioteca
  * 
  * @author Francisco Molina Sanchez
  *

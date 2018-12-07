@@ -14,6 +14,7 @@ public interface PlataformaSvc {
 	 * 
 	 * @return Lista de plataformas
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Iterable<Plataforma> listar() throws ServiceException;
 
@@ -24,6 +25,7 @@ public interface PlataformaSvc {
 	 *            Identificador de la {@link Plataforma}
 	 * @return {@link Plataforma}
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Plataforma buscarPorId(int idPlataforma) throws ServiceException;
 }

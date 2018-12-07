@@ -18,6 +18,7 @@ public interface JuegoUsuarioSvc {
 	 *            Objeto formado por el {@link Usuario} y {@link Juego} que
 	 *            guarda
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void guardar(JuegoUsuario juegoUsuario) throws ServiceException;
 
@@ -27,6 +28,7 @@ public interface JuegoUsuarioSvc {
 	 * @param usuario
 	 *            {@link Usuario}
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Iterable<JuegoUsuario> listarPorUsuario(Usuario usuario)
 			throws ServiceException;
@@ -37,6 +39,7 @@ public interface JuegoUsuarioSvc {
 	 * @param juegoUsuario
 	 *            Identificador del {@link JuegoUsuario}
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void eliminar(JuegoUsuario juegoUsuario) throws ServiceException;
 }

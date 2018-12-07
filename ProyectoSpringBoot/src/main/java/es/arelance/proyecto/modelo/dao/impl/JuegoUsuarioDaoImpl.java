@@ -10,8 +10,10 @@ import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.JuegoUsuarioDao;
+
 /**
  * Implementación de la interfaz del DAO {@link JuegoUsuarioDao}
+ * 
  * @author Francisco Molina Sanchez
  *
  */
@@ -23,24 +25,22 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 
 	@Override
 	public void save(JuegoUsuario juegoUsuario) throws DaoException {
-		try{
-			sessionFactory.getCurrentSession().saveOrUpdate(juegoUsuario);	
-		}catch (Exception ex){
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(juegoUsuario);
+		} catch (Exception ex) {
 			throw new DaoException(ex);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<JuegoUsuario> findByUser(Usuario usuario)
-			throws DaoException {
+	public List<JuegoUsuario> findByUser(Usuario usuario) throws DaoException {
 		List<JuegoUsuario> res = null;
 		try {
 			String hql = "FROM JuegoUsuario j WHERE j.usuario.idUsuario = :idUsuario ORDER BY j.juego.titulo";
-			
+
 			res = sessionFactory.getCurrentSession().createQuery(hql)
-					.setParameter("idUsuario", usuario.getIdUsuario())
-					.list();
+					.setParameter("idUsuario", usuario.getIdUsuario()).list();
 
 		} catch (Exception ex) {
 			throw new DaoException(ex);
@@ -56,17 +56,20 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 			String hql = "FROM JuegoUsuario j "
 					+ "WHERE j.usuario.idUsuario = :idUsuario "
 					+ "AND j.juego.idJuego = :idJuego";
-			
-			res = (JuegoUsuario) sessionFactory.getCurrentSession().createQuery(hql)
-					.setParameter("idUsuario", juegoUsuario.getUsuario().getIdUsuario())
-					.setParameter("idJuego", juegoUsuario.getJuego().getIdJuego())
+
+			res = (JuegoUsuario) sessionFactory.getCurrentSession()
+					.createQuery(hql)
+					.setParameter("idUsuario",
+							juegoUsuario.getUsuario().getIdUsuario())
+					.setParameter("idJuego",
+							juegoUsuario.getJuego().getIdJuego())
 					.uniqueResult();
 
 		} catch (Exception ex) {
 			throw new DaoException(ex);
 		}
 
-		return res!=null;
+		return res != null;
 	}
 
 	@Override
@@ -77,6 +80,5 @@ public class JuegoUsuarioDaoImpl implements JuegoUsuarioDao {
 			throw new DaoException(ex);
 		}
 	}
-
 
 }

@@ -15,6 +15,7 @@ public interface JuegoSvc {
 	 * @param juego
 	 *            {@link Juego} a agregar
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void guardar(Juego juego) throws ServiceException;
 
@@ -23,6 +24,7 @@ public interface JuegoSvc {
 	 * 
 	 * @return lista de juegos
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Iterable<Juego> listar() throws ServiceException;
 
@@ -35,6 +37,7 @@ public interface JuegoSvc {
 	 *            {@link Juego}
 	 * @return Lista con los juegos que cumplen el filtro
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Iterable<Juego> filtrar(Juego juego) throws ServiceException;
 
@@ -44,6 +47,7 @@ public interface JuegoSvc {
 	 * @param juego
 	 *            Identificador del {@link Juego}
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void eliminar(Juego juego) throws ServiceException;
 
@@ -53,6 +57,7 @@ public interface JuegoSvc {
 	 * @param juego
 	 *            {@link Juego} ya modificado
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void modificar(Juego juego) throws ServiceException;
 
@@ -62,13 +67,12 @@ public interface JuegoSvc {
 	 * @param idJuego
 	 *            Identificador del {@link Juego} a buscar
 	 * @param fetch
-	 *            Si {@code true} obtiene relaciones de {@link Juego};
-	 *            Si {@code false} no realiza el fetch
+	 *            Si {@code true} obtiene relaciones de {@link Juego}; Si
+	 *            {@code false} no realiza el fetch
 	 * @return {@link Juego} si encontrado; null en otro caso
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Juego buscar(Integer idJuego, boolean fetch) throws ServiceException;
-
-
 
 }

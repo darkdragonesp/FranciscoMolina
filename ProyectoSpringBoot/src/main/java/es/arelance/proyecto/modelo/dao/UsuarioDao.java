@@ -30,7 +30,7 @@ public interface UsuarioDao {
 	 *            Identificador del usuario
 	 * @return {@link Usuario} si encontrado; {@code null} en otro caso
 	 * @throws DaoException
-	 *            Error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	Usuario findById(Integer idUsuario) throws DaoException;
 
@@ -40,7 +40,7 @@ public interface UsuarioDao {
 	 * @param usuario
 	 *            {@link Usuario}
 	 * @throws DaoException
-	 *            Error relativo a la base de datos
+	 *             Error relativo a la base de datos
 	 */
 	void save(Usuario usuario) throws DaoException;
 }

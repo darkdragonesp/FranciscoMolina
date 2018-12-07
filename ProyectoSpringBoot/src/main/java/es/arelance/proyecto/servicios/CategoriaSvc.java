@@ -14,6 +14,7 @@ public interface CategoriaSvc {
 	 * 
 	 * @return lista de categorias
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Iterable<Categoria> listar() throws ServiceException;
 
@@ -24,7 +25,7 @@ public interface CategoriaSvc {
 	 *            identificador de {@link Categoria}
 	 * @return {@link Categoria}
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
-	Categoria buscarPorId(int idCategoria)
-			throws ServiceException;
+	Categoria buscarPorId(int idCategoria) throws ServiceException;
 }

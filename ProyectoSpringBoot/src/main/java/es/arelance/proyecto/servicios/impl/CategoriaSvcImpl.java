@@ -9,6 +9,7 @@ import es.arelance.proyecto.modelo.dao.CategoriaDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.servicios.CategoriaSvc;
 import es.arelance.proyecto.servicios.ServiceException;
+
 /**
  * Implementacion de la interfaz del servicio {@link CategoriaSvc}
  * 
@@ -18,7 +19,7 @@ import es.arelance.proyecto.servicios.ServiceException;
 @Service
 @Transactional
 public class CategoriaSvcImpl implements CategoriaSvc {
-	
+
 	@Autowired
 	private CategoriaDao dao;
 
@@ -32,8 +33,7 @@ public class CategoriaSvcImpl implements CategoriaSvc {
 	}
 
 	@Override
-	public Categoria buscarPorId(int idCategoria)
-			throws ServiceException {
+	public Categoria buscarPorId(int idCategoria) throws ServiceException {
 		try {
 			return dao.findById(idCategoria);
 		} catch (DaoException e) {

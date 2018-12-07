@@ -19,6 +19,7 @@ public interface UsuarioSvc {
 	 *            Contraseña del {@link Usuario}
 	 * @return {@link Usuario} si existe; null en otro caso
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Usuario acceder(String nombreUsuario, String contrasena)
 			throws ServiceException;
@@ -30,6 +31,7 @@ public interface UsuarioSvc {
 	 *            Identificador del {@link Usuario}
 	 * @return Usuario si encontrado; null en otro caso
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	Usuario obtenPorId(Integer id, boolean fetch) throws ServiceException;
 
@@ -42,6 +44,7 @@ public interface UsuarioSvc {
 	 *            Si {@code true} obtiene relaciones de {@link Juego}; Si
 	 *            {@code false} no realiza el fetch
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void guardar(Usuario usuario) throws ServiceException;
 }

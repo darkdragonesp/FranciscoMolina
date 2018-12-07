@@ -88,6 +88,4 @@ public class JuegoSvcImpl implements JuegoSvc {
 		return res;
 	}
 
-
-
 }

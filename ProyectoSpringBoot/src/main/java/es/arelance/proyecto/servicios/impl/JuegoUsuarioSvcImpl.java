@@ -20,17 +20,16 @@ import es.arelance.proyecto.servicios.ServiceException;
 @Service
 @Transactional
 public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
-	
+
 	@Autowired
 	private JuegoUsuarioDao dao;
 
-	
 	@Override
 	public void guardar(JuegoUsuario juegoUsuario) throws ServiceException {
 		try {
-			if(!dao.exist(juegoUsuario)) {
+			if (!dao.exist(juegoUsuario)) {
 				dao.save(juegoUsuario);
-			}	
+			}
 		} catch (DaoException e) {
 			throw new ServiceException(e);
 		}
@@ -38,7 +37,8 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	}
 
 	@Override
-	public Iterable<JuegoUsuario> listarPorUsuario(Usuario usuario) throws ServiceException {
+	public Iterable<JuegoUsuario> listarPorUsuario(Usuario usuario)
+			throws ServiceException {
 		try {
 			return dao.findByUser(usuario);
 		} catch (DaoException e) {

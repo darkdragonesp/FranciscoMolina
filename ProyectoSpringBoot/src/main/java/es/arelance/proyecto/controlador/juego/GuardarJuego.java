@@ -89,6 +89,7 @@ public class GuardarJuego {
 	 * @param juego
 	 *            {@link Juego} a guardar
 	 * @param result
+	 *            Control de errores
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale

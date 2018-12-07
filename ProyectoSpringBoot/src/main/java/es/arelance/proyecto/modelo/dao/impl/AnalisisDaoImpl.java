@@ -61,9 +61,10 @@ public class AnalisisDaoImpl implements AnalisisDao {
 
 	@Override
 	public Integer avg(int idJuego) throws DaoException {
-		Integer res=null;
+		Integer res = null;
 		try {
-			String hql="SELECT CEILING(AVG(a.nota)) FROM Analisis a WHERE a.juego.idJuego = "+idJuego;
+			String hql = "SELECT CEILING(AVG(a.nota)) FROM Analisis a WHERE a.juego.idJuego = "
+					+ idJuego;
 			res = (Integer) sessionFactory.getCurrentSession().createQuery(hql)
 					.uniqueResult();
 		} catch (Exception ex) {

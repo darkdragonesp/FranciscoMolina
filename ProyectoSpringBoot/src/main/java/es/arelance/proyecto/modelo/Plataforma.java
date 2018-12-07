@@ -13,18 +13,17 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 /**
- * Clase que representa la plataforma  a la 
- * que pertenece cada {@link Juego}
+ * Clase que representa la plataforma a la que pertenece cada {@link Juego}
  * 
  * @author Francisco Molina Sanchez
  *
  */
 @Entity
-@Table(name="plataforma")
+@Table(name = "plataforma")
 public class Plataforma {
 	private Integer idPlataforma;
 	private String nombre;
-	
+
 	private Set<Juego> juegos;
 
 	@Id
@@ -46,7 +45,7 @@ public class Plataforma {
 		this.nombre = nombre;
 	}
 
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="plataforma")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "plataforma")
 	@OrderBy("titulo ASC")
 	public Set<Juego> getJuegos() {
 		return juegos;

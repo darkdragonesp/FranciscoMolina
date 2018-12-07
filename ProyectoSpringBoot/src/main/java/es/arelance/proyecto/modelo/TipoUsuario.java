@@ -22,14 +22,17 @@ public class TipoUsuario {
 	public TipoUsuario() {
 
 	}
+
 	public TipoUsuario(Integer id) {
-		this.idTipo=id;
+		this.idTipo = id;
 	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdTipo() {
 		return idTipo;
 	}
+
 	public void setIdTipo(Integer idTipo) {
 		this.idTipo = idTipo;
 	}
@@ -42,9 +45,5 @@ public class TipoUsuario {
 	public String getNombre() {
 		return nombre;
 	}
-
-
-
-
 
 }

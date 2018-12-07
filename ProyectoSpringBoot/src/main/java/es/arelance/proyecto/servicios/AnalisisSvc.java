@@ -15,6 +15,7 @@ public interface AnalisisSvc {
 	 * @param analisis
 	 *            {@link Analisis} a agregar
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void guardar(Analisis analisis) throws ServiceException;
 
@@ -24,6 +25,7 @@ public interface AnalisisSvc {
 	 * @param analisis
 	 *            Identificador del {@link Analisis}
 	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
 	 */
 	void eliminar(Analisis analisis) throws ServiceException;
 

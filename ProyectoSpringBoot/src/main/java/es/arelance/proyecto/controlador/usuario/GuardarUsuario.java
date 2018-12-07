@@ -46,7 +46,9 @@ public class GuardarUsuario {
 	 * Muestra el formulario de registro de {@link Usuario}
 	 * 
 	 * @param usuario
+	 *            {@link Usuario} a guardar
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Formulario de registro de {@link Usuario}
 	 */
 	@RequestMapping(method = RequestMethod.GET)
@@ -63,7 +65,7 @@ public class GuardarUsuario {
 	 * Valida y guarda un {@link Usuario}
 	 * 
 	 * @param usuario
-	 *            {@link Usuario}
+	 *            {@link Usuario} a guardar
 	 * @param result
 	 *            Control de errores
 	 * @param model
