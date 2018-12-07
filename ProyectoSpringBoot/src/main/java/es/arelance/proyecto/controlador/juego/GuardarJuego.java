@@ -67,6 +67,7 @@ public class GuardarJuego {
 	 * 
 	 * @param juego
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Formulario para crear un {@link Juego} nuevo
 	 */
 	@RequestMapping(method = RequestMethod.GET)
@@ -85,10 +86,13 @@ public class GuardarJuego {
 	/**
 	 * Valida y guarda un {@link Juego} nuevo
 	 * 
-	 * @param juego  {@link Juego} a guardar
+	 * @param juego
+	 *            {@link Juego} a guardar
 	 * @param result
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
+	 *            Internacionalización
 	 * @return Vuelve al formulario
 	 */
 	@RequestMapping(method = RequestMethod.POST)
@@ -119,14 +123,15 @@ public class GuardarJuego {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			if (e.getCause().getCause() instanceof ConstraintViolationException) {
+			if (e.getCause()
+					.getCause() instanceof ConstraintViolationException) {
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.error.guardar", null, locale));
 				return SUCCESS;
 			} else {
 				model.addAttribute(ATT_ERROR, e);
 				return ERROR;
-			}	
+			}
 		}
 	}
 

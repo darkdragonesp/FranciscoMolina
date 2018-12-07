@@ -45,6 +45,7 @@ public class BuscarJuego {
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Formulario para modificar el {@link Juego}
 	 */
 	@RequestMapping(value = "/buscarJuego", method = RequestMethod.GET)

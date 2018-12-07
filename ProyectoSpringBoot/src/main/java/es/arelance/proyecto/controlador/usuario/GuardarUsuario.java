@@ -65,8 +65,11 @@ public class GuardarUsuario {
 	 * @param usuario
 	 *            {@link Usuario}
 	 * @param result
+	 *            Control de errores
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
+	 *            Internacionalización
 	 * @return Página de login
 	 */
 	@RequestMapping(method = RequestMethod.POST)

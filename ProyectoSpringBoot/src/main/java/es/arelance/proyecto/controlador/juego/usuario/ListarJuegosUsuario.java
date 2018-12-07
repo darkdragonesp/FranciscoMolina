@@ -18,35 +18,37 @@ import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
  */
 @Controller
 public class ListarJuegosUsuario {
-	
+
 	private static final String ATT_LISTA = "listaJuegos";
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "listaJuegosUsuario";
 	private static final String ERROR = "error";
-	
+
 	@Autowired
 	private JuegoUsuarioSvc svc;
 
 	/**
 	 * Muestra las instancias de {@link JuegoUsuario} de un usuario
+	 * 
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la lista de {@link JuegoUsuario} del {@link Usuario}
 	 */
-	@RequestMapping(value="/listarJuegosPorUsuario", method=RequestMethod.GET)
-    public String execute(Model model){
-    	try {
-    		//TODO coger usuario de la sesion
-    		Usuario usuario = new Usuario();
-    		usuario.setIdUsuario(4);
-    		
+	@RequestMapping(value = "/listarJuegosPorUsuario", method = RequestMethod.GET)
+	public String execute(Model model) {
+		try {
+			// TODO coger usuario de la sesion
+			Usuario usuario = new Usuario();
+			usuario.setIdUsuario(4);
+
 			model.addAttribute(ATT_LISTA, svc.listarPorUsuario(usuario));
-			
+
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
-    }
-	
+	}
+
 }

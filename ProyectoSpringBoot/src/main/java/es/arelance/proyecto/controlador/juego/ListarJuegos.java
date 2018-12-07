@@ -48,6 +48,7 @@ public class ListarJuegos {
 	 * 
 	 * @param juego
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarJuegos", method = RequestMethod.GET)
@@ -69,6 +70,7 @@ public class ListarJuegos {
 	 * @param idCategoria
 	 *            Identificador de la categoria seleccionada
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarPorCategoria", method = RequestMethod.GET)
@@ -93,6 +95,7 @@ public class ListarJuegos {
 	 * @param idPlataforma
 	 *            Identificador de la plataforma seleccionada
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarPorPlataforma", method = RequestMethod.GET)
@@ -115,6 +118,7 @@ public class ListarJuegos {
 	 * @param juego
 	 *            Contiene el titulo a filtrar
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarJuegosFiltro", method = RequestMethod.GET)
@@ -135,6 +139,7 @@ public class ListarJuegos {
 	 * 
 	 * @param juego
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la lista de juegos
 	 */
 	@RequestMapping(value = "/cargarTipos", method = RequestMethod.GET)

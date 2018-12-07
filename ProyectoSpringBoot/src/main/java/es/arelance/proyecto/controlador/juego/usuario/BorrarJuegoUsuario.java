@@ -41,7 +41,9 @@ public class BorrarJuegoUsuario {
 	 * @param idJuegoUsuario
 	 *            Identificador del {@link JuegoUsuario}
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
+	 *            Internacionalización
 	 * @return Destino biblioteca del usuario
 	 */
 	@RequestMapping(value = "/borrarJuegoUsuario", method = RequestMethod.GET)

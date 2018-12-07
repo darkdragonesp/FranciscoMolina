@@ -39,6 +39,7 @@ public class MostrarJuego {
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino ficha del {@link Juego}
 	 */
 	@RequestMapping(value = "/mostrarJuego")

@@ -32,13 +32,14 @@ public class MostrarUsuario {
 	 * Muestra el perfil un {@link Usuario} del sistema
 	 * 
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la información del {@link Usuario}
 	 */
 	@RequestMapping(value = "/mostrarUsuario", method = RequestMethod.GET)
 	public String execute(Model model) {
 		try {
 			// TODO obten usuario de la sesion
-			Usuario usuario = svc.obtenPorId(4,true);
+			Usuario usuario = svc.obtenPorId(4, true);
 			model.addAttribute(ATT_ITEM, usuario);
 
 			return SUCCESS;

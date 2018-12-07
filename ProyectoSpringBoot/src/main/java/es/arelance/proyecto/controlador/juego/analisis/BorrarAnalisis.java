@@ -40,7 +40,9 @@ public class BorrarAnalisis {
 	 * @param idAnalisis
 	 *            Identificador del {@link Analisis}
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
+	 *            Internacionalización
 	 * @return Destino controlador mostrarUsuario
 	 */
 	@RequestMapping(value = "/borrarAnalisis", method = RequestMethod.GET)

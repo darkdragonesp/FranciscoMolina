@@ -48,7 +48,9 @@ public class GuardarJuegoUsuario {
 	 * @param idPlataforma
 	 *            Plataforma filtrada
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
+	 *            Internacionalización
 	 * @return Destino listado de juegos (aplicando filtrado si es necesario)
 	 * 
 	 */

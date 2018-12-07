@@ -28,7 +28,6 @@ public class BorrarJuego {
 
 	private static final String SUCCESS = "forward:/listarJuegos";
 	private static final String ERROR = "error";
-	
 
 	@Autowired
 	private JuegoSvc svc;
@@ -42,7 +41,9 @@ public class BorrarJuego {
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
+	 *            Internacionalización
 	 * @param idCategoria
 	 *            Categoria filtrada
 	 * @param idPlataforma
@@ -77,7 +78,7 @@ public class BorrarJuego {
 			} else {
 				model.addAttribute(ATT_ERROR, e);
 				return ERROR;
-			}	
+			}
 		}
 	}
 

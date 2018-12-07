@@ -52,6 +52,7 @@ public class GuardarAnalisis {
 	 * @param idJuego
 	 *            Identificador del {@link Juego} a analizar
 	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino formulario para guardar un {@link Analisis}
 	 */
 	@RequestMapping(method = RequestMethod.GET)
@@ -84,7 +85,7 @@ public class GuardarAnalisis {
 	 * @param idJuego
 	 *            Identificador del {@link Juego} a analizar
 	 * @param model
-	 *            Almacenamiento de atributos
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
 	 *            Internacionalización
 	 * @return Si éxito vuelve a la ficha del {@link Juego};en otro caso vuelve
