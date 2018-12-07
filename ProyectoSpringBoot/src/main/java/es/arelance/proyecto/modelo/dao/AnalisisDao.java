@@ -43,5 +43,14 @@ public interface AnalisisDao {
 	 */
 	void delete(Analisis analisis) throws DaoException;
 
+	/**
+	 * Calcula la media de los {@link Analisis} de un {@link Juego}
+	 * 
+	 * @param idJuego
+	 *            Identificador del {@link Juego}
+	 * @return Media de los {@link Analisis} de un {@link Juego}
+	 * @throws DaoException
+	 *             Error relativo a la base de datos
+	 */
 	Integer avg(int idJuego) throws DaoException;
 }

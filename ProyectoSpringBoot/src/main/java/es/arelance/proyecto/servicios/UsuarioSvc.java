@@ -29,6 +29,9 @@ public interface UsuarioSvc {
 	 * 
 	 * @param idUsuario
 	 *            Identificador del {@link Usuario}
+	 * @param fetch
+	 *            Si {@code true} obtiene relaciones de {@link Juego}; Si
+	 *            {@code false} no realiza el fetch
 	 * @return Usuario si encontrado; null en otro caso
 	 * @throws ServiceException
 	 *             Error relativo a la capa DAO
@@ -40,9 +43,6 @@ public interface UsuarioSvc {
 	 * 
 	 * @param Usuario
 	 *            {@link Usuario} a guardar
-	 * @param fetch
-	 *            Si {@code true} obtiene relaciones de {@link Juego}; Si
-	 *            {@code false} no realiza el fetch
 	 * @throws ServiceException
 	 *             Error relativo a la capa DAO
 	 */

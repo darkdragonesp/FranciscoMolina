@@ -1,6 +1,8 @@
 package es.arelance.proyecto.servicios;
 
 import es.arelance.proyecto.modelo.Analisis;
+import es.arelance.proyecto.modelo.Juego;
+import es.arelance.proyecto.modelo.dao.DaoException;
 
 /**
  * Interfaz de la capa de servicio para gestionar los {@link Analisis}
@@ -29,5 +31,14 @@ public interface AnalisisSvc {
 	 */
 	void eliminar(Analisis analisis) throws ServiceException;
 
+	/**
+	 * Calcula la media de los {@link Analisis} de un {@link Juego}
+	 * 
+	 * @param idJuego
+	 *            Identificador del {@link Juego}
+	 * @return Media de los {@link Analisis} de un {@link Juego}
+	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
+	 */
 	Integer notaMedia(int idJuego) throws ServiceException;
 }
