@@ -26,7 +26,7 @@
 		<table>
 
 			<tr>
-				<td><spring:message code="juego.titulo" />(*)</td>
+				<td><spring:message code="juego.titulo" /></td>
 				<td><form:input path="titulo" required="required" /></td>
 				<td><form:errors path="titulo" cssClass="error" /></td>
 			</tr>
@@ -46,7 +46,7 @@
 			</tr>
 
 			<tr>
-				<td><spring:message code="juego.fechaLanzamiento" />(*)</td>
+				<td><spring:message code="juego.fechaLanzamiento" /></td>
 				<td><form:input path="fechaLanzamiento"
 						value="${fechaLanzamiento}" type="date" required="required" /></td>
 				<td><form:errors path="fechaLanzamiento" cssClass="error" /></td>

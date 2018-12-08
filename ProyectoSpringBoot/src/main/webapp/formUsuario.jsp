@@ -21,16 +21,16 @@
 	<%-- 	Formulario de registro de Usuario --%>
 	<form:form modelAttribute="usuario" method="POST" action="guardarUsuario">
 		<table>
-				<tr><td><spring:message code="usuario.nombre"/>(*)</td>
+				<tr><td><spring:message code="usuario.nombre"/></td>
 					<td><form:input path="nombreUsuario" required="required"/></td>
 					<td><form:errors path="nombreUsuario" cssClass="error" /></td>
 				</tr>
 					
-				<tr><td><spring:message code="usuario.correo"/>(*)</td>
+				<tr><td><spring:message code="usuario.correo"/></td>
 					<td><form:input path="correo" type="email" required="required"/></td>
 					<td><form:errors path="correo" cssClass="error" /></td>
 				</tr>
-				<tr><td><spring:message code="usuario.contrasena"/>(*)</td>
+				<tr><td><spring:message code="usuario.contrasena"/></td>
 					<td><form:input path="contrasena" type="password" required="required"/></td>
 					<td><form:errors path="contrasena" cssClass="error" /></td>
 				</tr>
