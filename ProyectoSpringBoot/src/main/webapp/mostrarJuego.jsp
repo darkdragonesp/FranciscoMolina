@@ -52,7 +52,7 @@
 			<td>${notaMedia}</td>
 		</tr>
 	</table>
-	
+
 	<br>
 	<h3>
 		<spring:message code="juego.analisis" />
@@ -69,9 +69,8 @@
 			<%-- 	Lista de Analisis --%>
 		</c:when>
 		<c:otherwise>
-			<br>
-			<table>
-				<c:forEach items="${juego.analisis}" var="item">
+			<c:forEach items="${juego.analisis}" var="item">
+				<table>
 					<tr>
 						<th><spring:message code="juego.analisis.fechaAlta" /></th>
 						<td><fmt:formatDate value="${item.fechaAlta}"
@@ -87,8 +86,9 @@
 						<th><spring:message code="juego.analisis.comentario" /></th>
 						<td>${item.comentario}</td>
 					</tr>
-				</c:forEach>
-			</table>
+				</table>
+				<hr>
+			</c:forEach>
 		</c:otherwise>
 	</c:choose>
 	<br>
