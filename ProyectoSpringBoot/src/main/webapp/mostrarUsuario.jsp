@@ -63,7 +63,7 @@
 					<tr>
 						<td><fmt:formatDate value="${item.fechaAlta}"
 								pattern="dd-MM-yyyy hh:MM:ss" /></td>
-						<td>${item.juego.titulo}</td>
+						<td><a href="mostrarJuego?idJuego=${item.juego.idJuego}">${item.juego.titulo}</a></td>
 						<td>${item.nota}</td>
 						<td>${item.comentario}</td>
 						<td><a href="borrarAnalisis?idAnalisis=${item.idAnalisis}"

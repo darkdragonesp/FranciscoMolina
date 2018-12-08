@@ -60,8 +60,8 @@
 	<c:choose>
 		<c:when test="${empty listaJuegos}">
 			<spring:message code="mensaje.juego.vacio" />
-			<a href="listarJuegos"><spring:message
-					code="accion.listar.juegos" /></a>
+			<a href="listarJuegos">
+			<spring:message code="accion.listar.juegos" /></a>
 		</c:when>
 		<c:otherwise>
 			<table>
