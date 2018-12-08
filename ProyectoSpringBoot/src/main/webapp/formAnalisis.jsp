@@ -31,7 +31,7 @@
 
 			<tr>
 				<td><spring:message code="juego.analisis.nota" /> (0-100)</td>
-				<td><form:input path="nota" type="number" 
+				<td><form:input path="nota" type="number" min="0" max="100"
 						step="1" required="required" /></td>
 				<td><form:errors path="nota" cssClass="error" /></td>
 			</tr>
