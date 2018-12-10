@@ -49,6 +49,7 @@ public class Juego {
 	}
 
 	@NotEmpty
+	@Size(max = 45)
 	@Column(nullable = false, unique = true, length = 45)
 	public String getTitulo() {
 		return titulo;

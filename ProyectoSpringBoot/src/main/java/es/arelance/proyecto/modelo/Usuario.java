@@ -49,6 +49,7 @@ public class Usuario {
 	}
 
 	@NotEmpty
+	@Size(max = 45)
 	@Column(nullable = false, unique = true, length = 45)
 	public String getNombreUsuario() {
 		return nombreUsuario;
@@ -60,6 +61,7 @@ public class Usuario {
 
 	@Email(regexp = ".+@.+\\..+")
 	@NotEmpty
+	@Size(max = 45)
 	@Column(nullable = false, length = 45)
 	public String getCorreo() {
 		return correo;
