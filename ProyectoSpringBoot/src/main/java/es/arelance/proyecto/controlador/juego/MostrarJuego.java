@@ -35,6 +35,7 @@ public class MostrarJuego {
 
 	/**
 	 * Obtiene el {@link Juego} dado su identificador y carga la ficha del juego
+	 * junto con sus {@link Analsis}
 	 * 
 	 * @param idJuego
 	 *            Identificador del {@link Juego}

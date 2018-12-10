@@ -54,7 +54,6 @@ public class BuscarJuego {
 			model.addAttribute(ATT_ITEM, svc.buscar(idJuego, false));
 			model.addAttribute(ATT_LISTA, catSvc.listar());
 			model.addAttribute(ATT_LISTA_EXTRA, platSvc.listar());
-
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);

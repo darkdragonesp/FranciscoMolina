@@ -35,8 +35,8 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
 public class GuardarJuego {
 
 	private static final String ATT_ITEM = "juego";
-	private static final String ATT_LISTA = "listaCategorias";
-	private static final String ATT_LISTA_EXTRA = "listaPlataformas";
+	private static final String ATT_LISTA_CAT = "listaCategorias";
+	private static final String ATT_LISTA_PLAT = "listaPlataformas";
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
@@ -66,16 +66,16 @@ public class GuardarJuego {
 	 * Muestra el formulario para crear un {@link Juego} nuevo
 	 * 
 	 * @param juego
+	 *            {@link Juego} a guardar
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
-	 * @return Formulario para crear un {@link Juego} nuevo
+	 * @return Formulario para crear o modificar un {@link Juego}
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String view(@ModelAttribute Juego juego, Model model) {
 		try {
-			model.addAttribute(ATT_LISTA, catSvc.listar());
-			model.addAttribute(ATT_LISTA_EXTRA, platSvc.listar());
-
+			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
+			model.addAttribute(ATT_LISTA_PLAT, platSvc.listar());
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);
@@ -100,14 +100,11 @@ public class GuardarJuego {
 	public String execute(@Valid Juego juego, BindingResult result, Model model,
 			Locale locale) {
 		try {
+			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
+			model.addAttribute(ATT_LISTA_PLAT, platSvc.listar());
 			if (result.hasErrors()) {
-				model.addAttribute(ATT_LISTA, catSvc.listar());
-				model.addAttribute(ATT_LISTA_EXTRA, platSvc.listar());
 				return SUCCESS;
 			} else {
-				model.addAttribute(ATT_LISTA, catSvc.listar());
-				model.addAttribute(ATT_LISTA_EXTRA, platSvc.listar());
-
 				if (juego.getIdJuego() == null) {
 					svc.guardar(juego);
 				} else {

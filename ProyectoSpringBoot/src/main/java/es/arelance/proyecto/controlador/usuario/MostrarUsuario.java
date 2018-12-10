@@ -19,7 +19,6 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
 public class MostrarUsuario {
 
 	private static final String ATT_ITEM = "usuario";
-
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "mostrarUsuario";

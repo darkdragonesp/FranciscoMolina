@@ -46,13 +46,12 @@ public class ListarJuegos {
 	/**
 	 * Muestra la lista de instancias de {@link Juego}
 	 * 
-	 * @param juego
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarJuegos", method = RequestMethod.GET)
-	public String execute(@ModelAttribute Juego juego, Model model) {
+	public String execute(Model model) {
 		try {
 			model.addAttribute(ATT_LISTA, svc.listar());
 			return CARGAR_TIPOS;
@@ -66,7 +65,6 @@ public class ListarJuegos {
 	 * Muestra la lista de instancias de {@link Juego} filtrado por
 	 * {@link Categoria}
 	 * 
-	 * @param juego
 	 * @param idCategoria
 	 *            Identificador de la categoria seleccionada
 	 * @param model
@@ -74,8 +72,8 @@ public class ListarJuegos {
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarPorCategoria", method = RequestMethod.GET)
-	public String listarPorCategoria(@ModelAttribute Juego juego,
-			@RequestParam int idCategoria, Model model) {
+	public String listarPorCategoria(@RequestParam int idCategoria,
+			Model model) {
 		try {
 			Categoria categoria = catSvc.buscarPorId(idCategoria);
 			model.addAttribute(ATT_LISTA, categoria.getJuegos());
@@ -91,7 +89,6 @@ public class ListarJuegos {
 	 * Muestra la lista de instancias de {@link Juego} filtrado por
 	 * {@link Plataforma}
 	 * 
-	 * @param juego
 	 * @param idPlataforma
 	 *            Identificador de la plataforma seleccionada
 	 * @param model
@@ -99,8 +96,8 @@ public class ListarJuegos {
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/listarPorPlataforma", method = RequestMethod.GET)
-	public String listarPorPlataforma(@ModelAttribute Juego juego,
-			@RequestParam int idPlataforma, Model model) {
+	public String listarPorPlataforma(@RequestParam int idPlataforma,
+			Model model) {
 		try {
 			Plataforma plataforma = platSvc.buscarPorId(idPlataforma);
 			model.addAttribute(ATT_LISTA, plataforma.getJuegos());
@@ -116,7 +113,7 @@ public class ListarJuegos {
 	 * Muestra la lista de instancias de {@link Juego} filtrado por titulo
 	 * 
 	 * @param juego
-	 *            Contiene el titulo a filtrar
+	 *            Contiene los atributos a filtrar
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
@@ -138,6 +135,7 @@ public class ListarJuegos {
 	 * muestra la página con la lista de juegos
 	 * 
 	 * @param juego
+	 *            Contiene los atributos a filtrar
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la lista de juegos
