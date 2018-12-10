@@ -19,6 +19,7 @@ import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.AnalisisSvc;
+import es.arelance.proyecto.servicios.DuplicateException;
 
 /**
  * Controlador para guardar un {@link Analisis} de un {@link Juego} y
@@ -93,7 +94,7 @@ public class GuardarAnalisis {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public String execute(@Valid Analisis analisis, BindingResult result,
-			@RequestParam int idJuego, Model model, Locale locale) {
+			Model model, Locale locale) {
 		try {
 			if (result.hasErrors()) {
 				return FORM;
@@ -104,13 +105,13 @@ public class GuardarAnalisis {
 
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.exito.analisis", null, locale));
-
-				return SUCCESS;
+//TODO REVISAR
+				return "forward:/mostrarJuego?idJuego="+analisis.getJuego().getIdJuego();
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			if (e.getMessage().equals("duplicidad")) {
+			if (e instanceof DuplicateException) {
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.error.analisis", null, locale));
 				return FORM;

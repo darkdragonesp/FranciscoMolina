@@ -8,6 +8,7 @@ import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.dao.AnalisisDao;
 import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.servicios.AnalisisSvc;
+import es.arelance.proyecto.servicios.DuplicateException;
 import es.arelance.proyecto.servicios.ServiceException;
 
 /**
@@ -29,7 +30,7 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 			if (!dao.exist(analisis)) {
 				dao.save(analisis);
 			} else {
-				throw new ServiceException("duplicidad");
+				throw new DuplicateException();
 			}
 		} catch (DaoException e) {
 			throw new ServiceException(e);
