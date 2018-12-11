@@ -111,13 +111,11 @@ public class GuardarAnalisis {
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (e instanceof DuplicateException) {
-				model.addAttribute(ATT_EXITO, messages
-						.getMessage("mensaje.error.analisis", null, locale));
-				return FORM;
+				result.reject("mensaje.error.analisis");
 			} else {
 				result.reject("mensaje.error.form");
-				return FORM;
 			}
+			return FORM;
 
 		}
 	}

@@ -97,13 +97,11 @@ public class GuardarUsuario {
 			e.printStackTrace();
 			if (e.getCause()
 					.getCause() instanceof ConstraintViolationException) {
-				model.addAttribute(ATT_EXITO, messages
-						.getMessage("mensaje.error.registrar", null, locale));
-				return FORM;
+				result.reject("mensaje.error.registrar");
 			} else {
 				result.reject("mensaje.error.form");
-				return FORM;
 			}
+			return FORM;
 		}
 	}
 

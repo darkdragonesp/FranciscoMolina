@@ -41,6 +41,7 @@ public class GuardarJuego {
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "formJuego";
+	private static final String FORM = "formJuego";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -103,7 +104,7 @@ public class GuardarJuego {
 			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
 			model.addAttribute(ATT_LISTA_PLAT, platSvc.listar());
 			if (result.hasErrors()) {
-				return SUCCESS;
+				return FORM;
 			} else {
 				if (juego.getIdJuego() == null) {
 					svc.guardar(juego);
@@ -124,13 +125,11 @@ public class GuardarJuego {
 			if (e.getCause() instanceof ConstraintViolationException || e
 					.getCause()
 					.getCause() instanceof ConstraintViolationException) {
-				model.addAttribute(ATT_EXITO, messages
-						.getMessage("mensaje.error.guardar", null, locale));
-				return SUCCESS;
+				result.reject("mensaje.error.guardar");
 			} else {
 				result.reject("mensaje.error.form");
-				return SUCCESS;
 			}
+			return FORM;
 		}
 	}
 

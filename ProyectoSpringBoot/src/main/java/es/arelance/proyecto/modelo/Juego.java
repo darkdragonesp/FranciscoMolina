@@ -69,7 +69,7 @@ public class Juego {
 		this.fechaLanzamiento = fechaLanzamiento;
 	}
 
-	@Size(max = 300)
+	@Size(max = 500)
 	public String getDescripcion() {
 		return descripcion;
 	}
