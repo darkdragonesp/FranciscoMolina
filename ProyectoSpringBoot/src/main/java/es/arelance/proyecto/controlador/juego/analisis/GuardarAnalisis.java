@@ -36,7 +36,7 @@ public class GuardarAnalisis {
 	private static final String ATT_ERROR = "error";
 
 	private static final String FORM = "formAnalisis";
-	private static final String SUCCESS = "forward:/mostrarJuego";
+	private static final String SUCCESS = "forward:/mostrarJuego?idJuego=";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -83,8 +83,6 @@ public class GuardarAnalisis {
 	 *            {@link Analisis} a guardar
 	 * @param result
 	 *            Control de errores
-	 * @param idJuego
-	 *            Identificador del {@link Juego} a analizar
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
@@ -105,8 +103,8 @@ public class GuardarAnalisis {
 
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.exito.analisis", null, locale));
-//TODO REVISAR
-				return "forward:/mostrarJuego?idJuego="+analisis.getJuego().getIdJuego();
+				
+				return SUCCESS + analisis.getJuego().getIdJuego();
 			}
 
 		} catch (Exception e) {

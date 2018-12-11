@@ -24,7 +24,6 @@
 	<%-- 	Formulario para analisis --%>
 	<form:form modelAttribute="analisis" method="POST"
 		action="guardarAnalisis">
-		<input type="hidden" name="idJuego" value="${analisis.juego.idJuego}" />
 		<form:hidden path="juego.idJuego" value="${juego.idJuego}" />
 		<form:hidden path="usuario.idUsuario" value="${usuario.idUsuario}" />
 		<table>
