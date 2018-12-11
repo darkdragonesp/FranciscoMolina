@@ -64,6 +64,7 @@
 					value="<spring:message code="accion.guardar"/>" /></td>
 			</tr>
 		</table>
+		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 	<br> ${msg}
 	<br>

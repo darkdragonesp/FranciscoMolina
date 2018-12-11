@@ -97,13 +97,14 @@ public class GuardarAnalisis {
 			if (result.hasErrors()) {
 				return FORM;
 			} else {
+
 				analisis.setFechaAlta(new Date());
 
 				svc.guardar(analisis);
 
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.exito.analisis", null, locale));
-				
+
 				return SUCCESS + analisis.getJuego().getIdJuego();
 			}
 
@@ -114,8 +115,8 @@ public class GuardarAnalisis {
 						.getMessage("mensaje.error.analisis", null, locale));
 				return FORM;
 			} else {
-				model.addAttribute(ATT_ERROR, e);
-				return ERROR;
+				result.reject("mensaje.error.form");
+				return FORM;
 			}
 
 		}

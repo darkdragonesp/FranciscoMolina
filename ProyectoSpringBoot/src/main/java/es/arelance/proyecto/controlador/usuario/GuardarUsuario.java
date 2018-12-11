@@ -101,8 +101,8 @@ public class GuardarUsuario {
 						.getMessage("mensaje.error.registrar", null, locale));
 				return FORM;
 			} else {
-				model.addAttribute(ATT_ERROR, e);
-				return ERROR;
+				result.reject("mensaje.error.form");
+				return FORM;
 			}
 		}
 	}

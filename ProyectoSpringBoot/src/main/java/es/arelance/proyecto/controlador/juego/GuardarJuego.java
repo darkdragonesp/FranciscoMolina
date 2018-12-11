@@ -128,8 +128,8 @@ public class GuardarJuego {
 						.getMessage("mensaje.error.guardar", null, locale));
 				return SUCCESS;
 			} else {
-				model.addAttribute(ATT_ERROR, e);
-				return ERROR;
+				result.reject("mensaje.error.form");
+				return SUCCESS;
 			}
 		}
 	}
