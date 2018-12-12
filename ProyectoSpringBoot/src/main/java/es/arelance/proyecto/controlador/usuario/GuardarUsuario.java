@@ -32,7 +32,7 @@ public class GuardarUsuario {
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
-	private static final String FORM = "formUsuario";
+	private static final String FORM = "usuario/form";
 	private static final String SUCCESS = "forward:/inicio";
 	private static final String ERROR = "error";
 

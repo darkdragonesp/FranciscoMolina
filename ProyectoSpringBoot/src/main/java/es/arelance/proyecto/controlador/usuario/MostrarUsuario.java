@@ -21,7 +21,7 @@ public class MostrarUsuario {
 	private static final String ATT_ITEM = "usuario";
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "mostrarUsuario";
+	private static final String SUCCESS = "usuario/view";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -43,6 +43,7 @@ public class MostrarUsuario {
 
 			return SUCCESS;
 		} catch (Exception e) {
+			e.printStackTrace();
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}

@@ -24,7 +24,7 @@ public class MostrarJuego {
 
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "mostrarJuego";
+	private static final String SUCCESS = "juego/view";
 	private static final String ERROR = "error";
 
 	@Autowired

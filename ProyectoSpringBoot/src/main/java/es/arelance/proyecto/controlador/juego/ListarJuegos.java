@@ -30,7 +30,7 @@ public class ListarJuegos {
 	private static final String ATT_LISTA_PLAT = "listaPlataformas";
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "listaJuegos";
+	private static final String SUCCESS = "juego/list";
 	private static final String CARGAR_TIPOS = "forward:/cargarTipos";
 	private static final String ERROR = "error";
 

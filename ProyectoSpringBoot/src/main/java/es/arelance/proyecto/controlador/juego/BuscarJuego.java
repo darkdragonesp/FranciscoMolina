@@ -26,7 +26,7 @@ public class BuscarJuego {
 	private static final String ATT_LISTA_EXTRA = "listaPlataformas";
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "formJuego";
+	private static final String SUCCESS = "juego/form";
 	private static final String ERROR = "error";
 
 	@Autowired
