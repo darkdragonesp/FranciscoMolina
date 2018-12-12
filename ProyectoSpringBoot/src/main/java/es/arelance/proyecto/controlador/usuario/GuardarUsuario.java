@@ -27,7 +27,7 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
  */
 @Controller
 @RequestMapping(value = "/guardarUsuario")
-public class Guardar {
+public class GuardarUsuario {
 
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";

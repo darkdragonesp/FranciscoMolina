@@ -5,57 +5,54 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.arelance.proyecto.modelo.Juego;
-import es.arelance.proyecto.servicios.CategoriaSvc;
+import es.arelance.proyecto.servicios.AnalisisSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
-import es.arelance.proyecto.servicios.PlataformaSvc;
 
 /**
- * Controlador para buscar y modificar un {@link Juego} del sistema
+ * Controlador para mostrar la ficha y {@link analisis} de un {@link Juego} del
+ * sistema
  * 
  * @author Francisco Molina Sanchez
  * 
  */
 @Controller
-public class Buscar {
+public class MostrarJuego {
 
 	private static final String ATT_ITEM = "juego";
-	private static final String ATT_LISTA_CAT = "listaCategorias";
-	private static final String ATT_LISTA_PLAT = "listaPlataformas";
+
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "juego/form";
+	private static final String SUCCESS = "juego/view";
 	private static final String ERROR = "error";
 
 	@Autowired
 	private JuegoSvc svc;
 
 	@Autowired
-	private CategoriaSvc catSvc;
-
-	@Autowired
-	private PlataformaSvc platSvc;
+	private AnalisisSvc anSvc;
 
 	/**
-	 * Obtiene el {@link Juego} dado su identificador y carga el formulario con
-	 * los datos para modificarlo
+	 * Obtiene el {@link Juego} dado su identificador y carga la ficha del juego
+	 * junto con sus {@link Analsis}
 	 * 
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
-	 * @return Formulario para modificar el {@link Juego}
+	 * @return Destino ficha del {@link Juego}
 	 */
-	@RequestMapping(value = "{idJuego}/juego", method = RequestMethod.GET)
+	@RequestMapping(value = "{idJuego}/juego/view")
 	public String execute(@PathVariable int idJuego, Model model) {
 		try {
-			model.addAttribute(ATT_ITEM, svc.buscar(idJuego, false));
-			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
-			model.addAttribute(ATT_LISTA_PLAT, platSvc.listar());
+			Juego juego = svc.buscar(idJuego, true);
+			model.addAttribute(ATT_ITEM, juego);
+			model.addAttribute("notaMedia", anSvc.notaMedia(idJuego));
+
 			return SUCCESS;
 		} catch (Exception e) {
+			e.printStackTrace();
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}

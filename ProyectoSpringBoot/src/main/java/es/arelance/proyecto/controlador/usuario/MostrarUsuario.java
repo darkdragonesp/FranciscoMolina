@@ -16,7 +16,7 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
  * 
  */
 @Controller
-public class Mostrar {
+public class MostrarUsuario {
 
 	private static final String ATT_ITEM = "usuario";
 	private static final String ATT_ERROR = "error";

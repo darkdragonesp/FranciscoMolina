@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -72,7 +73,7 @@ public class Listar {
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/juego/list/{idCategoria}/categoria", method = RequestMethod.GET)
-	public String listarPorCategoria(@RequestParam int idCategoria,
+	public String listarPorCategoria(@PathVariable int idCategoria,
 			Model model) {
 		try {
 			Categoria categoria = catSvc.buscarPorId(idCategoria);

@@ -21,7 +21,7 @@ import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
  * 
  */
 @Controller
-public class Borrar {
+public class BorrarJuegoUsuario {
 
 	private static final String ATT_ERROR = "error";
 	private static final String ATT_EXITO = "msg";
