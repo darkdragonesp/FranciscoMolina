@@ -31,7 +31,7 @@
 		<tr>
 			<th><spring:message code="juego.categoria" /></th>
 			<td><a
-				href="${pageContext.request.contextPath}/listarPorCategoria?idCategoria=${juego.categoria.idCategoria}">${juego.categoria.nombre}</a></td>
+				href="${pageContext.request.contextPath}/juego/list/${juego.categoria.idCategoria}/categoria">${juego.categoria.nombre}</a></td>
 		</tr>
 		<tr>
 			<th><spring:message code="juego.plataforma" /></th>

@@ -64,7 +64,7 @@ public class Borrar {
 					messages.getMessage("mensaje.exito.borrar", null, locale));
 
 			if (idCategoria != null) {
-				return "forward:/listarPorCategoria";
+				return "forward:/juego/list/categoria";
 			} else if (idPlataforma != null) {
 				return "forward:/listarPorPlataforma";
 			} else {

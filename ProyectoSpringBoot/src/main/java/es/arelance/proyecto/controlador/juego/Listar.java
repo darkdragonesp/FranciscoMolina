@@ -71,7 +71,7 @@ public class Listar {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
-	@RequestMapping(value = "/listarPorCategoria", method = RequestMethod.GET)
+	@RequestMapping(value = "/juego/list/{idCategoria}/categoria", method = RequestMethod.GET)
 	public String listarPorCategoria(@RequestParam int idCategoria,
 			Model model) {
 		try {

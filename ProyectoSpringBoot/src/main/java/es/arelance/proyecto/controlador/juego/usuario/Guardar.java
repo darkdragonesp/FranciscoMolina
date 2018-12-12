@@ -74,7 +74,7 @@ public class Guardar {
 					messages.getMessage("mensaje.exito.agregar", null, locale));
 
 			if (idCategoria != null) {
-				return "forward:/listarPorCategoria";
+				return "forward:/juego/list/categoria";
 			} else if (idPlataforma != null) {
 				return "forward:/listarPorPlataforma";
 			} else {
