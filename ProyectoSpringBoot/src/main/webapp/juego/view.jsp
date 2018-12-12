@@ -58,7 +58,7 @@
 		<spring:message code="juego.analisis" />
 	</h3>
 	<a
-		href="${pageContext.request.contextPath}/guardarAnalisis?idJuego=${juego.idJuego}"><spring:message
+		href="${pageContext.request.contextPath}/analisis/save?idJuego=${juego.idJuego}"><spring:message
 			code="accion.analisis.nuevo" /></a> ${msg}
 	<br>
 	<br>

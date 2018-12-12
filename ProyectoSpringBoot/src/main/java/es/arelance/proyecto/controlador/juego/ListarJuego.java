@@ -31,7 +31,7 @@ public class ListarJuego {
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "juego/list";
-	private static final String CARGAR_TIPOS = "forward:/cargarTipos";
+	private static final String CARGAR_TIPOS = "forward:/juego/load";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -118,7 +118,7 @@ public class ListarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
-	@RequestMapping(value = "/listarJuegosFiltro", method = RequestMethod.GET)
+	@RequestMapping(value = "/juego/filter", method = RequestMethod.GET)
 	public String listarJuegosFiltro(@ModelAttribute Juego juego, Model model) {
 		try {
 			model.addAttribute(ATT_LISTA, svc.filtrar(juego));
@@ -140,7 +140,7 @@ public class ListarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la lista de juegos
 	 */
-	@RequestMapping(value = "/cargarTipos", method = RequestMethod.GET)
+	@RequestMapping(value = "/juego/load", method = RequestMethod.GET)
 	public String cargarTipos(@ModelAttribute Juego juego, Model model) {
 		try {
 			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());

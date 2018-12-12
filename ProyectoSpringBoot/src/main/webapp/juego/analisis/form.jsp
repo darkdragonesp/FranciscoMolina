@@ -23,7 +23,7 @@
 
 	<%-- 	Formulario para analisis --%>
 	<form:form modelAttribute="analisis" method="POST"
-		action="${pageContext.request.contextPath}/guardarAnalisis">
+		action="${pageContext.request.contextPath}/analisis/save">
 		<form:hidden path="juego.idJuego" value="${juego.idJuego}" />
 		<form:hidden path="usuario.idUsuario" value="${usuario.idUsuario}" />
 		<table>

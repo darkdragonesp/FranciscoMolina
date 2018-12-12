@@ -25,7 +25,7 @@
 	</h2>
 	<%-- 	Filtrado de Juegos --%>
 	<form:form modelAttribute="juego" method="GET"
-		action="${pageContext.request.contextPath}/listarJuegosFiltro">
+		action="${pageContext.request.contextPath}/juego/filter">
 		<form:hidden path="idJuego" />
 		<table>
 

@@ -68,7 +68,7 @@
 						<td>${item.nota}</td>
 						<td>${item.comentario}</td>
 						<td><a
-							href="${pageContext.request.contextPath}/borrarAnalisis?idAnalisis=${item.idAnalisis}"
+							href="${pageContext.request.contextPath}/${item.idAnalisis}/analisis/delete"
 							onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 								<spring:message code="accion.borrar" />
 						</a></td>
