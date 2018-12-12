@@ -18,6 +18,6 @@
 	<br>
 	<br> ${error}
 	<br>
-	<a href="inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${pageContext.request.contextPath}/inicio"><spring:message code="accion.inicio" /></a>
 </body>
 </html>

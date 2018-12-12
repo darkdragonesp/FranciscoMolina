@@ -24,7 +24,7 @@ import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
  */
 @Controller
 
-@RequestMapping(value = "{idJuego}/juego/usuario/save")
+
 public class GuardarJuegoUsuario {
 
 	private static final String ATT_EXITO = "msg";
@@ -55,7 +55,7 @@ public class GuardarJuegoUsuario {
 	 * @return Destino listado de juegos (aplicando filtrado si es necesario)
 	 * 
 	 */
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "{idJuego}/juego/usuario/save",method = RequestMethod.GET)
 	public String view(@PathVariable int idJuego,
 			@RequestParam Integer idCategoria,
 			@RequestParam Integer idPlataforma, Model model, Locale locale) {
@@ -83,6 +83,7 @@ public class GuardarJuegoUsuario {
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}

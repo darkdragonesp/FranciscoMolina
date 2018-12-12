@@ -86,7 +86,7 @@
 
 						<td><a
 							href="${pageContext.request.contextPath}/${item.idJuego}/juego/usuario/save
-							&idCategoria=${param.idCategoria}
+							?idCategoria=${param.idCategoria}
 							&idPlataforma=${param.idPlataforma}">
 								<spring:message code="accion.agregar" />
 						</a></td>
