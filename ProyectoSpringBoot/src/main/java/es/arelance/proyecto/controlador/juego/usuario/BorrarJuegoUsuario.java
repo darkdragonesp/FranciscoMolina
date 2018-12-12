@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.JuegoUsuario;
@@ -46,8 +46,8 @@ public class BorrarJuegoUsuario {
 	 *            Internacionalización
 	 * @return Destino biblioteca del usuario
 	 */
-	@RequestMapping(value = "/borrarJuegoUsuario", method = RequestMethod.GET)
-	public String borrar(@RequestParam int idJuegoUsuario, Model model,
+	@RequestMapping(value = "{idJuegoUsuario}/juego/usuario/delete", method = RequestMethod.GET)
+	public String borrar(@PathVariable int idJuegoUsuario, Model model,
 			Locale locale) {
 		try {
 			JuegoUsuario juegoUsuario = new JuegoUsuario();

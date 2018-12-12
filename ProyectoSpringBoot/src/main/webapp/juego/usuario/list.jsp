@@ -50,7 +50,7 @@
 								pattern="dd-MM-yyyy" /></td>
 						<td>${item.juego.descripcion}</td>
 						<td><a
-							href="${pageContext.request.contextPath}/borrarJuegoUsuario?idJuegoUsuario=${item.idJuegoUsuario}"
+							href="${pageContext.request.contextPath}/${item.idJuegoUsuario}/juego/usuario/delete"
 							onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 								<spring:message code="accion.borrar" />
 						</a></td>
