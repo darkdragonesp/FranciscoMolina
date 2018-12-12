@@ -32,7 +32,7 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
  */
 @Controller
 @RequestMapping(value = "/juego/save")
-public class GuardarJuego {
+public class Guardar {
 
 	private static final String ATT_ITEM = "juego";
 	private static final String ATT_LISTA_CAT = "listaCategorias";

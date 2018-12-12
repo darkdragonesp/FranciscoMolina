@@ -19,11 +19,11 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
  * 
  */
 @Controller
-public class BuscarJuego {
+public class Buscar {
 
 	private static final String ATT_ITEM = "juego";
-	private static final String ATT_LISTA = "listaCategorias";
-	private static final String ATT_LISTA_EXTRA = "listaPlataformas";
+	private static final String ATT_LISTA_CAT = "listaCategorias";
+	private static final String ATT_LISTA_PLAT = "listaPlataformas";
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "juego/form";
@@ -52,8 +52,8 @@ public class BuscarJuego {
 	public String execute(@PathVariable int idJuego, Model model) {
 		try {
 			model.addAttribute(ATT_ITEM, svc.buscar(idJuego, false));
-			model.addAttribute(ATT_LISTA, catSvc.listar());
-			model.addAttribute(ATT_LISTA_EXTRA, platSvc.listar());
+			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
+			model.addAttribute(ATT_LISTA_PLAT, platSvc.listar());
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);

@@ -30,7 +30,7 @@ import es.arelance.proyecto.servicios.DuplicateException;
  */
 @Controller
 @RequestMapping(value = "/guardarAnalisis")
-public class GuardarAnalisis {
+public class Guardar {
 
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";

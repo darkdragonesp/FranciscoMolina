@@ -20,7 +20,7 @@ import es.arelance.proyecto.servicios.AnalisisSvc;
  * 
  */
 @Controller
-public class BorrarAnalisis {
+public class Borrar {
 
 	private static final String ATT_ERROR = "error";
 	private static final String ATT_EXITO = "msg";

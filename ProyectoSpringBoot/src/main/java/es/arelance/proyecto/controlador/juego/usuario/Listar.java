@@ -17,7 +17,7 @@ import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
  *
  */
 @Controller
-public class ListarJuegosUsuario {
+public class Listar {
 
 	private static final String ATT_LISTA = "listaJuegos";
 	private static final String ATT_ERROR = "error";

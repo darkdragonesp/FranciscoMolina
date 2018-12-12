@@ -23,7 +23,7 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
  * 
  */
 @Controller
-public class ListarJuegos {
+public class Listar {
 
 	private static final String ATT_LISTA = "listaJuegos";
 	private static final String ATT_LISTA_CAT = "listaCategorias";

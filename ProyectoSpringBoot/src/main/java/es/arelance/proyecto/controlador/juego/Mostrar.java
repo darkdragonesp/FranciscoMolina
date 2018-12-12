@@ -18,7 +18,7 @@ import es.arelance.proyecto.servicios.JuegoSvc;
  * 
  */
 @Controller
-public class MostrarJuego {
+public class Mostrar {
 
 	private static final String ATT_ITEM = "juego";
 
