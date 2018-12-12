@@ -5,6 +5,7 @@
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -18,7 +19,14 @@
 </head>
 <body>
 	<h2>
-		<spring:message code="accion.nuevo" />
+		<c:choose>
+			<c:when test="${empty juego.idJuego}">
+				<spring:message code="accion.nuevo" />
+			</c:when>
+			<c:otherwise>
+				<spring:message code="accion.editar.juego" />
+			</c:otherwise>
+		</c:choose>
 	</h2>
 	<%-- 	Formulario de registro de un Juego nuevo --%>
 	<form:form modelAttribute="juego" method="POST" action="guardarJuego">
