@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,7 @@ import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
  */
 @Controller
 
-@RequestMapping(value = "/guardarJuegoUsuario")
+@RequestMapping(value = "{idJuego}/juego/usuario/save")
 public class GuardarJuegoUsuario {
 
 	private static final String ATT_EXITO = "msg";
@@ -55,7 +56,7 @@ public class GuardarJuegoUsuario {
 	 * 
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String view(@RequestParam int idJuego,
+	public String view(@PathVariable int idJuego,
 			@RequestParam Integer idCategoria,
 			@RequestParam Integer idPlataforma, Model model, Locale locale) {
 		try {
