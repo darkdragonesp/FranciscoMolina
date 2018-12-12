@@ -74,9 +74,9 @@ public class GuardarJuegoUsuario {
 					messages.getMessage("mensaje.exito.agregar", null, locale));
 
 			if (idCategoria != null) {
-				return "forward:/juego/list/categoria";
+				return "forward:/juego/list/{idCategoria}/categoria";
 			} else if (idPlataforma != null) {
-				return "forward:/listarPorPlataforma";
+				return "forward:/juego/list/{idPlataforma}/plataforma";
 			} else {
 				return SUCCESS;
 			}

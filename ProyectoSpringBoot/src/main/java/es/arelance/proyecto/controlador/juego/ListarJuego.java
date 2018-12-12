@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Categoria;
 import es.arelance.proyecto.modelo.Juego;
@@ -24,7 +23,7 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
  * 
  */
 @Controller
-public class Listar {
+public class ListarJuego {
 
 	private static final String ATT_LISTA = "listaJuegos";
 	private static final String ATT_LISTA_CAT = "listaCategorias";
@@ -96,8 +95,8 @@ public class Listar {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
-	@RequestMapping(value = "/listarPorPlataforma", method = RequestMethod.GET)
-	public String listarPorPlataforma(@RequestParam int idPlataforma,
+	@RequestMapping(value = "/juego/list/{idPlataforma}/plataforma", method = RequestMethod.GET)
+	public String listarPorPlataforma(@PathVariable int idPlataforma,
 			Model model) {
 		try {
 			Plataforma plataforma = platSvc.buscarPorId(idPlataforma);

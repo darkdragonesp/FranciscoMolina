@@ -45,7 +45,7 @@
 						<td><a
 							href="${pageContext.request.contextPath}/juego/list/${item.juego.categoria.idCategoria}/categoria">${item.juego.categoria.nombre}</a></td>
 						<td><a
-							href="${pageContext.request.contextPath}/listarPorPlataforma?idPlataforma=${item.juego.plataforma.idPlataforma}">${item.juego.plataforma.nombre}</a></td>
+							href="${pageContext.request.contextPath}/juego/list/${item.juego.plataforma.idPlataforma}/plataforma">${item.juego.plataforma.nombre}</a></td>
 						<td><fmt:formatDate value="${item.juego.fechaLanzamiento}"
 								pattern="dd-MM-yyyy" /></td>
 						<td>${item.juego.descripcion}</td>

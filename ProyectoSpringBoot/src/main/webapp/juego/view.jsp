@@ -36,7 +36,7 @@
 		<tr>
 			<th><spring:message code="juego.plataforma" /></th>
 			<td><a
-				href="${pageContext.request.contextPath}/listarPorPlataforma?idPlataforma=${juego.plataforma.idPlataforma}">${juego.plataforma.nombre}</a></td>
+				href="${pageContext.request.contextPath}/juego/list/${juego.plataforma.idPlataforma}/plataforma">${juego.plataforma.nombre}</a></td>
 		</tr>
 		<tr>
 			<th><spring:message code="juego.fechaLanzamiento" /></th>
