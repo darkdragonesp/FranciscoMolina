@@ -29,7 +29,7 @@ public class GuardarJuegoUsuario {
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "forward:/listarJuegos";
+	private static final String SUCCESS = "forward:/juego/list";
 	private static final String ERROR = "error";
 
 	@Autowired

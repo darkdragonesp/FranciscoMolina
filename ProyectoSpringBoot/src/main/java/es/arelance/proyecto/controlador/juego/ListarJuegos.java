@@ -50,7 +50,7 @@ public class ListarJuegos {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
-	@RequestMapping(value = "/listarJuegos", method = RequestMethod.GET)
+	@RequestMapping(value = "/juego/list", method = RequestMethod.GET)
 	public String execute(Model model) {
 		try {
 			model.addAttribute(ATT_LISTA, svc.listar());

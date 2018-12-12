@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +27,7 @@ public class BorrarJuego {
 	private static final String ATT_ERROR = "error";
 	private static final String ATT_EXITO = "msg";
 
-	private static final String SUCCESS = "forward:/listarJuegos";
+	private static final String SUCCESS = "forward:/juego/list";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -50,8 +51,8 @@ public class BorrarJuego {
 	 *            Plataforma filtrada
 	 * @return Destino listado de juegos (aplicando filtrado si es necesario)
 	 */
-	@RequestMapping(value = "/borrarJuego", method = RequestMethod.GET)
-	public String borrar(@RequestParam int idJuego, Model model, Locale locale,
+	@RequestMapping(value = "{idJuego}/juego/delete", method = RequestMethod.GET)
+	public String borrar(@PathVariable int idJuego, Model model, Locale locale,
 			@RequestParam Integer idCategoria,
 			@RequestParam Integer idPlataforma) {
 		try {

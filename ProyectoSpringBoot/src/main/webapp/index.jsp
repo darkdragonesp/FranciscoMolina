@@ -11,13 +11,13 @@
 <body>
 	<a href="guardarUsuario"><spring:message code="accion.registrarse" /></a>
 	<br>
-	<a href="mostrarUsuario"><spring:message code="accion.perfil.ver" /></a>
+	<a href="usuario/view"><spring:message code="accion.perfil.ver" /></a>
 	<br>
-	<a href="guardarJuego"><spring:message code="accion.nuevo" /></a>
+	<a href="juego/save"><spring:message code="accion.nuevo" /></a>
 	<br>
-	<a href="listarJuegos"><spring:message code="accion.listar.juegos" /></a>
+	<a href="juego/list"><spring:message code="accion.listar.juegos" /></a>
 	<br>
-	<a href="listarJuegosPorUsuario"><spring:message
+	<a href="juego/usuario/list"><spring:message
 			code="accion.listar.juegos.usuario" /></a>
 	<br>
 	<a href="inicio?lang=es"><spring:message code="idioma.es" /></a>

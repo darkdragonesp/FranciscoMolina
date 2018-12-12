@@ -29,7 +29,8 @@
 		</c:choose>
 	</h2>
 	<%-- 	Formulario de registro de un Juego nuevo --%>
-	<form:form modelAttribute="juego" method="POST" action="guardarJuego">
+	<form:form modelAttribute="juego" method="POST"
+		action="${pageContext.request.contextPath}/juego/save">
 		<form:hidden path="idJuego" />
 		<table>
 
@@ -76,6 +77,7 @@
 	</form:form>
 	<br> ${msg}
 	<br>
-	<a href="listarJuegos"><spring:message code="accion.listar.juegos" /></a>
+	<a href="${pageContext.request.contextPath}/juego/list"><spring:message
+			code="accion.listar.juegos" /></a>
 </body>
 </html>

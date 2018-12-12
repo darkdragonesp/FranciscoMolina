@@ -25,7 +25,7 @@ public class BorrarAnalisis {
 	private static final String ATT_ERROR = "error";
 	private static final String ATT_EXITO = "msg";
 
-	private static final String SUCCESS = "forward:/mostrarUsuario";
+	private static final String SUCCESS = "forward:/usuario/view";
 	private static final String ERROR = "error";
 
 	@Autowired

@@ -23,7 +23,7 @@
 
 	<%-- 	Formulario para analisis --%>
 	<form:form modelAttribute="analisis" method="POST"
-		action="guardarAnalisis">
+		action="${pageContext.request.contextPath}/guardarAnalisis">
 		<form:hidden path="juego.idJuego" value="${juego.idJuego}" />
 		<form:hidden path="usuario.idUsuario" value="${usuario.idUsuario}" />
 		<table>
@@ -50,8 +50,11 @@
 	</form:form>
 	${msg}
 	<br>
-	<a href="mostrarJuego?idJuego=${analisis.juego.idJuego}"> 
-			<spring:message code="accion.volver" /></a>
-	<a href="inicio"><spring:message code="accion.inicio" /></a>
+	<a
+		href="${pageContext.request.contextPath}/${analisis.juego.idJuego}/juego/view">
+		<spring:message code="accion.volver" />
+	</a>
+	<a href="${pageContext.request.contextPath}/inicio"><spring:message
+			code="accion.inicio" /></a>
 </body>
 </html>

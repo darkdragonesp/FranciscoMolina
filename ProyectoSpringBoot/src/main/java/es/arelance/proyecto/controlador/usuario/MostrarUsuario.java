@@ -34,8 +34,8 @@ public class MostrarUsuario {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la información del {@link Usuario}
 	 */
-	@RequestMapping(value = "/mostrarUsuario", method = RequestMethod.GET)
-	public String execute(Model model) {
+	@RequestMapping(value = "/usuario/view", method = RequestMethod.GET)
+	public String view(Model model) {
 		try {
 			// TODO obten usuario de la sesion
 			Usuario usuario = svc.obtenPorId(4, true);

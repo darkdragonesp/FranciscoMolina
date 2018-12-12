@@ -36,7 +36,7 @@ public class GuardarAnalisis {
 	private static final String ATT_ERROR = "error";
 
 	private static final String FORM = "juego/analisis/form";
-	private static final String SUCCESS = "forward:/mostrarJuego?idJuego=";
+	private static final String SUCCESS = "forward:/";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -105,7 +105,7 @@ public class GuardarAnalisis {
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.exito.analisis", null, locale));
 
-				return SUCCESS + analisis.getJuego().getIdJuego();
+				return SUCCESS + analisis.getJuego().getIdJuego() +"/juego/view";
 			}
 
 		} catch (Exception e) {

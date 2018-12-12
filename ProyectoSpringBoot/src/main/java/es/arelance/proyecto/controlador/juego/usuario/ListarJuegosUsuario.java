@@ -35,7 +35,7 @@ public class ListarJuegosUsuario {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la lista de {@link JuegoUsuario} del {@link Usuario}
 	 */
-	@RequestMapping(value = "/listarJuegosPorUsuario", method = RequestMethod.GET)
+	@RequestMapping(value = "/juego/usuario/list", method = RequestMethod.GET)
 	public String execute(Model model) {
 		try {
 			// TODO coger usuario de la sesion

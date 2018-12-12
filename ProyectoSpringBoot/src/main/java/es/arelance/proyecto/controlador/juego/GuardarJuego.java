@@ -31,7 +31,7 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
  * 
  */
 @Controller
-@RequestMapping(value = "/guardarJuego")
+@RequestMapping(value = "/juego/save")
 public class GuardarJuego {
 
 	private static final String ATT_ITEM = "juego";

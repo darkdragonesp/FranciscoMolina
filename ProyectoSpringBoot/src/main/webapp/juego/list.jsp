@@ -25,7 +25,7 @@
 	</h2>
 	<%-- 	Filtrado de Juegos --%>
 	<form:form modelAttribute="juego" method="GET"
-		action="listarJuegosFiltro">
+		action="${pageContext.request.contextPath}/listarJuegosFiltro">
 		<form:hidden path="idJuego" />
 		<table>
 
@@ -60,8 +60,8 @@
 	<c:choose>
 		<c:when test="${empty listaJuegos}">
 			<spring:message code="mensaje.juego.vacio" />
-			<a href="listarJuegos">
-			<spring:message code="accion.listar.juegos" /></a>
+			<a href="${pageContext.request.contextPath}/juego/list"> <spring:message
+					code="accion.listar.juegos" /></a>
 		</c:when>
 		<c:otherwise>
 			<table>
@@ -74,27 +74,29 @@
 				</tr>
 				<c:forEach items="${listaJuegos}" var="item">
 					<tr>
-						<td><a href="mostrarJuego?idJuego=${item.idJuego}">${item.titulo}</a></td>
 						<td><a
-							href="listarPorCategoria?idCategoria=${item.categoria.idCategoria}">${item.categoria.nombre}</a></td>
+							href="${pageContext.request.contextPath}/${item.idJuego}/juego/view">${item.titulo}</a></td>
 						<td><a
-							href="listarPorPlataforma?idPlataforma=${item.plataforma.idPlataforma}">${item.plataforma.nombre}</a></td>
+							href="${pageContext.request.contextPath}/listarPorCategoria?idCategoria=${item.categoria.idCategoria}">${item.categoria.nombre}</a></td>
+						<td><a
+							href="${pageContext.request.contextPath}/listarPorPlataforma?idPlataforma=${item.plataforma.idPlataforma}">${item.plataforma.nombre}</a></td>
 						<td><fmt:formatDate value="${item.fechaLanzamiento}"
 								pattern="dd-MM-yyyy" /></td>
 						<td>${item.descripcion}</td>
 
 						<td><a
-							href="guardarJuegoUsuario?idJuego=${item.idJuego}
+							href="${pageContext.request.contextPath}/guardarJuegoUsuario?idJuego=${item.idJuego}
 							&idCategoria=${param.idCategoria}
 							&idPlataforma=${param.idPlataforma}">
 								<spring:message code="accion.agregar" />
 						</a></td>
-						<td><a href="buscarJuego?idJuego=${item.idJuego}"><spring:message
+						<td><a
+							href="${pageContext.request.contextPath}/${item.idJuego}/juego"><spring:message
 									code="accion.editar" /></a></td>
 
 						<td><a
-							href="borrarJuego?idJuego=${item.idJuego}
-							&idCategoria=${param.idCategoria}
+							href="${pageContext.request.contextPath}/${item.idJuego}/juego/delete
+							?idCategoria=${param.idCategoria}
 							&idPlataforma=${param.idPlataforma}"
 							onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 								<spring:message code="accion.borrar" />
@@ -106,6 +108,7 @@
 	</c:choose>
 	<br> ${msg}
 	<br>
-	<a href="inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${pageContext.request.contextPath}/inicio"><spring:message
+			code="accion.inicio" /></a>
 </body>
 </html>

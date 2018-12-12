@@ -63,10 +63,12 @@
 					<tr>
 						<td><fmt:formatDate value="${item.fechaAlta}"
 								pattern="dd-MM-yyyy hh:MM:ss" /></td>
-						<td><a href="mostrarJuego?idJuego=${item.juego.idJuego}">${item.juego.titulo}</a></td>
+						<td><a
+							href="${pageContext.request.contextPath}/${item.juego.idJuego}/juego/view">${item.juego.titulo}</a></td>
 						<td>${item.nota}</td>
 						<td>${item.comentario}</td>
-						<td><a href="borrarAnalisis?idAnalisis=${item.idAnalisis}"
+						<td><a
+							href="${pageContext.request.contextPath}/borrarAnalisis?idAnalisis=${item.idAnalisis}"
 							onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 								<spring:message code="accion.borrar" />
 						</a></td>
@@ -77,6 +79,7 @@
 	</c:choose>
 
 	<br>
-	<a href="inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${pageContext.request.contextPath}/inicio"> <spring:message
+			code="accion.inicio" /></a>
 </body>
 </html>

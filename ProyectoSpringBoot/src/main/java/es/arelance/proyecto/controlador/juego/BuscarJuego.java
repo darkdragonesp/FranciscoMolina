@@ -3,9 +3,9 @@ package es.arelance.proyecto.controlador.juego;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.servicios.CategoriaSvc;
@@ -48,8 +48,8 @@ public class BuscarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Formulario para modificar el {@link Juego}
 	 */
-	@RequestMapping(value = "/buscarJuego", method = RequestMethod.GET)
-	public String execute(@RequestParam int idJuego, Model model) {
+	@RequestMapping(value = "{idJuego}/juego", method = RequestMethod.GET)
+	public String execute(@PathVariable int idJuego, Model model) {
 		try {
 			model.addAttribute(ATT_ITEM, svc.buscar(idJuego, false));
 			model.addAttribute(ATT_LISTA, catSvc.listar());

@@ -26,7 +26,7 @@
 	<c:choose>
 		<c:when test="${empty listaJuegos}">
 			<spring:message code="mensaje.juego.usuario.vacio" />
-			<a href="listarJuegos"><spring:message
+			<a href="${pageContext.request.contextPath}/juego/list"><spring:message
 					code="accion.listar.juegos" /></a>
 		</c:when>
 		<c:otherwise>
@@ -40,16 +40,17 @@
 				</tr>
 				<c:forEach items="${listaJuegos}" var="item">
 					<tr>
-						<td><a href="mostrarJuego?idJuego=${item.juego.idJuego}">${item.juego.titulo}</a></td>
 						<td><a
-							href="listarPorCategoria?idCategoria=${item.juego.categoria.idCategoria}">${item.juego.categoria.nombre}</a></td>
+							href="${pageContext.request.contextPath}/${item.juego.idJuego}/juego/view">${item.juego.titulo}</a></td>
 						<td><a
-							href="listarPorPlataforma?idPlataforma=${item.juego.plataforma.idPlataforma}">${item.juego.plataforma.nombre}</a></td>
+							href="${pageContext.request.contextPath}/listarPorCategoria?idCategoria=${item.juego.categoria.idCategoria}">${item.juego.categoria.nombre}</a></td>
+						<td><a
+							href="${pageContext.request.contextPath}/listarPorPlataforma?idPlataforma=${item.juego.plataforma.idPlataforma}">${item.juego.plataforma.nombre}</a></td>
 						<td><fmt:formatDate value="${item.juego.fechaLanzamiento}"
 								pattern="dd-MM-yyyy" /></td>
 						<td>${item.juego.descripcion}</td>
 						<td><a
-							href="borrarJuegoUsuario?idJuegoUsuario=${item.idJuegoUsuario}"
+							href="${pageContext.request.contextPath}/borrarJuegoUsuario?idJuegoUsuario=${item.idJuegoUsuario}"
 							onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
 								<spring:message code="accion.borrar" />
 						</a></td>
@@ -60,6 +61,7 @@
 	</c:choose>
 	<br> ${msg}
 	<br>
-	<a href="inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${pageContext.request.contextPath}/inicio"><spring:message
+			code="accion.inicio" /></a>
 </body>
 </html>

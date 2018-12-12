@@ -3,8 +3,8 @@ package es.arelance.proyecto.controlador.juego;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.servicios.AnalisisSvc;
@@ -43,8 +43,8 @@ public class MostrarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino ficha del {@link Juego}
 	 */
-	@RequestMapping(value = "/mostrarJuego")
-	public String execute(@RequestParam int idJuego, Model model) {
+	@RequestMapping(value = "{idJuego}/juego/view")
+	public String execute(@PathVariable int idJuego, Model model) {
 		try {
 			Juego juego = svc.buscar(idJuego, true);
 			model.addAttribute(ATT_ITEM, juego);

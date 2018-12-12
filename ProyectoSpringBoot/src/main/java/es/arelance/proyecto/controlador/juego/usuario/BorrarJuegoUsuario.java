@@ -26,7 +26,7 @@ public class BorrarJuegoUsuario {
 	private static final String ATT_ERROR = "error";
 	private static final String ATT_EXITO = "msg";
 
-	private static final String SUCCESS = "forward:/listarJuegosPorUsuario";
+	private static final String SUCCESS = "forward:/juego/usuario/list";
 	private static final String ERROR = "error";
 
 	@Autowired
