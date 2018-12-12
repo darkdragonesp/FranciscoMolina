@@ -50,7 +50,7 @@ public class ListarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Destino controlador de carga de tipos
 	 */
-	@RequestMapping(value = "/juego/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/juego/list")
 	public String execute(Model model) {
 		try {
 			model.addAttribute(ATT_LISTA, svc.listar());
@@ -140,7 +140,7 @@ public class ListarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la lista de juegos
 	 */
-	@RequestMapping(value = "/juego/load", method = RequestMethod.GET)
+	@RequestMapping(value = "/juego/load")
 	public String cargarTipos(@ModelAttribute Juego juego, Model model) {
 		try {
 			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());

@@ -41,6 +41,7 @@ public class GuardarJuego {
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "juego/form";
+	private static final String LIST= "redirect:/juego/list";
 	private static final String FORM = "juego/form";
 	private static final String ERROR = "error";
 
@@ -95,7 +96,8 @@ public class GuardarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
 	 *            Internacionalización
-	 * @return Vuelve al formulario
+	 * @return Vuelve al formulario; en caso de que la modificación
+	 *  se exitosa envia al listado de juegos
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public String execute(@Valid Juego juego, BindingResult result, Model model,
@@ -110,6 +112,8 @@ public class GuardarJuego {
 					svc.guardar(juego);
 				} else {
 					svc.modificar(juego);
+					
+					return LIST;
 				}
 
 				model.addAttribute(ATT_EXITO,
