@@ -22,7 +22,7 @@
 	</h2>
 	<%-- 	Formulario de registro de Usuario --%>
 	<form:form modelAttribute="usuario" method="POST"
-		action="guardarUsuario">
+		action="${pageContext.request.contextPath}/usuario/save">
 		<table>
 			<tr>
 				<td><spring:message code="usuario.nombre" /></td>
@@ -51,6 +51,6 @@
 	</form:form>
 	<br> ${msg}
 	<br>
-	<a href="inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${pageContext.request.contextPath}/inicio"><spring:message code="accion.inicio" /></a>
 </body>
 </html>

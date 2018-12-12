@@ -26,7 +26,7 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
  * 
  */
 @Controller
-@RequestMapping(value = "/guardarUsuario")
+@RequestMapping(value = "/usuario/save")
 public class GuardarUsuario {
 
 	private static final String ATT_EXITO = "msg";
