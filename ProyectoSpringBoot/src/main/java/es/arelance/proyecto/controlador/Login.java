@@ -37,7 +37,6 @@ public class Login {
 	public String execute(@Valid Usuario usuario, BindingResult result,
 			Model model) {
 		try {
-
 			if (result.getFieldError("nombreUsuario") != null
 					|| result.getFieldError("contrasena") != null) {
 				return FORM;

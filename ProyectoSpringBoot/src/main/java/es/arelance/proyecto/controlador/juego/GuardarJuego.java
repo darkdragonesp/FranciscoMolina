@@ -113,7 +113,7 @@ public class GuardarJuego {
 				} else {
 					svc.modificar(juego);
 					
-					return LIST;
+					return LIST+"?success=true";
 				}
 
 				model.addAttribute(ATT_EXITO,

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Categoria;
 import es.arelance.proyecto.modelo.Juego;
@@ -51,8 +52,9 @@ public class ListarJuego {
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/juego/list")
-	public String execute(Model model) {
+	public String execute(@RequestParam(value="success", required=false) String success,Model model) {
 		try {
+			//TODO if suces es true mostrar un mensaje
 			model.addAttribute(ATT_LISTA, svc.listar());
 			return CARGAR_TIPOS;
 		} catch (Exception e) {
