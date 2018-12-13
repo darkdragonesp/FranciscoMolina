@@ -10,19 +10,6 @@ import es.arelance.proyecto.modelo.Usuario;
  *
  */
 public interface UsuarioSvc {
-	/**
-	 * Busca a un {@link Usuario} por nombre y contrasena
-	 * 
-	 * @param nombreUsuario
-	 *            Nombre del {@link Usuario}
-	 * @param contrasena
-	 *            Contraseña del {@link Usuario}
-	 * @return {@link Usuario} si existe; null en otro caso
-	 * @throws ServiceException
-	 *             Error relativo a la capa DAO
-	 */
-	Usuario acceder(String nombreUsuario, String contrasena)
-			throws ServiceException;
 
 	/**
 	 * Busca a un {@link Usuario} por identificador para mostrar su perfil
@@ -47,4 +34,15 @@ public interface UsuarioSvc {
 	 *             Error relativo a la capa DAO
 	 */
 	void guardar(Usuario usuario) throws ServiceException;
+
+	/**
+	 * Identificar un {@link Usuario}
+	 * 
+	 * @param {@link
+	 * 			Usuario}
+	 * @return {@link Usuario} si lo encuentra;en otro caso {@code null}
+	 * @throws SvcException
+	 *             Error relativo a la capa DAO
+	 */
+	Usuario identificar(Usuario usuario) throws ServiceException;
 }

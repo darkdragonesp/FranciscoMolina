@@ -26,16 +26,6 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 	private UsuarioDao dao;
 
 	@Override
-	public Usuario acceder(String nombreUsuario, String contrasena)
-			throws ServiceException {
-		try {
-			return dao.findByNameAndPass(nombreUsuario, contrasena);
-		} catch (DaoException e) {
-			throw new ServiceException(e);
-		}
-	}
-
-	@Override
 	public Usuario obtenPorId(Integer idUsuario, boolean fetch)
 			throws ServiceException {
 		Usuario res = null;
@@ -59,5 +49,14 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 			throw new ServiceException(e);
 		}
 	}
-
+	@Override
+	public Usuario identificar(Usuario usuario) throws ServiceException {
+		Usuario res = null;
+		try{
+			res = dao.findByUsernameAndPassword(usuario.getNombreUsuario(), usuario.getContrasena());
+		}catch (Exception e){
+			throw new ServiceException(e);
+		}
+		return res;
+	}
 }

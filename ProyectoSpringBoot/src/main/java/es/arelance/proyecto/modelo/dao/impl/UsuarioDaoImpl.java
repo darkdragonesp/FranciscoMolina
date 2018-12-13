@@ -19,12 +19,23 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
+	
 	@Override
-	public Usuario findByNameAndPass(String nombreUsuario, String contrasena)
-			throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+	public Usuario findByUsernameAndPassword(String nombreUsuario,
+			String contrasena) throws DaoException {
+		Usuario res = null;
+		try {
+			String hql = "FROM Usuario u "
+					+ "WHERE u.nombreUsuario =:nombreUsuario "
+					+ "AND u.contrasena =:contrasena ";
+			res = (Usuario) sessionFactory.getCurrentSession().createQuery(hql)
+					.setParameter("nombreUsuario", nombreUsuario)
+					.setParameter("contrasena", contrasena).uniqueResult();
+		} catch (Exception ex) {
+			throw new DaoException(ex);
+		}
+
+		return res;
 	}
 
 	@Override
@@ -40,6 +51,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		return res;
 	}
 
+	
 	@Override
 	public void save(Usuario usuario) throws DaoException {
 		try {
@@ -48,5 +60,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			throw new DaoException(ex);
 		}
 	}
+
+
 
 }

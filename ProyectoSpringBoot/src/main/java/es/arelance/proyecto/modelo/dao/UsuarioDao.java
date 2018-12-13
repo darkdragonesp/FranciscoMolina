@@ -10,7 +10,7 @@ import es.arelance.proyecto.modelo.Usuario;
  */
 public interface UsuarioDao {
 	/**
-	 * Busca a un {@link Usuario} por nombre y contrasena
+	 * Busca a un {@link Usuario} por nombre y contraseña
 	 * 
 	 * @param nombreUsuario
 	 *            Nombre del usuario
@@ -20,7 +20,7 @@ public interface UsuarioDao {
 	 * @throws DaoException
 	 *             Error relativo a la base de datos
 	 */
-	Usuario findByNameAndPass(String nombreUsuario, String contrasena)
+	Usuario findByUsernameAndPassword(String nombreUsuario, String contrasena)
 			throws DaoException;
 
 	/**

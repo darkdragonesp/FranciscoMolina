@@ -14,6 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import es.arelance.proyecto.interceptor.LoginInterceptor;
+
 /**
  * Configurador de la app
  * La configuración de acceso a datos se encuentra en application.properties
@@ -45,9 +47,15 @@ public class SpringConfiguration implements WebMvcConfigurer{
 	    return messageSource;
 	}
 	
+	@Bean
+	public LoginInterceptor loginInterceptor() {
+	    return new LoginInterceptor();
+	}
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 	    registry.addInterceptor(localeChangeInterceptor());
+	    registry.addInterceptor(loginInterceptor());
 	}
 	
 	@Override

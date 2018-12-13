@@ -8,7 +8,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<%@ page errorPage="error.jsp"%>
+<%-- <%@ page errorPage="error.jsp"%> --%>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
 <body>
 	<h2><spring:message code="accion.acceder"/></h2>
 	<%-- 	Login de Usuario --%>
-	<form:form modelAttribute="usuario" method="POST" action="accederUsuario">
+	<form:form modelAttribute="usuario" method="POST" action="login">
 		<table>
 				<tr><th><spring:message code="usuario.nombre"/></th>
 					<td><form:input path="nombreUsuario" required="required"/></td>
@@ -33,7 +33,9 @@
 					
 				<tr><td><input type="submit" value="<spring:message code="accion.acceder"/>"/></td></tr>
 		</table>
+		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
-	<a href="inicio"><spring:message code="accion.inicio"/></a>
+		<br>
+	${msg}
 </body>
 </html>
