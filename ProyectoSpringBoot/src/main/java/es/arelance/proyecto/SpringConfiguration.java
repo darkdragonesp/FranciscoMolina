@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 
 import es.arelance.proyecto.interceptor.LoginInterceptor;
 
@@ -50,6 +51,13 @@ public class SpringConfiguration implements WebMvcConfigurer{
 	@Bean
 	public LoginInterceptor loginInterceptor() {
 	    return new LoginInterceptor();
+	}
+	
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer tiles = new TilesConfigurer();
+		tiles.setDefinitions(new String[] { "/WEB-INF/tiles.xml" });
+		return tiles;
 	}
 	
 	@Override
