@@ -12,6 +12,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	public static final String ATT_USER = "sessionUser";
 	private static final String INDEX = "/index.jsp"; 
 	private static final String LOGIN = "/login";
+	private static final String ERROR = "/error";
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,
@@ -20,7 +21,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		Usuario usuario = (Usuario) request.getSession().getAttribute(ATT_USER);
         
         if(usuario == null){
-        	if (!uri.endsWith(LOGIN) && !uri.endsWith("error")){
+        	if (!uri.endsWith(LOGIN) && !uri.endsWith(ERROR)){
         		response.sendRedirect(INDEX);
         		return false;
         	}

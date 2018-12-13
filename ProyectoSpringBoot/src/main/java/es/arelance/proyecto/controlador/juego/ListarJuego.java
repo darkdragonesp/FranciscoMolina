@@ -1,6 +1,9 @@
 package es.arelance.proyecto.controlador.juego;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +32,7 @@ public class ListarJuego {
 	private static final String ATT_LISTA = "listaJuegos";
 	private static final String ATT_LISTA_CAT = "listaCategorias";
 	private static final String ATT_LISTA_PLAT = "listaPlataformas";
+	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "juego/list";
@@ -44,6 +48,9 @@ public class ListarJuego {
 	@Autowired
 	private PlataformaSvc platSvc;
 
+	@Autowired
+	private MessageSource messages;
+	
 	/**
 	 * Muestra la lista de instancias de {@link Juego}
 	 * 
@@ -52,9 +59,12 @@ public class ListarJuego {
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/juego/list")
-	public String execute(@RequestParam(value="success", required=false) String success,Model model) {
+	public String execute(@RequestParam(required=false) Boolean success,Model model,Locale locale) {
 		try {
 			//TODO if suces es true mostrar un mensaje
+			if(success!=null && success) {
+				model.addAttribute(ATT_EXITO,messages.getMessage("mensaje.exito", null, locale));
+			}
 			model.addAttribute(ATT_LISTA, svc.listar());
 			return CARGAR_TIPOS;
 		} catch (Exception e) {
