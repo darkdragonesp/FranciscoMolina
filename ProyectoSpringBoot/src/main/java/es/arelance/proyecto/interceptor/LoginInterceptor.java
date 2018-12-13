@@ -20,7 +20,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		Usuario usuario = (Usuario) request.getSession().getAttribute(ATT_USER);
         
         if(usuario == null){
-        	if (!uri.endsWith(LOGIN)){
+        	if (!uri.endsWith(LOGIN) && !uri.endsWith("error")){
         		response.sendRedirect(INDEX);
         		return false;
         	}
