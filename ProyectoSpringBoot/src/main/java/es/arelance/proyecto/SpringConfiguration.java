@@ -63,11 +63,11 @@ public class SpringConfiguration implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 	    registry.addInterceptor(localeChangeInterceptor());
-//	    registry.addInterceptor(loginInterceptor())
-//	    	.excludePathPatterns("/css/*")
-//	    	.excludePathPatterns("/fotos/*")
-//	    	.excludePathPatterns("/images/*")
-//	    	.excludePathPatterns("/js/*");
+	    registry.addInterceptor(loginInterceptor())
+	    	.excludePathPatterns("/css/*")
+	    	.excludePathPatterns("/fotos/*")
+	    	.excludePathPatterns("/images/*")
+	    	.excludePathPatterns("/js/*");
 	}
 	
 	@Override
