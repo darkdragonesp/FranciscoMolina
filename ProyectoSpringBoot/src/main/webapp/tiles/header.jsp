@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
         	<li class="nav-item"><a class="nav-link" href="guardar"><spring:message code="accion.nuevo"/></a></li>
-        	<li class="nav-item"><a class="nav-link" href="listar"><spring:message code="accion.listar"/></a></li>
+        	<li class="nav-item"><a class="nav-link" href="listar"><spring:message code="accion.listar.juegos"/></a></li>
              
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message code="accion.idiomas"/></a>
