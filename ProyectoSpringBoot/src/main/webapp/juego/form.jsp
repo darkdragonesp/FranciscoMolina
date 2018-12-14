@@ -23,50 +23,54 @@
 		</c:choose>
 	</h2>
 	<%-- 	Formulario de registro de un Juego nuevo --%>
-	<form:form modelAttribute="juego" method="POST"
+	<form:form class="form-signin" modelAttribute="juego" method="POST"
 		action="${pageContext.request.contextPath}/juego/save">
 		<form:hidden path="idJuego" />
-		<table>
+		
 
-			<tr>
-				<td><spring:message code="juego.titulo" /></td>
-				<td><form:input path="titulo" required="required" /></td>
-				<td><form:errors path="titulo" cssClass="error" /></td>
-			</tr>
+			<label for="titulo" class="sr-only">
+				<spring:message code="juego.titulo" var="labTitulo"/>
+		</label>
+				<form:input path="titulo" required="required" class="form-control" placeholder="${labTitulo}"/>
+				<form:errors path="titulo" cssClass="error" />
+			
 
-			<tr>
-				<td><spring:message code="juego.categoria" /></td>
-				<td><form:select path="categoria.idCategoria"
+			<label for="categoria.idCategoria" class="sr-only">
+				<spring:message code="juego.categoria"/>
+		</label>
+				<form:select path="categoria.idCategoria"
 						items="${listaCategorias}" itemLabel="nombre"
-						itemValue="idCategoria" required="required" /></td>
-			</tr>
+						itemValue="idCategoria" required="required" class="form-control"/>
+			
 
-			<tr>
-				<td><spring:message code="juego.plataforma" /></td>
-				<td><form:select path="plataforma.idPlataforma"
+			<label for="plataforma.idPlataforma" class="sr-only">
+				<spring:message code="juego.plataforma"/>
+		</label>
+				<form:select path="plataforma.idPlataforma"
 						items="${listaPlataformas}" itemLabel="nombre"
-						itemValue="idPlataforma" required="required" /></td>
-			</tr>
+						itemValue="idPlataforma" required="required" class="form-control"/>
+			
 
-			<tr>
-				<td><spring:message code="juego.fechaLanzamiento" /></td>
-				<td><form:input path="fechaLanzamiento"
-						value="${fechaLanzamiento}" type="date" required="required" /></td>
-				<td><form:errors path="fechaLanzamiento" cssClass="error" /></td>
-			</tr>
+			<label for="fechaLanzamiento" class="sr-only">
+				<spring:message code="juego.fechaLanzamiento" var="labFechaLanzamiento"/>
+		</label>
+				<form:input path="fechaLanzamiento"
+						value="${fechaLanzamiento}" type="date" required="required" class="form-control" />
+				<form:errors path="fechaLanzamiento" cssClass="error" />
+			
 
-			<tr>
-				<td><spring:message code="juego.descripcion" /></td>
-				<td><form:textarea path="descripcion" rows="8" cols="30" /></td>
-				<td><form:errors path="descripcion" cssClass="error" /></td>
-			</tr>
+			<label for="descripcion" class="sr-only">
+				<spring:message code="juego.descripcion" var="labDescripcion"/>
+		</label>
+				<form:textarea path="descripcion" rows="8" placeholder="${labDescripcion}" class="form-control"/>
+				<form:errors path="descripcion" cssClass="error" />
+			
 
 
-			<tr>
-				<td><input type="submit"
-					value="<spring:message code="accion.guardar"/>" /></td>
-			</tr>
-		</table>
+			
+				<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.guardar"/>" />
+			
+		
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 	<br> ${msg}

@@ -35,7 +35,7 @@ public class GuardarAnalisis {
 	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
-	private static final String FORM = "juego/analisis/form";
+	private static final String FORM = "analisis/form";
 	private static final String SUCCESS = "forward:/";
 	private static final String ERROR = "error";
 

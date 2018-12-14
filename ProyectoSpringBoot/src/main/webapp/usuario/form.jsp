@@ -15,32 +15,35 @@
 		<spring:message code="accion.registrarse" />
 	</h2>
 	<%-- 	Formulario de registro de Usuario --%>
-	<form:form modelAttribute="usuario" method="POST"
+	<form:form class="form-signin" modelAttribute="usuario" method="POST"
 		action="${pageContext.request.contextPath}/usuario/save">
-		<table>
-			<tr>
-				<td><spring:message code="usuario.nombre" /></td>
-				<td><form:input path="nombreUsuario" required="required" /></td>
-				<td><form:errors path="nombreUsuario" cssClass="error" /></td>
-			</tr>
+				
+				<label for="nombreUsuario" class="sr-only">
+				<spring:message code="usuario.nombre" var="labNombreUsuario"/>
+				</label>
+				<form:input path="nombreUsuario" required="required" class="form-control" placeholder="${labNombreUsuario}"/>
+				<form:errors path="nombreUsuario" cssClass="error" />
+			
 
-			<tr>
-				<td><spring:message code="usuario.correo" /></td>
-				<td><form:input path="correo" type="email" required="required" /></td>
-				<td><form:errors path="correo" cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td><spring:message code="usuario.contrasena" /></td>
-				<td><form:input path="contrasena" type="password"
-						required="required" /></td>
-				<td><form:errors path="contrasena" cssClass="error" /></td>
-			</tr>
+				<label for="correo" class="sr-only">
+				<spring:message code="usuario.correo" var="labCorreo"/>
+				</label>
+				<form:input path="correo" type="email" required="required" class="form-control" placeholder="${labCorreo}"/>
+				<form:errors path="correo" cssClass="error" />
+			
+				<label for="contrasena" class="sr-only">
+				<spring:message code="usuario.contrasena" var="labContrasena"/>
+				</label>
+				<form:input path="contrasena" type="password"
+						required="required" class="form-control" placeholder="${labContrasena}"/>
+				<form:errors path="contrasena" cssClass="error" />
+			
 
-			<tr>
-				<td><input type="submit"
-					value="<spring:message code="accion.registrar"/>" /></td>
-			</tr>
-		</table>
+			
+				<input type="submit" class="btn btn-lg btn-primary btn-block"
+					value="<spring:message code="accion.registrar"/>" />
+			
+
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 	<br> ${msg}

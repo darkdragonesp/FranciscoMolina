@@ -16,30 +16,34 @@
 	</h3>
 
 	<%-- 	Formulario para analisis --%>
-	<form:form modelAttribute="analisis" method="POST"
+	<form:form class="form-signin" modelAttribute="analisis" method="POST"
 		action="${pageContext.request.contextPath}/analisis/save">
 		<form:hidden path="juego.idJuego" value="${juego.idJuego}" />
 		<form:hidden path="usuario.idUsuario" value="${usuario.idUsuario}" />
-		<table>
+		
 
-			<tr>
-				<td><spring:message code="juego.analisis.nota" />(0-100)</td>
-				<td><form:input path="nota" type="number" min="0" max="100"
-						step="1" required="required" /></td>
-				<td><form:errors path="nota" cssClass="error" /></td>
-			</tr>
+			<label for="nota" class="sr-only">
+				<spring:message code="juego.analisis.nota" var="labNota"/>
+			</label>
+				<form:input path="nota" type="number" min="0" max="100"
+						step="1" required="required" placeholder="${labNota}" class="form-control"/>
+				<form:errors path="nota" cssClass="error" />
+			
 
-			<tr>
-				<td><spring:message code="juego.analisis.comentario" /></td>
-				<td><form:textarea path="comentario" required="required" /></td>
-				<td><form:errors path="comentario" cssClass="error" /></td>
-			</tr>
+			<label for="comentario" class="sr-only">
+				<spring:message code="juego.analisis.comentario" var="labComentario"/>
+			</label>
+				<form:textarea path="comentario" required="required" rows="8" placeholder="${labComentario}" class="form-control"/>
+				<form:errors path="comentario" cssClass="error" />
+			
+			
+				
 
-			<tr>
-				<td><input type="submit"
-					value="<spring:message code="accion.guardar"/>" /></td>
-			</tr>
-		</table>
+			
+				<input type="submit" class="btn btn-lg btn-primary btn-block"
+					value="<spring:message code="accion.guardar"/>" />
+			
+		
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 	${msg}

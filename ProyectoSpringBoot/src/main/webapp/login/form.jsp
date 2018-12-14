@@ -13,20 +13,24 @@
 
 	<h2><spring:message code="accion.acceder"/></h2>
 	<%-- 	Login de Usuario --%>
-	<form:form modelAttribute="usuario" method="POST" action="login">
-		<table>
-				<tr><th><spring:message code="usuario.nombre"/></th>
-					<td><form:input path="nombreUsuario" required="required"/></td>
-					<td><form:errors path="nombreUsuario" cssClass="error" /></td>
-				</tr>
+	<form:form class="form-signin" modelAttribute="usuario" method="POST" action="login">
+		
+				<label for="nombreUsuario" class="sr-only">
+				<spring:message code="usuario.nombre" var="labNombreUsuario"/>
+				</label>
+				<form:input path="nombreUsuario" required="required" class="form-control" placeholder="${labNombreUsuario}"/>
+				<form:errors path="nombreUsuario" cssClass="error" />
+				
 					
-				<tr><th><spring:message code="usuario.contrasena"/></th>
-					<td><form:input path="contrasena" type="password" required="required"/></td>
-					<td><form:errors path="contrasena" cssClass="error" /></td>
-				</tr>
+				<label for="contrasena" class="sr-only">
+				<spring:message code="usuario.contrasena" var="labContrasena"/>
+				</label>
+				<form:input path="contrasena" type="password" required="required" class="form-control" placeholder="${labContrasena}"/>
+				<form:errors path="contrasena" cssClass="error" />
+				
 					
-				<tr><td><input type="submit" value="<spring:message code="accion.acceder"/>"/></td></tr>
-		</table>
+				<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.acceder"/>"/>
+		
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 		<br>

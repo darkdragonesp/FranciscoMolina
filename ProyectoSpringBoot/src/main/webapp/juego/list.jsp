@@ -17,36 +17,37 @@
 		<spring:message code="accion.listar.juegos" />
 	</h2>
 	<%-- 	Filtrado de Juegos --%>
-	<form:form modelAttribute="juego" method="GET"
+	<form:form class="form-inline"  modelAttribute="juego" method="GET"
 		action="${pageContext.request.contextPath}/juego/filter">
 		<form:hidden path="idJuego" />
-		<table>
+		
 
-			<tr>
-				<td><spring:message code="juego.titulo" /></td>
-				<td><form:input path="titulo" /></td>
+			<label for="titulo" class="sr-only">
+				<spring:message code="juego.titulo" var="labTitulo"/>
+		</label>
+				<form:input path="titulo" class="form-control" placeholder="${labTitulo}"/>
 
 
-				<td><spring:message code="juego.categoria" /></td>
-				<td><form:select path="categoria.idCategoria">
+				<spring:message code="juego.categoria" />
+				<form:select path="categoria.idCategoria">
 						<form:option value="">&nbsp;</form:option>
 						<form:options items="${listaCategorias}" itemLabel="nombre"
 							itemValue="idCategoria" />
-					</form:select></td>
+					</form:select>
 
-				<td><spring:message code="juego.plataforma" /></td>
-				<td><form:select path="plataforma.idPlataforma">
+				<spring:message code="juego.plataforma" />
+				<form:select path="plataforma.idPlataforma">
 						<form:option value="">&nbsp;</form:option>
 						<form:options items="${listaPlataformas}" itemLabel="nombre"
 							itemValue="idPlataforma" />
-					</form:select></td>
+					</form:select>
 
-				<td><input type="submit"
-					value="<spring:message code="accion.filtrar"/>" /></td>
-				<td><input type="reset"
-					value="<spring:message code="accion.limpiar"/>" /></td>
-			</tr>
-		</table>
+				<input type="submit" class="btn btn-lg btn-primary btn-block" 
+					value="<spring:message code="accion.filtrar"/>" />
+				<input type="reset" class="btn btn-lg btn-primary btn-block" 
+					value="<spring:message code="accion.limpiar"/>" />
+			
+		
 
 	</form:form>
 	<%-- Lista de Juegos --%>
