@@ -42,9 +42,9 @@
 							itemValue="idPlataforma" />
 					</form:select>
 
-				<input type="submit" class="btn btn-lg btn-primary btn-block" 
+				<input type="submit" class="btn btn-lg btn-primary" 
 					value="<spring:message code="accion.filtrar"/>" />
-				<input type="reset" class="btn btn-lg btn-primary btn-block" 
+				<input type="reset" class="btn btn-lg btn-primary" 
 					value="<spring:message code="accion.limpiar"/>" />
 			
 		
