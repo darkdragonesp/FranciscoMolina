@@ -10,13 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page errorPage="error.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="app.name" /></title>
-</head>
-<body>
+
 	<h3>
 		<spring:message code="juego.analisis" />
 	</h3>
@@ -56,5 +50,3 @@
 	</a>
 	<a href="${pageContext.request.contextPath}/inicio"><spring:message
 			code="accion.inicio" /></a>
-</body>
-</html>

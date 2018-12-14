@@ -11,14 +11,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page errorPage="error.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title><spring:message code="app.name" /></title>
-</head>
-<body>
 	<%-- Lista de Juegos de un Usuario --%>
 	<h2>
 		<spring:message code="accion.listar.juegos.usuario" />
@@ -63,5 +56,3 @@
 	<br>
 	<a href="${pageContext.request.contextPath}/inicio"><spring:message
 			code="accion.inicio" /></a>
-</body>
-</html>

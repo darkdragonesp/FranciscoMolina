@@ -2,13 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page errorPage="error.jsp"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="app.name" /></title>
-</head>
-<body>
+
 	<a href="${pageContext.request.contextPath}/usuario/save"><spring:message code="accion.registrarse" /></a>
 	<br>
 	<a href="${pageContext.request.contextPath}/usuario/view"><spring:message code="accion.perfil.ver" /></a>
@@ -24,5 +18,3 @@
 	<a href="${pageContext.request.contextPath}/inicio?lang=en"><spring:message code="idioma.en" /></a>
 
 	<br> ${msg}
-</body>
-</html>

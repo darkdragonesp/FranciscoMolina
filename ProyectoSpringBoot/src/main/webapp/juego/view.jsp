@@ -11,14 +11,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page errorPage="error.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title><spring:message code="app.name" /></title>
-</head>
-<body>
 	<%-- Ficha del juego --%>
 	<h2>
 		<spring:message code="accion.mostrar.juego" />
@@ -95,5 +88,3 @@
 	<br>
 	<a href="${pageContext.request.contextPath}/inicio"><spring:message
 			code="accion.inicio" /></a>
-</body>
-</html>

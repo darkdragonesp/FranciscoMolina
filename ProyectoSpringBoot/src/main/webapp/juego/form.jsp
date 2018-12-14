@@ -11,13 +11,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page errorPage="error.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="app.name" /></title>
-</head>
-<body>
+
 	<h2>
 		<c:choose>
 			<c:when test="${empty juego.idJuego}">
@@ -79,5 +73,3 @@
 	<br>
 	<a href="${pageContext.request.contextPath}/juego/list"><spring:message
 			code="accion.listar.juegos" /></a>
-</body>
-</html>

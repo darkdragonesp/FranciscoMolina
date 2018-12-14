@@ -3,22 +3,69 @@
 	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"       
 	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-    <definition name="baseLayout" template="/tiles/layout.jsp">
-        <put-attribute name="header" value="/tiles/header.jsp" />
-        <put-attribute name="body" value="" />
-        <put-attribute name="footer" value="/tiles/footer.jsp" />
-    </definition>
-    <definition name="form" extends="baseLayout">
-        <put-attribute name="body" value="/form.jsp" />
-    </definition>
-    <definition name="inicio" extends="baseLayout">
-        <put-attribute name="body" value="/inicio.jsp" />
-    </definition>
-    <definition name="resultado" extends="baseLayout">
-        <put-attribute name="body" value="/resultado.jsp" />
-    </definition>
-    <definition name="error" extends="baseLayout">
-        <put-attribute name="body" value="/error.jsp" />
+	<definition name="baseLayout" template="/tiles/layout.jsp">
+		<put-attribute name="header" value="/tiles/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/tiles/footer.jsp" />
+	</definition>
+
+	<!-- Home -->
+<!-- 	<definition name="home" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/home.jsp" /> -->
+<!-- 	</definition> -->
+<!-- Error -->
+<!-- 	<definition name="error" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/error.jsp" /> -->
+<!-- 	</definition> -->
+<!--    <definition name="/*" extends="baseLayout"> (5) -->
+<!--         <put-attribute name="body" value="/{1}.jsp" /> (7) -->
+<!--     </definition> -->
+
+   <definition name="*" extends="baseLayout">
+        <put-attribute name="body" value="/{1}" />
     </definition>
     
+   <definition name="*/*" extends="baseLayout">
+        <put-attribute name="body" value="/{1}/{2}.jsp" />
+    </definition>
+    
+<!--        <definition name="*/*/*" extends="baseLayout">  -->
+<!--         <put-attribute name="body" value="/{1}/{2}/{3}.jsp" />  -->
+<!--     </definition> -->
+
+	<!-- Login -->
+<!-- 	<definition name="login/form" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/login/form.jsp" /> -->
+<!-- 	</definition> -->
+
+	<!-- Juego -->
+<!-- 	<definition name="juego/list" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/juego/list.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="juego/form" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/juego/form.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="juego/view" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/juego/view.jsp" /> -->
+<!-- 	</definition> -->
+	<!-- Juego Analisis -->
+<!-- 	<definition name="juego/analisis/form" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" -->
+<!-- 			value="/juego/analisis/form.jsp" /> -->
+<!-- 	</definition> -->
+	<!-- Juego Usuario -->
+<!-- 	<definition name="juego/usuario/list" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" -->
+<!-- 			value="/juego/usuario/list.jsp" /> -->
+<!-- 	</definition> -->
+	<!-- Usuario -->
+<!-- 	<definition name="usuario/form" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/usuario/form.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="usuario/view" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/usuario/view.jsp" /> -->
+<!-- 	</definition> -->
+	
+
+
 </tiles-definitions>

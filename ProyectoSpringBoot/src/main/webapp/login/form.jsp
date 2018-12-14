@@ -10,13 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <%@ page errorPage="error.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="app.name"/></title>
-</head>
-<body>
+
 	<h2><spring:message code="accion.acceder"/></h2>
 	<%-- 	Login de Usuario --%>
 	<form:form modelAttribute="usuario" method="POST" action="login">
@@ -37,5 +31,3 @@
 	</form:form>
 		<br>
 	${msg}
-</body>
-</html>
