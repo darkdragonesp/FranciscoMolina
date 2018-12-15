@@ -67,7 +67,7 @@
 							<td>${item.comentario}</td>
 							<td><a
 								href="${raiz}/${item.idAnalisis}/analisis/delete"
-								onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
+								onclick="return window.confirm('<spring:message code="accion.analisis.confirmar"/>')">
 									<spring:message code="accion.borrar" />
 							</a></td>
 						</tr>

@@ -33,7 +33,7 @@ public class GuardarUsuario {
 	private static final String ATT_ERROR = "error";
 
 	private static final String FORM = "usuario/form";
-	private static final String SUCCESS = "forward:/inicio";
+	private static final String SUCCESS = "usuario/form";//"redirect:/usuario/login";
 	private static final String ERROR = "error";
 
 	@Autowired

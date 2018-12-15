@@ -61,7 +61,6 @@ public class ListarJuego {
 	@RequestMapping(value = "/juego/list")
 	public String execute(@RequestParam(required=false) Boolean success,Model model,Locale locale) {
 		try {
-			//TODO if suces es true mostrar un mensaje
 			if(success!=null && success) {
 				model.addAttribute(ATT_EXITO,messages.getMessage("mensaje.exito", null, locale));
 			}

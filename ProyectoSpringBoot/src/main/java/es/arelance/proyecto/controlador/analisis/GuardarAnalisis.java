@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import es.arelance.proyecto.interceptor.LoginInterceptor;
 import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Usuario;
@@ -29,6 +31,7 @@ import es.arelance.proyecto.servicios.DuplicateException;
  * 
  */
 @Controller
+@SessionAttributes({ LoginInterceptor.ATT_USER })
 @RequestMapping(value = "/analisis/save")
 public class GuardarAnalisis {
 
@@ -57,17 +60,14 @@ public class GuardarAnalisis {
 	 * @return Destino formulario para guardar un {@link Analisis}
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String view(@ModelAttribute Analisis analisis,
+	public String view(@ModelAttribute(LoginInterceptor.ATT_USER) Usuario usuario,@ModelAttribute Analisis analisis,
 			@RequestParam int idJuego, Model model) {
 		try {
-			// TODO meter usuario de la sesion
-			Usuario u = new Usuario();
-			u.setIdUsuario(4);
-			model.addAttribute("usuario", u);
-
 			Juego juego = new Juego();
 			juego.setIdJuego(idJuego);
+			
 			analisis.setJuego(juego);
+			analisis.setUsuario(usuario);
 
 			return FORM;
 		} catch (Exception e) {
@@ -99,7 +99,6 @@ public class GuardarAnalisis {
 			} else {
 
 				analisis.setFechaAlta(new Date());
-
 				svc.guardar(analisis);
 
 				model.addAttribute(ATT_EXITO, messages

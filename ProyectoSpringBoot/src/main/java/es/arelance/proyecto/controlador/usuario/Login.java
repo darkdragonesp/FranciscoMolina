@@ -17,14 +17,14 @@ import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.UsuarioSvc;
 
 @Controller
-@SessionAttributes({ LoginInterceptor.ATT_USER })
+@SessionAttributes(LoginInterceptor.ATT_USER)
 @RequestMapping(value = "/usuario")
 public class Login {
 
 	private static final String MSG_ERROR = "mensaje.error.login";
 	private static final String FORM = "login/form";
 	private static final String ERROR = "login/form";
-	private static final String SUCCESS = "/home";
+	private static final String SUCCESS = "forward:/inicio";
 	private static final String INICIO = "redirect:/login";
 
 	@Autowired

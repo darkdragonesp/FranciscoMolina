@@ -35,11 +35,7 @@
 			</label>
 				<form:textarea path="comentario" required="required" rows="8" placeholder="${labComentario}" class="form-control"/>
 				<form:errors path="comentario" cssClass="error" />
-			
-			
-				
 
-			
 				<input type="submit" class="btn btn-lg btn-primary btn-block"
 					value="<spring:message code="accion.guardar"/>" />
 			

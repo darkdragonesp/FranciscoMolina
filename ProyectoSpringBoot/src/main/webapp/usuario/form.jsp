@@ -48,4 +48,4 @@
 	</form:form>
 	<br> ${msg}
 	<br>
-	<a href="${raiz}/inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${raiz}/usuario/login"><spring:message code="accion.acceder" /></a>

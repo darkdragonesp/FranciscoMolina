@@ -3,9 +3,12 @@ package es.arelance.proyecto.controlador.usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import es.arelance.proyecto.interceptor.LoginInterceptor;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.UsuarioSvc;
 
@@ -16,6 +19,7 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
  * 
  */
 @Controller
+@SessionAttributes({ LoginInterceptor.ATT_USER })
 public class MostrarUsuario {
 
 	private static final String ATT_ITEM = "usuario";
@@ -35,12 +39,11 @@ public class MostrarUsuario {
 	 * @return Página con la información del {@link Usuario}
 	 */
 	@RequestMapping(value = "/usuario/view", method = RequestMethod.GET)
-	public String view(Model model) {
+	public String view(@ModelAttribute(LoginInterceptor.ATT_USER) Usuario sesionUsuario ,Model model) {
 		try {
-			// TODO obten usuario de la sesion
-			Usuario usuario = svc.obtenPorId(4, true);
+			//Obtener análisis del usuario con fetch
+			Usuario usuario = svc.obtenPorId(sesionUsuario.getIdUsuario(), true);
 			model.addAttribute(ATT_ITEM, usuario);
-
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -23,7 +23,7 @@
 		</c:choose>
 	</h2>
 	<%-- 	Formulario de registro de un Juego nuevo --%>
-	<form:form class="form-signin" modelAttribute="juego" method="POST"
+	<form:form class="container custom-container" modelAttribute="juego" method="POST"
 		action="${raiz}/juego/save">
 		<form:hidden path="idJuego" />
 		

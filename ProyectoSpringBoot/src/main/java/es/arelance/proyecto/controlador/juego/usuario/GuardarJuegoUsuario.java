@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import es.arelance.proyecto.interceptor.LoginInterceptor;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
@@ -23,8 +26,7 @@ import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
  *
  */
 @Controller
-
-
+@SessionAttributes({ LoginInterceptor.ATT_USER })
 public class GuardarJuegoUsuario {
 
 	private static final String ATT_EXITO = "msg";
@@ -56,13 +58,10 @@ public class GuardarJuegoUsuario {
 	 * 
 	 */
 	@RequestMapping(value = "{idJuego}/juego/usuario/save",method = RequestMethod.GET)
-	public String view(@PathVariable int idJuego,
+	public String view(@ModelAttribute(LoginInterceptor.ATT_USER) Usuario usuario, @PathVariable int idJuego,
 			@RequestParam Integer idCategoria,
 			@RequestParam Integer idPlataforma, Model model, Locale locale) {
 		try {
-			// TODO obtener usuario de la sesion
-			Usuario usuario = new Usuario();
-			usuario.setIdUsuario(4);
 
 			Juego juego = new Juego();
 			juego.setIdJuego(idJuego);

@@ -3,9 +3,12 @@ package es.arelance.proyecto.controlador.juego.usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import es.arelance.proyecto.interceptor.LoginInterceptor;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
@@ -17,6 +20,7 @@ import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
  *
  */
 @Controller
+@SessionAttributes({ LoginInterceptor.ATT_USER })
 public class ListarJuegoUsuario {
 
 	private static final String ATT_LISTA = "listaJuegos";
@@ -36,14 +40,9 @@ public class ListarJuegoUsuario {
 	 * @return Página con la lista de {@link JuegoUsuario} del {@link Usuario}
 	 */
 	@RequestMapping(value = "/juego/usuario/list", method = RequestMethod.GET)
-	public String execute(Model model) {
+	public String execute(@ModelAttribute(LoginInterceptor.ATT_USER) Usuario usuario, Model model) {
 		try {
-			// TODO coger usuario de la sesion
-			Usuario usuario = new Usuario();
-			usuario.setIdUsuario(4);
-
 			model.addAttribute(ATT_LISTA, svc.listarPorUsuario(usuario));
-
 			return SUCCESS;
 		} catch (Exception e) {
 			model.addAttribute(ATT_ERROR, e);

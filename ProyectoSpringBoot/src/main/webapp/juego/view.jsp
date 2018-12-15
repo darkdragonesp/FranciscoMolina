@@ -16,7 +16,7 @@
 	<h2>
 		<spring:message code="accion.mostrar.juego" />
 	</h2>
-		<table class="table table-bordered">
+		<table class="table table-bordered custom-table">
 			<thead class="thead-dark">
 				<tr>
 					<th><spring:message code="juego.titulo" /></th>
@@ -65,26 +65,32 @@
 			<%-- 	Lista de Analisis --%>
 		</c:when>
 		<c:otherwise>
-			<c:forEach items="${juego.analisis}" var="item">
-				<table>
+			
+				<table class="table table-bordered">
+				<thead class="thead-dark">
 					<tr>
-						<th><spring:message code="juego.analisis.fechaAlta" /></th>
-						<td><fmt:formatDate value="${item.fechaAlta}"
-								pattern="dd-MM-yyyy hh:MM:ss" /></td>
 						<th><spring:message code="usuario.autor" /></th>
-						<td>${item.usuario.nombreUsuario}</td>
-					</tr>
-					<tr>
+						<th><spring:message code="juego.analisis.fechaAlta" /></th>
 						<th><spring:message code="juego.analisis.nota" /></th>
-						<td>${item.nota}</td>
-					</tr>
-					<tr>
+						
 						<th><spring:message code="juego.analisis.comentario" /></th>
-						<td>${item.comentario}</td>
 					</tr>
+					</thead>
+					
+					<c:forEach items="${juego.analisis}" var="item">
+						<tr>
+						<td>${item.usuario.nombreUsuario}</td>
+						<td><fmt:formatDate value="${item.fechaAlta}"
+									pattern="dd-MM-yyyy hh:MM:ss" /></td>
+									
+							<td>${item.nota}</td>
+							<td>${item.comentario}</td>
+						</tr>
+					</c:forEach>
+					
 				</table>
 				<hr>
-			</c:forEach>
+			
 		</c:otherwise>
 	</c:choose>
 	<br>

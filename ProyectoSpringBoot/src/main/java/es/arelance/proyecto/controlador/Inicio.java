@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Inicio {
 
-	private static final String SUCCESS = "home";
+	private static final String SUCCESS = "inicio";
 
 	@RequestMapping(value = "/inicio")
 	public String execute(Model model) {
