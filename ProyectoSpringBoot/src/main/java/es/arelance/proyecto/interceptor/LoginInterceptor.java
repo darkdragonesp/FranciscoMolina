@@ -3,9 +3,11 @@ package es.arelance.proyecto.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import es.arelance.proyecto.modelo.Usuario;
+import es.arelance.proyecto.servicios.UsuarioSvc;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
@@ -15,6 +17,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	private static final String REGISTRO = "/usuario/save";
 	private static final String ERROR = "/error";
 
+	@Autowired
+	private UsuarioSvc svc;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
@@ -28,8 +33,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 				response.sendRedirect(INDEX);
 				return false;
 			}
-		}
-		// TODO descomentar
+        }else{
+        	//Comprobar autorización
+        	boolean res = svc.comprobar(usuario, uri);
+        	if (!res){
+        		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        		response.sendRedirect(request.getContextPath() + INDEX);
+        	}
+        	return res;
+    }
 		return true;
 	}
 

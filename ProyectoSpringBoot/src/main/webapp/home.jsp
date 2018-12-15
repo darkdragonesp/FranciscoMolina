@@ -13,7 +13,5 @@
 	<a class="nav-link" href="${raiz}/juego/usuario/list"><spring:message
 			code="accion.listar.juegos.usuario" /></a>
 
-	<a class="nav-link" href="${raiz}/inicio?lang=es"><spring:message code="idioma.es" /></a>
-	<a class="nav-link" href="${raiz}/inicio?lang=en"><spring:message code="idioma.en" /></a>
-
+	
 	<br> ${msg}

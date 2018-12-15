@@ -18,7 +18,7 @@
 	</h2>
 	<%-- 	Filtrado de Juegos --%>
 	<form:form class="form-inline"  modelAttribute="juego" method="GET"
-		action="${raiz}/juego/filter">
+		action="${raiz}/juego/list/filter">
 		<form:hidden path="idJuego" />
 		
 

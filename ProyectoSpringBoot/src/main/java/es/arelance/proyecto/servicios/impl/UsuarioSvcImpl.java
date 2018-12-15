@@ -22,6 +22,12 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
 @Transactional
 public class UsuarioSvcImpl implements UsuarioSvc {
 
+	private static final String URI_INICIO = "inicio";
+	private static final String URI_VIEW = "view";
+	private static final String URI_LIST = "list";
+	private static final String URI_USUARIO = "usuario";
+	private static final String URI_ANALISIS = "analisis";
+
 	@Autowired
 	private UsuarioDao dao;
 
@@ -49,14 +55,33 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 			throw new ServiceException(e);
 		}
 	}
+
 	@Override
 	public Usuario identificar(Usuario usuario) throws ServiceException {
 		Usuario res = null;
-		try{
-			res = dao.findByUsernameAndPassword(usuario.getNombreUsuario(), usuario.getContrasena());
-		}catch (Exception e){
+		try {
+			res = dao.findByUsernameAndPassword(usuario.getNombreUsuario(),
+					usuario.getContrasena());
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 		return res;
+	}
+
+	@Override
+	public boolean comprobar(Usuario usuario, String uri)
+			throws ServiceException {
+		switch (usuario.getTipoUsuario().getIdTipo()) {
+		// Administrador
+		case 1:
+			return true;
+		// Usuario normal
+		case 2:
+			return (uri.contains(URI_INICIO) || uri.contains(URI_USUARIO)
+					|| uri.contains(URI_VIEW) || uri.contains(URI_LIST)
+					|| uri.contains(URI_ANALISIS));
+		default:
+			return false;
+		}
 	}
 }

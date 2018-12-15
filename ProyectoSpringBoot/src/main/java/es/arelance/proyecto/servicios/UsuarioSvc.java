@@ -38,11 +38,26 @@ public interface UsuarioSvc {
 	/**
 	 * Identificar un {@link Usuario}
 	 * 
-	 * @param {@link
-	 * 			Usuario}
+	 * @param usuario
+	 *            {@link Usuario}
 	 * @return {@link Usuario} si lo encuentra;en otro caso {@code null}
 	 * @throws SvcException
 	 *             Error relativo a la capa DAO
 	 */
 	Usuario identificar(Usuario usuario) throws ServiceException;
+
+	/**
+	 * Comprueba si un {@link Usuario} tiene acceso a una funcionalidad de la
+	 * aplicación web
+	 * 
+	 * @param usuario
+	 *            {@link Usuario}
+	 * @param uri
+	 *            Dirección a al que se intenta acceder
+	 * @return {@code true} si {@link Usuario} tiene acceso; en otro caso
+	 *         {@code false}
+	 * @throws SvcException
+	 *             Error en la comprobación
+	 */
+	boolean comprobar(Usuario usuario, String uri) throws ServiceException;
 }
