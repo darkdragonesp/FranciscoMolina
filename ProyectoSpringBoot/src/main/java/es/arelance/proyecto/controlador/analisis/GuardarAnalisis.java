@@ -1,4 +1,4 @@
-package es.arelance.proyecto.controlador.juego.analisis;
+package es.arelance.proyecto.controlador.analisis;
 
 import java.util.Date;
 import java.util.Locale;

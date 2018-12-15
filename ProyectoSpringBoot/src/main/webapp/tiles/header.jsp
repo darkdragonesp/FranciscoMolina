@@ -27,7 +27,7 @@
           </li>
           
           <c:if test="${not empty sessionUser}">
-				<li class="nav-item active"><a class="nav-link" href="../usuario/logout"><spring:message code="accion.logout"/></a></li>
+				<li class="nav-item active"><a class="nav-link" href="${raiz}/logout"><spring:message code="accion.logout"/></a></li>
 		    </c:if>
         </ul>
       </div>
