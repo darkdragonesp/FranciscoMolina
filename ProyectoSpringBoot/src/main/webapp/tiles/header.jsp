@@ -15,7 +15,6 @@
         <ul class="navbar-nav mr-auto">
         	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/save"><spring:message code="accion.nuevo"/></a></li>
         	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/list"><spring:message code="accion.listar.juegos"/></a></li>
-            <li class="nav-item"><a class="nav-link" href="${raiz}/usuario/save"><spring:message code="accion.registrarse" /></a></li>
             <li class="nav-item"><a class="nav-link" href="${raiz}/usuario/view"><spring:message code="accion.perfil.ver" /></a></li>
             <li class="nav-item"><a class="nav-link" href="${raiz}/juego/usuario/list"><spring:message code="accion.listar.juegos.usuario" /></a></li>
              

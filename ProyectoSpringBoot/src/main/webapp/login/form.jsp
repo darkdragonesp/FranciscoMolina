@@ -35,3 +35,4 @@
 	</form:form>
 		<br>
 	${msg}
+	<a class="nav-link" href="${raiz}/usuario/save"><spring:message code="accion.registrarse" /></a>
