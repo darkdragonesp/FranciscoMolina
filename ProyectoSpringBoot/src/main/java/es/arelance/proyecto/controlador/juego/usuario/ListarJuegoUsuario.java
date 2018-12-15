@@ -22,7 +22,7 @@ public class ListarJuegoUsuario {
 	private static final String ATT_LISTA = "listaJuegos";
 	private static final String ATT_ERROR = "error";
 
-	private static final String SUCCESS = "juego/usuario/list";
+	private static final String SUCCESS = "biblioteca/list";
 	private static final String ERROR = "error";
 
 	@Autowired

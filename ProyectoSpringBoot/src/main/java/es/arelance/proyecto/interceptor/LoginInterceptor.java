@@ -17,16 +17,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		String uri = request.getRequestURI();
-		Usuario usuario = (Usuario) request.getSession().getAttribute(ATT_USER);
-        
-        if(usuario == null){
-        	if (!uri.endsWith(LOGIN) && !uri.endsWith(ERROR)){
-        		response.sendRedirect(INDEX);
-        		return false;
-        	}
-        }
-        
+//		String uri = request.getRequestURI();
+//		Usuario usuario = (Usuario) request.getSession().getAttribute(ATT_USER);
+//        
+//        if(usuario == null){
+//        	if (!uri.endsWith(LOGIN) && !uri.endsWith(ERROR)){
+//        		response.sendRedirect(INDEX);
+//        		return false;
+//        	}
+//        }
+        //TODO descomentar
         return true;
 	}
 
