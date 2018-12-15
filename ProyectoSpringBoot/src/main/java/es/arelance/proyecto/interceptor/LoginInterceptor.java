@@ -11,7 +11,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	public static final String ATT_USER = "sessionUser";
 	private static final String INDEX = "/index.jsp";
-	private static final String LOGIN = "/login";
+	private static final String LOGIN = "usuario/login";
 	private static final String REGISTRO = "/usuario/save";
 	private static final String ERROR = "/error";
 

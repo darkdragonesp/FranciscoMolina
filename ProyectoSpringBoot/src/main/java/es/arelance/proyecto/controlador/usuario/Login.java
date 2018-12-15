@@ -18,6 +18,7 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
 
 @Controller
 @SessionAttributes({ LoginInterceptor.ATT_USER })
+@RequestMapping(value = "/usuario")
 public class Login {
 
 	private static final String MSG_ERROR = "mensaje.error.login";
