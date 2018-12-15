@@ -16,34 +16,36 @@
 	<h2>
 		<spring:message code="accion.mostrar.juego" />
 	</h2>
-	<table>
-		<tr>
-			<th><spring:message code="juego.titulo" /></th>
-			<td>${juego.titulo}</td>
-		</tr>
-		<tr>
-			<th><spring:message code="juego.categoria" /></th>
-			<td><a
-				href="${pageContext.request.contextPath}/juego/list/${juego.categoria.idCategoria}/categoria">${juego.categoria.nombre}</a></td>
-		</tr>
-		<tr>
-			<th><spring:message code="juego.plataforma" /></th>
-			<td><a
-				href="${pageContext.request.contextPath}/juego/list/${juego.plataforma.idPlataforma}/plataforma">${juego.plataforma.nombre}</a></td>
-		</tr>
-		<tr>
-			<th><spring:message code="juego.fechaLanzamiento" /></th>
-			<td><fmt:formatDate value="${juego.fechaLanzamiento}"
-					pattern="dd-MM-yyyy" /></td>
-		</tr>
-		<tr>
-			<th><spring:message code="juego.descripcion" /></th>
-			<td>${juego.descripcion}</td>
-		</tr>
-		<tr>
-			<th><spring:message code="juego.analisis.notaMedia" /></th>
-			<td>${notaMedia}</td>
-		</tr>
+		<table class="table table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th><spring:message code="juego.titulo" /></th>
+					<td>${juego.titulo}</td>
+				</tr>
+				<tr>
+					<th><spring:message code="juego.categoria" /></th>
+					<td><a
+						href="${raiz}/juego/list/${juego.categoria.idCategoria}/categoria">${juego.categoria.nombre}</a></td>
+				</tr>
+				<tr>
+					<th><spring:message code="juego.plataforma" /></th>
+					<td><a
+						href="${raiz}/juego/list/${juego.plataforma.idPlataforma}/plataforma">${juego.plataforma.nombre}</a></td>
+				</tr>
+				<tr>
+					<th><spring:message code="juego.fechaLanzamiento" /></th>
+					<td><fmt:formatDate value="${juego.fechaLanzamiento}"
+							pattern="dd-MM-yyyy" /></td>
+				</tr>
+				<tr>
+					<th><spring:message code="juego.descripcion" /></th>
+					<td>${juego.descripcion}</td>
+				</tr>
+				<tr>
+					<th><spring:message code="juego.analisis.notaMedia" /></th>
+					<td>${notaMedia}</td>
+				</tr>
+				</thead>
 	</table>
 
 	<br>
@@ -51,7 +53,7 @@
 		<spring:message code="juego.analisis" />
 	</h3>
 	<a
-		href="${pageContext.request.contextPath}/analisis/save?idJuego=${juego.idJuego}"><spring:message
+		href="${raiz}/analisis/save?idJuego=${juego.idJuego}"><spring:message
 			code="accion.analisis.nuevo" /></a> ${msg}
 	<br>
 	<br>
@@ -86,5 +88,5 @@
 		</c:otherwise>
 	</c:choose>
 	<br>
-	<a href="${pageContext.request.contextPath}/inicio"><spring:message
+	<a href="${raiz}/inicio"><spring:message
 			code="accion.inicio" /></a>
