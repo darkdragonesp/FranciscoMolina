@@ -17,7 +17,7 @@
 		<spring:message code="accion.listar.juegos" />
 	</h2>
 	<%-- 	Filtrado de Juegos --%>
-	<form:form class="form-inline"  modelAttribute="juego" method="GET"
+	<form:form class="form-inline input-group"  modelAttribute="juego" method="GET"
 		action="${raiz}/juego/list/filter">
 		<form:hidden path="idJuego" />
 		
@@ -28,7 +28,7 @@
 				<form:input path="titulo" class="form-control" placeholder="${labTitulo}"/>
 
 			<label for="categoria.idCategoria" class="sr-only">
-				<spring:message code="juego.categoria" var="labCategoria"/>
+				<spring:message code="accion.elegir.categoria" var="labCategoria"/>
 				</label>
 				<form:select path="categoria.idCategoria" class="form-control">
 						<form:option value="" >${labCategoria}</form:option>
@@ -37,10 +37,10 @@
 					</form:select>
 
 				<label for="plataforma.idPlataforma" class="sr-only">
-				<spring:message code="juego.plataforma" />
+				<spring:message code="accion.elegir.plataforma" var="labCategoria"/>
 				</label>
 				<form:select path="plataforma.idPlataforma" class="form-control">
-						<form:option value="">&nbsp;</form:option>
+						<form:option value="">${labCategoria}</form:option>
 						<form:options items="${listaPlataformas}" itemLabel="nombre"
 							itemValue="idPlataforma" />
 					</form:select>
@@ -84,23 +84,23 @@
 									pattern="dd-MM-yyyy" /></td>
 							<td>${item.descripcion}</td>
 	
-							<td><a
-								href="${raiz}/${item.idJuego}/juego/usuario/save
+							<td><a href="${raiz}/${item.idJuego}/juego/usuario/save
 								?idCategoria=${param.idCategoria}
 								&idPlataforma=${param.idPlataforma}">
 									<spring:message code="accion.agregar" />
 							</a></td>
-							<td><a
-								href="${raiz}/${item.idJuego}/juego"><spring:message
-										code="accion.editar" /></a></td>
-	
-							<td><a
-								href="${raiz}/${item.idJuego}/juego/delete
-								?idCategoria=${param.idCategoria}
-								&idPlataforma=${param.idPlataforma}"
-								onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
-									<spring:message code="accion.borrar" />
-							</a></td>
+							
+							<c:if test="${sessionUser.tipoUsuario.idTipo == 1}">
+								<td><a href="${raiz}/${item.idJuego}/juego"><spring:message
+											code="accion.editar" /></a></td>
+		
+								<td><a href="${raiz}/${item.idJuego}/juego/delete
+									?idCategoria=${param.idCategoria}
+									&idPlataforma=${param.idPlataforma}"
+									onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
+										<spring:message code="accion.borrar" />
+								</a></td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -13,16 +13,20 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-        	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/save"><spring:message code="accion.nuevo"/></a></li>
-        	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/list"><spring:message code="accion.listar.juegos"/></a></li>
-            <li class="nav-item"><a class="nav-link" href="${raiz}/usuario/view"><spring:message code="accion.perfil.ver" /></a></li>
-            <li class="nav-item"><a class="nav-link" href="${raiz}/juego/usuario/list"><spring:message code="accion.listar.juegos.usuario" /></a></li>
-             
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message code="accion.idiomas"/></a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="${raiz}/inicio?lang=es"><spring:message code="idioma.es"/></a>
-		  	  <a class="dropdown-item" href="${raiz}/inicio?lang=en"><spring:message code="idioma.en"/></a>
+	        
+	        <c:if test="${not empty sessionUser}">
+	        	<c:if test="${sessionUser.tipoUsuario.idTipo == 1}">
+	        		<li class="nav-item"><a class="nav-link" href="${raiz}/juego/save"><spring:message code="accion.nuevo"/></a></li>
+	        	</c:if>
+	        	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/list"><spring:message code="accion.listar.juegos"/></a></li>
+	        	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/usuario/list"><spring:message code="accion.listar.juegos.usuario" /></a></li>
+	            <li class="nav-item"><a class="nav-link" href="${raiz}/usuario/view"><spring:message code="accion.perfil.ver" /></a></li>
+	         </c:if>
+         	 <li class="nav-item dropdown">
+	            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message code="accion.idiomas"/></a>
+	            <div class="dropdown-menu" aria-labelledby="dropdown01">
+	              <a class="dropdown-item" href="${raiz}/inicio?lang=es"><spring:message code="idioma.es"/></a>
+			  	  <a class="dropdown-item" href="${raiz}/inicio?lang=en"><spring:message code="idioma.en"/></a>
             </div>
           </li>
           
