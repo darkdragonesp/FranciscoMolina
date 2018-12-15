@@ -24,7 +24,7 @@
 	</h2>
 	<%-- 	Formulario de registro de un Juego nuevo --%>
 	<form:form class="form-signin" modelAttribute="juego" method="POST"
-		action="${pageContext.request.contextPath}/juego/save">
+		action="${raiz}/juego/save">
 		<form:hidden path="idJuego" />
 		
 
@@ -75,5 +75,5 @@
 	</form:form>
 	<br> ${msg}
 	<br>
-	<a href="${pageContext.request.contextPath}/juego/list"><spring:message
+	<a href="${raiz}/juego/list"><spring:message
 			code="accion.listar.juegos" /></a>

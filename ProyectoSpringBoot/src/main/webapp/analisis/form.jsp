@@ -17,7 +17,7 @@
 
 	<%-- 	Formulario para analisis --%>
 	<form:form class="form-signin" modelAttribute="analisis" method="POST"
-		action="${pageContext.request.contextPath}/analisis/save">
+		action="${raiz}/analisis/save">
 		<form:hidden path="juego.idJuego" value="${juego.idJuego}" />
 		<form:hidden path="usuario.idUsuario" value="${usuario.idUsuario}" />
 		
@@ -49,8 +49,8 @@
 	${msg}
 	<br>
 	<a
-		href="${pageContext.request.contextPath}/${analisis.juego.idJuego}/juego/view">
+		href="${raiz}/${analisis.juego.idJuego}/juego/view">
 		<spring:message code="accion.volver" />
 	</a>
-	<a href="${pageContext.request.contextPath}/inicio"><spring:message
+	<a href="${raiz}/inicio"><spring:message
 			code="accion.inicio" /></a>

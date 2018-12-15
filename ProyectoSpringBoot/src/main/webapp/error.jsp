@@ -12,4 +12,4 @@
 	<br>
 	<br> ${error}
 	<br>
-	<a href="${pageContext.request.contextPath}/inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${raiz}/inicio"><spring:message code="accion.inicio" /></a>

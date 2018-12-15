@@ -16,7 +16,7 @@
 	</h2>
 	<%-- 	Formulario de registro de Usuario --%>
 	<form:form class="form-signin" modelAttribute="usuario" method="POST"
-		action="${pageContext.request.contextPath}/usuario/save">
+		action="${raiz}/usuario/save">
 				
 				<label for="nombreUsuario" class="sr-only">
 				<spring:message code="usuario.nombre" var="labNombreUsuario"/>
@@ -48,4 +48,4 @@
 	</form:form>
 	<br> ${msg}
 	<br>
-	<a href="${pageContext.request.contextPath}/inicio"><spring:message code="accion.inicio" /></a>
+	<a href="${raiz}/inicio"><spring:message code="accion.inicio" /></a>
