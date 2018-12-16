@@ -11,6 +11,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page errorPage="error.jsp"%>
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <%-- Lista de Juegos de un Usuario --%>
 <h2>
@@ -31,6 +32,7 @@
 					<th><spring:message code="juego.plataforma" /></th>
 					<th><spring:message code="juego.fechaLanzamiento" /></th>
 					<th><spring:message code="juego.descripcion" /></th>
+					<th><spring:message code="accion.borrar" /></th>
 				</tr>
 			</thead>
 			</tbody>
@@ -48,7 +50,7 @@
 					<td><a
 						href="${raiz}/${item.idJuegoUsuario}/juego/usuario/delete"
 						onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
-							<spring:message code="accion.borrar" />
+							<i class="material-icons">delete_forever</i>
 					</a></td>
 				</tr>
 			</c:forEach>

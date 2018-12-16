@@ -55,7 +55,7 @@ public class BorrarJuegoUsuario {
 
 			svc.eliminar(juegoUsuario);
 			model.addAttribute(ATT_EXITO,
-					messages.getMessage("mensaje.exito.borrar", null, locale));
+					messages.getMessage("mensaje.exito.borrar.biblioteca", null, locale));
 
 			return SUCCESS;
 

@@ -1,9 +1,10 @@
 .error {
-  display: block;
-  color: red;
-  padding-top: 2px;
-  padding-bottom: 5px;
+	display: block;
+	color: red;
+	padding-top: 2px;
+	padding-bottom: 5px;
 }
-.custom-container{
+
+.custom-container {
 	width: 60%;
 }

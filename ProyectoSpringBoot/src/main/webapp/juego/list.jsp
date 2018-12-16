@@ -11,7 +11,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page errorPage="error.jsp"%>
 
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<h2>
 		<spring:message code="accion.listar.juegos" />
@@ -69,6 +69,11 @@
 					<th><spring:message code="juego.plataforma" /></th>
 					<th><spring:message code="juego.fechaLanzamiento" /></th>
 					<th><spring:message code="juego.descripcion" /></th>
+					<th><spring:message code="accion.agregar" /></th>
+					<c:if test="${sessionUser.tipoUsuario.idTipo == 1}">
+						<th><spring:message code="accion.editar" /></th>
+						<th><spring:message code="accion.borrar" /></th>
+					</c:if>
 				</tr>
 				</thead>
 				</tbody>
@@ -84,21 +89,18 @@
 									pattern="dd-MM-yyyy" /></td>
 							<td>${item.descripcion}</td>
 	
-							<td><a href="${raiz}/${item.idJuego}/juego/usuario/save
-								?idCategoria=${param.idCategoria}
-								&idPlataforma=${param.idPlataforma}">
-									<spring:message code="accion.agregar" />
+							<td><a href="${raiz}/${item.idJuego}/juego/usuario/save">
+									<i class="material-icons">create_new_folder</i>
 							</a></td>
 							
 							<c:if test="${sessionUser.tipoUsuario.idTipo == 1}">
-								<td><a href="${raiz}/${item.idJuego}/juego"><spring:message
-											code="accion.editar" /></a></td>
+								<td><a href="${raiz}/${item.idJuego}/juego">
+								<i class="material-icons">edit</i>
+								</a></td>
 		
-								<td><a href="${raiz}/${item.idJuego}/juego/delete
-									?idCategoria=${param.idCategoria}
-									&idPlataforma=${param.idPlataforma}"
+								<td><a href="${raiz}/${item.idJuego}/juego/delete"
 									onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">
-										<spring:message code="accion.borrar" />
+										<i class="material-icons">delete_forever</i>
 								</a></td>
 							</c:if>
 						</tr>
