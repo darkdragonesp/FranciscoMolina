@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.servicios.JuegoSvc;
@@ -45,36 +44,32 @@ public class BorrarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
 	 *            Internacionalización
-	 * @param idCategoria
-	 *            Categoria filtrada
-	 * @param idPlataforma
-	 *            Plataforma filtrada
 	 * @return Destino listado de juegos (aplicando filtrado si es necesario)
 	 */
 	@RequestMapping(value = "{idJuego}/juego/delete", method = RequestMethod.GET)
-	public String borrar(@PathVariable int idJuego, Model model, Locale locale,
-			@RequestParam Integer idCategoria,
-			@RequestParam Integer idPlataforma) {
+	public String borrar(@PathVariable int idJuego, Model model,
+			Locale locale) {
+		Juego juego = null;
 		try {
-			Juego juego = new Juego();
-			juego.setIdJuego(idJuego);
+			// Juego juego = new Juego();
+			// juego.setIdJuego(idJuego);
+
+			// Necesito el juego para mostrar el título en el mensaje
+			juego = svc.buscar(idJuego, false);
 
 			svc.eliminar(juego);
 			model.addAttribute(ATT_EXITO,
-					messages.getMessage("mensaje.exito.borrar", null, locale));
+					messages.getMessage("mensaje.exito.borrar",
+							new Object[] { juego.getTitulo() }, locale));
 
-			if (idCategoria != null) {
-				return "forward:/juego/list/{idCategoria}/categoria";
-			} else if (idPlataforma != null) {
-				return "forward:/juego/list/{idPlataforma}/plataforma";
-			} else {
-				return SUCCESS;
-			}
+			return SUCCESS;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (e.getCause() instanceof ConstraintViolationException) {
-				model.addAttribute(ATT_EXITO, messages
-						.getMessage("mensaje.error.borrar", null, locale));
+				model.addAttribute(ATT_EXITO,
+						messages.getMessage("mensaje.error.borrar",
+								new Object[] { juego.getTitulo() }, locale));
 				return SUCCESS;
 			} else {
 				model.addAttribute(ATT_ERROR, e);

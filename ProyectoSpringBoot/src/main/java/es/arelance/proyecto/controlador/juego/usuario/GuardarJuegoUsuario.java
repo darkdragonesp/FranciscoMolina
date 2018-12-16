@@ -17,6 +17,7 @@ import es.arelance.proyecto.interceptor.LoginInterceptor;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
+import es.arelance.proyecto.servicios.JuegoSvc;
 import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
 
 /**
@@ -39,6 +40,9 @@ public class GuardarJuegoUsuario {
 	private JuegoUsuarioSvc svc;
 
 	@Autowired
+	private JuegoSvc juegoSvc;
+
+	@Autowired
 	private MessageSource messages;
 
 	/**
@@ -46,10 +50,6 @@ public class GuardarJuegoUsuario {
 	 * 
 	 * @param idJuego
 	 *            Identificador del {@link Juego}
-	 * @param idCategoria
-	 *            Categoria filtrada
-	 * @param idPlataforma
-	 *            Plataforma filtrada
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
@@ -57,29 +57,29 @@ public class GuardarJuegoUsuario {
 	 * @return Destino listado de juegos (aplicando filtrado si es necesario)
 	 * 
 	 */
-	@RequestMapping(value = "{idJuego}/juego/usuario/save",method = RequestMethod.GET)
-	public String view(@ModelAttribute(LoginInterceptor.ATT_USER) Usuario usuario, @PathVariable int idJuego,
-			@RequestParam Integer idCategoria,
-			@RequestParam Integer idPlataforma, Model model, Locale locale) {
+	@RequestMapping(value = "{idJuego}/juego/usuario/save", method = RequestMethod.GET)
+	public String view(
+			@ModelAttribute(LoginInterceptor.ATT_USER) Usuario usuario,
+			@PathVariable int idJuego, Model model, Locale locale) {
 		try {
 
-			Juego juego = new Juego();
-			juego.setIdJuego(idJuego);
+			// Juego juego = new Juego();
+			// juego.setIdJuego(idJuego);
 
+			// Necesito el juego para mostrar el título en el mensaje
+			Juego juego = juegoSvc.buscar(idJuego, false);
+			
 			JuegoUsuario juegoUsuario = new JuegoUsuario();
 			juegoUsuario.setJuego(juego);
 			juegoUsuario.setUsuario(usuario);
 			svc.guardar(juegoUsuario);
 			model.addAttribute(ATT_EXITO,
-					messages.getMessage("mensaje.exito.agregar", null, locale));
+					messages.getMessage("mensaje.exito.agregar",
+							new Object[] { juego.getTitulo() }, locale));
 
-			if (idCategoria != null) {
-				return "forward:/juego/list/{idCategoria}/categoria";
-			} else if (idPlataforma != null) {
-				return "forward:/juego/list/{idPlataforma}/plataforma";
-			} else {
+	
 				return SUCCESS;
-			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

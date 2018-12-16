@@ -112,12 +112,11 @@ public class GuardarJuego {
 					svc.guardar(juego);
 				} else {
 					svc.modificar(juego);
-					
-					return LIST+"?success=true";
+					return LIST+"?juegoModificado="+juego.getTitulo();
 				}
 
 				model.addAttribute(ATT_EXITO,
-						messages.getMessage("mensaje.exito", null, locale));
+						messages.getMessage("mensaje.exito", new Object[] { juego.getTitulo() }, locale));
 
 				// Limpiar formulario
 				model.addAttribute(ATT_ITEM, new Juego());

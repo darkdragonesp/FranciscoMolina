@@ -59,10 +59,10 @@ public class ListarJuego {
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/juego/list")
-	public String execute(@RequestParam(required=false) Boolean success,Model model,Locale locale) {
+	public String execute(@RequestParam(required=false) String juegoModificado,Model model,Locale locale) {
 		try {
-			if(success!=null && success) {
-				model.addAttribute(ATT_EXITO,messages.getMessage("mensaje.exito", null, locale));
+			if(juegoModificado!=null) {
+				model.addAttribute(ATT_EXITO,messages.getMessage("mensaje.exito",  new Object[] { juegoModificado }, locale));
 			}
 			model.addAttribute(ATT_LISTA, svc.listar());
 			return CARGAR_TIPOS;
