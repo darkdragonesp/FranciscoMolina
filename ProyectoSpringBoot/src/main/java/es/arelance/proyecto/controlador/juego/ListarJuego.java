@@ -67,6 +67,7 @@ public class ListarJuego {
 			model.addAttribute(ATT_LISTA, svc.listar());
 			return CARGAR_TIPOS;
 		} catch (Exception e) {
+			e.printStackTrace();
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
