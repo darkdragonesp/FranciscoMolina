@@ -4,7 +4,11 @@
 	padding-top: 2px;
 	padding-bottom: 5px;
 }
-
+/* Tamaño para formulario de añadir juego */
 .custom-container {
 	width: 60%;
+}
+/* Zebra table */
+tr:nth-child(even) {
+  background-color: #f2f2f2
 }

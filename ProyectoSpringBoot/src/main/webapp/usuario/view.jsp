@@ -54,6 +54,7 @@
 						<th><spring:message code="juego.titulo" /></th>
 						<th><spring:message code="juego.analisis.nota" /></th>
 						<th><spring:message code="juego.analisis.comentario" /></th>
+						<th><spring:message code="accion.borrar" /></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -68,7 +69,7 @@
 							<td><a
 								href="${raiz}/${item.idAnalisis}/analisis/delete"
 								onclick="return window.confirm('<spring:message code="accion.analisis.confirmar"/>')">
-									<spring:message code="accion.borrar" />
+									<i class="material-icons">delete_forever</i>
 							</a></td>
 						</tr>
 					</c:forEach>
