@@ -9,10 +9,13 @@
 		<put-attribute name="footer" value="/tiles/footer.jsp" />
 	</definition>
 
-	<definition name="*" extends="baseLayout">
-		<put-attribute name="body" value="/{1}" />
-	</definition>
-
+<!-- 	<definition name="*" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/{1}" /> -->
+<!-- 	</definition> -->
+    <definition name="error" extends="baseLayout">
+        <put-attribute name="body" value="/tiles/error.jsp" />
+    </definition>
+    
 	<definition name="*/*" extends="baseLayout">
 		<put-attribute name="body" value="/{1}/{2}.jsp" />
 	</definition>
