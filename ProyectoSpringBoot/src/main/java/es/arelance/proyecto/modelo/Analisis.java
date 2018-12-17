@@ -66,7 +66,7 @@ public class Analisis {
 		this.comentario = comentario;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getFechaAlta() {
 		return fechaAlta;
 	}
