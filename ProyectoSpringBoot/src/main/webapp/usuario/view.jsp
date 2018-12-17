@@ -34,7 +34,7 @@
 			<tr>
 				<th><spring:message code="usuario.fechaAlta" /></th>
 				<td><fmt:formatDate value="${usuario.fechaAlta}"
-						pattern="dd-MM-yyyy hh:mm:ss" /></td>
+						pattern="dd-MM-yyyy HH:mm:ss" /></td>
 			</tr>
 		</thead>
 	</table>
@@ -62,7 +62,7 @@
 					<c:forEach items="${usuario.analisis}" var="item">
 						<tr>
 							<td><fmt:formatDate value="${item.fechaAlta}"
-									pattern="dd-MM-yyyy hh:MM:ss" /></td>
+									pattern="dd-MM-yyyy HH:mm:ss" /></td>
 							<td><a
 								href="${raiz}/${item.juego.idJuego}/juego/view">${item.juego.titulo}</a></td>
 							<td>${item.nota}</td>

@@ -60,12 +60,14 @@ public class GuardarAnalisis {
 	 * @return Destino formulario para guardar un {@link Analisis}
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public String view(@ModelAttribute(LoginInterceptor.ATT_USER) Usuario usuario,@ModelAttribute Analisis analisis,
-			@RequestParam int idJuego, Model model) {
+	public String view(
+			@ModelAttribute(LoginInterceptor.ATT_USER) Usuario usuario,
+			@ModelAttribute Analisis analisis, @RequestParam int idJuego,
+			Model model) {
 		try {
 			Juego juego = new Juego();
 			juego.setIdJuego(idJuego);
-			
+
 			analisis.setJuego(juego);
 			analisis.setUsuario(usuario);
 
@@ -104,7 +106,8 @@ public class GuardarAnalisis {
 				model.addAttribute(ATT_EXITO, messages
 						.getMessage("mensaje.exito.analisis", null, locale));
 
-				return SUCCESS + analisis.getJuego().getIdJuego() +"/juego/view";
+				return SUCCESS + analisis.getJuego().getIdJuego()
+						+ "/juego/view";
 			}
 
 		} catch (Exception e) {

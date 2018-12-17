@@ -81,7 +81,7 @@
 						<tr>
 						<td>${item.usuario.nombreUsuario}</td>
 						<td><fmt:formatDate value="${item.fechaAlta}"
-									pattern="dd-MM-yyyy hh:MM:ss" /></td>
+									pattern="dd-MM-yyyy HH:mm:ss" /></td>
 									
 							<td>${item.nota}</td>
 							<td>${item.comentario}</td>
