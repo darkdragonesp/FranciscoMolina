@@ -46,7 +46,7 @@
 						href="${raiz}/juego/list/${item.juego.plataforma.idPlataforma}/plataforma">${item.juego.plataforma.nombre}</a></td>
 					<td><fmt:formatDate value="${item.juego.fechaLanzamiento}"
 							pattern="dd-MM-yyyy" /></td>
-					<td>${item.juego.descripcion}</td>
+					<td><div class=truncate>${item.juego.descripcion}</div></td>
 					<td><a
 						href="${raiz}/${item.idJuegoUsuario}/juego/usuario/delete"
 						onclick="return window.confirm('<spring:message code="accion.confirmar.borrar"/>')">

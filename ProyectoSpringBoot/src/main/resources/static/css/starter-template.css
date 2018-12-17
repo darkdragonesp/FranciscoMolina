@@ -10,5 +10,42 @@
 }
 /* Zebra table */
 tr:nth-child(even) {
-  background-color: #f2f2f2
+	background-color: #f2f2f2
+}
+/* Truncar textos muy largos como comentarios */
+.truncate {
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Hover tooltips */
+.field-tip {
+	position: relative;
+}
+
+.field-tip .tip-content {
+	position: absolute;
+	top: -22px; /* - top padding */
+	right: 9999px;
+	width: 350px;
+	margin-right: -120px; /* width + left/right padding */
+	padding: 10px;
+	color: #fff;
+	background: #333;
+	-webkit-box-shadow: 2px 2px 5px #aaa;
+	-moz-box-shadow: 2px 2px 5px #aaa;
+	box-shadow: 2px 2px 5px #aaa;
+	opacity: 0;
+	-webkit-transition: opacity 250ms ease-out;
+	-moz-transition: opacity 250ms ease-out;
+	-ms-transition: opacity 250ms ease-out;
+	-o-transition: opacity 250ms ease-out;
+	transition: opacity 250ms ease-out;
+}
+
+.field-tip:hover .tip-content {
+	right: -20px;
+	opacity: 1;
 }

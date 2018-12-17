@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<th><spring:message code="juego.descripcion" /></th>
-					<td>${juego.descripcion}</td>
+					<td><div class=truncate>${juego.descripcion}</div></td>
 				</tr>
 				<tr>
 					<th><spring:message code="juego.analisis.notaMedia" /></th>

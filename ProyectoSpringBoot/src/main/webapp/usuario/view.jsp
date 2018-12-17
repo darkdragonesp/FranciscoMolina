@@ -66,7 +66,7 @@
 							<td><a
 								href="${raiz}/${item.juego.idJuego}/juego/view">${item.juego.titulo}</a></td>
 							<td>${item.nota}</td>
-							<td>${item.comentario}</td>
+							<td><div class=truncate>${item.comentario}</div></td>
 							<td><a
 								href="${raiz}/${item.idAnalisis}/analisis/delete"
 								onclick="return window.confirm('<spring:message code="accion.analisis.confirmar"/>')">
