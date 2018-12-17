@@ -11,6 +11,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page errorPage="error.jsp"%>
 
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<h2>
@@ -47,10 +48,9 @@
 
 				<input type="submit" class="btn btn-default" 
 					value="<spring:message code="accion.filtrar"/>" />
-				<input type="reset" class="btn btn-default" 
+				<input type="button" class="btn btn-default" onclick="window.location='${raiz}/juego/list'"
 					value="<spring:message code="accion.limpiar"/>" />
-			
-		
+					
 
 	</form:form>
 	<%-- Lista de Juegos --%>
