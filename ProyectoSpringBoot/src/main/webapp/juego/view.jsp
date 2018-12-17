@@ -39,12 +39,17 @@
 				</tr>
 				<tr>
 					<th><spring:message code="juego.descripcion" /></th>
-					<td align="center"><div class=truncate>${juego.descripcion}</div></td>
+<%-- 					<td align="center"><div class=truncate>${juego.descripcion}</div></td> --%>
 <!-- 					<td align="center"><span class="field-tip"> -->
 <%-- 							    <div align="center" class=truncate>${juego.descripcion}</div> --%>
 <%-- 							    <span class="tip-content">${juego.descripcion}</span> --%>
 <!-- 								</span>  	 -->
 <!-- 					</td>	 -->
+					<td align="center">
+					<div class="tooltip">${juego.descripcion}
+					  <span class="tooltiptext">Tooltip text</span>
+					</div></td>
+<!-- 					https://www.w3schools.com/css/css_tooltip.asp					 -->
 					
 				</tr>
 				<tr>
