@@ -11,6 +11,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page errorPage="error.jsp"%>
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<%-- Perfil de usuario --%>
 	<h2>
