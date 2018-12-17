@@ -14,6 +14,7 @@ tr:nth-child(even) {
 }
 /* Truncar textos muy largos como comentarios */
 .truncate {
+	text-align: center;
 	width: 250px;
 	white-space: nowrap;
 	overflow: hidden;
@@ -23,6 +24,7 @@ tr:nth-child(even) {
 /* Hover tooltips */
 .field-tip {
 	position: relative;
+	text-align: center;
 }
 
 .field-tip .tip-content {
