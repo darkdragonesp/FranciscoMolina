@@ -68,13 +68,18 @@
 		<c:if test="${not empty juego.caratula}">
 			<label for="caratula" class="sr-only"><spring:message code="juego.caratula.actual" var="labCaratula"/></label>
 			<input type="text" value="${labCaratula}${juego.caratula}" readonly="readonly" class="form-control">
+			
+			<div align="left" class="custom-control custom-checkbox">
+			    <input type="checkbox" class="custom-control-input" id="eliminarCaratula" name="eliminarCaratula">
+			    <label class="custom-control-label" for="eliminarCaratula"><spring:message code="juego.caratula.borrar"/></label>
+			</div>
 		</c:if>
 		
 		<input type="file" name="file" accept="image/jpg, image/png" class="form-control">
 		<form:errors path="caratula" cssClass="error" />
-
+		
 			
-				<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.guardar"/>" />
+		<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.guardar"/>" />
 			
 		
 		<form:errors cssClass="errorblock" element="div" />
