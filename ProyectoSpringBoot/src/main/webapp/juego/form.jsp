@@ -53,7 +53,7 @@
 
 			<label for="fechaLanzamiento" class="sr-only">
 				<spring:message code="juego.fechaLanzamiento" var="labFechaLanzamiento"/>
-		</label>
+			</label>
 				<form:input path="fechaLanzamiento"
 						value="${fechaLanzamiento}" type="date" required="required" class="form-control" />
 				<form:errors path="fechaLanzamiento" cssClass="error" />
@@ -65,7 +65,11 @@
 				<form:textarea path="descripcion" rows="8" placeholder="${labDescripcion}" class="form-control"/>
 				<form:errors path="descripcion" cssClass="error" />
 			
-		<label for="file" class="sr-only"><spring:message code="juego.caratula" var="labCaratula"/></label>
+		<c:if test="${not empty juego.caratula}">
+			<label for="caratula" class="sr-only"><spring:message code="juego.caratula.actual" var="labCaratula"/></label>
+			<input type="text" value="${labCaratula}${juego.caratula}" readonly="readonly" class="form-control">
+		</c:if>
+		
 		<input type="file" name="file" accept="image/jpg, image/png" class="form-control">
 		<form:errors path="caratula" cssClass="error" />
 
