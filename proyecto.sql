@@ -36,7 +36,7 @@ CREATE TABLE `analisis` (
   KEY `FK_analisis_juego_idx` (`idJuego`),
   CONSTRAINT `FK_analisis_juego` FOREIGN KEY (`idJuego`) REFERENCES `juego` (`idjuego`),
   CONSTRAINT `FK_analisis_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `analisis` (
 
 LOCK TABLES `analisis` WRITE;
 /*!40000 ALTER TABLE `analisis` DISABLE KEYS */;
-INSERT INTO `analisis` VALUES (1,9,'Muy divertido','1999-03-03 00:00:00',1,4);
+INSERT INTO `analisis` VALUES (28,70,'Muy divertido.','2018-12-18 16:08:36',2,4),(29,99,'El mejor juego de plataformas.','2018-12-18 16:10:18',3,4),(30,60,'Algo aburrido.','2018-12-18 16:11:10',3,5),(31,80,'Me encantó.','2018-12-18 16:11:36',3,6),(32,100,'Muy entretenido. Espero la segunda parte.','2018-12-18 16:16:16',3,7);
 /*!40000 ALTER TABLE `analisis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +61,7 @@ CREATE TABLE `categoria` (
   `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`idCategoria`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES (3,'Aventura'),(5,'Estrategia'),(2,'Plataformas'),(1,'Simulador');
+INSERT INTO `categoria` VALUES (3,'Aventura'),(17,'Carreras'),(14,'Deportes'),(16,'Disparos'),(5,'Estrategia'),(15,'Lucha'),(2,'Plataformas'),(19,'Puzzle'),(18,'Rol'),(1,'Simulación');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `juego` (
   KEY `FK_juego_idPlataforma_idx` (`idPlataforma`),
   CONSTRAINT `FK_juego_idCategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idcategoria`),
   CONSTRAINT `FK_juego_idPlataforma` FOREIGN KEY (`idPlataforma`) REFERENCES `plataforma` (`idplataforma`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `juego` (
 
 LOCK TABLES `juego` WRITE;
 /*!40000 ALTER TABLE `juego` DISABLE KEYS */;
-INSERT INTO `juego` VALUES (1,'Super Mario Bros','2018-11-12',NULL,2,1),(2,'Mario Kart','2018-11-12',NULL,1,1),(3,'Sonic the Hedgehog','2018-11-12',NULL,2,2),(14,'3','2018-12-04','',3,4),(16,'22','2018-12-12','',3,4),(21,'asdas22','2018-12-05','asda',2,4),(22,'11111','2018-12-04','',3,4),(23,'asdasd','2018-12-18','',3,4),(36,'11','2018-12-12','',3,4);
+INSERT INTO `juego` VALUES (1,'Super Mario Bros','1987-11-12','Super Mario Bros. o Super Mario Brothers es un videojuego de plataformas, diseñado por Shigeru Miyamoto, lanzado el 13 de septiembre de 1985 y producido por la compañía Nintendo, para la consola Nintendo Entertainment System (NES). El juego describe las aventuras de los hermanos Mario y Luigi, personajes que ya protagonizaron el arcade Mario Bros. de 1983. ',2,8),(2,'Mario Kart','1992-11-12','Mario Kart es una serie de videojuegos de carreras desarrollados y distribuidos por Nintendo y cuentan con la aparición de los personajes de la serie de Mario, que además tiene varios spin-offs por cada entrega de estos juegos. El primer juego de la serie, Super Mario Kart, fue lanzado en 1992 para la consola Super Nintendo y fue un éxito comercial y crítico.',17,1),(3,'Sonic the Hedgehog','1991-11-12','Sonic the Hedgehog (En español Sonic el erizo) es un videojuego desarrollado por Sonic Team y distribuido por Sega en 1991 para la videoconsola Sega Mega Drive protagonizado por Sonic. Este videojuego de plataformas fue, durante mucho tiempo, considerado el buque insignia de Sega, el ejemplo a seguir para sus futuros juegos. Incluso llegó a dar nombre a uno de sus equipos de desarrollo: Sonic Team. ',2,2),(52,'Tetris','1989-12-18','Tetris (en ruso: Те́трис) es un videojuego de puzzle originalmente diseñado y programado por Alekséi Pázhitnov en la Unión Soviética. Fue lanzado el 6 de junio de 1984,​ mientras trabajaba para el Centro de Computación Dorodnitsyn de la Academia de Ciencias de la Unión Soviética en Moscú, RSFS de Rusia. Su nombre deriva del prefijo numérico griego tetra- (todas las piezas del juego, conocidas como Tetrominós que contienen cuatro segmentos) y del tenis, el deporte favorito de Pázhitnov.',19,7);
 /*!40000 ALTER TABLE `juego` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `juego_usuario` (
   KEY `FK_idJuegoUsuario_idx` (`idJuego`),
   CONSTRAINT `FK_idJuegoUsuario` FOREIGN KEY (`idJuego`) REFERENCES `juego` (`idjuego`),
   CONSTRAINT `FK_idUsuarioJuego` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idusuario`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `juego_usuario` (
 
 LOCK TABLES `juego_usuario` WRITE;
 /*!40000 ALTER TABLE `juego_usuario` DISABLE KEYS */;
-INSERT INTO `juego_usuario` VALUES (23,4,3);
+INSERT INTO `juego_usuario` VALUES (31,4,2);
 /*!40000 ALTER TABLE `juego_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +148,7 @@ CREATE TABLE `plataforma` (
   `nombre` varchar(255) NOT NULL,
   PRIMARY KEY (`idPlataforma`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +157,7 @@ CREATE TABLE `plataforma` (
 
 LOCK TABLES `plataforma` WRITE;
 /*!40000 ALTER TABLE `plataforma` DISABLE KEYS */;
-INSERT INTO `plataforma` VALUES (4,'PC'),(2,'SEGA MegaDrive'),(3,'Sony PlayStation'),(1,'Super Nintendo');
+INSERT INTO `plataforma` VALUES (6,'Atari 2600'),(7,'Nintendo Gameboy'),(8,'Nintendo NES'),(4,'PC'),(2,'SEGA MegaDrive'),(5,'SNK Neo Geo'),(3,'Sony PlayStation'),(1,'Super Nintendo');
 /*!40000 ALTER TABLE `plataforma` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +204,7 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `apodo_UNIQUE` (`nombreUsuario`),
   KEY `FK_usuario_idTipo_idx` (`tipoUsuario`),
   CONSTRAINT `FK_usuario_idTipo` FOREIGN KEY (`tipoUsuario`) REFERENCES `tipo_usuario` (`idTipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (4,'admin','admin@admin.com','admin',1,'2018-11-12 16:11:17'),(5,'Pepe','pepe@admin.com','admin',2,'2018-11-12 16:12:46'),(6,'Juan','juan@admin.com','admin',2,'2018-11-12 16:13:02'),(7,'Fran','fran@admin.com','admin',2,'2018-11-12 16:13:04'),(8,'pepito','pep@pep.com','pepito',2,'2018-12-03 18:37:20'),(9,'pep','pep@pep','pep',2,'2018-12-03 18:38:38'),(10,'1','1@1','1',2,'2018-12-03 18:43:01'),(11,'2','2@2','2',2,'2018-12-03 18:44:29'),(12,'3','2@2','3',2,'2018-12-03 18:45:29'),(13,'4','4@4','4',2,'2018-12-03 18:46:03'),(14,'23','23@2','23',2,'2018-12-03 18:50:15'),(16,'aaa','aaa@aaa','aaa',2,'2018-12-03 18:52:10'),(17,'','asd@asd','22',2,'2018-12-03 19:33:22');
+INSERT INTO `usuario` VALUES (4,'admin','admin@admin.com','admin',1,'2018-11-12 16:11:17'),(5,'pepe','pepe@admin.com','pepe',2,'2018-11-12 16:12:46'),(6,'juan','juan@admin.com','juan',2,'2018-11-12 16:13:02'),(7,'fran','fran@admin.com','fran',2,'2018-11-12 16:13:04');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -226,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-05 19:00:45
+-- Dump completed on 2018-12-18 16:28:17
