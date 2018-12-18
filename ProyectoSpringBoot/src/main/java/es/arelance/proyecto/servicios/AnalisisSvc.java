@@ -2,6 +2,7 @@ package es.arelance.proyecto.servicios;
 
 import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
+import es.arelance.proyecto.modelo.Usuario;
 
 /**
  * Interfaz de la capa de servicio para gestionar los {@link Analisis}
@@ -40,4 +41,16 @@ public interface AnalisisSvc {
 	 *             Error relativo a la capa DAO
 	 */
 	Integer notaMedia(int idJuego) throws ServiceException;
+
+	/**
+	 * Comprueba si ya existe un {@link Analisis} de un {@link Juego} y
+	 * {@link Usuario} para no crear duplicidad
+	 * 
+	 * @param analisis
+	 *            {@link Analisis}
+	 * @return {@code true} si existe; {@code false} en otro caso
+	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
+	 */
+	boolean existe(Analisis analisis) throws ServiceException;
 }

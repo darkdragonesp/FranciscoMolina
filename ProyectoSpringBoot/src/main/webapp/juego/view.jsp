@@ -52,9 +52,15 @@
 	<h3>
 		<spring:message code="juego.analisis" />
 	</h3>
-	<a
-		href="${raiz}/analisis/save?idJuego=${juego.idJuego}"><spring:message
-			code="accion.analisis.nuevo" /></a> ${msg}
+	<c:choose>
+		 <c:when test="${empty existe}">
+			<a href="${raiz}/analisis/save?idJuego=${juego.idJuego}"><spring:message
+					code="accion.analisis.nuevo" /></a> ${msg}
+		</c:when>
+		<c:otherwise>
+			<spring:message code="mensaje.error.analisis" />
+		</c:otherwise>
+	</c:choose>
 	<br>
 	<br>
 	<c:choose>

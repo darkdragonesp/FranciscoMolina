@@ -57,4 +57,13 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 		}
 		return res;
 	}
+
+	@Override
+	public boolean existe(Analisis analisis) throws ServiceException {
+		try {
+			return dao.exist(analisis);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
+	}
 }

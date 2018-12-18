@@ -34,15 +34,20 @@ public class MostrarUsuario {
 	/**
 	 * Muestra el perfil un {@link Usuario} del sistema
 	 * 
+	 * @param sesionUsuario
+	 *            Sesión actual del {@link Usuario}
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @return Página con la información del {@link Usuario}
 	 */
 	@RequestMapping(value = "/usuario/view", method = RequestMethod.GET)
-	public String view(@ModelAttribute(LoginInterceptor.ATT_USER) Usuario sesionUsuario ,Model model) {
+	public String view(
+			@ModelAttribute(LoginInterceptor.ATT_USER) Usuario sesionUsuario,
+			Model model) {
 		try {
-			//Obtener análisis del usuario con fetch
-			Usuario usuario = svc.obtenPorId(sesionUsuario.getIdUsuario(), true);
+			// Obtener análisis del usuario con fetch
+			Usuario usuario = svc.obtenPorId(sesionUsuario.getIdUsuario(),
+					true);
 			model.addAttribute(ATT_ITEM, usuario);
 			return SUCCESS;
 		} catch (Exception e) {
