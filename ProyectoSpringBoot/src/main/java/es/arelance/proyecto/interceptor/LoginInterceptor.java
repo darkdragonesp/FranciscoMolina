@@ -9,6 +9,13 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.UsuarioSvc;
 
+/**
+ * Interceptor de control de acceso de {@link Usuario} para su autentificación y
+ * autenticación
+ * 
+ * @author Francisco Molina Sanchez
+ * 
+ */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	public static final String ATT_USER = "sessionUser";
@@ -19,7 +26,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	@Autowired
 	private UsuarioSvc svc;
-	
+
+	/**
+	 * Controla a que puede acceder dentro del sistema un {@link Usuario} según
+	 * el tipo de usuario
+	 * 
+	 * @return {@code true} si se tiene acceso al recurso; en otro caso
+	 *         {@code false}
+	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
@@ -27,21 +41,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		Usuario usuario = (Usuario) request.getSession().getAttribute(ATT_USER);
 
 		if (usuario == null) {
-			if (!(uri.endsWith(LOGIN) 
-					|| uri.endsWith(REGISTRO)
+			if (!(uri.endsWith(LOGIN) || uri.endsWith(REGISTRO)
 					|| uri.endsWith(ERROR))) {
 				response.sendRedirect(INDEX);
 				return false;
 			}
-        }else{
-        	//Comprobar autorización
-        	boolean res = svc.comprobar(usuario, uri);
-        	if (!res){
-        		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        		response.sendRedirect(request.getContextPath() + INDEX);
-        	}
-        	return res;
-    }
+		} else {
+			// Comprobar autorización
+			boolean res = svc.comprobar(usuario, uri);
+			if (!res) {
+				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+				response.sendRedirect(request.getContextPath() + INDEX);
+			}
+			return res;
+		}
 		return true;
 	}
 

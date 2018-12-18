@@ -16,6 +16,13 @@ import es.arelance.proyecto.interceptor.LoginInterceptor;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.UsuarioSvc;
 
+/**
+ * Controlador para que el {@link Usuario} pueda iniciar y cerrar sesión en la
+ * aplicación web
+ * 
+ * @author Francisco Molina Sanchez
+ * 
+ */
 @Controller
 @SessionAttributes(LoginInterceptor.ATT_USER)
 @RequestMapping(value = "/usuario")
@@ -30,11 +37,32 @@ public class Login {
 	@Autowired
 	private UsuarioSvc svc;
 
+	/**
+	 * Muestra el formulario de inicio de sesión
+	 * 
+	 * @param usuario
+	 *            Credenciales del {@link Usuario}
+	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
+	 * @return Destino formulario de inicio de sesión
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String view(@ModelAttribute Usuario usuario, Model model) {
 		return FORM;
 	}
 
+	/**
+	 * Comprueba las credenciales el {@link Usuario para iniciar sesión
+	 * 
+	 * @param usuario
+	 *            Credenciales del {@link Usuario}
+	 * @param result
+	 *            Control de errores
+	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
+	 * @return Destino página de inicio si las credenciales son correctas; en
+	 *         otro caso se vuelve al formulario de inicio de sesión
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String execute(@Valid Usuario usuario, BindingResult result,
 			Model model) {
@@ -60,6 +88,15 @@ public class Login {
 		}
 	}
 
+	/**
+	 * Cierra la sesión del usuario
+	 * 
+	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
+	 * @param sessionStatus
+	 *            Objeto utilizado en el manejo de sesiones
+	 * @return Destino formulario de inicio de sesión
+	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Model model, SessionStatus sessionStatus) {
 		// Destrucción de la sesión
