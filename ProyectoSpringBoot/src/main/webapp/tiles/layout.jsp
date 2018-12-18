@@ -30,7 +30,7 @@
     
 <!--     Funciones javascript personalizados -->
 	<script src="${raiz}/js/misFunciones/tooltip.js"></script>
-	
+
 </head>
 <body>
   	<tiles:insertAttribute name="header" />

@@ -73,7 +73,15 @@
 		
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
-	<br> ${msg}
-	<br>
-	<a href="${raiz}/juego/list"><spring:message
+	
+	<a class="nav-link" href="${raiz}/juego/list"><spring:message
 			code="accion.listar.juegos" /></a>
+			
+			
+				
+	<c:if test="${not empty msg}">		
+		<div class="info">
+		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		 	${msg}
+		</div>
+	</c:if>

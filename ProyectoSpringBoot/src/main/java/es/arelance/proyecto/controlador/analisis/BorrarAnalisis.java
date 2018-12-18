@@ -54,7 +54,7 @@ public class BorrarAnalisis {
 
 			svc.eliminar(analisis);
 			model.addAttribute(ATT_EXITO,
-					messages.getMessage("mensaje.exito.borrar", null, locale));
+					messages.getMessage("mensaje.exito.borrar.analisis", null, locale));
 
 			return SUCCESS;
 

@@ -42,11 +42,11 @@
 		
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
+
 	${msg}
-	<br>
-	<a
-		href="${raiz}/${analisis.juego.idJuego}/juego/view">
+
+	
+	<a class="nav-link" href="${raiz}/${analisis.juego.idJuego}/juego/view">
 		<spring:message code="accion.volver" />
 	</a>
-	<a href="${raiz}/inicio"><spring:message
-			code="accion.inicio" /></a>
+	<a class="nav-link" href="${raiz}/inicio"><spring:message code="accion.inicio" /></a>

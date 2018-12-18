@@ -63,6 +63,13 @@
 	</c:choose>
 	<br>
 	<br>
+	<!-- 	Mensaje de información -->
+	<c:if test="${not empty msgInfo}">		
+		<div class="info">
+		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		 	${msgInfo}
+		</div>
+	</c:if>
 	<c:choose>
 		<%-- 	No existen análisis --%>
 		<c:when test="${empty juego.analisis}">
@@ -100,5 +107,5 @@
 		</c:otherwise>
 	</c:choose>
 	<br>
-	<a href="${raiz}/inicio"><spring:message
+	<a class="nav-link" href="${raiz}/inicio"><spring:message
 			code="accion.inicio" /></a>

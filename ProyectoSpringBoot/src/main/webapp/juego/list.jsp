@@ -17,6 +17,13 @@
 	<h2>
 		<spring:message code="accion.listar.juegos" />
 	</h2>
+<!-- 	Mensaje de información -->
+	<c:if test="${not empty msg}">		
+		<div class="info">
+		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		 	${msg}
+		</div>
+	</c:if>
 	<%-- 	Filtrado de Juegos --%>
 	<form:form class="form-inline input-group"  modelAttribute="juego" method="GET"
 		action="${raiz}/juego/list/filter">
@@ -110,7 +117,7 @@
 			</table>
 		</c:otherwise>
 	</c:choose>
-	<br> ${msg}
+
 	<br>
-	<a href="${raiz}/inicio"><spring:message
+	<a class="nav-link" href="${raiz}/inicio"><spring:message
 			code="accion.inicio" /></a>

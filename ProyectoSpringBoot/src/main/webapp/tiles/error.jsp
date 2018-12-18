@@ -12,4 +12,4 @@
 	<br>
 	<br> ${error}
 	<br>
-	<a href="${raiz}/inicio"><spring:message code="accion.inicio" /></a>
+	<a class="nav-link" href="${raiz}/inicio"><spring:message code="accion.inicio" /></a>

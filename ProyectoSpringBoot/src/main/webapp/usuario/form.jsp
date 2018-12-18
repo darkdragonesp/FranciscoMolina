@@ -8,6 +8,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page errorPage="error.jsp"%>
 
 
@@ -46,6 +47,12 @@
 
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
-	<br> ${msg}
-	<br>
-	<a href="${raiz}/usuario/login"><spring:message code="accion.acceder" /></a>
+<!-- 	Mensaje de información -->
+	<c:if test="${not empty msg}">		
+		<div class="info">
+		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		 	${msg}
+		</div>
+	</c:if>
+	
+	<a class="nav-link" href="${raiz}/usuario/login"><spring:message code="accion.acceder" /></a>

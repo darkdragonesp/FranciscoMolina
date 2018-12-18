@@ -22,3 +22,26 @@ tr:nth-child(even) {
 .hideText{
   max-width:200px;
 }
+
+
+/* Mensaje de información */
+.info {
+  padding: 20px;
+  background-color: #46a3ff;
+  color: white;
+}
+/* Botón para cerrar mensajes */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
