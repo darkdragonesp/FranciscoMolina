@@ -48,11 +48,6 @@
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 <!-- 	Mensaje de información -->
-	<c:if test="${not empty msg}">		
-		<div class="info">
-		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-		 	${msg}
-		</div>
-	</c:if>
+	<jsp:include page="${raiz}/tiles/mensaje.jsp" />
 	
 	<a class="nav-link" href="${raiz}/usuario/login"><spring:message code="accion.acceder" /></a>

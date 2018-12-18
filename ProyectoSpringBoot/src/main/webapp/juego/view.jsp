@@ -64,12 +64,7 @@
 	<br>
 	<br>
 	<!-- 	Mensaje de información -->
-	<c:if test="${not empty msgInfo}">		
-		<div class="info">
-		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-		 	${msgInfo}
-		</div>
-	</c:if>
+	<jsp:include page="${raiz}/tiles/mensaje.jsp" />
 	<c:choose>
 		<%-- 	No existen análisis --%>
 		<c:when test="${empty juego.analisis}">
@@ -102,7 +97,6 @@
 					</c:forEach>
 					
 				</table>
-				<hr>
 			
 		</c:otherwise>
 	</c:choose>

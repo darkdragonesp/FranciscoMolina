@@ -78,10 +78,5 @@
 			code="accion.listar.juegos" /></a>
 			
 			
-				
-	<c:if test="${not empty msg}">		
-		<div class="info">
-		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-		 	${msg}
-		</div>
-	</c:if>
+<!-- 		Mensaje de información		 -->
+	<jsp:include page="${raiz}/tiles/mensaje.jsp" />

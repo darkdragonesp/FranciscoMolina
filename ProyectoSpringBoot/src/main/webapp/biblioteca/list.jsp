@@ -18,12 +18,7 @@
 	<spring:message code="accion.listar.juegos.usuario" />
 </h2>
 <!-- 	Mensaje de información -->
-	<c:if test="${not empty msg}">		
-		<div class="info">
-		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-		 	${msg}
-		</div>
-	</c:if>
+<jsp:include page="${raiz}/tiles/mensaje.jsp" />
 <c:choose>
 	<c:when test="${empty listaJuegos}">
 		<spring:message code="mensaje.juego.usuario.vacio" />

@@ -35,7 +35,7 @@ import es.arelance.proyecto.servicios.DuplicateException;
 @RequestMapping(value = "/analisis/save")
 public class GuardarAnalisis {
 
-	private static final String ATT_EXITO = "msgInfo";
+	private static final String ATT_EXITO = "msg";
 	private static final String ATT_ERROR = "error";
 
 	private static final String FORM = "analisis/form";

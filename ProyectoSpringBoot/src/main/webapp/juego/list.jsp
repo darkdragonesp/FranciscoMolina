@@ -17,13 +17,9 @@
 	<h2>
 		<spring:message code="accion.listar.juegos" />
 	</h2>
-<!-- 	Mensaje de información -->
-	<c:if test="${not empty msg}">		
-		<div class="info">
-		 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-		 	${msg}
-		</div>
-	</c:if>
+	<!-- 	Mensaje de información -->
+	<jsp:include page="${raiz}/tiles/mensaje.jsp" />
+
 	<%-- 	Filtrado de Juegos --%>
 	<form:form class="form-inline input-group"  modelAttribute="juego" method="GET"
 		action="${raiz}/juego/list/filter">
