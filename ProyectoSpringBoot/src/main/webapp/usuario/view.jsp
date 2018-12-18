@@ -63,12 +63,10 @@
 						<tr>
 							<td><fmt:formatDate value="${item.fechaAlta}"
 									pattern="dd-MM-yyyy HH:mm:ss" /></td>
-							<td><a
-								href="${raiz}/${item.juego.idJuego}/juego/view">${item.juego.titulo}</a></td>
+							<td><a href="${raiz}/${item.juego.idJuego}/juego/view">${item.juego.titulo}</a></td>
 							<td>${item.nota}</td>
-							<td><div class=truncate>${item.comentario}</div></td>
-							<td><a
-								href="${raiz}/${item.idAnalisis}/analisis/delete"
+							<td align="center"><div class="iffyTip hideText">${item.comentario}</div></td>
+							<td><a href="${raiz}/${item.idAnalisis}/analisis/delete"
 								onclick="return window.confirm('<spring:message code="accion.analisis.confirmar"/>')">
 									<i class="material-icons">delete_forever</i>
 							</a></td>

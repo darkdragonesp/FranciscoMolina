@@ -88,14 +88,8 @@
 							<td><fmt:formatDate value="${item.fechaLanzamiento}"
 									pattern="dd-MM-yyyy" /></td>
 									
-							<td><span class="field-tip">
-							    <div class=truncate>${item.descripcion}</div>
-							    <span class="tip-content">${item.descripcion}</span>
-								</span>  	
-							</td>	
-									
-<%-- 							<td><div class=truncate>${item.descripcion}</div></td> --%>
-	
+							<td align="center"><div class="iffyTip hideText">${item.descripcion}</div></td>	
+										
 							<td><a href="${raiz}/${item.idJuego}/juego/usuario/save">
 									<i class="material-icons">create_new_folder</i>
 							</a></td>

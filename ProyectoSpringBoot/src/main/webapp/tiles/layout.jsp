@@ -27,6 +27,10 @@
     <script src="${raiz}/js/jquery-3.2.1.js"></script>
 	<script src="${raiz}/js/vendor/popper.min.js"></script>
     <script src="${raiz}/js/bootstrap.min.js"></script>
+    
+<!--     Funciones javascript personalizados -->
+	<script src="${raiz}/js/misFunciones/tooltip.js"></script>
+	
 </head>
 <body>
   	<tiles:insertAttribute name="header" />

@@ -12,65 +12,13 @@
 tr:nth-child(even) {
 	background-color: #f2f2f2
 }
-/* Truncar textos muy largos como comentarios */
-.truncate {
-	text-align: center;
-	width: 250px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+
+/* Trunca textos muy largos */
+.iffyTip {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
-
-/* Hover tooltips */
-/* .field-tip { */
-/* 	position: relative; */
-/* 	text-align: center; */
-/* } */
-
-/* .field-tip .tip-content { */
-/* 	position: absolute; */
-/* 	top: -22px; - top padding */
-/* 	right: 9999px; */
-/* 	width: 350px; */
-/* 	margin-right: -120px; width + left/right padding */
-/* 	padding: 10px; */
-/* 	color: #fff; */
-/* 	background: #333; */
-/* 	-webkit-box-shadow: 2px 2px 5px #aaa; */
-/* 	-moz-box-shadow: 2px 2px 5px #aaa; */
-/* 	box-shadow: 2px 2px 5px #aaa; */
-/* 	opacity: 0; */
-/* 	-webkit-transition: opacity 250ms ease-out; */
-/* 	-moz-transition: opacity 250ms ease-out; */
-/* 	-ms-transition: opacity 250ms ease-out; */
-/* 	-o-transition: opacity 250ms ease-out; */
-/* 	transition: opacity 250ms ease-out; */
-/* } */
-
-/* .field-tip:hover .tip-content { */
-/* 	right: -20px; */
-/* 	opacity: 1; */
-/* } */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
+.hideText{
+  max-width:200px;
 }

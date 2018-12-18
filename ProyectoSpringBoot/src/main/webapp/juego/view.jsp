@@ -39,18 +39,7 @@
 				</tr>
 				<tr>
 					<th><spring:message code="juego.descripcion" /></th>
-<%-- 					<td align="center"><div class=truncate>${juego.descripcion}</div></td> --%>
-<!-- 					<td align="center"><span class="field-tip"> -->
-<%-- 							    <div align="center" class=truncate>${juego.descripcion}</div> --%>
-<%-- 							    <span class="tip-content">${juego.descripcion}</span> --%>
-<!-- 								</span>  	 -->
-<!-- 					</td>	 -->
-					<td align="center">
-					<div class="tooltip">${juego.descripcion}
-					  <span class="tooltiptext">Tooltip text</span>
-					</div></td>
-<!-- 					https://www.w3schools.com/css/css_tooltip.asp					 -->
-					
+					<td align="center"><div class="iffyTip hideText">${juego.descripcion}</div></td>
 				</tr>
 				<tr>
 					<th><spring:message code="juego.analisis.notaMedia" /></th>
@@ -90,12 +79,12 @@
 					
 					<c:forEach items="${juego.analisis}" var="item">
 						<tr>
-						<td>${item.usuario.nombreUsuario}</td>
-						<td><fmt:formatDate value="${item.fechaAlta}"
-									pattern="dd-MM-yyyy HH:mm:ss" /></td>
-									
+							<td>${item.usuario.nombreUsuario}</td>
+							<td><fmt:formatDate value="${item.fechaAlta}"
+										pattern="dd-MM-yyyy HH:mm:ss" /></td>
+										
 							<td>${item.nota}</td>
-							<td>${item.comentario}</td>
+							<td align="center"><div class="iffyTip hideText">${item.comentario}</div></td>
 						</tr>
 					</c:forEach>
 					
