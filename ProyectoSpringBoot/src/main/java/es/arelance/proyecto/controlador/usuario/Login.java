@@ -82,7 +82,7 @@ public class Login {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			result.reject(MSG_ERROR);
 			return ERROR;
 		}

@@ -94,7 +94,7 @@ public class GuardarUsuario {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			if (e.getCause()
 					.getCause() instanceof ConstraintViolationException) {
 				result.reject("mensaje.error.registrar");

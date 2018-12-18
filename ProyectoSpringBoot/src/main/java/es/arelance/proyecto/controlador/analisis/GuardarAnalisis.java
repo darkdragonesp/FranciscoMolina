@@ -111,7 +111,7 @@ public class GuardarAnalisis {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			if (e instanceof DuplicateException) {
 				result.reject("mensaje.error.analisis");
 			} else {

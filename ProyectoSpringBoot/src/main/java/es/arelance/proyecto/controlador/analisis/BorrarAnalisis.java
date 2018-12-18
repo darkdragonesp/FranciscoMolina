@@ -59,7 +59,7 @@ public class BorrarAnalisis {
 			return SUCCESS;
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}

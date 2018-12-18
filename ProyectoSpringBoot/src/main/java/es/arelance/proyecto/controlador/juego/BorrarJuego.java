@@ -65,7 +65,7 @@ public class BorrarJuego {
 			return SUCCESS;
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			if (e.getCause() instanceof ConstraintViolationException) {
 				model.addAttribute(ATT_EXITO,
 						messages.getMessage("mensaje.error.borrar",

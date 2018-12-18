@@ -51,7 +51,7 @@ public class MostrarUsuario {
 			model.addAttribute(ATT_ITEM, usuario);
 			return SUCCESS;
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}

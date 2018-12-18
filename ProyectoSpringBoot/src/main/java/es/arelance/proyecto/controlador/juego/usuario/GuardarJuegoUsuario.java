@@ -81,7 +81,7 @@ public class GuardarJuegoUsuario {
 			
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
