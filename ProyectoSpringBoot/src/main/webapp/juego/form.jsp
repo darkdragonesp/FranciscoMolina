@@ -24,7 +24,7 @@
 	</h2>
 	<%-- 	Formulario de registro de un Juego nuevo --%>
 	<form:form class="container custom-container" modelAttribute="juego" method="POST"
-		action="${raiz}/juego/save">
+		action="${raiz}/juego/save" enctype="multipart/form-data">
 		<form:hidden path="idJuego" />
 		
 
@@ -61,11 +61,13 @@
 
 			<label for="descripcion" class="sr-only">
 				<spring:message code="juego.descripcion" var="labDescripcion"/>
-		</label>
+			</label>
 				<form:textarea path="descripcion" rows="8" placeholder="${labDescripcion}" class="form-control"/>
 				<form:errors path="descripcion" cssClass="error" />
 			
-
+		<label for="file" class="sr-only"><spring:message code="juego.caratula" var="labCaratula"/></label>
+		<input type="file" name="file" accept="image/jpg, image/png" class="form-control">
+		<form:errors path="caratula" cssClass="error" />
 
 			
 				<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.guardar"/>" />

@@ -36,7 +36,7 @@ CREATE TABLE `analisis` (
   KEY `FK_analisis_juego_idx` (`idJuego`),
   CONSTRAINT `FK_analisis_juego` FOREIGN KEY (`idJuego`) REFERENCES `juego` (`idjuego`),
   CONSTRAINT `FK_analisis_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,13 +88,14 @@ CREATE TABLE `juego` (
   `descripcion` text,
   `idCategoria` int(11) NOT NULL,
   `idPlataforma` int(11) NOT NULL,
+  `caratula` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idJuego`),
   UNIQUE KEY `titulo_UNIQUE` (`titulo`),
   KEY `FK_juego_idCategoria_idx` (`idCategoria`),
   KEY `FK_juego_idPlataforma_idx` (`idPlataforma`),
   CONSTRAINT `FK_juego_idCategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idcategoria`),
   CONSTRAINT `FK_juego_idPlataforma` FOREIGN KEY (`idPlataforma`) REFERENCES `plataforma` (`idplataforma`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +104,7 @@ CREATE TABLE `juego` (
 
 LOCK TABLES `juego` WRITE;
 /*!40000 ALTER TABLE `juego` DISABLE KEYS */;
-INSERT INTO `juego` VALUES (1,'Super Mario Bros','1987-11-12','Super Mario Bros. o Super Mario Brothers es un videojuego de plataformas, diseñado por Shigeru Miyamoto, lanzado el 13 de septiembre de 1985 y producido por la compañía Nintendo, para la consola Nintendo Entertainment System (NES). El juego describe las aventuras de los hermanos Mario y Luigi, personajes que ya protagonizaron el arcade Mario Bros. de 1983. ',2,8),(2,'Mario Kart','1992-11-12','Mario Kart es una serie de videojuegos de carreras desarrollados y distribuidos por Nintendo y cuentan con la aparición de los personajes de la serie de Mario, que además tiene varios spin-offs por cada entrega de estos juegos. El primer juego de la serie, Super Mario Kart, fue lanzado en 1992 para la consola Super Nintendo y fue un éxito comercial y crítico.',17,1),(3,'Sonic the Hedgehog','1991-11-12','Sonic the Hedgehog (En español Sonic el erizo) es un videojuego desarrollado por Sonic Team y distribuido por Sega en 1991 para la videoconsola Sega Mega Drive protagonizado por Sonic. Este videojuego de plataformas fue, durante mucho tiempo, considerado el buque insignia de Sega, el ejemplo a seguir para sus futuros juegos. Incluso llegó a dar nombre a uno de sus equipos de desarrollo: Sonic Team. ',2,2),(52,'Tetris','1989-12-18','Tetris (en ruso: Те́трис) es un videojuego de puzzle originalmente diseñado y programado por Alekséi Pázhitnov en la Unión Soviética. Fue lanzado el 6 de junio de 1984,​ mientras trabajaba para el Centro de Computación Dorodnitsyn de la Academia de Ciencias de la Unión Soviética en Moscú, RSFS de Rusia. Su nombre deriva del prefijo numérico griego tetra- (todas las piezas del juego, conocidas como Tetrominós que contienen cuatro segmentos) y del tenis, el deporte favorito de Pázhitnov.',19,7);
+INSERT INTO `juego` VALUES (1,'Super Mario Bros','1987-11-12','Super Mario Bros. o Super Mario Brothers es un videojuego de plataformas, diseñado por Shigeru Miyamoto, lanzado el 13 de septiembre de 1985 y producido por la compañía Nintendo, para la consola Nintendo Entertainment System (NES). El juego describe las aventuras de los hermanos Mario y Luigi, personajes que ya protagonizaron el arcade Mario Bros. de 1983. ',2,8,NULL),(2,'Mario Kart','1992-11-12','Mario Kart es una serie de videojuegos de carreras desarrollados y distribuidos por Nintendo y cuentan con la aparición de los personajes de la serie de Mario, que además tiene varios spin-offs por cada entrega de estos juegos. El primer juego de la serie, Super Mario Kart, fue lanzado en 1992 para la consola Super Nintendo y fue un éxito comercial y crítico.',17,1,NULL),(3,'Sonic the Hedgehog','1991-11-12','Sonic the Hedgehog (En español Sonic el erizo) es un videojuego desarrollado por Sonic Team y distribuido por Sega en 1991 para la videoconsola Sega Mega Drive protagonizado por Sonic. Este videojuego de plataformas fue, durante mucho tiempo, considerado el buque insignia de Sega, el ejemplo a seguir para sus futuros juegos. Incluso llegó a dar nombre a uno de sus equipos de desarrollo: Sonic Team. ',2,2,NULL),(52,'Tetris','1989-12-18','Tetris (en ruso: Те́трис) es un videojuego de puzzle originalmente diseñado y programado por Alekséi Pázhitnov en la Unión Soviética. Fue lanzado el 6 de junio de 1984,​ mientras trabajaba para el Centro de Computación Dorodnitsyn de la Academia de Ciencias de la Unión Soviética en Moscú, RSFS de Rusia. Su nombre deriva del prefijo numérico griego tetra- (todas las piezas del juego, conocidas como Tetrominós que contienen cuatro segmentos) y del tenis, el deporte favorito de Pázhitnov.',19,7,NULL);
 /*!40000 ALTER TABLE `juego` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +124,7 @@ CREATE TABLE `juego_usuario` (
   KEY `FK_idJuegoUsuario_idx` (`idJuego`),
   CONSTRAINT `FK_idJuegoUsuario` FOREIGN KEY (`idJuego`) REFERENCES `juego` (`idjuego`),
   CONSTRAINT `FK_idUsuarioJuego` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idusuario`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +133,7 @@ CREATE TABLE `juego_usuario` (
 
 LOCK TABLES `juego_usuario` WRITE;
 /*!40000 ALTER TABLE `juego_usuario` DISABLE KEYS */;
-INSERT INTO `juego_usuario` VALUES (31,4,2);
+INSERT INTO `juego_usuario` VALUES (34,4,3);
 /*!40000 ALTER TABLE `juego_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-18 16:28:17
+-- Dump completed on 2018-12-18 18:13:35

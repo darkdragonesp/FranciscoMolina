@@ -35,7 +35,8 @@ public class Juego {
 	private String descripcion;
 	private Categoria categoria;
 	private Plataforma plataforma;
-
+	private String caratula;
+	
 	private Set<Analisis> analisis;
 
 	@Id
@@ -98,6 +99,14 @@ public class Juego {
 
 	public void setPlataforma(Plataforma plataforma) {
 		this.plataforma = plataforma;
+	}
+
+	public String getCaratula() {
+		return caratula;
+	}
+
+	public void setCaratula(String caratula) {
+		this.caratula = caratula;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "juego")

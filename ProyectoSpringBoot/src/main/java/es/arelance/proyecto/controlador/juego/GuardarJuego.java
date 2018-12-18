@@ -1,9 +1,11 @@
 package es.arelance.proyecto.controlador.juego;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.ServletContext;
 import javax.validation.Valid;
 
 import org.hibernate.exception.ConstraintViolationException;
@@ -18,9 +20,12 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.servicios.CategoriaSvc;
+import es.arelance.proyecto.servicios.ImagenSvc;
 import es.arelance.proyecto.servicios.JuegoSvc;
 import es.arelance.proyecto.servicios.PlataformaSvc;
 
@@ -33,6 +38,7 @@ import es.arelance.proyecto.servicios.PlataformaSvc;
 @Controller
 @RequestMapping(value = "/juego/save")
 public class GuardarJuego {
+	private static final String IMAGE_PATH = "/caratulas/";
 
 	private static final String ATT_ITEM = "juego";
 	private static final String ATT_LISTA_CAT = "listaCategorias";
@@ -41,7 +47,7 @@ public class GuardarJuego {
 	private static final String ATT_ERROR = "error";
 
 	private static final String SUCCESS = "juego/form";
-	private static final String LIST= "redirect:/juego/list";
+	private static final String LIST = "redirect:/juego/list";
 	private static final String FORM = "juego/form";
 	private static final String ERROR = "error";
 
@@ -56,6 +62,12 @@ public class GuardarJuego {
 
 	@Autowired
 	private MessageSource messages;
+
+	@Autowired
+	private ImagenSvc iSvc;
+
+	@Autowired
+	private ServletContext context;
 
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
@@ -96,11 +108,12 @@ public class GuardarJuego {
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
 	 *            Internacionalización
-	 * @return Vuelve al formulario; en caso de que la modificación
-	 *  se exitosa envia al listado de juegos
+	 * @return Vuelve al formulario; en caso de que la modificación se exitosa
+	 *         envia al listado de juegos
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public String execute(@Valid Juego juego, BindingResult result, Model model,
+	public String execute(@Valid Juego juego, BindingResult result,
+			@RequestParam("file") MultipartFile file, Model model,
 			Locale locale) {
 		try {
 			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
@@ -109,14 +122,24 @@ public class GuardarJuego {
 				return FORM;
 			} else {
 				if (juego.getIdJuego() == null) {
+					// Guardar foto
+					juego.setCaratula(guardar(file));
 					svc.guardar(juego);
 				} else {
+					//Si la caratula esta la guardo
+					if(!file.isEmpty()) {
+						juego.setCaratula(guardar(file));
+					//Si la caratula no esta, guardo la que había
+					}else {
+						juego.setCaratula((svc.buscar(juego.getIdJuego(), false)).getCaratula());
+					}
 					svc.modificar(juego);
-					return LIST+"?juegoModificado="+juego.getTitulo();
+					return LIST + "?juegoModificado=" + juego.getTitulo();
 				}
 
 				model.addAttribute(ATT_EXITO,
-						messages.getMessage("mensaje.exito", new Object[] { juego.getTitulo() }, locale));
+						messages.getMessage("mensaje.exito",
+								new Object[] { juego.getTitulo() }, locale));
 
 				// Limpiar formulario
 				model.addAttribute(ATT_ITEM, new Juego());
@@ -124,7 +147,7 @@ public class GuardarJuego {
 				return SUCCESS;
 			}
 		} catch (Exception e) {
-			
+
 			if (e.getCause() instanceof ConstraintViolationException || e
 					.getCause()
 					.getCause() instanceof ConstraintViolationException) {
@@ -136,4 +159,24 @@ public class GuardarJuego {
 		}
 	}
 
+	/**
+	 * Guardar la foto
+	 * 
+	 * @param file
+	 * @return ruta relativa de almacenamiento
+	 * @throws IOException
+	 */
+	private String guardar(MultipartFile file) throws IOException {
+		String ruta = null;
+		if (file != null && file.getOriginalFilename() != null
+				&& !file.getOriginalFilename().isEmpty()) {
+			ruta = IMAGE_PATH + file.getOriginalFilename();
+			String path = context.getRealPath(ruta);
+
+			// Almacenar en disco
+			iSvc.guardar(file, path);
+		}
+
+		return ruta;
+	}
 }
