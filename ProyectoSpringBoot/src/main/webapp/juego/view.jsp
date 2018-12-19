@@ -22,6 +22,12 @@
 					<th><spring:message code="juego.titulo" /></th>
 					<td>${juego.titulo}</td>
 				</tr>
+				<c:if test="${not empty juego.caratula}">
+					<tr>
+						<th style="vertical-align:text-top;"><spring:message code="juego.caratula" /></th>
+						<td><img src="${raiz}${juego.caratula}" alt="${juego.caratula}" style="height:200px;"></td>
+					</tr>
+				</c:if>
 				<tr>
 					<th><spring:message code="juego.categoria" /></th>
 					<td><a
