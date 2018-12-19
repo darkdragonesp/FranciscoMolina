@@ -163,4 +163,43 @@ public class ListarJuego {
 			return ERROR;
 		}
 	}
+	/**
+	 * Carga las listas necesarias para rellenar los selectores del buscador y
+	 * muestra la página con la lista de juegos
+	 * 
+	 * @param juego
+	 *            Contiene los atributos a filtrar
+	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
+	 * @return Página con la lista de juegos
+	 */
+	@RequestMapping(value="/ajax/juego/list/filter", method=RequestMethod.POST)
+    public String filtrarAjax(@ModelAttribute Juego juego, Model model, Locale locale){
+		try {
+			//Refrescar
+			model.addAttribute(ATT_LISTA, svc.filtrar(juego));
+			
+			return "forward:/juego/table.jsp";
+		} catch (Exception e) {
+			return null;
+		}
+    }
+	/**
+	 * Muestra la lista de instancias de {@link Juego}
+	 * 
+	 * @param model
+	 *            Objeto de Spring MVC para el almacenamiento de atributos
+	 * @return Destino controlador de carga de tipos
+	 */
+	@RequestMapping(value="/ajax/juego/list", method=RequestMethod.POST)
+    public String listarAjax(Model model, Locale locale){
+		try {
+			//Refrescar
+			model.addAttribute(ATT_LISTA, svc.listar());
+			
+			return "forward:/juego/table.jsp";
+		} catch (Exception e) {
+			return null;
+		}
+    }
 }

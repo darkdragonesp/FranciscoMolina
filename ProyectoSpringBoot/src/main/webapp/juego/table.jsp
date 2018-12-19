@@ -15,50 +15,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 
-<h2>
-	<spring:message code="accion.listar.juegos" />
-</h2>
-<!-- 	Mensaje de información -->
-<jsp:include page="${raiz}/tiles/mensaje.jsp" />
-
-<%-- 	Filtrado de Juegos --%>
-<form:form class="form-inline input-group" modelAttribute="juego" name="filtrarJuegos"
-	method="GET" action="javascript:filtrar()">
-	<form:hidden path="idJuego" />
-
-
-	<label for="titulo" class="sr-only"> <spring:message
-			code="juego.titulo" var="labTitulo" />
-	</label>
-	<form:input path="titulo" class="form-control"
-		placeholder="${labTitulo}" />
-
-	<label for="categoria.idCategoria" class="sr-only"> <spring:message
-			code="accion.elegir.categoria" var="labCategoria" />
-	</label>
-	<form:select path="categoria.idCategoria" class="form-control">
-		<form:option value="">${labCategoria}</form:option>
-		<form:options items="${listaCategorias}" itemLabel="nombre"
-			itemValue="idCategoria" />
-	</form:select>
-
-	<label for="plataforma.idPlataforma" class="sr-only"> <spring:message
-			code="accion.elegir.plataforma" var="labCategoria" />
-	</label>
-	<form:select path="plataforma.idPlataforma" class="form-control">
-		<form:option value="">${labCategoria}</form:option>
-		<form:options items="${listaPlataformas}" itemLabel="nombre"
-			itemValue="idPlataforma" />
-	</form:select>
-
-	<input type="submit" class="btn btn-default"
-		value="<spring:message code="accion.filtrar"/>" />
-	<input type="button" class="btn btn-default"
-		onclick="listar()"
-		value="<spring:message code="accion.limpiar"/>" />
-
-
-</form:form>
 <%-- Lista de Juegos --%>
 <c:choose>
 	<c:when test="${empty listaJuegos}">
@@ -119,48 +75,3 @@
 		</table>
 	</c:otherwise>
 </c:choose>
-
-<br>
-<a class="nav-link" href="${raiz}/inicio"><spring:message
-		code="accion.inicio" /></a>
-		
-		
-<script>
-function filtrar() {
-	var form = $('form[name="filtrarJuegos"]');
-	var formdata = false;
-	if (window.FormData){ //Objeto HTML5, si no existe serializa el form
-	     formdata = new FormData(form[0]);
-	}
-	
-	$.ajax({
-		url: "/ajax/juego/list/filter",
-		method: "POST",
-		contentType: false,
-		processData: false,
-		timeout: 20000,
-		data: formdata ? formdata : form.serialize(),
-		success: function(result){
-				$('#tabla').replaceWith(result);
-		},
-		error: function(result){
-				alert(JSON.stringify(result));
-		}
-	});
-}
-function listar() {
-	$.ajax({
-		url: "/ajax/juego/list",
-		method: "POST",
-		contentType: false,
-		processData: false,
-		timeout: 20000,
-		success: function(result){
-				$('#tabla').replaceWith(result);
-		},
-		error: function(result){
-				alert(JSON.stringify(result));
-		}
-	});
-}
-</script>
