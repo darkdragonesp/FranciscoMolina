@@ -104,6 +104,11 @@ public class GuardarJuego {
 	 *            {@link Juego} a guardar
 	 * @param result
 	 *            Control de errores
+	 * @param file
+	 *            Carátula del {@link Juego}
+	 * @param eliminarCaratula
+	 *            si {@code true} se elimina la carátula actual y no se guarda
+	 *            ninguna
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
 	 * @param locale
@@ -166,17 +171,20 @@ public class GuardarJuego {
 	}
 
 	/**
-	 * Guardar la foto
+	 * Guarda la carátula del {@link Juego}
 	 * 
 	 * @param file
-	 * @return ruta relativa de almacenamiento
+	 *            Carátula del {@link Juego}
+	 * @return Ruta relativa de almacenamiento
 	 * @throws IOException
+	 *             Excepción relativa a la manipulación de archivos
 	 */
 	private String guardar(MultipartFile file) throws IOException {
 		String ruta = null;
 		if (file != null && file.getOriginalFilename() != null
 				&& !file.getOriginalFilename().isEmpty()) {
-			ruta = IMAGE_PATH + file.getOriginalFilename();
+			ruta = IMAGE_PATH + "imagen_" + Math.abs(new Date().hashCode())
+					+ "_" + file.getOriginalFilename();
 			String path = context.getRealPath(ruta);
 
 			// Almacenar en disco

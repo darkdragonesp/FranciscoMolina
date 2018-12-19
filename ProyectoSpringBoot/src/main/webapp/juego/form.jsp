@@ -69,7 +69,7 @@
 				<label for="caratula" class="sr-only"><spring:message code="juego.caratula.actual" var="labCaratula"/></label>
 				<input type="text" value="${labCaratula}${juego.caratula}" readonly="readonly" class="form-control">
 				
-				<img src="${raiz}${juego.caratula}" alt="${juego.caratula}" style="width:200px;">
+				<img src="${raiz}${juego.caratula}" alt="${juego.caratula}" style="height:200px;">
 				
 				<div align="left" class="custom-control custom-checkbox">
 				    <input type="checkbox" class="custom-control-input" id="eliminarCaratula" name="eliminarCaratula">

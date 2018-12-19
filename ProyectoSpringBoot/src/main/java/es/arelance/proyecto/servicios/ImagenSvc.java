@@ -16,10 +16,11 @@ public interface ImagenSvc {
 	 * Guardar un archivo
 	 * 
 	 * @param file
-	 *            archivo a almacenar
+	 *            Archivo a almacenar
 	 * @param destino
-	 *            ruta en disco
+	 *            Ruta en disco
 	 * @throws IOException
+	 *             Excepción relativa a la manipulación de archivos
 	 */
 	public void guardar(MultipartFile file, String destino) throws IOException;
 

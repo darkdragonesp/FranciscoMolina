@@ -36,7 +36,7 @@ CREATE TABLE `analisis` (
   KEY `FK_analisis_juego_idx` (`idJuego`),
   CONSTRAINT `FK_analisis_juego` FOREIGN KEY (`idJuego`) REFERENCES `juego` (`idjuego`),
   CONSTRAINT `FK_analisis_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `analisis` (
 
 LOCK TABLES `analisis` WRITE;
 /*!40000 ALTER TABLE `analisis` DISABLE KEYS */;
-INSERT INTO `analisis` VALUES (28,70,'Muy divertido.','2018-12-18 16:08:36',2,4),(29,99,'El mejor juego de plataformas.','2018-12-18 16:10:18',3,4),(30,60,'Algo aburrido.','2018-12-18 16:11:10',3,5),(31,80,'Me encantó.','2018-12-18 16:11:36',3,6),(32,100,'Muy entretenido. Espero la segunda parte.','2018-12-18 16:16:16',3,7);
+INSERT INTO `analisis` VALUES (28,70,'Muy divertido.','2018-12-18 16:08:36',2,4),(29,99,'El mejor juego de plataformas.','2018-12-18 16:10:18',3,4),(30,60,'Algo aburrido.','2018-12-18 16:11:10',3,5),(31,80,'Me encantó.','2018-12-18 16:11:36',3,6),(32,100,'Muy entretenido. Espero la segunda parte.','2018-12-18 16:16:16',3,7),(36,77,'Excelente.','2018-12-19 11:52:11',1,4);
 /*!40000 ALTER TABLE `analisis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +95,7 @@ CREATE TABLE `juego` (
   KEY `FK_juego_idPlataforma_idx` (`idPlataforma`),
   CONSTRAINT `FK_juego_idCategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idcategoria`),
   CONSTRAINT `FK_juego_idPlataforma` FOREIGN KEY (`idPlataforma`) REFERENCES `plataforma` (`idplataforma`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `juego` (
 
 LOCK TABLES `juego` WRITE;
 /*!40000 ALTER TABLE `juego` DISABLE KEYS */;
-INSERT INTO `juego` VALUES (1,'Super Mario Bros','1987-11-12','Super Mario Bros. o Super Mario Brothers es un videojuego de plataformas, diseñado por Shigeru Miyamoto, lanzado el 13 de septiembre de 1985 y producido por la compañía Nintendo, para la consola Nintendo Entertainment System (NES). El juego describe las aventuras de los hermanos Mario y Luigi, personajes que ya protagonizaron el arcade Mario Bros. de 1983. ',2,8,NULL),(2,'Mario Kart','1992-11-12','Mario Kart es una serie de videojuegos de carreras desarrollados y distribuidos por Nintendo y cuentan con la aparición de los personajes de la serie de Mario, que además tiene varios spin-offs por cada entrega de estos juegos. El primer juego de la serie, Super Mario Kart, fue lanzado en 1992 para la consola Super Nintendo y fue un éxito comercial y crítico.',17,1,NULL),(3,'Sonic the Hedgehog','1991-11-12','Sonic the Hedgehog (En español Sonic el erizo) es un videojuego desarrollado por Sonic Team y distribuido por Sega en 1991 para la videoconsola Sega Mega Drive protagonizado por Sonic. Este videojuego de plataformas fue, durante mucho tiempo, considerado el buque insignia de Sega, el ejemplo a seguir para sus futuros juegos. Incluso llegó a dar nombre a uno de sus equipos de desarrollo: Sonic Team. ',2,2,NULL),(52,'Tetris','1989-12-18','Tetris (en ruso: Те́трис) es un videojuego de puzzle originalmente diseñado y programado por Alekséi Pázhitnov en la Unión Soviética. Fue lanzado el 6 de junio de 1984,​ mientras trabajaba para el Centro de Computación Dorodnitsyn de la Academia de Ciencias de la Unión Soviética en Moscú, RSFS de Rusia. Su nombre deriva del prefijo numérico griego tetra- (todas las piezas del juego, conocidas como Tetrominós que contienen cuatro segmentos) y del tenis, el deporte favorito de Pázhitnov.',19,7,NULL);
+INSERT INTO `juego` VALUES (1,'Super Mario Bros','1987-11-12','Super Mario Bros. o Super Mario Brothers es un videojuego de plataformas, diseñado por Shigeru Miyamoto, lanzado el 13 de septiembre de 1985 y producido por la compañía Nintendo, para la consola Nintendo Entertainment System (NES). El juego describe las aventuras de los hermanos Mario y Luigi, personajes que ya protagonizaron el arcade Mario Bros. de 1983. ',2,8,'/caratulas/imagen_971559861_Mariobrothers.png'),(2,'Mario Kart','1992-11-12','Mario Kart es una serie de videojuegos de carreras desarrollados y distribuidos por Nintendo y cuentan con la aparición de los personajes de la serie de Mario, que además tiene varios spin-offs por cada entrega de estos juegos. El primer juego de la serie, Super Mario Kart, fue lanzado en 1992 para la consola Super Nintendo y fue un éxito comercial y crítico.',17,1,NULL),(3,'Sonic the Hedgehog','1991-11-12','Sonic the Hedgehog (En español Sonic el erizo) es un videojuego desarrollado por Sonic Team y distribuido por Sega en 1991 para la videoconsola Sega Mega Drive protagonizado por Sonic. Este videojuego de plataformas fue, durante mucho tiempo, considerado el buque insignia de Sega, el ejemplo a seguir para sus futuros juegos. Incluso llegó a dar nombre a uno de sus equipos de desarrollo: Sonic Team. ',2,2,'/caratulas/imagen_971550279_Sonic_the_Hedgehog_1_Genesis_box_art.jpg'),(52,'Tetris','1989-12-18','Tetris (en ruso: Те́трис) es un videojuego de puzzle originalmente diseñado y programado por Alekséi Pázhitnov en la Unión Soviética. Fue lanzado el 6 de junio de 1984,​ mientras trabajaba para el Centro de Computación Dorodnitsyn de la Academia de Ciencias de la Unión Soviética en Moscú, RSFS de Rusia. Su nombre deriva del prefijo numérico griego tetra- (todas las piezas del juego, conocidas como Tetrominós que contienen cuatro segmentos) y del tenis, el deporte favorito de Pázhitnov.',19,7,'/caratulas/imagen_971579144_Tetris_Box_Front.jpg');
 /*!40000 ALTER TABLE `juego` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +204,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idUsuario`),
   UNIQUE KEY `apodo_UNIQUE` (`nombreUsuario`),
   KEY `FK_usuario_idTipo_idx` (`tipoUsuario`),
-  CONSTRAINT `FK_usuario_idTipo` FOREIGN KEY (`tipoUsuario`) REFERENCES `tipo_usuario` (`idTipo`)
+  CONSTRAINT `FK_usuario_idTipo` FOREIGN KEY (`tipoUsuario`) REFERENCES `tipo_usuario` (`idtipo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -227,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-18 18:13:35
+-- Dump completed on 2018-12-19 11:58:41
