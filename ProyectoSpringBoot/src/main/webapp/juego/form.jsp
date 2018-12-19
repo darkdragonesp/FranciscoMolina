@@ -69,15 +69,20 @@
 				<label for="caratula" class="sr-only"><spring:message code="juego.caratula.actual" var="labCaratula"/></label>
 				<input type="text" value="${labCaratula}${juego.caratula}" readonly="readonly" class="form-control">
 				
+				<img src="${raiz}${juego.caratula}" alt="${juego.caratula}" style="width:200px;">
+				
 				<div align="left" class="custom-control custom-checkbox">
 				    <input type="checkbox" class="custom-control-input" id="eliminarCaratula" name="eliminarCaratula">
 				    <label class="custom-control-label" for="eliminarCaratula"><spring:message code="juego.caratula.borrar"/></label>
 				</div>
 			</c:if>
 		
-			<input type="file" name="file" accept="image/jpg, image/png" class="form-control">
+			<input type="file" name="file" accept="image/jpg, image/png" class="form-control form-control-file">
 			<form:errors path="caratula" cssClass="error" />
 			
+				
+				
+				
 				
 			<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.guardar"/>" />
 				
