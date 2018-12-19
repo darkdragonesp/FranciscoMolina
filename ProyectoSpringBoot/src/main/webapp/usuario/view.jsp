@@ -80,5 +80,7 @@
 	</c:choose>
 
 	<br>
+	<a class="nav-link" href="${raiz}/usuario/edit"><spring:message code="accion.usuario.editar" /></a>
+	
 	<a class="nav-link" href="${raiz}/inicio"> <spring:message
 			code="accion.inicio" /></a>

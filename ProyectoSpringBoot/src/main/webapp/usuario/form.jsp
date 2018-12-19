@@ -13,11 +13,24 @@
 
 
 	<h2>
-		<spring:message code="accion.registrarse" />
+		<c:choose>
+			<c:when test="${not empty sessionUser}">
+				<spring:message code="accion.usuario.editar" />
+			</c:when>
+			<c:otherwise>
+				<spring:message code="accion.registrarse" />
+			</c:otherwise>		
+		</c:choose>
+		
+		
 	</h2>
 	<%-- 	Formulario de registro de Usuario --%>
 	<form:form class="form-signin" modelAttribute="usuario" method="POST"
 		action="${raiz}/usuario/save">
+		
+				<form:hidden path="idUsuario"/>
+				<form:hidden path="tipoUsuario.idTipo"/>
+				
 				
 				<label for="nombreUsuario" class="sr-only">
 				<spring:message code="usuario.nombre" var="labNombreUsuario"/>
@@ -39,15 +52,25 @@
 						required="required" class="form-control" placeholder="${labContrasena}"/>
 				<form:errors path="contrasena" cssClass="error" />
 			
-
-			
+				<c:choose>
+					<c:when test="${not empty sessionUser}">
+						<spring:message code="accion.guardar" var="botonSubmit"/>
+					</c:when>
+					<c:otherwise>
+						<spring:message code="accion.registrar" var="botonSubmit"/>
+					</c:otherwise>
+				
+				</c:choose>
+				
 				<input type="submit" class="btn btn-lg btn-primary btn-block"
-					value="<spring:message code="accion.registrar"/>" />
+					value="${botonSubmit}" />
 			
 
 		<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 <!-- 	Mensaje de información -->
 	<jsp:include page="${raiz}/tiles/mensaje.jsp" />
-	
-	<a class="nav-link" href="${raiz}/usuario/login"><spring:message code="accion.acceder" /></a>
+
+	<c:if test="${empty sessionUser}">
+		<a class="nav-link" href="${raiz}/usuario/login"><spring:message code="accion.acceder" /></a>
+	</c:if>

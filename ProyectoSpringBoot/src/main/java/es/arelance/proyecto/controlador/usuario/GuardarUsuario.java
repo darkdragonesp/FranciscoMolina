@@ -14,7 +14,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import es.arelance.proyecto.interceptor.LoginInterceptor;
 import es.arelance.proyecto.modelo.TipoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
 import es.arelance.proyecto.servicios.UsuarioSvc;
@@ -26,6 +28,7 @@ import es.arelance.proyecto.servicios.UsuarioSvc;
  * 
  */
 @Controller
+@SessionAttributes({ LoginInterceptor.ATT_USER })
 @RequestMapping(value = "/usuario/save")
 public class GuardarUsuario {
 
@@ -33,7 +36,7 @@ public class GuardarUsuario {
 	private static final String ATT_ERROR = "error";
 
 	private static final String FORM = "usuario/form";
-	private static final String SUCCESS = "usuario/form";//"redirect:/usuario/login";
+	private static final String SUCCESS = "usuario/form";// "redirect:/usuario/login";
 	private static final String ERROR = "error";
 
 	@Autowired
@@ -62,10 +65,10 @@ public class GuardarUsuario {
 	}
 
 	/**
-	 * Valida y guarda un {@link Usuario}
+	 * Valida y guarda o modifica un {@link Usuario}
 	 * 
 	 * @param usuario
-	 *            {@link Usuario} a guardar
+	 *            {@link Usuario} a guardar o modificar
 	 * @param result
 	 *            Control de errores
 	 * @param model
@@ -81,21 +84,34 @@ public class GuardarUsuario {
 			if (result.hasErrors()) {
 				return FORM;
 			} else {
-				usuario.setFechaAlta(new Date());
-				TipoUsuario tipo = new TipoUsuario(2);
-				usuario.setTipoUsuario(tipo);
+				String mensajeInfo = "mensaje.exito.usuario.modificar";
+
+				if (usuario.getIdUsuario() == null) {
+					// Si es un usuario nuevo
+					usuario.setFechaAlta(new Date());
+					TipoUsuario tipo = new TipoUsuario(2);
+					usuario.setTipoUsuario(tipo);
+					mensajeInfo = "mensaje.exito.registrar";
+				} else {
+					// Si el usuario esta editando su perfil
+					usuario.setFechaAlta(
+							svc.obtenPorId(usuario.getIdUsuario(), false)
+									.getFechaAlta());
+					model.addAttribute(LoginInterceptor.ATT_USER, usuario);
+				}
 
 				svc.guardar(usuario);
 
-				model.addAttribute(ATT_EXITO, messages
-						.getMessage("mensaje.exito.registrar", null, locale));
+				model.addAttribute(ATT_EXITO,
+						messages.getMessage(mensajeInfo, null, locale));
 
 				return SUCCESS;
 			}
 
 		} catch (Exception e) {
-			
-			if (e.getCause()
+			e.printStackTrace();
+			if (e.getCause() instanceof ConstraintViolationException || e
+					.getCause()
 					.getCause() instanceof ConstraintViolationException) {
 				result.reject("mensaje.error.registrar");
 			} else {
