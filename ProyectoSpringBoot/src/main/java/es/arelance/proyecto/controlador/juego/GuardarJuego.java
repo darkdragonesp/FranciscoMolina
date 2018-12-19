@@ -113,8 +113,9 @@ public class GuardarJuego {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public String execute(@Valid Juego juego, BindingResult result,
-			@RequestParam("file") MultipartFile file, Model model,
-			Locale locale) {
+			@RequestParam("file") MultipartFile file,
+			@RequestParam(required = false) Boolean eliminarCaratula,
+			Model model, Locale locale) {
 		try {
 			model.addAttribute(ATT_LISTA_CAT, catSvc.listar());
 			model.addAttribute(ATT_LISTA_PLAT, platSvc.listar());
@@ -122,16 +123,21 @@ public class GuardarJuego {
 				return FORM;
 			} else {
 				if (juego.getIdJuego() == null) {
-					// Guardar foto
+					// Guardar caratula
 					juego.setCaratula(guardar(file));
 					svc.guardar(juego);
 				} else {
-					//Si la caratula esta la guardo
-					if(!file.isEmpty()) {
+					if (eliminarCaratula != null && eliminarCaratula) {
+						// Elimino la carátula del juego y no guardo ninguna
+						juego.setCaratula(null);
+					} else if (!file.isEmpty()) {
+						// Si la caratula está, la guardo
 						juego.setCaratula(guardar(file));
-					//Si la caratula no esta, guardo la que había
-					}else {
-						juego.setCaratula((svc.buscar(juego.getIdJuego(), false)).getCaratula());
+					} else {
+						// Si la caratula no está, guardo la que había
+						juego.setCaratula(
+								(svc.buscar(juego.getIdJuego(), false))
+										.getCaratula());
 					}
 					svc.modificar(juego);
 					return LIST + "?juegoModificado=" + juego.getTitulo();

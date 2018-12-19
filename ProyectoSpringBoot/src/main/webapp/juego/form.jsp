@@ -30,14 +30,14 @@
 
 			<label for="titulo" class="sr-only">
 				<spring:message code="juego.titulo" var="labTitulo"/>
-		</label>
+			</label>
 				<form:input path="titulo" required="required" class="form-control" placeholder="${labTitulo}"/>
 				<form:errors path="titulo" cssClass="error" />
 			
 
 			<label for="categoria.idCategoria" class="sr-only">
 				<spring:message code="juego.categoria"/>
-		</label>
+			</label>
 				<form:select path="categoria.idCategoria"
 						items="${listaCategorias}" itemLabel="nombre"
 						itemValue="idCategoria" required="required" class="form-control"/>
@@ -45,7 +45,7 @@
 
 			<label for="plataforma.idPlataforma" class="sr-only">
 				<spring:message code="juego.plataforma"/>
-		</label>
+			</label>
 				<form:select path="plataforma.idPlataforma"
 						items="${listaPlataformas}" itemLabel="nombre"
 						itemValue="idPlataforma" required="required" class="form-control"/>
@@ -65,24 +65,24 @@
 				<form:textarea path="descripcion" rows="8" placeholder="${labDescripcion}" class="form-control"/>
 				<form:errors path="descripcion" cssClass="error" />
 			
-		<c:if test="${not empty juego.caratula}">
-			<label for="caratula" class="sr-only"><spring:message code="juego.caratula.actual" var="labCaratula"/></label>
-			<input type="text" value="${labCaratula}${juego.caratula}" readonly="readonly" class="form-control">
-			
-			<div align="left" class="custom-control custom-checkbox">
-			    <input type="checkbox" class="custom-control-input" id="eliminarCaratula" name="eliminarCaratula">
-			    <label class="custom-control-label" for="eliminarCaratula"><spring:message code="juego.caratula.borrar"/></label>
-			</div>
-		</c:if>
+			<c:if test="${not empty juego.caratula}">
+				<label for="caratula" class="sr-only"><spring:message code="juego.caratula.actual" var="labCaratula"/></label>
+				<input type="text" value="${labCaratula}${juego.caratula}" readonly="readonly" class="form-control">
+				
+				<div align="left" class="custom-control custom-checkbox">
+				    <input type="checkbox" class="custom-control-input" id="eliminarCaratula" name="eliminarCaratula">
+				    <label class="custom-control-label" for="eliminarCaratula"><spring:message code="juego.caratula.borrar"/></label>
+				</div>
+			</c:if>
 		
-		<input type="file" name="file" accept="image/jpg, image/png" class="form-control">
-		<form:errors path="caratula" cssClass="error" />
-		
+			<input type="file" name="file" accept="image/jpg, image/png" class="form-control">
+			<form:errors path="caratula" cssClass="error" />
 			
-		<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.guardar"/>" />
+				
+			<input type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="accion.guardar"/>" />
+				
 			
-		
-		<form:errors cssClass="errorblock" element="div" />
+			<form:errors cssClass="errorblock" element="div" />
 	</form:form>
 	
 	<a class="nav-link" href="${raiz}/juego/list"><spring:message
