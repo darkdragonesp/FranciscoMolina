@@ -50,7 +50,7 @@ public class ListarJuego {
 
 	@Autowired
 	private MessageSource messages;
-	
+
 	/**
 	 * Muestra la lista de instancias de {@link Juego}
 	 * 
@@ -59,15 +59,19 @@ public class ListarJuego {
 	 * @return Destino controlador de carga de tipos
 	 */
 	@RequestMapping(value = "/juego/list")
-	public String execute(@RequestParam(required=false) String juegoModificado,Model model,Locale locale) {
+	public String execute(
+			@RequestParam(required = false) String juegoModificado, Model model,
+			Locale locale) {
 		try {
-			if(juegoModificado!=null) {
-				model.addAttribute(ATT_EXITO,messages.getMessage("mensaje.exito",  new Object[] { juegoModificado }, locale));
+			if (juegoModificado != null) {
+				model.addAttribute(ATT_EXITO,
+						messages.getMessage("mensaje.exito",
+								new Object[] { juegoModificado }, locale));
 			}
 			model.addAttribute(ATT_LISTA, svc.listar());
 			return CARGAR_TIPOS;
 		} catch (Exception e) {
-			
+
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
@@ -136,7 +140,7 @@ public class ListarJuego {
 			model.addAttribute(ATT_LISTA, svc.filtrar(juego));
 			return CARGAR_TIPOS;
 		} catch (Exception e) {
-			
+
 			model.addAttribute(ATT_ERROR, e);
 			return ERROR;
 		}
@@ -163,6 +167,7 @@ public class ListarJuego {
 			return ERROR;
 		}
 	}
+
 	/**
 	 * Carga las listas necesarias para rellenar los selectores del buscador y
 	 * muestra la página con la lista de juegos
@@ -171,35 +176,37 @@ public class ListarJuego {
 	 *            Contiene los atributos a filtrar
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
-	 * @return Página con la lista de juegos
+	 * @return Lista de juegos filtrada
 	 */
-	@RequestMapping(value="/ajax/juego/list/filter", method=RequestMethod.POST)
-    public String filtrarAjax(@ModelAttribute Juego juego, Model model, Locale locale){
+	@RequestMapping(value = "/ajax/juego/list/filter", method = RequestMethod.POST)
+	public String filtrarAjax(@ModelAttribute Juego juego, Model model,
+			Locale locale) {
 		try {
-			//Refrescar
+			// Refrescar
 			model.addAttribute(ATT_LISTA, svc.filtrar(juego));
-			
+
 			return "forward:/juego/table.jsp";
 		} catch (Exception e) {
 			return null;
 		}
-    }
+	}
+
 	/**
 	 * Muestra la lista de instancias de {@link Juego}
 	 * 
 	 * @param model
 	 *            Objeto de Spring MVC para el almacenamiento de atributos
-	 * @return Destino controlador de carga de tipos
+	 * @return Lista de juegos
 	 */
-	@RequestMapping(value="/ajax/juego/list", method=RequestMethod.POST)
-    public String listarAjax(Model model, Locale locale){
+	@RequestMapping(value = "/ajax/juego/list", method = RequestMethod.POST)
+	public String listarAjax(Model model, Locale locale) {
 		try {
-			//Refrescar
+			// Refrescar
 			model.addAttribute(ATT_LISTA, svc.listar());
-			
+
 			return "forward:/juego/table.jsp";
 		} catch (Exception e) {
 			return null;
 		}
-    }
+	}
 }

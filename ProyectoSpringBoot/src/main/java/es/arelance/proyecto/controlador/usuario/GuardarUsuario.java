@@ -109,7 +109,7 @@ public class GuardarUsuario {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 			if (e.getCause() instanceof ConstraintViolationException || e
 					.getCause()
 					.getCause() instanceof ConstraintViolationException) {
