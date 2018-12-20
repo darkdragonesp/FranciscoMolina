@@ -33,13 +33,13 @@
 	<label for="titulo" class="sr-only"> <spring:message
 			code="juego.titulo" var="labTitulo" />
 	</label>
-	<form:input path="titulo" class="form-control"
+	<form:input id="tituloFiltro" path="titulo" class="form-control"
 		placeholder="${labTitulo}" />
 
 	<label for="categoria.idCategoria" class="sr-only"> <spring:message
 			code="accion.elegir.categoria" var="labCategoria" />
 	</label>
-	<form:select path="categoria.idCategoria" class="form-control">
+	<form:select id="categoriaFiltro" path="categoria.idCategoria" class="form-control">
 		<form:option value="">${labCategoria}</form:option>
 		<form:options items="${listaCategorias}" itemLabel="nombre"
 			itemValue="idCategoria" />
@@ -48,7 +48,7 @@
 	<label for="plataforma.idPlataforma" class="sr-only"> <spring:message
 			code="accion.elegir.plataforma" var="labCategoria" />
 	</label>
-	<form:select path="plataforma.idPlataforma" class="form-control">
+	<form:select id="plataformaFiltro" path="plataforma.idPlataforma" class="form-control">
 		<form:option value="">${labCategoria}</form:option>
 		<form:options items="${listaPlataformas}" itemLabel="nombre"
 			itemValue="idPlataforma" />

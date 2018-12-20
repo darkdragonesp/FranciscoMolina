@@ -24,7 +24,7 @@ function filtrar() {
 	});
 }
 /*
- *Función ajax para listar todos los juegos
+ * Función ajax para listar todos los juegos
  */
 function listar() {
 	$.ajax({
@@ -35,6 +35,10 @@ function listar() {
 		timeout : 20000,
 		success : function(result) {
 			$('#tabla').replaceWith(result);
+			// Limpio el filtro
+			$('#tituloFiltro').val("");
+			$('#categoriaFiltro').prop('selectedIndex', 0);
+			$('#plataformaFiltro').prop('selectedIndex', 0);
 		},
 		error : function(result) {
 			alert(JSON.stringify(result));
