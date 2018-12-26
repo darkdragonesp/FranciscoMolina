@@ -1,6 +1,6 @@
 package es.arelance.proyecto.modelo.dao;
 
-import java.util.List;
+import org.springframework.data.repository.CrudRepository;
 
 import es.arelance.proyecto.modelo.Categoria;
 import es.arelance.proyecto.modelo.Juego;
@@ -12,47 +12,19 @@ import es.arelance.proyecto.modelo.Plataforma;
  * @author Francisco Molina Sanchez
  *
  */
-public interface JuegoDao {
-	/**
-	 * Agrega un {@link Juego} nuevo al sistema
-	 * 
-	 * @param juego
-	 *            {@link Juego} a agregar
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
-	 */
-	void save(Juego juego) throws DaoException;
+public interface JuegoDao extends CrudRepository<Juego, Integer> {
 
 	/**
-	 * Elimina un {@link Juego} del sistema
+	 * Devuelve todos los juegos ordenados por titulo
 	 * 
-	 * @param juego
-	 *            Juego a eliminar
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
+	 * @return Lista de {@link Juego}
 	 */
-	void delete(Juego juego) throws DaoException;
+	Iterable<Juego> findAllByOrderByTitulo();
 
-	/**
-	 * Edita un {@link Juego} del sistema
-	 * 
-	 * @param juego
-	 *            {@link Juego} ya modificado
-	 * @return Juego ya modificado
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
+	/*
+	 * Nota: Necesito diferentes métodos de búsqueda ya que por ahora no se
+	 * permiten parametros nulos
 	 */
-	void update(Juego juego) throws DaoException;
-
-	/**
-	 * Devuelve todas las instancias de {@link Juego} existentes en el sistema
-	 * 
-	 * @return Lista de juegos
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
-	 */
-	List<Juego> findAll() throws DaoException;
-
 	/**
 	 * Filtra todas las instancias de {@link Juego} existentes por titulo,
 	 * {@link Categoria} y/o {@link Plataforma}
@@ -61,20 +33,15 @@ public interface JuegoDao {
 	 *            Titulo, {@link Categoria} y/o {@link Plataforma} del
 	 *            {@link Juego}
 	 * @return Lista con los juegos que cumplen el filtro
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
 	 */
-	List<Juego> filter(Juego juego) throws DaoException;
+	Iterable<Juego> findByTituloContainingOrderByTitulo(String titulo);
 
-	/**
-	 * Busca un {@link Juego} por su identificador
-	 * 
-	 * @param idJuego
-	 *            Identificador del juego
-	 * @return {@link Juego}
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
-	 */
-	Juego findById(Integer idJuego) throws DaoException;
+	Iterable<Juego> findByTituloContainingAndPlataformaOrderByTitulo(
+			String titulo, Plataforma plataforma);
 
+	Iterable<Juego> findByTituloContainingAndCategoriaOrderByTitulo(
+			String titulo, Categoria categoria);
+
+	Iterable<Juego> findByTituloContainingAndPlataformaAndCategoriaOrderByTitulo(
+			String titulo, Plataforma plataforma, Categoria categoria);
 }

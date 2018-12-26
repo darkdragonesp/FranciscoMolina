@@ -1,5 +1,7 @@
 package es.arelance.proyecto.servicios.impl;
 
+import java.util.Optional;
+
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,7 +9,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.Usuario;
-import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.UsuarioDao;
 import es.arelance.proyecto.servicios.ServiceException;
 import es.arelance.proyecto.servicios.UsuarioSvc;
@@ -36,12 +37,16 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 			throws ServiceException {
 		Usuario res = null;
 		try {
-			res = dao.findById(idUsuario);
-			if (fetch) {
-				Hibernate.initialize(res.getAnalisis());
+			Optional<Usuario> user = dao.findById(idUsuario);
+			if(user.isPresent()) {
+				res=user.get();
+				if (fetch) {
+					Hibernate.initialize(res.getAnalisis());
+				}
 			}
+
 			return res;
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -51,7 +56,7 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 	public void guardar(Usuario usuario) throws ServiceException {
 		try {
 			dao.save(usuario);
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -60,7 +65,7 @@ public class UsuarioSvcImpl implements UsuarioSvc {
 	public Usuario identificar(Usuario usuario) throws ServiceException {
 		Usuario res = null;
 		try {
-			res = dao.findByUsernameAndPassword(usuario.getNombreUsuario(),
+			res = dao.findByNombreUsuarioAndContrasena(usuario.getNombreUsuario(),
 					usuario.getContrasena());
 		} catch (Exception e) {
 			throw new ServiceException(e);

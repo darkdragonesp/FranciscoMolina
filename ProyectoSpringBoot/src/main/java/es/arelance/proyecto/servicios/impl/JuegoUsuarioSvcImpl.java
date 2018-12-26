@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.JuegoUsuario;
 import es.arelance.proyecto.modelo.Usuario;
-import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.JuegoUsuarioDao;
 import es.arelance.proyecto.servicios.JuegoUsuarioSvc;
 import es.arelance.proyecto.servicios.ServiceException;
@@ -27,10 +26,10 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	@Override
 	public void guardar(JuegoUsuario juegoUsuario) throws ServiceException {
 		try {
-			if (!dao.exist(juegoUsuario)) {
+			if (!dao.existsByUsuarioAndJuego(juegoUsuario.getUsuario(),juegoUsuario.getJuego())) {
 				dao.save(juegoUsuario);
 			}
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 
@@ -40,8 +39,8 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	public Iterable<JuegoUsuario> listarPorUsuario(Usuario usuario)
 			throws ServiceException {
 		try {
-			return dao.findByUser(usuario);
-		} catch (DaoException e) {
+			return dao.findByUsuarioOrderByJuegoTitulo(usuario);
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -50,7 +49,7 @@ public class JuegoUsuarioSvcImpl implements JuegoUsuarioSvc {
 	public void eliminar(JuegoUsuario juegoUsuario) throws ServiceException {
 		try {
 			dao.delete(juegoUsuario);
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}

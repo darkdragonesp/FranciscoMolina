@@ -1,5 +1,7 @@
 package es.arelance.proyecto.servicios.impl;
 
+import java.util.Optional;
+
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,7 +9,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.Juego;
-import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.JuegoDao;
 import es.arelance.proyecto.servicios.JuegoSvc;
 import es.arelance.proyecto.servicios.ServiceException;
@@ -30,7 +31,7 @@ public class JuegoSvcImpl implements JuegoSvc {
 	public void guardar(Juego juego) throws ServiceException {
 		try {
 			dao.save(juego);
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -38,8 +39,8 @@ public class JuegoSvcImpl implements JuegoSvc {
 	@Override
 	public Iterable<Juego> listar() throws ServiceException {
 		try {
-			return dao.findAll();
-		} catch (DaoException e) {
+			return dao.findAllByOrderByTitulo();
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -47,8 +48,26 @@ public class JuegoSvcImpl implements JuegoSvc {
 	@Override
 	public Iterable<Juego> filtrar(Juego juego) throws ServiceException {
 		try {
-			return dao.filter(juego);
-		} catch (DaoException e) {
+			boolean c = juego.getCategoria().getIdCategoria() != null;
+			boolean p = juego.getPlataforma().getIdPlataforma() != null;
+
+			if (!c && !p) {
+				return dao.findByTituloContainingOrderByTitulo(juego.getTitulo());
+
+			} else if (c && p) {
+				return dao.findByTituloContainingAndPlataformaAndCategoriaOrderByTitulo(
+						juego.getTitulo(), juego.getPlataforma(),
+						juego.getCategoria());
+
+			} else if (p) {
+				return dao.findByTituloContainingAndPlataformaOrderByTitulo(
+						juego.getTitulo(), juego.getPlataforma());
+			} else {
+				return dao.findByTituloContainingAndCategoriaOrderByTitulo(juego.getTitulo(),
+						juego.getCategoria());
+			}
+
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -58,7 +77,7 @@ public class JuegoSvcImpl implements JuegoSvc {
 	public void eliminar(Juego juego) throws ServiceException {
 		try {
 			dao.delete(juego);
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -67,8 +86,8 @@ public class JuegoSvcImpl implements JuegoSvc {
 	@Override
 	public void modificar(Juego juego) throws ServiceException {
 		try {
-			dao.update(juego);
-		} catch (DaoException e) {
+			dao.save(juego);
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -78,11 +97,15 @@ public class JuegoSvcImpl implements JuegoSvc {
 			throws ServiceException {
 		Juego res = null;
 		try {
-			res = dao.findById(idJuego);
-			if (fetch) {
-				Hibernate.initialize(res.getAnalisis());
+			Optional<Juego> juego = dao.findById(idJuego);
+			if (juego.isPresent()) {
+				res = juego.get();
+				if (fetch) {
+					Hibernate.initialize(res.getAnalisis());
+				}
 			}
-		} catch (DaoException e) {
+
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 		return res;

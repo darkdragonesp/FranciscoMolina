@@ -1,13 +1,12 @@
 package es.arelance.proyecto.servicios.impl;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.Plataforma;
-import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.modelo.dao.PlataformaDao;
 import es.arelance.proyecto.servicios.PlataformaSvc;
 import es.arelance.proyecto.servicios.ServiceException;
@@ -26,21 +25,26 @@ public class PlataformaSvcImpl implements PlataformaSvc {
 	private PlataformaDao dao;
 
 	@Override
-	public List<Plataforma> listar() throws ServiceException {
+	public Iterable<Plataforma> listar() throws ServiceException {
 		try {
 			return dao.findAll();
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
 
 	@Override
 	public Plataforma buscarPorId(int idPlataforma) throws ServiceException {
+		Plataforma res = null;
 		try {
-			return dao.findById(idPlataforma);
-		} catch (DaoException e) {
+			Optional<Plataforma> plataforma = dao.findById(idPlataforma);
+			if (plataforma.isPresent()) {
+				res = plataforma.get();
+			}
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
+		return res;
 	}
 
 }

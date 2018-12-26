@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.dao.AnalisisDao;
-import es.arelance.proyecto.modelo.dao.DaoException;
 import es.arelance.proyecto.servicios.AnalisisSvc;
 import es.arelance.proyecto.servicios.DuplicateException;
 import es.arelance.proyecto.servicios.ServiceException;
@@ -27,12 +26,12 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 	@Override
 	public void guardar(Analisis analisis) throws ServiceException {
 		try {
-			if (!dao.exist(analisis)) {
+			if (!dao.existsByUsuarioAndJuego(analisis.getUsuario(), analisis.getJuego())) {
 				dao.save(analisis);
 			} else {
 				throw new DuplicateException();
 			}
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 
@@ -42,7 +41,7 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 	public void eliminar(Analisis analisis) throws ServiceException {
 		try {
 			dao.delete(analisis);
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
@@ -52,7 +51,7 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 		Integer res = null;
 		try {
 			res = dao.avg(idJuego);
-		} catch (DaoException e) {
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 		return res;
@@ -61,8 +60,8 @@ public class AnalisisSvcImpl implements AnalisisSvc {
 	@Override
 	public boolean existe(Analisis analisis) throws ServiceException {
 		try {
-			return dao.exist(analisis);
-		} catch (DaoException e) {
+			return dao.existsByUsuarioAndJuego(analisis.getUsuario(), analisis.getJuego());
+		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}

@@ -1,5 +1,7 @@
 package es.arelance.proyecto.modelo.dao;
 
+import org.springframework.data.repository.CrudRepository;
+
 import es.arelance.proyecto.modelo.Usuario;
 
 /**
@@ -8,7 +10,7 @@ import es.arelance.proyecto.modelo.Usuario;
  * @author Francisco Molina Sanchez
  *
  */
-public interface UsuarioDao {
+public interface UsuarioDao extends CrudRepository<Usuario,Integer>{
 	/**
 	 * Busca a un {@link Usuario} por nombre y contraseña
 	 * 
@@ -20,27 +22,6 @@ public interface UsuarioDao {
 	 * @throws DaoException
 	 *             Error relativo a la base de datos
 	 */
-	Usuario findByUsernameAndPassword(String nombreUsuario, String contrasena)
-			throws DaoException;
+	Usuario findByNombreUsuarioAndContrasena(String nombreUsuario, String contrasena);
 
-	/**
-	 * Busca a un {@link Usuario} por identificador para mostrar su perfil
-	 * 
-	 * @param idUsuario
-	 *            Identificador del usuario
-	 * @return {@link Usuario} si encontrado; {@code null} en otro caso
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
-	 */
-	Usuario findById(Integer idUsuario) throws DaoException;
-
-	/**
-	 * Guarda un {@link Usuario} nuevo en el sistema
-	 * 
-	 * @param usuario
-	 *            {@link Usuario}
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
-	 */
-	void save(Usuario usuario) throws DaoException;
 }

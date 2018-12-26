@@ -1,5 +1,8 @@
 package es.arelance.proyecto.modelo.dao;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
 import es.arelance.proyecto.modelo.Analisis;
 import es.arelance.proyecto.modelo.Juego;
 import es.arelance.proyecto.modelo.Usuario;
@@ -10,16 +13,7 @@ import es.arelance.proyecto.modelo.Usuario;
  * @author Francisco Molina Sanchez
  *
  */
-public interface AnalisisDao {
-	/**
-	 * Guarda un {@link Analisis} de un {@link Juego} y {@link Usuario}
-	 * 
-	 * @param analisis
-	 *            {@link Analisis}
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
-	 */
-	void save(Analisis analisis) throws DaoException;
+public interface AnalisisDao extends CrudRepository<Analisis, Integer> {
 
 	/**
 	 * Comprueba si ya existe un {@link Analisis} de un {@link Juego} y
@@ -28,20 +22,8 @@ public interface AnalisisDao {
 	 * @param analisis
 	 *            {@link Analisis}
 	 * @return {@code true} si existe; {@code false} en otro caso
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
 	 */
-	boolean exist(Analisis analisis) throws DaoException;
-
-	/**
-	 * Elimina un {@link Analisis} del sistema
-	 * 
-	 * @param analisis
-	 *            {@link Analisis} a eliminar
-	 * @throws DaoException
-	 *             Error relativo a la base de datos
-	 */
-	void delete(Analisis analisis) throws DaoException;
+	boolean existsByUsuarioAndJuego(Usuario usuario, Juego juego);
 
 	/**
 	 * Calcula la media de los {@link Analisis} de un {@link Juego}
@@ -52,5 +34,6 @@ public interface AnalisisDao {
 	 * @throws DaoException
 	 *             Error relativo a la base de datos
 	 */
-	Integer avg(int idJuego) throws DaoException;
+	@Query("SELECT CEILING(AVG(a.nota)) FROM Analisis a WHERE a.juego.idJuego = ?1")
+	Integer avg(int idJuego);
 }
