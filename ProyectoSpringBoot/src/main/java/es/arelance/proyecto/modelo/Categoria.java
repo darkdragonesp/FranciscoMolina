@@ -26,6 +26,13 @@ public class Categoria {
 
 	private Set<Juego> juegos;
 
+	public Categoria() {
+
+	}
+	public Categoria(int idCategoria) {
+		this.idCategoria=idCategoria;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdCategoria() {

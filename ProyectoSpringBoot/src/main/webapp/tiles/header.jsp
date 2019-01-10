@@ -15,9 +15,20 @@
         <ul class="navbar-nav mr-auto">
 	        
 	        <c:if test="${not empty sessionUser}">
-	        	<c:if test="${sessionUser.tipoUsuario.idTipo == 1}">
-	        		<li class="nav-item"><a class="nav-link" href="${raiz}/juego/save"><spring:message code="accion.nuevo"/></a></li>
+		        <c:if test="${sessionUser.tipoUsuario.idTipo == 1}">
+		        	<li class="nav-item dropdown">
+		            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message code="administrar"/></a>
+			            <div class="dropdown-menu" aria-labelledby="dropdown01">
+			            	<a class="dropdown-item" href="${raiz}/juego/save"><spring:message code="accion.nuevo"/></a>
+			            	<a class="dropdown-item" href="${raiz}/categoria/list"><spring:message code="juego.categorias"/></a>
+			              	<a class="dropdown-item" href="${raiz}/categoria/save"><spring:message code="juego.categoria.nueva"/></a>
+		           	 	</div>
+	         		 </li>
 	        	</c:if>
+	        
+	        	
+	        		
+	        	
 	        	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/list"><spring:message code="accion.listar.juegos"/></a></li>
 	        	<li class="nav-item"><a class="nav-link" href="${raiz}/juego/usuario/list"><spring:message code="accion.listar.juegos.usuario" /></a></li>
 	            <li class="nav-item"><a class="nav-link" href="${raiz}/usuario/view"><spring:message code="accion.perfil.ver" /></a></li>

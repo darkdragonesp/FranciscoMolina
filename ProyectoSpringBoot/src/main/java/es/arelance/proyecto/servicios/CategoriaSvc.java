@@ -28,4 +28,24 @@ public interface CategoriaSvc {
 	 *             Error relativo a la capa DAO
 	 */
 	Categoria buscarPorId(int idCategoria) throws ServiceException;
+
+	/**
+	 * Guarda una {@link Categoria} nueva
+	 * 
+	 * @param categoria
+	 *            Categoria a guardar
+	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
+	 */
+	void guardar(Categoria categoria) throws ServiceException;
+	
+	/**
+	 * Elimina una {@link Categoria} 
+	 * 
+	 * @param categoria
+	 *            Categoria a eliminar
+	 * @throws ServiceException
+	 *             Error relativo a la capa DAO
+	 */
+	void eliminar(Categoria categoria) throws ServiceException;
 }

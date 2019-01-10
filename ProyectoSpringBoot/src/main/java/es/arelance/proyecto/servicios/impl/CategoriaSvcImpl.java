@@ -48,4 +48,22 @@ public class CategoriaSvcImpl implements CategoriaSvc {
 		return res;
 	}
 
+	@Override
+	public void guardar(Categoria categoria) throws ServiceException {
+		try {
+			dao.save(categoria);
+		} catch (Exception e) {
+			throw new ServiceException(e);
+		}
+	}
+
+	@Override
+	public void eliminar(Categoria categoria) throws ServiceException {
+		try {
+			dao.delete(categoria);
+		} catch (Exception e) {
+			throw new ServiceException(e);
+		}
+	}
+
 }
