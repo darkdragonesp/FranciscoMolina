@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import javax.validation.Valid;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -141,14 +142,20 @@ public class CategoriaController {
 
 			svc.eliminar(new Categoria(idCategoria));
 			model.addAttribute(ATT_EXITO,
-					messages.getMessage("mensaje.exito.borrar.analisis", null, locale));
+					messages.getMessage("mensaje.exito.borrar.categoria", null, locale));
 
 			return listar(model);
 
 		} catch (Exception e) {
+			if (e.getCause() instanceof ConstraintViolationException) {
+				model.addAttribute(ATT_EXITO,
+								messages.getMessage("mensaje.error.borrar.categoria", null, locale));
+				return listar(model);
+			}else {
+				model.addAttribute(ATT_ERROR, e);
+				return ERROR;
+			}
 			
-			model.addAttribute(ATT_ERROR, e);
-			return ERROR;
 		}
 	}
 	@RequestMapping(value = "{idCategoria}/edit", method = RequestMethod.GET)
